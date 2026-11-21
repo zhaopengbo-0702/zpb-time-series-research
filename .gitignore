@@ -1,0 +1,43 @@
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Local data (upstream tracked snapshots are preserved separately)
+/data/raw/
+/data/processed/
+/baselines/EMAformer/dataset/
+/baselines/Autoformer/dataset/
+/baselines/ETSformer/dataset/*
+!/baselines/ETSformer/dataset/.gitignore
+/baselines/Informer2020/data/ETT/
+/baselines/Pyraformer/data/ETT/
+/baselines/Pyraformer/data/*.csv
+/baselines/Pyraformer/data/*.txt
+/baselines/Pyraformer/data/*.npy
+/baselines/Pyraformer/data/*.npz
+
+# Generated model artifacts
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.log
+**/checkpoints/
+**/runs/
+**/wandb/
+**/artifacts/
+/baselines/*/results/
+/baselines/*/test_results/
+/baselines/*/logs/
+/baselines/*/result.txt
+
+# Keep the original Pyraformer dataset archive and CUDA library in Git.
+# Deliberately no blanket *.zip or *.so rule here.

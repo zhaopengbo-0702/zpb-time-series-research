@@ -1,0 +1,1686 @@
+{
+  "schema_version": 1,
+  "imported_at_utc": "2026-11-21T10:30:53+00:00",
+  "import_method": "Pinned source archives; original blob bytes and Git modes recorded. Upstream Git histories are linked, not imported.",
+  "hash_definition": "git_blob_sha1 = SHA1(b\"blob \" + decimal_byte_length + b\"\\0\" + original_file_bytes)",
+  "source_count": 5,
+  "original_file_count": 260,
+  "sources": [
+    {
+      "name": "EMAformer",
+      "repository": "PlanckChang/EMAformer",
+      "url": "https://github.com/PlanckChang/EMAformer",
+      "default_branch_at_import": "main",
+      "commit": "b8f37c0c7d089e7263bbaeb681672a94f5afe233",
+      "local_directory": "baselines/EMAformer",
+      "snapshot_url": "https://github.com/PlanckChang/EMAformer/tree/b8f37c0c7d089e7263bbaeb681672a94f5afe233",
+      "archive_url": "https://codeload.github.com/PlanckChang/EMAformer/tar.gz/b8f37c0c7d089e7263bbaeb681672a94f5afe233",
+      "archive_sha256": "249467198956d7f9c30166192259159dada39f414b3c8c3e579b7a8559f95de6",
+      "license_spdx_from_license_file": "MIT",
+      "license_files": [
+        "baselines/EMAformer/LICENSE"
+      ],
+      "notes": [],
+      "gitlinks": [],
+      "files": [
+        {
+          "path": "baselines/EMAformer/.gitignore",
+          "git_blob_sha1": "b0d2e6249f4bbc3d26ece57dc308f4766e20454f",
+          "mode": "100644",
+          "size_bytes": 1879
+        },
+        {
+          "path": "baselines/EMAformer/LICENSE",
+          "git_blob_sha1": "0aba6d0bf81631aa29ae64956c24f811442f9375",
+          "mode": "100644",
+          "size_bytes": 1099
+        },
+        {
+          "path": "baselines/EMAformer/README.md",
+          "git_blob_sha1": "5c4594b808bcd7ef02b97a2dd8bfd7fa56b8f9f2",
+          "mode": "100644",
+          "size_bytes": 6518
+        },
+        {
+          "path": "baselines/EMAformer/data_provider/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/EMAformer/data_provider/data_factory.py",
+          "git_blob_sha1": "c7964dd5f4a6da2ed7251a0e35aea2c844b136fb",
+          "mode": "100644",
+          "size_bytes": 1540
+        },
+        {
+          "path": "baselines/EMAformer/data_provider/data_loader.py",
+          "git_blob_sha1": "b5e63779f1feb5fc674af7ca62b2ee822ad192cb",
+          "mode": "100644",
+          "size_bytes": 20578
+        },
+        {
+          "path": "baselines/EMAformer/experiments/exp_basic.py",
+          "git_blob_sha1": "8029cdba534e8a32c2f482ec948e3b1306cc30d7",
+          "mode": "100644",
+          "size_bytes": 1477
+        },
+        {
+          "path": "baselines/EMAformer/experiments/exp_long_term_forecasting.py",
+          "git_blob_sha1": "5d4b414c63b764723787298f2d22ccfd1cbf1114",
+          "mode": "100644",
+          "size_bytes": 15708
+        },
+        {
+          "path": "baselines/EMAformer/figures/CoV_matrix_plot_etth2.png",
+          "git_blob_sha1": "9a6bf4e2509b1e1fb15d60513171a30899332a31",
+          "mode": "100644",
+          "size_bytes": 191282
+        },
+        {
+          "path": "baselines/EMAformer/figures/CoV_matrix_plot_ettm2.png",
+          "git_blob_sha1": "a853af425500599eb0cdfcb46b5da6777c941744",
+          "mode": "100644",
+          "size_bytes": 210097
+        },
+        {
+          "path": "baselines/EMAformer/figures/Transformer_with_amour.png",
+          "git_blob_sha1": "62ba449e67d555251ed8e6a1acaa6fb3cb71fa60",
+          "mode": "100644",
+          "size_bytes": 1603466
+        },
+        {
+          "path": "baselines/EMAformer/figures/exp_MLPversion.png",
+          "git_blob_sha1": "4092f736330f41760cb56181892ed08110d5f3ce",
+          "mode": "100644",
+          "size_bytes": 192413
+        },
+        {
+          "path": "baselines/EMAformer/figures/exp_entropy.png",
+          "git_blob_sha1": "3fe1cb4bb29d2f4b031c2f595761628683a44b71",
+          "mode": "100644",
+          "size_bytes": 53200
+        },
+        {
+          "path": "baselines/EMAformer/figures/exp_main_results.png",
+          "git_blob_sha1": "1dcc6f22efcffd8a0b391e1d06e81b7af28b33ac",
+          "mode": "100644",
+          "size_bytes": 174803
+        },
+        {
+          "path": "baselines/EMAformer/figures/overview.png",
+          "git_blob_sha1": "7071f43edf6aec2ccc7cfe14c53bd450d8cfd5ec",
+          "mode": "100644",
+          "size_bytes": 506955
+        },
+        {
+          "path": "baselines/EMAformer/layers/Embed.py",
+          "git_blob_sha1": "33fae23262246611511a6a0d6c726af86c381a80",
+          "mode": "100644",
+          "size_bytes": 5124
+        },
+        {
+          "path": "baselines/EMAformer/layers/SelfAttention_Family.py",
+          "git_blob_sha1": "99b1b2a2fd18a144fefd7065cdfd6d2f29c3db79",
+          "mode": "100644",
+          "size_bytes": 12849
+        },
+        {
+          "path": "baselines/EMAformer/layers/Transformer_EncDec.py",
+          "git_blob_sha1": "c48ddc3f57c8e98d50695a903a946b91c3255e0c",
+          "mode": "100644",
+          "size_bytes": 4916
+        },
+        {
+          "path": "baselines/EMAformer/layers/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/EMAformer/model/EMAformer.py",
+          "git_blob_sha1": "c359c9b5b06f810cdd6dcc9c524d76d29e20c19f",
+          "mode": "100644",
+          "size_bytes": 4497
+        },
+        {
+          "path": "baselines/EMAformer/model/Flashformer.py",
+          "git_blob_sha1": "c4d96970739d5f7b9987dcef509513bfb875264b",
+          "mode": "100644",
+          "size_bytes": 3230
+        },
+        {
+          "path": "baselines/EMAformer/model/Flowformer.py",
+          "git_blob_sha1": "6a2bcfb88500cbe8a2cc64da8896fcfe36a1b5e0",
+          "mode": "100644",
+          "size_bytes": 3379
+        },
+        {
+          "path": "baselines/EMAformer/model/Informer.py",
+          "git_blob_sha1": "bf886be5e959953486b8b1557bab2f0d30302f31",
+          "mode": "100644",
+          "size_bytes": 3545
+        },
+        {
+          "path": "baselines/EMAformer/model/Reformer.py",
+          "git_blob_sha1": "ce4cfed5d179fe80505fdbe2c173463a96b7c556",
+          "mode": "100644",
+          "size_bytes": 2405
+        },
+        {
+          "path": "baselines/EMAformer/model/Transformer.py",
+          "git_blob_sha1": "33a957bce9a81a6fb1046b63312ed039606f7b1f",
+          "mode": "100644",
+          "size_bytes": 3466
+        },
+        {
+          "path": "baselines/EMAformer/model/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/EMAformer/model/iFlashformer.py",
+          "git_blob_sha1": "ac048460ab6d78c63b655444fd0f1544a51212ef",
+          "mode": "100644",
+          "size_bytes": 2767
+        },
+        {
+          "path": "baselines/EMAformer/model/iFlowformer.py",
+          "git_blob_sha1": "0483856a87efb5fac592e4c27d23880b31bfeb85",
+          "mode": "100644",
+          "size_bytes": 3626
+        },
+        {
+          "path": "baselines/EMAformer/model/iInformer.py",
+          "git_blob_sha1": "8e6e6a60b3a5e53b6bd28e5bdead3bc91c87477b",
+          "mode": "100644",
+          "size_bytes": 3757
+        },
+        {
+          "path": "baselines/EMAformer/model/iReformer.py",
+          "git_blob_sha1": "c73d4474827374f21b6036fce5c807f539201e20",
+          "mode": "100644",
+          "size_bytes": 3602
+        },
+        {
+          "path": "baselines/EMAformer/model/iTransformer.py",
+          "git_blob_sha1": "a6627bf1cadd7ffb58cf10506547aa3a615c1010",
+          "mode": "100644",
+          "size_bytes": 3419
+        },
+        {
+          "path": "baselines/EMAformer/requirements.txt",
+          "git_blob_sha1": "3a8ff52766a61aed4a383cbddbb5437710e5a9ad",
+          "mode": "100644",
+          "size_bytes": 103
+        },
+        {
+          "path": "baselines/EMAformer/run.py",
+          "git_blob_sha1": "163263303d163f1cadfc69810a4e33211acd45ac",
+          "mode": "100644",
+          "size_bytes": 9209
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/ECL/EMAformer.sh",
+          "git_blob_sha1": "05ed01156474dbbc126b307a8bfa117b7a982235",
+          "mode": "100644",
+          "size_bytes": 1346
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/ECL/iFlowformer.sh",
+          "git_blob_sha1": "14d690a8c6d6274d0be324c4e2746ea4a154f0c8",
+          "mode": "100644",
+          "size_bytes": 1416
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/ECL/iInformer.sh",
+          "git_blob_sha1": "ae0bce4bded79e5dc459b27acbbfe543c62d7eca",
+          "mode": "100644",
+          "size_bytes": 1411
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/ECL/iReformer.sh",
+          "git_blob_sha1": "07015c25faaccf133827e3425a7b7bbd31dec7e0",
+          "mode": "100644",
+          "size_bytes": 1411
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Traffic/EMAformer.sh",
+          "git_blob_sha1": "3b3d7cdf05f83f9437f34c328ff8b06a2beaae56",
+          "mode": "100644",
+          "size_bytes": 1413
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Traffic/iFlowformer.sh",
+          "git_blob_sha1": "73ed40d93e3a9109915f05549a14242590a6278d",
+          "mode": "100644",
+          "size_bytes": 1483
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Traffic/iInformer.sh",
+          "git_blob_sha1": "18cc7d2396dcccbf1f4b79d4531f53c7c3360cf5",
+          "mode": "100644",
+          "size_bytes": 1479
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Traffic/iReformer.sh",
+          "git_blob_sha1": "4e8d0493835933e002752942bc2ac31fb2d2db75",
+          "mode": "100644",
+          "size_bytes": 1479
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Weather/EMAformer.sh",
+          "git_blob_sha1": "d54b8ba5d6cb8e31bdcbeedbfbf541f1f1b7345e",
+          "mode": "100644",
+          "size_bytes": 1422
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Weather/iFlowformer.sh",
+          "git_blob_sha1": "5a0aac66573364f8a3a03777c290def94f3e9987",
+          "mode": "100644",
+          "size_bytes": 1489
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Weather/iInformer.sh",
+          "git_blob_sha1": "c774706881c4aa0a7bfae9ad0062db18f5ab2039",
+          "mode": "100644",
+          "size_bytes": 1483
+        },
+        {
+          "path": "baselines/EMAformer/scripts/boost_performance/Weather/iReformer.sh",
+          "git_blob_sha1": "265b232c12737aabb53790c8e630456680d5e35a",
+          "mode": "100644",
+          "size_bytes": 1483
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/ECL/EMAformer.sh",
+          "git_blob_sha1": "e1cfc1852925da872b599fc37726f4ecb33845f9",
+          "mode": "100644",
+          "size_bytes": 2839
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/ECL/iFlowformer.sh",
+          "git_blob_sha1": "af8df7704728d2510704326abcc0fa60acbea77c",
+          "mode": "100644",
+          "size_bytes": 2068
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/ECL/iInformer.sh",
+          "git_blob_sha1": "3bc838b9fce503af02e79366fd5ecdd5be23263d",
+          "mode": "100644",
+          "size_bytes": 2066
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/ECL/iReformer.sh",
+          "git_blob_sha1": "bee244f296baa0dacb7eafb8a839c0e360cad470",
+          "mode": "100644",
+          "size_bytes": 2066
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/Traffic/EMAformer.sh",
+          "git_blob_sha1": "a05274c6c8855c3a77168ffed2570a6f2ee2871b",
+          "mode": "100644",
+          "size_bytes": 2884
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/Traffic/iFlowformer.sh",
+          "git_blob_sha1": "0ab02cdfb8059383d8192d6b2c7df34fec154c05",
+          "mode": "100644",
+          "size_bytes": 2045
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/Traffic/iInformer.sh",
+          "git_blob_sha1": "befff77331076185842d9a21473f30882decd421",
+          "mode": "100644",
+          "size_bytes": 2041
+        },
+        {
+          "path": "baselines/EMAformer/scripts/increasing_lookback/Traffic/iReformer.sh",
+          "git_blob_sha1": "a37c3e7930042efb9da984a14b25e2d6b9dfaa12",
+          "mode": "100644",
+          "size_bytes": 2040
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/ECL/EMAformer.sh",
+          "git_blob_sha1": "d70dacca54745d449579b5675e3bc29177b9f6c3",
+          "mode": "100644",
+          "size_bytes": 1878
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/ETT/EMAformer_ETTh1.sh",
+          "git_blob_sha1": "c71c99fd82561291c4c385ad4a302a8539c3e045",
+          "mode": "100644",
+          "size_bytes": 1666
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/ETT/EMAformer_ETTh2.sh",
+          "git_blob_sha1": "376ee89d7f311075fb0e930f733d16b364553f94",
+          "mode": "100644",
+          "size_bytes": 1665
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/ETT/EMAformer_ETTm1.sh",
+          "git_blob_sha1": "90831727a98adba8aad82cb90bae20e3e5c67410",
+          "mode": "100644",
+          "size_bytes": 1646
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/ETT/EMAformer_ETTm2.sh",
+          "git_blob_sha1": "f5f1e3cd45a3ac861bde96bcd25aa601d4a57437",
+          "mode": "100644",
+          "size_bytes": 1647
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/Exchange/EMAformer.sh",
+          "git_blob_sha1": "88679270136f39b186159679b66d826a0e37e23d",
+          "mode": "100644",
+          "size_bytes": 1485
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/PEMS/EMAformer_03.sh",
+          "git_blob_sha1": "54db711c03eb38fe043bf07d39c0c2fadcafc7d4",
+          "mode": "100644",
+          "size_bytes": 1932
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/PEMS/EMAformer_04.sh",
+          "git_blob_sha1": "57249dc713df8f5ec56c4df2ef8d33129ed27a53",
+          "mode": "100644",
+          "size_bytes": 2055
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/PEMS/EMAformer_07.sh",
+          "git_blob_sha1": "28702900e7b6c791ee1f1333211159b0f353fd9e",
+          "mode": "100644",
+          "size_bytes": 2083
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/PEMS/EMAformer_08.sh",
+          "git_blob_sha1": "825d4f57a57f2934dd94eb62436967efcae05160",
+          "mode": "100644",
+          "size_bytes": 2029
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/SolarEnergy/EMAformer.sh",
+          "git_blob_sha1": "db60e3a90f3751e927319b017276a65ab3e700e0",
+          "mode": "100644",
+          "size_bytes": 1925
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/Traffic/EMAformer.sh",
+          "git_blob_sha1": "c0d31dc91d8444154e362a804fb2e4ab838358dd",
+          "mode": "100644",
+          "size_bytes": 2148
+        },
+        {
+          "path": "baselines/EMAformer/scripts/multivariate_forecasting/Weather/EMAformer.sh",
+          "git_blob_sha1": "509624513a53cdbd7e158d84c2017d74652d0caf",
+          "mode": "100644",
+          "size_bytes": 1848
+        },
+        {
+          "path": "baselines/EMAformer/utils/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/EMAformer/utils/masking.py",
+          "git_blob_sha1": "a19cbf63b8d1d1927eceabcbe4a1b5313238b75b",
+          "mode": "100644",
+          "size_bytes": 832
+        },
+        {
+          "path": "baselines/EMAformer/utils/metrics.py",
+          "git_blob_sha1": "b4f5a76b8a96ec080401451ac54f66370dd794f8",
+          "mode": "100644",
+          "size_bytes": 866
+        },
+        {
+          "path": "baselines/EMAformer/utils/timefeatures.py",
+          "git_blob_sha1": "7c1297293891c1c86ec938edf95e5fa3f7e52261",
+          "mode": "100644",
+          "size_bytes": 4369
+        },
+        {
+          "path": "baselines/EMAformer/utils/tools.py",
+          "git_blob_sha1": "bfa17fa507eaf2a03118237a193c251c3a5a6dd3",
+          "mode": "100644",
+          "size_bytes": 3497
+        }
+      ],
+      "file_count": 71
+    },
+    {
+      "name": "Pyraformer",
+      "repository": "ant-research/Pyraformer",
+      "url": "https://github.com/ant-research/Pyraformer",
+      "default_branch_at_import": "master",
+      "commit": "84af4dbd93b7b96975b5034f0dde412005260123",
+      "local_directory": "baselines/Pyraformer",
+      "snapshot_url": "https://github.com/ant-research/Pyraformer/tree/84af4dbd93b7b96975b5034f0dde412005260123",
+      "archive_url": "https://codeload.github.com/ant-research/Pyraformer/tar.gz/84af4dbd93b7b96975b5034f0dde412005260123",
+      "archive_sha256": "c312634834f73b503d6a0607d787978488f4c4c4b5b891f7fff3cd445980f405",
+      "license_spdx_from_license_file": "Apache-2.0",
+      "license_files": [
+        "baselines/Pyraformer/LICENSE",
+        "baselines/Pyraformer/LEGAL.md"
+      ],
+      "notes": [
+        "The optional TVM gitlink is not vendored. The pinned upstream tree has no .gitmodules, so no remote URL is inferred. The default use_tvm option is false."
+      ],
+      "gitlinks": [
+        {
+          "path": "baselines/Pyraformer/pyraformer/tvm",
+          "upstream_path": "pyraformer/tvm",
+          "commit": "1fac10b359dec1bd6ad45ce36541a882aaba586b",
+          "mode": "160000",
+          "status": "omitted_optional",
+          "remote_url": null,
+          "reason": "No .gitmodules in the pinned upstream source tree; optional dependency contents not imported."
+        }
+      ],
+      "files": [
+        {
+          "path": "baselines/Pyraformer/.DS_Store",
+          "git_blob_sha1": "c94b921a14062a92f6dfda9075d654edee3900da",
+          "mode": "100644",
+          "size_bytes": 8196
+        },
+        {
+          "path": "baselines/Pyraformer/.Rhistory",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Pyraformer/.gitattributes",
+          "git_blob_sha1": "b717beb4f89acf1f8770d1970265f81ec1f7b082",
+          "mode": "100644",
+          "size_bytes": 75
+        },
+        {
+          "path": "baselines/Pyraformer/LEGAL.md",
+          "git_blob_sha1": "f96892081dd58b22ee2199adffd7b188b79e7e7f",
+          "mode": "100644",
+          "size_bytes": 572
+        },
+        {
+          "path": "baselines/Pyraformer/LICENSE",
+          "git_blob_sha1": "1bed92d3a68d565bfad3cb40181ecd931b56894c",
+          "mode": "100644",
+          "size_bytes": 11417
+        },
+        {
+          "path": "baselines/Pyraformer/README.md",
+          "git_blob_sha1": "dd824c8d28a0713edebeae970f78318011c70005",
+          "mode": "100644",
+          "size_bytes": 6106
+        },
+        {
+          "path": "baselines/Pyraformer/data/.DS_Store",
+          "git_blob_sha1": "cc645a49ecd9d150dcb585db02908086552ff2d9",
+          "mode": "100644",
+          "size_bytes": 6148
+        },
+        {
+          "path": "baselines/Pyraformer/data/app_zone_rpc_hour_encrypted.zip",
+          "git_blob_sha1": "8841e96f8beca710418842e9230fb0abc9edf38c",
+          "mode": "100644",
+          "size_bytes": 11930761
+        },
+        {
+          "path": "baselines/Pyraformer/data_loader.py",
+          "git_blob_sha1": "76d372b81d17d71f9e6cdf0ec0112350aeaceb8f",
+          "mode": "100644",
+          "size_bytes": 23160
+        },
+        {
+          "path": "baselines/Pyraformer/img/Figure_1.png",
+          "git_blob_sha1": "cef9f2948009e98670386e58b62b0e4e5f1d5933",
+          "mode": "100644",
+          "size_bytes": 68635
+        },
+        {
+          "path": "baselines/Pyraformer/img/Figure_2.png",
+          "git_blob_sha1": "bb7d7514a5e8e8a226bb1a4bd0c4ae56562e5ba7",
+          "mode": "100644",
+          "size_bytes": 28372
+        },
+        {
+          "path": "baselines/Pyraformer/img/dingtalk.png",
+          "git_blob_sha1": "68b0d6d9b900d7d611c4893c4c22f04173e71dea",
+          "mode": "100644",
+          "size_bytes": 158585
+        },
+        {
+          "path": "baselines/Pyraformer/long_range_main.py",
+          "git_blob_sha1": "89865db6690834fcbfdc2d6b46ebda410721be4b",
+          "mode": "100644",
+          "size_bytes": 12982
+        },
+        {
+          "path": "baselines/Pyraformer/preprocess_elect.py",
+          "git_blob_sha1": "317b4035b911265cc80b1f2a4da4bdaf8038e7b1",
+          "mode": "100644",
+          "size_bytes": 4966
+        },
+        {
+          "path": "baselines/Pyraformer/preprocess_flow.py",
+          "git_blob_sha1": "6bb3cf68734ba3e3454d9ddbdfb9afa7d29018c0",
+          "mode": "100644",
+          "size_bytes": 3698
+        },
+        {
+          "path": "baselines/Pyraformer/preprocess_wind.py",
+          "git_blob_sha1": "f368d5bfb2057b83de927252c6c39756af37a7b3",
+          "mode": "100644",
+          "size_bytes": 3457
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/.DS_Store",
+          "git_blob_sha1": "25568d78122556a5887d9ba10a7ab96d6537ae8b",
+          "mode": "100644",
+          "size_bytes": 10244
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/Layers.py",
+          "git_blob_sha1": "9465aee221ce6b8bc31845fc976cf3ccd32ec5e9",
+          "mode": "100644",
+          "size_bytes": 15300
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/Modules.py",
+          "git_blob_sha1": "d9b14bdd061a18469d3b559ce6eb9d6f582ed5f3",
+          "mode": "100644",
+          "size_bytes": 639
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/PAM_TVM.py",
+          "git_blob_sha1": "5ef7588dc46a591c6e1c04fa383b20da0848d309",
+          "mode": "100644",
+          "size_bytes": 2352
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/Pyraformer_LR.py",
+          "git_blob_sha1": "cce6ea1fadc93c0880a0d142f31d6c474afff183",
+          "mode": "100644",
+          "size_bytes": 4949
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/Pyraformer_SS.py",
+          "git_blob_sha1": "bedfbfb87d2de0d940857f1f077af9f406dac896",
+          "mode": "100644",
+          "size_bytes": 3108
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/SubLayers.py",
+          "git_blob_sha1": "e252d5db95aaf3230738af761af449c9baab57ab",
+          "mode": "100644",
+          "size_bytes": 3229
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/embed.py",
+          "git_blob_sha1": "3ac8c08ca8b802677d107d7cf990dee0844b31c9",
+          "mode": "100644",
+          "size_bytes": 6234
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/graph_attention.py",
+          "git_blob_sha1": "8190fddc0823f520d19dfdc32bd80d05c73334a1",
+          "mode": "100644",
+          "size_bytes": 21328
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/hierarchical_mm_tvm.py",
+          "git_blob_sha1": "0d00548867f30b5f0b2fbb3abea003530f3be49e",
+          "mode": "100644",
+          "size_bytes": 14550
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/lib/lib_hierarchical_mm_float32_cuda.so",
+          "git_blob_sha1": "aaec13b9f8c785c553677f437318d1b61d10d733",
+          "mode": "100644",
+          "size_bytes": 41480
+        },
+        {
+          "path": "baselines/Pyraformer/pyraformer/run.sh",
+          "git_blob_sha1": "da9daa9a9fa569ef2ddfe34b7db83e6e6caacc9d",
+          "mode": "100644",
+          "size_bytes": 58
+        },
+        {
+          "path": "baselines/Pyraformer/requirements.txt",
+          "git_blob_sha1": "dd4249f6ae13454b2b97138ba3a656878cf1dc9d",
+          "mode": "100644",
+          "size_bytes": 92
+        },
+        {
+          "path": "baselines/Pyraformer/scripts/Pyraformer_LR.sh",
+          "git_blob_sha1": "1fa474c23b1bc2ad79705885e68ba928d5f213ac",
+          "mode": "100644",
+          "size_bytes": 1594
+        },
+        {
+          "path": "baselines/Pyraformer/scripts/Pyraformer_SS.sh",
+          "git_blob_sha1": "5437e3beeadac261187b28eae106e104dcab0ab9",
+          "mode": "100644",
+          "size_bytes": 197
+        },
+        {
+          "path": "baselines/Pyraformer/simulate_sin.py",
+          "git_blob_sha1": "ca0902971862be5d4ce8369b52d94b07ea77a2e8",
+          "mode": "100644",
+          "size_bytes": 2983
+        },
+        {
+          "path": "baselines/Pyraformer/single_step_main.py",
+          "git_blob_sha1": "710e2372dede0869365a79d1e43dc6d37e9031b7",
+          "mode": "100644",
+          "size_bytes": 10858
+        },
+        {
+          "path": "baselines/Pyraformer/utils/timefeatures.py",
+          "git_blob_sha1": "a12aa220acc1021df8a0900b5b78891ce16c0330",
+          "mode": "100644",
+          "size_bytes": 4534
+        },
+        {
+          "path": "baselines/Pyraformer/utils/tools.py",
+          "git_blob_sha1": "12810e363b2fde4bb2f563894e88d9b033fc5d56",
+          "mode": "100644",
+          "size_bytes": 2666
+        }
+      ],
+      "file_count": 35
+    },
+    {
+      "name": "Informer2020",
+      "repository": "zhouhaoyi/Informer2020",
+      "url": "https://github.com/zhouhaoyi/Informer2020",
+      "default_branch_at_import": "main",
+      "commit": "29f2a739226a509202a092b464163da81fa74960",
+      "local_directory": "baselines/Informer2020",
+      "snapshot_url": "https://github.com/zhouhaoyi/Informer2020/tree/29f2a739226a509202a092b464163da81fa74960",
+      "archive_url": "https://codeload.github.com/zhouhaoyi/Informer2020/tar.gz/29f2a739226a509202a092b464163da81fa74960",
+      "archive_sha256": "f51514838fa7cbe0de057186fa102b70fb30a72c376ccec39d5c04db170c2a57",
+      "license_spdx_from_license_file": "Apache-2.0",
+      "license_files": [
+        "baselines/Informer2020/LICENSE"
+      ],
+      "notes": [
+        "The upstream LICENSE contains Apache-2.0, while its README badge says CC BY-NC-SA. Both files are preserved unchanged; this index records the discrepancy and does not resolve it on behalf of the authors."
+      ],
+      "gitlinks": [],
+      "files": [
+        {
+          "path": "baselines/Informer2020/Dockerfile",
+          "git_blob_sha1": "f1e8f22e89c70bbf064c4f731c351a8b88914429",
+          "mode": "100644",
+          "size_bytes": 206
+        },
+        {
+          "path": "baselines/Informer2020/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "mode": "100644",
+          "size_bytes": 11357
+        },
+        {
+          "path": "baselines/Informer2020/Makefile",
+          "git_blob_sha1": "5488b2778359a5c81819e15c8acebead8d18802a",
+          "mode": "100644",
+          "size_bytes": 1366
+        },
+        {
+          "path": "baselines/Informer2020/README.md",
+          "git_blob_sha1": "5cde06e59178c8a340e85cf45e03e1a821eb8f5c",
+          "mode": "100644",
+          "size_bytes": 13200
+        },
+        {
+          "path": "baselines/Informer2020/data/__init__.py",
+          "git_blob_sha1": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+          "mode": "100644",
+          "size_bytes": 1
+        },
+        {
+          "path": "baselines/Informer2020/data/data_loader.py",
+          "git_blob_sha1": "897d2072f174a6ae65521226cd0c068bfa4443d6",
+          "mode": "100644",
+          "size_bytes": 13483
+        },
+        {
+          "path": "baselines/Informer2020/environment.yml",
+          "git_blob_sha1": "2369cec22c8693e21d345e2c9c345ab3105dc830",
+          "mode": "100644",
+          "size_bytes": 198
+        },
+        {
+          "path": "baselines/Informer2020/exp/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Informer2020/exp/exp_basic.py",
+          "git_blob_sha1": "337f6ae15a9f0840291bf0a5b3093c877adf48c9",
+          "mode": "100644",
+          "size_bytes": 875
+        },
+        {
+          "path": "baselines/Informer2020/exp/exp_informer.py",
+          "git_blob_sha1": "0ef8a01ce5d8120392ea525fc9118802905a42a2",
+          "mode": "100644",
+          "size_bytes": 10872
+        },
+        {
+          "path": "baselines/Informer2020/img/data.png",
+          "git_blob_sha1": "494c4aff66d2aa261b347e125cfb1263162988f3",
+          "mode": "100644",
+          "size_bytes": 9807
+        },
+        {
+          "path": "baselines/Informer2020/img/informer.png",
+          "git_blob_sha1": "a9b79a69db2ca47cec318deb61205ea0c31c5435",
+          "mode": "100644",
+          "size_bytes": 75890
+        },
+        {
+          "path": "baselines/Informer2020/img/probsparse_intro.png",
+          "git_blob_sha1": "d696e0556d92cc645099db6c22bf643e05aa4f17",
+          "mode": "100644",
+          "size_bytes": 346938
+        },
+        {
+          "path": "baselines/Informer2020/img/result_multivariate.png",
+          "git_blob_sha1": "7e51e11b8e8c4d42eef7b803b9b723b8b2cbfe07",
+          "mode": "100644",
+          "size_bytes": 303051
+        },
+        {
+          "path": "baselines/Informer2020/img/result_univariate.png",
+          "git_blob_sha1": "e937960b3dc9d1779e1a1fa045a6504656f506f4",
+          "mode": "100644",
+          "size_bytes": 389749
+        },
+        {
+          "path": "baselines/Informer2020/main_informer.py",
+          "git_blob_sha1": "b0539d2936c5c495e3e148b90e16b465bf0c7367",
+          "mode": "100644",
+          "size_bytes": 7204
+        },
+        {
+          "path": "baselines/Informer2020/models/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Informer2020/models/attn.py",
+          "git_blob_sha1": "9411e637c1f37ad0a8209978f820efc333734b0d",
+          "mode": "100644",
+          "size_bytes": 6179
+        },
+        {
+          "path": "baselines/Informer2020/models/decoder.py",
+          "git_blob_sha1": "718d11df39f1022cd2dbb9cae800a0317f4e74ad",
+          "mode": "100644",
+          "size_bytes": 1772
+        },
+        {
+          "path": "baselines/Informer2020/models/embed.py",
+          "git_blob_sha1": "43b8fc5488c6e7ee7c68d4268e8cff59c0364f0e",
+          "mode": "100644",
+          "size_bytes": 4135
+        },
+        {
+          "path": "baselines/Informer2020/models/encoder.py",
+          "git_blob_sha1": "3dd4b76af6e0a0defad9b2f2221a7d9bf86de7cc",
+          "mode": "100644",
+          "size_bytes": 3555
+        },
+        {
+          "path": "baselines/Informer2020/models/model.py",
+          "git_blob_sha1": "2fa52af2eb9608a734ebf9368302015b469f6764",
+          "mode": "100644",
+          "size_bytes": 7224
+        },
+        {
+          "path": "baselines/Informer2020/requirements.txt",
+          "git_blob_sha1": "0266e66395e63d2f752761b5b683e50bd0f84a0a",
+          "mode": "100644",
+          "size_bytes": 91
+        },
+        {
+          "path": "baselines/Informer2020/scripts/ETTh1.sh",
+          "git_blob_sha1": "9017d0e078319a1367cd461a355ef29a30e54c4f",
+          "mode": "100644",
+          "size_bytes": 1755
+        },
+        {
+          "path": "baselines/Informer2020/scripts/ETTh2.sh",
+          "git_blob_sha1": "d51e249295fc8d4430309c173d4c427652a3c0c5",
+          "mode": "100644",
+          "size_bytes": 1752
+        },
+        {
+          "path": "baselines/Informer2020/scripts/ETTm1.sh",
+          "git_blob_sha1": "cee6f5bbafaee8b38fc74f6ca76b23e91c2f1526",
+          "mode": "100644",
+          "size_bytes": 1740
+        },
+        {
+          "path": "baselines/Informer2020/scripts/WTH.sh",
+          "git_blob_sha1": "75133501e5e3ce8b9e9cee93f61cd429298841dc",
+          "mode": "100644",
+          "size_bytes": 1744
+        },
+        {
+          "path": "baselines/Informer2020/utils/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Informer2020/utils/masking.py",
+          "git_blob_sha1": "7fd479e0dec7bc670549032c7dca7003e87db55d",
+          "mode": "100644",
+          "size_bytes": 851
+        },
+        {
+          "path": "baselines/Informer2020/utils/metrics.py",
+          "git_blob_sha1": "8f974f21d4564af298f4cda1d51970b79d35fc54",
+          "mode": "100644",
+          "size_bytes": 826
+        },
+        {
+          "path": "baselines/Informer2020/utils/timefeatures.py",
+          "git_blob_sha1": "2a61ef603845c5ee00343ba2c5b5915202de343a",
+          "mode": "100644",
+          "size_bytes": 5561
+        },
+        {
+          "path": "baselines/Informer2020/utils/tools.py",
+          "git_blob_sha1": "76fe42f52ebefd4d1c9884632189457d0d100b3b",
+          "mode": "100644",
+          "size_bytes": 2827
+        }
+      ],
+      "file_count": 32
+    },
+    {
+      "name": "Autoformer",
+      "repository": "thuml/Autoformer",
+      "url": "https://github.com/thuml/Autoformer",
+      "default_branch_at_import": "main",
+      "commit": "51c7d416ae120b805fd5beef2f4ccf7de496a6ff",
+      "local_directory": "baselines/Autoformer",
+      "snapshot_url": "https://github.com/thuml/Autoformer/tree/51c7d416ae120b805fd5beef2f4ccf7de496a6ff",
+      "archive_url": "https://codeload.github.com/thuml/Autoformer/tar.gz/51c7d416ae120b805fd5beef2f4ccf7de496a6ff",
+      "archive_sha256": "fc84d772dac2a3ecd757b0822e68545da8c66aa4631ccf78cbbfba1f6a60e906",
+      "license_spdx_from_license_file": "MIT",
+      "license_files": [
+        "baselines/Autoformer/LICENSE"
+      ],
+      "notes": [],
+      "gitlinks": [],
+      "files": [
+        {
+          "path": "baselines/Autoformer/.gitignore",
+          "git_blob_sha1": "b6e47617de110dea7ca47e087ff1347cc2646eda",
+          "mode": "100644",
+          "size_bytes": 1799
+        },
+        {
+          "path": "baselines/Autoformer/Dockerfile",
+          "git_blob_sha1": "00019a5a98cca2fc609e665f169f7256a9af099f",
+          "mode": "100644",
+          "size_bytes": 892
+        },
+        {
+          "path": "baselines/Autoformer/LICENSE",
+          "git_blob_sha1": "278c2678a6167d7c110b4451c7fd1f2e51f4b532",
+          "mode": "100644",
+          "size_bytes": 1084
+        },
+        {
+          "path": "baselines/Autoformer/Makefile",
+          "git_blob_sha1": "74b94dcbe0302ab83a0f41c50a02cc88488729d5",
+          "mode": "100644",
+          "size_bytes": 696
+        },
+        {
+          "path": "baselines/Autoformer/README.md",
+          "git_blob_sha1": "8d3702fb126101dd4cf8d919da9616ff62e8977a",
+          "mode": "100644",
+          "size_bytes": 5686
+        },
+        {
+          "path": "baselines/Autoformer/data_provider/__init__.py",
+          "git_blob_sha1": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+          "mode": "100644",
+          "size_bytes": 1
+        },
+        {
+          "path": "baselines/Autoformer/data_provider/data_factory.py",
+          "git_blob_sha1": "4671c87398134cb4acb1d03ade8df4632d93b96d",
+          "mode": "100644",
+          "size_bytes": 1373
+        },
+        {
+          "path": "baselines/Autoformer/data_provider/data_loader.py",
+          "git_blob_sha1": "807983e4d54c34389fd44a613f84a97ed36f9006",
+          "mode": "100644",
+          "size_bytes": 14586
+        },
+        {
+          "path": "baselines/Autoformer/environment.yml",
+          "git_blob_sha1": "08e87b8ffb865871400233de2244b36bb67ba189",
+          "mode": "100644",
+          "size_bytes": 186
+        },
+        {
+          "path": "baselines/Autoformer/exp/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Autoformer/exp/exp_basic.py",
+          "git_blob_sha1": "e3afa0b26db9e7720ea1999266b955a503481d81",
+          "mode": "100644",
+          "size_bytes": 866
+        },
+        {
+          "path": "baselines/Autoformer/exp/exp_main.py",
+          "git_blob_sha1": "5dcf14ffab3b78726415dc9b101ae8670b90ecd1",
+          "mode": "100644",
+          "size_bytes": 10204
+        },
+        {
+          "path": "baselines/Autoformer/layers/AutoCorrelation.py",
+          "git_blob_sha1": "affcd75d200011d26d0585c052f658108768dc64",
+          "mode": "100644",
+          "size_bytes": 6379
+        },
+        {
+          "path": "baselines/Autoformer/layers/Autoformer_EncDec.py",
+          "git_blob_sha1": "00b3a7a4ed34cd0d4a91ab7119cf2be49b77aaa8",
+          "mode": "100644",
+          "size_bytes": 6162
+        },
+        {
+          "path": "baselines/Autoformer/layers/Embed.py",
+          "git_blob_sha1": "532e678c8af03719d7089ff165595d84a23c21c5",
+          "mode": "100644",
+          "size_bytes": 5578
+        },
+        {
+          "path": "baselines/Autoformer/layers/SelfAttention_Family.py",
+          "git_blob_sha1": "1b60ae6747a5d79150e27505dcab76b65e8b2b34",
+          "mode": "100644",
+          "size_bytes": 7122
+        },
+        {
+          "path": "baselines/Autoformer/layers/Transformer_EncDec.py",
+          "git_blob_sha1": "1833d80e8d8b950284496d5d3b3df63c01d81a27",
+          "mode": "100644",
+          "size_bytes": 4574
+        },
+        {
+          "path": "baselines/Autoformer/layers/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Autoformer/models/Autoformer.py",
+          "git_blob_sha1": "45cfb64b1a72553e335e48e31e2b6cb20fe46b54",
+          "mode": "100644",
+          "size_bytes": 4352
+        },
+        {
+          "path": "baselines/Autoformer/models/Informer.py",
+          "git_blob_sha1": "1d26d5780eeebb109881dee71822d6b050a93609",
+          "mode": "100644",
+          "size_bytes": 3213
+        },
+        {
+          "path": "baselines/Autoformer/models/Reformer.py",
+          "git_blob_sha1": "c6f957585a9b85842bca488390aef1b409cbfa40",
+          "mode": "100644",
+          "size_bytes": 2454
+        },
+        {
+          "path": "baselines/Autoformer/models/Transformer.py",
+          "git_blob_sha1": "ffe8856cf1cf0a4e1d73cfbf9e2b71e84563ccea",
+          "mode": "100644",
+          "size_bytes": 2988
+        },
+        {
+          "path": "baselines/Autoformer/models/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Autoformer/pic/Auto-Correlation.png",
+          "git_blob_sha1": "a5430f82e9698d175946db3a403261bb6658d0db",
+          "mode": "100644",
+          "size_bytes": 451627
+        },
+        {
+          "path": "baselines/Autoformer/pic/Autoformer.png",
+          "git_blob_sha1": "d05c7bed5b732a232ccd776e1a3273689a75b426",
+          "mode": "100644",
+          "size_bytes": 452032
+        },
+        {
+          "path": "baselines/Autoformer/pic/results.png",
+          "git_blob_sha1": "a2514af7ca35e98c27be4776b2511ee720a0ce08",
+          "mode": "100644",
+          "size_bytes": 1243877
+        },
+        {
+          "path": "baselines/Autoformer/predict.ipynb",
+          "git_blob_sha1": "981d491ccf7bfa393318ffacae416a008afb0901",
+          "mode": "100644",
+          "size_bytes": 107520
+        },
+        {
+          "path": "baselines/Autoformer/requirements.txt",
+          "git_blob_sha1": "13feceb6de6929fa3ccae2a25d512bb5afa7aeb2",
+          "mode": "100644",
+          "size_bytes": 66
+        },
+        {
+          "path": "baselines/Autoformer/run.py",
+          "git_blob_sha1": "a5ee21212de421182e8c830644ea536ccfb8d0a8",
+          "mode": "100644",
+          "size_bytes": 8857
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ECL_script/Autoformer.sh",
+          "git_blob_sha1": "0ddd3d5eba141c1cae5288880b1917ff43bed725",
+          "mode": "100644",
+          "size_bytes": 1528
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ECL_script/Informer.sh",
+          "git_blob_sha1": "8fcec039e43552074fb22dd72d9f853abb4d1e20",
+          "mode": "100644",
+          "size_bytes": 1495
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ECL_script/Reformer.sh",
+          "git_blob_sha1": "07a435e46a2ee728a4bbccf13e77dd3d68e9532d",
+          "mode": "100644",
+          "size_bytes": 1495
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ECL_script/Transformer.sh",
+          "git_blob_sha1": "b317a821d32f2909c4d5bc1915ebba04945fdd71",
+          "mode": "100644",
+          "size_bytes": 1507
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Autoformer_ETTh1.sh",
+          "git_blob_sha1": "834a88b5b9797fb343aa3f963810f63b417bafe0",
+          "mode": "100644",
+          "size_bytes": 1835
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Autoformer_ETTh2.sh",
+          "git_blob_sha1": "27628a6200ed24b6cd5313ce0863e7f52020d9b8",
+          "mode": "100644",
+          "size_bytes": 1835
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Autoformer_ETTm1.sh",
+          "git_blob_sha1": "8586a17304719781beae11cc943302dfa5f7e80d",
+          "mode": "100644",
+          "size_bytes": 1910
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Autoformer_ETTm2.sh",
+          "git_blob_sha1": "c243ca9bbc3da98b90ee7e69f94f73dea12f0486",
+          "mode": "100644",
+          "size_bytes": 1908
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Autoformer_univariate.sh",
+          "git_blob_sha1": "40ecf2985bce9e1592e1d817ec226e6aef100a7d",
+          "mode": "100644",
+          "size_bytes": 1557
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Informer.sh",
+          "git_blob_sha1": "b7d799b6edcca5a8fd4777c269c44d153180fb00",
+          "mode": "100644",
+          "size_bytes": 1544
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Reformer.sh",
+          "git_blob_sha1": "4eef5fa972d6697e041515cab12cb3141b1075d0",
+          "mode": "100644",
+          "size_bytes": 1513
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ETT_script/Transformer.sh",
+          "git_blob_sha1": "ea495b0d14d3164eb942b008326f8d636abefeb7",
+          "mode": "100644",
+          "size_bytes": 1525
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Exchange_script/Autoformer.sh",
+          "git_blob_sha1": "0923b3f86dca60487654eacfd38022cf9e026aa5",
+          "mode": "100644",
+          "size_bytes": 1582
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Exchange_script/Autoformer_univariate.sh",
+          "git_blob_sha1": "c8b04073ad87cfca203ca7bd175d29eab3658254",
+          "mode": "100644",
+          "size_bytes": 1539
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Exchange_script/Informer.sh",
+          "git_blob_sha1": "55102b0ced028af3a1c123b6de5b48367f8b558f",
+          "mode": "100644",
+          "size_bytes": 1552
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Exchange_script/Reformer.sh",
+          "git_blob_sha1": "1c8ecae3adcae768480cf31ae58f8bb0a78df38d",
+          "mode": "100644",
+          "size_bytes": 1553
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Exchange_script/Transformer.sh",
+          "git_blob_sha1": "8488afc225ceb72b5b8e3d4547e20cc59a0fcc95",
+          "mode": "100644",
+          "size_bytes": 1565
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ILI_script/Autoformer.sh",
+          "git_blob_sha1": "eee5bd85129e79f4ccc551a75cae527d2ba89699",
+          "mode": "100644",
+          "size_bytes": 1501
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ILI_script/Informer.sh",
+          "git_blob_sha1": "8f031bdb82dccdc7ac2277e41be969323b65dbe4",
+          "mode": "100644",
+          "size_bytes": 1493
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ILI_script/Reformer.sh",
+          "git_blob_sha1": "245390cf0089a24e439e04e72b1352934d986645",
+          "mode": "100644",
+          "size_bytes": 1493
+        },
+        {
+          "path": "baselines/Autoformer/scripts/ILI_script/Transformer.sh",
+          "git_blob_sha1": "a7d21c28de216fa3c75057170d536919ccb6d047",
+          "mode": "100644",
+          "size_bytes": 1505
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Traffic_script/Autoformer.sh",
+          "git_blob_sha1": "1375f2a923ab09b8b7ec89530fd6c85aa9c331e8",
+          "mode": "100644",
+          "size_bytes": 1595
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Traffic_script/Informer.sh",
+          "git_blob_sha1": "82b3f1ac083b55c3ff54ad74526917c01a632636",
+          "mode": "100644",
+          "size_bytes": 1588
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Traffic_script/Reformer.sh",
+          "git_blob_sha1": "dff2c967cbfd81e8b134bcce8143cf074260936e",
+          "mode": "100644",
+          "size_bytes": 1588
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Traffic_script/Transformer.sh",
+          "git_blob_sha1": "916d0217d359599b5d0e9200eb973f85580fbebb",
+          "mode": "100644",
+          "size_bytes": 1600
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Weather_script/Autoformer.sh",
+          "git_blob_sha1": "4e72773a2ec446b037c28e102b53e650060f69e0",
+          "mode": "100644",
+          "size_bytes": 1521
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Weather_script/Informer.sh",
+          "git_blob_sha1": "907a4f178fc71f78baabc434e856e43ab600f136",
+          "mode": "100644",
+          "size_bytes": 1513
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Weather_script/Reformer.sh",
+          "git_blob_sha1": "6893d10150a523c7ccc1ce9c7af0fec3a3f71452",
+          "mode": "100644",
+          "size_bytes": 1513
+        },
+        {
+          "path": "baselines/Autoformer/scripts/Weather_script/Transformer.sh",
+          "git_blob_sha1": "a5f6b3dab679cd992d2c6ab1d2fc4036df0fc78d",
+          "mode": "100644",
+          "size_bytes": 1525
+        },
+        {
+          "path": "baselines/Autoformer/utils/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Autoformer/utils/download_data.py",
+          "git_blob_sha1": "130260efafa42d535abb34a2bc059e8d0c530950",
+          "mode": "100644",
+          "size_bytes": 328
+        },
+        {
+          "path": "baselines/Autoformer/utils/masking.py",
+          "git_blob_sha1": "a19cbf63b8d1d1927eceabcbe4a1b5313238b75b",
+          "mode": "100644",
+          "size_bytes": 832
+        },
+        {
+          "path": "baselines/Autoformer/utils/metrics.py",
+          "git_blob_sha1": "713208248cae99dc2f8c9b3b848092335289a082",
+          "mode": "100644",
+          "size_bytes": 875
+        },
+        {
+          "path": "baselines/Autoformer/utils/timefeatures.py",
+          "git_blob_sha1": "f5678f0e78c8e09728cca90061ddccd0679cba4c",
+          "mode": "100644",
+          "size_bytes": 3743
+        },
+        {
+          "path": "baselines/Autoformer/utils/tools.py",
+          "git_blob_sha1": "882c2393395ae3f945ce103ae91ec313bbcdff39",
+          "mode": "100644",
+          "size_bytes": 2603
+        }
+      ],
+      "file_count": 64
+    },
+    {
+      "name": "ETSformer",
+      "repository": "azkanaon/etsformer",
+      "url": "https://github.com/azkanaon/etsformer",
+      "default_branch_at_import": "main",
+      "commit": "0df5daa7149bbfcaf33a5325ee249f679bebf268",
+      "local_directory": "baselines/ETSformer",
+      "snapshot_url": "https://github.com/azkanaon/etsformer/tree/0df5daa7149bbfcaf33a5325ee249f679bebf268",
+      "archive_url": "https://codeload.github.com/azkanaon/etsformer/tar.gz/0df5daa7149bbfcaf33a5325ee249f679bebf268",
+      "archive_sha256": "6effd1bbc558ce6968a6f057c5d91106a2383172a69d5a559766d42d730aa33f",
+      "license_spdx_from_license_file": "BSD-3-Clause",
+      "license_files": [
+        "baselines/ETSformer/LICENSE.txt"
+      ],
+      "notes": [],
+      "gitlinks": [],
+      "files": [
+        {
+          "path": "baselines/ETSformer/CODEOWNERS",
+          "git_blob_sha1": "8d3c4abdb08a31c619e7a2cc05e279c6a3f0c6ee",
+          "mode": "100644",
+          "size_bytes": 141
+        },
+        {
+          "path": "baselines/ETSformer/CODE_OF_CONDUCT.md",
+          "git_blob_sha1": "b4612a7bc59f0b1770675cc2857d866fe41a9a31",
+          "mode": "100644",
+          "size_bytes": 5158
+        },
+        {
+          "path": "baselines/ETSformer/LICENSE.txt",
+          "git_blob_sha1": "d1c9164c78ab215cc1c2122b469d69b0e82ebb62",
+          "mode": "100644",
+          "size_bytes": 1481
+        },
+        {
+          "path": "baselines/ETSformer/README.md",
+          "git_blob_sha1": "d130438fe5f6b62c2dc80360ef0c89cd049cb5eb",
+          "mode": "100644",
+          "size_bytes": 2549
+        },
+        {
+          "path": "baselines/ETSformer/SECURITY.md",
+          "git_blob_sha1": "e31774df287d3b91b508341475a7cf26e146aa2d",
+          "mode": "100644",
+          "size_bytes": 400
+        },
+        {
+          "path": "baselines/ETSformer/checkpoints/ETSformer_ETTh1_96_96_ETSformer_ETTm2_ftM_sl96_pl96_dm512_nh8_el2_dl2_df2048_K1_lr0.0001_Exp_0/checkpoint.pth",
+          "git_blob_sha1": "6fad8a924559c118eb23a14c94eb04b8eef72fdc",
+          "mode": "100644",
+          "size_bytes": 21135012
+        },
+        {
+          "path": "baselines/ETSformer/data_provider/__init__.py",
+          "git_blob_sha1": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+          "mode": "100644",
+          "size_bytes": 1
+        },
+        {
+          "path": "baselines/ETSformer/data_provider/__pycache__/__init__.cpython-38.pyc",
+          "git_blob_sha1": "f2e6407b3a3e2abf3185b5e79b89c9b2285b8303",
+          "mode": "100644",
+          "size_bytes": 181
+        },
+        {
+          "path": "baselines/ETSformer/data_provider/__pycache__/data_factory.cpython-38.pyc",
+          "git_blob_sha1": "b9620fa28193753270dd23fa8631639bd349c6e0",
+          "mode": "100644",
+          "size_bytes": 1146
+        },
+        {
+          "path": "baselines/ETSformer/data_provider/__pycache__/data_loader.cpython-38.pyc",
+          "git_blob_sha1": "2b7efeaaf0e0285a788777720eb2b6d8ccad1c15",
+          "mode": "100644",
+          "size_bytes": 11297
+        },
+        {
+          "path": "baselines/ETSformer/data_provider/data_factory.py",
+          "git_blob_sha1": "25b059555b32663c37c88dd768b52191fab30f7f",
+          "mode": "100644",
+          "size_bytes": 1372
+        },
+        {
+          "path": "baselines/ETSformer/data_provider/data_loader.py",
+          "git_blob_sha1": "47b20b9f8f154586d6c39c00b449380998573cf1",
+          "mode": "100644",
+          "size_bytes": 14640
+        },
+        {
+          "path": "baselines/ETSformer/dataset/.gitignore",
+          "git_blob_sha1": "86d0cb2726c6c7c179b99520c452dd1b68e7a813",
+          "mode": "100644",
+          "size_bytes": 70
+        },
+        {
+          "path": "baselines/ETSformer/exp/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/ETSformer/exp/__pycache__/__init__.cpython-38.pyc",
+          "git_blob_sha1": "47285c939cc9e5fa56373833cdeb132e847054e4",
+          "mode": "100644",
+          "size_bytes": 171
+        },
+        {
+          "path": "baselines/ETSformer/exp/__pycache__/exp_basic.cpython-38.pyc",
+          "git_blob_sha1": "452754124666779bf7d044c73ad71af75382ed92",
+          "mode": "100644",
+          "size_bytes": 1606
+        },
+        {
+          "path": "baselines/ETSformer/exp/__pycache__/exp_main.cpython-38.pyc",
+          "git_blob_sha1": "ac1af5b10a9ea5375bc02f8fef61f49b690fe850",
+          "mode": "100644",
+          "size_bytes": 6533
+        },
+        {
+          "path": "baselines/ETSformer/exp/exp_basic.py",
+          "git_blob_sha1": "b0090f80551acf5d9750d5eca28c5925244d85cf",
+          "mode": "100644",
+          "size_bytes": 885
+        },
+        {
+          "path": "baselines/ETSformer/exp/exp_main.py",
+          "git_blob_sha1": "839f93eb87c807aa29acbcf817e2d8fb67eea46d",
+          "mode": "100644",
+          "size_bytes": 9111
+        },
+        {
+          "path": "baselines/ETSformer/models/__init__.py",
+          "git_blob_sha1": "adbf45497e1003e92dc11aa95c1178e2ec37cd82",
+          "mode": "100644",
+          "size_bytes": 39
+        },
+        {
+          "path": "baselines/ETSformer/models/__pycache__/__init__.cpython-38.pyc",
+          "git_blob_sha1": "5ba1697818c86bef55ac0ed8a721d1ddb3508cd1",
+          "mode": "100644",
+          "size_bytes": 223
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__pycache__/__init__.cpython-38.pyc",
+          "git_blob_sha1": "4c70933326cf79b4b203d13ac2ba2a59f1b317f9",
+          "mode": "100644",
+          "size_bytes": 184
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__pycache__/decoder.cpython-38.pyc",
+          "git_blob_sha1": "9ee16a6b322afc1524c00f1bedb7dbd9e78b6d3e",
+          "mode": "100644",
+          "size_bytes": 3070
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__pycache__/encoder.cpython-38.pyc",
+          "git_blob_sha1": "31e53f80ac5a3a48b2d5e62fe1fb8b26ca0fd10d",
+          "mode": "100644",
+          "size_bytes": 7817
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__pycache__/exponential_smoothing.cpython-38.pyc",
+          "git_blob_sha1": "3baea49638fd5f0fad4027fca1f39b2bfe352c37",
+          "mode": "100644",
+          "size_bytes": 2352
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__pycache__/model.cpython-38.pyc",
+          "git_blob_sha1": "7e3e296e57fa4eee28258b07fa753876009807e8",
+          "mode": "100644",
+          "size_bytes": 3546
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/__pycache__/modules.cpython-38.pyc",
+          "git_blob_sha1": "30ac6a48bd544b46ada66192ea6627985ed0887f",
+          "mode": "100644",
+          "size_bytes": 1736
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/decoder.py",
+          "git_blob_sha1": "61496dac812a82df8e46c2fc4c0827a2ac5ee84f",
+          "mode": "100644",
+          "size_bytes": 2888
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/encoder.py",
+          "git_blob_sha1": "bcac64e43f1437650cab3660fc71651f4efe65a5",
+          "mode": "100644",
+          "size_bytes": 8292
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/exponential_smoothing.py",
+          "git_blob_sha1": "96c167d545dd7080052f28e1897cc19a9e40e84f",
+          "mode": "100644",
+          "size_bytes": 2073
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/model.py",
+          "git_blob_sha1": "3da1488f7359f5dca60fe4c01f7d9b37121ac84c",
+          "mode": "100644",
+          "size_bytes": 3407
+        },
+        {
+          "path": "baselines/ETSformer/models/etsformer/modules.py",
+          "git_blob_sha1": "871c72c554a406bb9b4fcc1c5e23340df9153128",
+          "mode": "100644",
+          "size_bytes": 1125
+        },
+        {
+          "path": "baselines/ETSformer/pics/etsformer.png",
+          "git_blob_sha1": "f3bd872e504253ad864024e3d074442c74b5ac10",
+          "mode": "100644",
+          "size_bytes": 504514
+        },
+        {
+          "path": "baselines/ETSformer/requirements.txt",
+          "git_blob_sha1": "8605ee9b9304d1a0ef3143ece2e9383128b9f6dd",
+          "mode": "100644",
+          "size_bytes": 111
+        },
+        {
+          "path": "baselines/ETSformer/results/ETSformer_ETTh1_96_96_ETSformer_ETTm2_ftM_sl96_pl96_dm512_nh8_el2_dl2_df2048_K1_lr0.0001_Exp_0/test_metrics.npy",
+          "git_blob_sha1": "6bb1a44e6c260561b8dff4a71ad460c1fcf4d356",
+          "mode": "100644",
+          "size_bytes": 148
+        },
+        {
+          "path": "baselines/ETSformer/results/ETSformer_ETTh1_96_96_ETSformer_ETTm2_ftM_sl96_pl96_dm512_nh8_el2_dl2_df2048_K1_lr0.0001_Exp_0/val_metrics.npy",
+          "git_blob_sha1": "5080b46f1be8eaf6176511e219d3e68ee5409e7c",
+          "mode": "100644",
+          "size_bytes": 148
+        },
+        {
+          "path": "baselines/ETSformer/run.py",
+          "git_blob_sha1": "a4da50faa0d5397f801e49bcc570a2dbd1c93cd1",
+          "mode": "100644",
+          "size_bytes": 5763
+        },
+        {
+          "path": "baselines/ETSformer/scripts/ECL.sh",
+          "git_blob_sha1": "3b5e23c907222f69b4e8a5bc2ce454df4789723a",
+          "mode": "100644",
+          "size_bytes": 1393
+        },
+        {
+          "path": "baselines/ETSformer/scripts/ETTm2.sh",
+          "git_blob_sha1": "dc756394d6147eab21ae154b0b0a921b0c285eed",
+          "mode": "100644",
+          "size_bytes": 1338
+        },
+        {
+          "path": "baselines/ETSformer/scripts/ETTm2_univar.sh",
+          "git_blob_sha1": "75ea44f2a143e4ed2647426eeb8dbdef651dc0f8",
+          "mode": "100644",
+          "size_bytes": 1339
+        },
+        {
+          "path": "baselines/ETSformer/scripts/Exchange.sh",
+          "git_blob_sha1": "c47c966dd635941a06f468b4e88faed32ccb6076",
+          "mode": "100644",
+          "size_bytes": 1406
+        },
+        {
+          "path": "baselines/ETSformer/scripts/Exchange_univar.sh",
+          "git_blob_sha1": "371208e30d8103e84fd9a8dc32609b2635f5a581",
+          "mode": "100644",
+          "size_bytes": 1405
+        },
+        {
+          "path": "baselines/ETSformer/scripts/ILI.sh",
+          "git_blob_sha1": "d25c92c2e7be269c48e934d6b8185b10b97ae7ef",
+          "mode": "100644",
+          "size_bytes": 1367
+        },
+        {
+          "path": "baselines/ETSformer/scripts/Traffic.sh",
+          "git_blob_sha1": "005eb7b0a8796ffd434b58d114c1201aa241acb2",
+          "mode": "100644",
+          "size_bytes": 1378
+        },
+        {
+          "path": "baselines/ETSformer/scripts/Weather.sh",
+          "git_blob_sha1": "4daf959963ca36d30605049dc121c32aa7f0fac7",
+          "mode": "100644",
+          "size_bytes": 1366
+        },
+        {
+          "path": "baselines/ETSformer/scripts/grid_search.sh",
+          "git_blob_sha1": "97f79c56eb9befcc21a631763692abc518cc1534",
+          "mode": "100644",
+          "size_bytes": 4359
+        },
+        {
+          "path": "baselines/ETSformer/utils/Adam.py",
+          "git_blob_sha1": "7c95453315a8bd12fa710cfbd23006561018f40d",
+          "mode": "100644",
+          "size_bytes": 6562
+        },
+        {
+          "path": "baselines/ETSformer/utils/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/ETSformer/utils/__pycache__/Adam.cpython-38.pyc",
+          "git_blob_sha1": "b21ee99f962c2f65fb2f87ecd0f7eed03a2fb7cf",
+          "mode": "100644",
+          "size_bytes": 4837
+        },
+        {
+          "path": "baselines/ETSformer/utils/__pycache__/__init__.cpython-38.pyc",
+          "git_blob_sha1": "99135a850a1962d6aa9e29c21121f3e93387e605",
+          "mode": "100644",
+          "size_bytes": 173
+        },
+        {
+          "path": "baselines/ETSformer/utils/__pycache__/metrics.cpython-38.pyc",
+          "git_blob_sha1": "ec7144eff81e114ed3079e9862c3675cc51159be",
+          "mode": "100644",
+          "size_bytes": 1471
+        },
+        {
+          "path": "baselines/ETSformer/utils/__pycache__/timefeatures.cpython-38.pyc",
+          "git_blob_sha1": "981408414a40620acaae616fb4b8e244185905d5",
+          "mode": "100644",
+          "size_bytes": 5345
+        },
+        {
+          "path": "baselines/ETSformer/utils/__pycache__/tools.cpython-38.pyc",
+          "git_blob_sha1": "bea7ec597171f9487df38b700d71aff4d522fe8e",
+          "mode": "100644",
+          "size_bytes": 3856
+        },
+        {
+          "path": "baselines/ETSformer/utils/masking.py",
+          "git_blob_sha1": "a19cbf63b8d1d1927eceabcbe4a1b5313238b75b",
+          "mode": "100644",
+          "size_bytes": 832
+        },
+        {
+          "path": "baselines/ETSformer/utils/metrics.py",
+          "git_blob_sha1": "b4f5a76b8a96ec080401451ac54f66370dd794f8",
+          "mode": "100644",
+          "size_bytes": 866
+        },
+        {
+          "path": "baselines/ETSformer/utils/timefeatures.py",
+          "git_blob_sha1": "f5678f0e78c8e09728cca90061ddccd0679cba4c",
+          "mode": "100644",
+          "size_bytes": 3743
+        },
+        {
+          "path": "baselines/ETSformer/utils/tools.py",
+          "git_blob_sha1": "5028ac596782eb48840b70dda58f3b8b3f12d2cc",
+          "mode": "100644",
+          "size_bytes": 3901
+        }
+      ],
+      "imported_at_utc": "2026-11-21T10:37:35+00:00",
+      "file_count": 58
+    }
+  ]
+}
