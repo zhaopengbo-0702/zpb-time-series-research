@@ -1,0 +1,245 @@
+Installation
+============
+
+``pytorch-forecasting`` currently supports:
+
+* Python versions 3.10, 3.11, 3.12, 3.13 and 3.14.
+* Operating systems : Linux, macOS, and Windows
+
+Installing pytorch-forecasting
+------------------------------
+
+``pytorch-forecasting`` is a library built on top of the popular deep learning framework ``pytorch`` and
+heavily uses the Pytorch Lightning library ``lightning`` for ease of training and multiple GPU usage.
+
+You'll need to install ``pytorch`` along or before with ``pytorch-forecasting`` in order to get a working
+install of this library.
+
+If you are working Windows, you can install PyTorch with
+
+.. code-block:: bash
+
+    pip install torch -f https://download.pytorch.org/whl/torch_stable.html
+
+.. note::
+  It is recommended to visit the Pytorch official page https://pytorch.org/get-started/locally/#start-locally to
+  figure out which version of ``pytorch`` best suits your machine if you are
+  unfamiliar with the library.
+
+Otherwise, you can proceed with:
+
+.. code-block:: bash
+
+    pip install pytorch-forecasting --extra-index-url https://download.pytorch.org/whl/cpu
+
+
+Alternatively, to install the package via ``conda``:
+
+.. code-block:: bash
+
+    conda install pytorch-forecasting pytorch>=2.0.0 -c pytorch -c conda-forge
+
+PyTorch Forecasting is now installed from the conda-forge channel while PyTorch is install from the pytorch channel.
+
+To install ``pytorch-forecasting`` with the use of the MQF2 loss (multivariate quantile loss), run:
+
+.. code-block:: bash
+
+    pip install pytorch-forecasting[mqf2]
+
+
+To install the Pytorch Lightning library, please visit their `official page <https://lightning.ai/docs/pytorch/stable/starter/installation.html>`__ or run:
+
+.. code-block:: bash
+
+    pip install lightning
+
+
+Obtaining a latest ``pytorch-forecasting`` version
+--------------------------------------------------
+
+This type of installation obtains a latest static snapshot of the repository, with
+various features that are not published in a release. It is mainly intended for developers
+that wish to build or test code using a version of the repository that contains
+all of the latest or current updates.
+
+.. code-block:: bash
+
+    pip install git+https://github.com/sktime/pytorch-forecasting.git
+
+
+To install from a specific branch, use the following command:
+
+.. code-block:: bash
+
+    pip install git+https://github.com/sktime/pytorch-forecasting.git@<branch_name>
+
+
+Contributing to ``pytorch-forecasting``
+---------------------------------------
+
+Contributions to PyTorch Forecasting are very welcome! You do not have to be an expert in deep learning
+to contribute. If you find a bug - fix it! If you miss a feature - propose it!
+
+To obtain an editable version ``pytorch-forecasting`` for development or contributions,
+you will need to set up:
+
+* a local clone of the ``pytorch-forecasting`` repository.
+* a virtual environment with an editable install of ``pytorch-forecasting`` and the developer dependencies.
+
+The following steps guide you through the process:
+
+Creating a fork and cloning the repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  Fork the `project
+    repository <https://github.com/sktime/pytorch-forecasting>`__ by
+    clicking on the 'Fork' button near the top right of the page. This
+    creates a copy of the code under your GitHub user account. For more
+    details on how to fork a repository see `this
+    guide <https://help.github.com/articles/fork-a-repo/>`__.
+
+2.  `Clone <https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository>`__
+    your fork of the pytorch-forecasting repo from your GitHub account to your local
+    disk:
+
+    .. code:: bash
+
+      git clone git@github.com:<username>/sktime/pytorch-forecasting.git
+      cd pytorch-forecasting
+
+    where :code:`<username>` is your GitHub username.
+
+3.  Configure and link the remote for your fork to the upstream
+    repository:
+
+    .. code:: bash
+
+      git remote -v
+      git remote add upstream https://github.com/sktime/pytorch-forecasting.git
+
+4.  Verify the new upstream repository you've specified for your fork:
+
+    .. code:: bash
+
+      git remote -v
+      > origin    https://github.com/<username>/sktime/pytorch-forecasting.git (fetch)
+      > origin    https://github.com/<username>/sktime/pytorch-forecasting.git (push)
+      > upstream  https://github.com/sktime/pytorch-forecasting.git (fetch)
+      > upstream  https://github.com/sktime/pytorch-forecasting.git (push)
+
+Setting up an editable virtual environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``conda`` instructions in the package installation section above remain
+available for users who prefer that installation method. The following
+instructions apply specifically to contributor development environments, for
+which ``uv`` is recommended.
+
+Navigate to your local ``pytorch-forecasting`` repository:
+
+.. code-block:: bash
+
+    cd pytorch-forecasting
+
+Using ``uv`` (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`uv <https://docs.astral.sh/uv/getting-started/installation/>`__ is the recommended
+tool for creating the development environment and installing dependencies.
+Create a virtual environment with a supported Python version:
+
+.. code-block:: bash
+
+    uv venv --python 3.11
+
+``uv`` creates the environment at ``.venv`` and automatically discovers it for
+subsequent commands. To activate it when running project tools directly, use:
+
+.. code-block:: bash
+
+    # macOS and Linux
+    source .venv/bin/activate
+
+.. code-block:: powershell
+
+    # Windows PowerShell
+    .venv\Scripts\Activate.ps1
+
+Install PyTorch Forecasting in editable mode with the developer dependencies:
+
+.. code-block:: bash
+
+    uv pip install -e ".[dev]"
+
+If you also need all optional dependencies, use:
+
+.. code-block:: bash
+
+    uv pip install -e ".[all_extras,dev]"
+
+Using ``venv``
+^^^^^^^^^^^^^^^
+
+If ``uv`` is unavailable, create a virtual environment using Python's standard
+library:
+
+.. code-block:: bash
+
+    python -m venv .venv
+
+Activate the environment using the command for your platform shown above, then
+upgrade ``pip`` and install the project with its developer dependencies:
+
+.. code-block:: bash
+
+    python -m pip install --upgrade pip
+    python -m pip install -e ".[dev]"
+
+To include all optional dependencies, use:
+
+.. code-block:: bash
+
+    python -m pip install -e ".[all_extras,dev]"
+
+Contribution Guidelines and Recommendations
+-------------------------------------------
+
+Submitting pull request best practices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To ensure that maintainers and other developers are able to help your issues or
+review your contributions/pull requests, please read the following guidelines below.
+
+* Open issues to discuss your proposed changes before starting pull requests.
+  This ensures that other developers or maintainers have adequete context/knowledge
+  about your future contribution so that it can be swiftly integrated into the code base.
+
+* Adding context tags to the PR title.
+  This will greatly help categorize different types of pull requests without having
+  to look at the full title. Usually tags that start with either [ENH] - Enhancement:
+  adding a feature, or improving code, [BUG] - Bugfixes, [MNT] - CI: test framework, [DOC] -
+  Documentation: writing or improving documentation or docstrings.
+
+* Adding references to other links or pull requests.
+  This helps to add context about previous or current issues/prs that relate to
+  your contribution. This is done usually by including a full link or a hash tag '#1234'.
+
+Technical Design Principles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When writing code for your new feature, it is recommended to follow these
+technical design principles to ensure compatibility between the feature and the library.
+
+* Backward compatible API if possible to prevent breaking code.
+* Powerful abstractions to enable quick experimentation. At the same time, the abstractions should
+  allow the user to still take full control.
+* Intuitive default values that do not need changing in most cases.
+* Focus on forecasting time-related data - specifically timeseries regression and classification.
+  Contributions not directly related to this topic might not be merged. We want to keep the library as
+  crisp as possible.
+* Install ``pre-commit`` and have it run on every commit that you make on your feature branches.
+  This library requires strict coding and development best practices to ensure the highest code quality.
+  Contributions or pull requests that do not adhere to these standards will not likely be merged until fixed.
+  For more information on ``pre-commit`` you can visit `this page <https://www.sktime.net/en/stable/developer_guide/coding_standards.html#using-pre-commit>`__
+* Always add tests and documentation to new features.

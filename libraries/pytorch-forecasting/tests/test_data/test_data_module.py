@@ -1,0 +1,786 @@
+import numpy as np
+import pandas as pd
+import pytest
+from sklearn.preprocessing import (
+    MaxAbsScaler,
+    MinMaxScaler,
+    RobustScaler,
+    StandardScaler,
+)
+import torch
+
+from pytorch_forecasting import GroupNormalizer, MultiNormalizer, NaNLabelEncoder
+from pytorch_forecasting.data.data_module import EncoderDecoderTimeSeriesDataModule
+from pytorch_forecasting.data.encoders import EncoderNormalizer, TorchNormalizer
+from pytorch_forecasting.data.timeseries import TimeSeries
+
+
+def make_timeseries(offset=0.0, scale=1.0, seed=None, num_groups=10, seq_length=100):
+    """Create a sample time series dataset with only numerical values.
+
+    Parameters
+    ----------
+    offset, scale : float, default=0.0, 1.0
+        Shift and spread applied to the target, so that two series with
+        distinguishable distributions can be built.
+    seed : int, optional
+        Seed for the random parts, for tests that need reproducible data.
+    num_groups, seq_length : int, default=10, 100
+        Number of series, and time steps per series.
+    """
+    rng = np.random.default_rng(seed)
+
+    groups = []
+    times = []
+    values = []
+    categorical_feature = []
+    continuous_feature1 = []
+    continuous_feature2 = []
+    known_future = []
+
+    for g in range(num_groups):
+        for t in range(seq_length):
+            groups.append(g)
+            times.append(pd.Timestamp("2020-01-01") + pd.Timedelta(days=t))
+
+            value = 10 + 0.1 * t + 5 * np.sin(t / 10) + g * 2 + rng.normal(0, 1)
+            values.append(value * scale + offset)
+
+            categorical_feature.append(rng.choice([0, 1, 2]))
+
+            continuous_feature1.append(rng.normal(g, 1))
+            continuous_feature2.append(value * 0.5 + rng.normal(0, 0.5))
+
+            known_future.append(t % 7)
+
+    df = pd.DataFrame(
+        {
+            "group": groups,
+            "time": times,
+            "target": values,
+            "cat_feat": categorical_feature,
+            "cont_feat1": continuous_feature1,
+            "cont_feat2": continuous_feature2,
+            "known_future": known_future,
+        }
+    )
+
+    return TimeSeries(
+        data=df,
+        time="time",
+        target="target",
+        group=["group"],
+        num=["cont_feat1", "cont_feat2", "known_future"],
+        cat=["cat_feat"],
+        known=["known_future"],
+    )
+
+
+@pytest.fixture
+def sample_timeseries_data():
+    """Create a sample time series dataset with only numerical values."""
+    return make_timeseries()
+
+
+@pytest.fixture
+def data_module(sample_timeseries_data):
+    """Create a data module instance."""
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=24,
+        max_prediction_length=12,
+        batch_size=4,
+        train_val_test_split=(0.7, 0.15, 0.15),
+    )
+    return dm
+
+
+def test_init(sample_timeseries_data):
+    """Test the initialization of the data module.
+
+    Verifies hyperparameter assignment and basic time_series_metadata creation."""
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=24,
+        max_prediction_length=12,
+        batch_size=8,
+    )
+
+    assert dm.max_encoder_length == 24
+    assert dm.max_prediction_length == 12
+    assert dm._min_encoder_length == 24
+    assert dm._min_prediction_length == 12
+    assert dm.batch_size == 8
+    assert dm.train_val_test_split == (0.7, 0.15, 0.15)
+
+    assert "cols" in dm.time_series_metadata
+
+
+def test_prepare_metadata(data_module):
+    """Test the metadata preparation method.
+
+    Ensures that internal metadata keys are created correctly."""
+    metadata = data_module._prepare_metadata()
+
+    assert "encoder_cat" in metadata
+    assert "encoder_cont" in metadata
+    assert "decoder_cat" in metadata
+    assert "decoder_cont" in metadata
+    assert "target" in metadata
+    assert "max_encoder_length" in metadata
+    assert "max_prediction_length" in metadata
+
+    assert metadata["max_encoder_length"] == 24
+    assert metadata["max_prediction_length"] == 12
+
+
+def test_metadata_property(data_module):
+    """Test the metadata property.
+
+    Confirms caching behavior and correct feature counts."""
+    metadata = data_module.metadata
+
+    # Should return the same object when called multiple times (caching)
+    assert data_module.metadata is metadata
+
+    assert metadata["encoder_cat"] == 1  # cat_feat
+    assert metadata["encoder_cont"] == 3  # cont_feat1, cont_feat2, known_future
+    assert metadata["decoder_cat"] == 0  # No categorical features marked as known
+    assert metadata["decoder_cont"] == 1  # Only known_future marked as known
+
+
+def test_setup(data_module):
+    """Test the setup method that prepares the datasets."""
+    data_module.setup(stage="fit")
+    print(data_module._val_indices)
+    assert hasattr(data_module, "train_dataset")
+    assert hasattr(data_module, "val_dataset")
+    assert len(data_module.train_windows) > 0
+    assert len(data_module.val_windows) > 0
+
+    data_module.setup(stage="test")
+    assert hasattr(data_module, "test_dataset")
+    assert len(data_module.test_windows) > 0
+
+    data_module.setup(stage="predict")
+    assert hasattr(data_module, "predict_dataset")
+    assert len(data_module.predict_windows) > 0
+
+
+def test_create_windows(data_module):
+    """Test the window creation logic.
+
+    Validates window structure and length settings."""
+    data_module.setup()
+
+    windows = data_module._create_windows(data_module._train_indices)
+
+    assert len(windows) > 0
+
+    for window in windows:
+        assert len(window) == 4
+        assert window[2] == data_module.max_encoder_length
+        assert window[3] == data_module.max_prediction_length
+
+
+def test_dataloader_creation(data_module):
+    """Test that dataloaders are created correctly.
+
+    Checks batch sizes and dataloader instantiation across all stages."""
+    data_module.setup()
+
+    train_loader = data_module.train_dataloader()
+    assert train_loader.batch_size == data_module.batch_size
+    assert train_loader.num_workers == data_module.num_workers
+
+    val_loader = data_module.val_dataloader()
+    assert val_loader.batch_size == data_module.batch_size
+
+    data_module.setup(stage="test")
+    test_loader = data_module.test_dataloader()
+    assert test_loader.batch_size == data_module.batch_size
+
+    data_module.setup(stage="predict")
+    predict_loader = data_module.predict_dataloader()
+    assert predict_loader.batch_size == data_module.batch_size
+
+
+def test_processed_dataset(data_module):
+    """Test the internal ProcessedEncoderDecoderDataset class.
+
+    Verifies sample structure and tensor dimensions for encoder/decoder inputs."""
+    data_module.setup()
+
+    assert len(data_module.train_dataset) == len(data_module.train_windows)
+    assert len(data_module.val_dataset) == len(data_module.val_windows)
+
+    x, y = data_module.train_dataset[0]
+
+    required_keys = [
+        "encoder_cat",
+        "encoder_cont",
+        "decoder_cat",
+        "decoder_cont",
+        "encoder_lengths",
+        "decoder_lengths",
+        "decoder_target_lengths",
+        "groups",
+        "encoder_time_idx",
+        "decoder_time_idx",
+        "target_scale",
+        "encoder_mask",
+        "decoder_mask",
+    ]
+
+    for key in required_keys:
+        assert key in x
+
+    assert x["encoder_cat"].shape[0] == data_module.max_encoder_length
+    assert x["decoder_cat"].shape[0] == data_module.max_prediction_length
+
+    metadata = data_module.time_series_metadata
+    known_cat_count = len(
+        [
+            col
+            for col in metadata["cols"]["x"]
+            if metadata["col_type"].get(col) == "C"
+            and metadata["col_known"].get(col) == "K"
+        ]
+    )
+
+    known_cont_count = len(
+        [
+            col
+            for col in metadata["cols"]["x"]
+            if metadata["col_type"].get(col) == "F"
+            and metadata["col_known"].get(col) == "K"
+        ]
+    )
+
+    assert x["decoder_cat"].shape[1] == known_cat_count
+    assert x["decoder_cont"].shape[1] == known_cont_count
+
+    assert y.shape[0] == data_module.max_prediction_length
+
+
+def test_collate_fn(data_module):
+    """Test the collate function that combines batch samples.
+
+    Ensures proper stacking of dictionary keys and batch outputs."""
+    data_module.setup()
+
+    batch_size = 3
+    batch = [data_module.train_dataset[i] for i in range(batch_size)]
+
+    x_batch, y_batch = data_module.collate_fn(batch)
+
+    for key in x_batch:
+        assert x_batch[key].shape[0] == batch_size
+
+    metadata = data_module.time_series_metadata
+    known_cat_count = len(
+        [
+            col
+            for col in metadata["cols"]["x"]
+            if metadata["col_type"].get(col) == "C"
+            and metadata["col_known"].get(col) == "K"
+        ]
+    )
+
+    known_cont_count = len(
+        [
+            col
+            for col in metadata["cols"]["x"]
+            if metadata["col_type"].get(col) == "F"
+            and metadata["col_known"].get(col) == "K"
+        ]
+    )
+
+    assert x_batch["decoder_cat"].shape[2] == known_cat_count
+    assert x_batch["decoder_cont"].shape[2] == known_cont_count
+    assert y_batch.shape[0] == batch_size
+    assert y_batch.shape[1] == data_module.max_prediction_length
+
+
+def test_full_dataloader_iteration(data_module):
+    """Test a full iteration through the train dataloader.
+
+    Confirms batch retrieval and tensor dimensions match configuration."""
+    data_module.setup()
+    train_loader = data_module.train_dataloader()
+
+    batch = next(iter(train_loader))
+    x_batch, y_batch = batch
+
+    assert x_batch["encoder_cat"].shape[0] == data_module.batch_size
+    assert x_batch["encoder_cat"].shape[1] == data_module.max_encoder_length
+
+    metadata = data_module.time_series_metadata
+    known_cat_count = len(
+        [
+            col
+            for col in metadata["cols"]["x"]
+            if metadata["col_type"].get(col) == "C"
+            and metadata["col_known"].get(col) == "K"
+        ]
+    )
+
+    known_cont_count = len(
+        [
+            col
+            for col in metadata["cols"]["x"]
+            if metadata["col_type"].get(col) == "F"
+            and metadata["col_known"].get(col) == "K"
+        ]
+    )
+
+    assert x_batch["decoder_cat"].shape[0] == data_module.batch_size
+    assert x_batch["decoder_cat"].shape[2] == known_cat_count
+    assert x_batch["decoder_cont"].shape[0] == data_module.batch_size
+    assert x_batch["decoder_cont"].shape[2] == known_cont_count
+    assert y_batch.shape[0] == data_module.batch_size
+    assert y_batch.shape[1] == data_module.max_prediction_length
+
+
+def test_variable_encoder_lengths(sample_timeseries_data):
+    """Test with variable encoder lengths.
+
+    Ensures random length behavior is respected and functional."""
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=24,
+        min_encoder_length=12,
+        max_prediction_length=12,
+        batch_size=4,
+        randomize_length=True,
+    )
+
+    dm.setup()
+    assert dm.min_encoder_length == 12
+    assert dm.max_encoder_length == 24
+
+
+def test_preprocess_data(data_module, sample_timeseries_data):
+    """Test the _preprocess_data method.
+
+    Checks preprocessing output structure and alignment with raw data."""
+    if not hasattr(data_module, "_split_indices"):
+        data_module.setup()
+
+    series_idx = data_module._train_indices[0]
+
+    processed = data_module._preprocess_data(series_idx)
+
+    assert "features" in processed
+    assert "categorical" in processed["features"]
+    assert "continuous" in processed["features"]
+    assert "target" in processed
+    assert "time_mask" in processed
+
+    original_sample = sample_timeseries_data[series_idx.item()]
+    expected_length = len(original_sample["y"])
+
+    assert processed["features"]["categorical"].shape[0] == expected_length
+    assert processed["features"]["continuous"].shape[0] == expected_length
+    assert processed["target"].shape[0] == expected_length
+
+
+def test_with_static_features():
+    """Test with static features included.
+
+    Validates static feature support in both metadata and sample input."""
+    df = pd.DataFrame(
+        {
+            "group": [0, 0, 0, 1, 1, 1],
+            "time": pd.date_range("2020-01-01", periods=6),
+            "target": [1, 2, 3, 4, 5, 6],
+            "static_cat": [0, 0, 0, 1, 1, 1],
+            "static_num": [10, 10, 10, 20, 20, 20],
+            "feature1": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
+        }
+    )
+
+    ts = TimeSeries(
+        data=df,
+        time="time",
+        target="target",
+        group=["group"],
+        num=["feature1", "static_num"],
+        static=["static_cat", "static_num"],
+        cat=["static_cat"],
+    )
+
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=ts,
+        max_encoder_length=2,
+        max_prediction_length=1,
+        batch_size=2,
+    )
+
+    dm.setup()
+
+    metadata = dm.metadata
+    assert metadata["static_categorical_features"] == 1
+    assert metadata["static_continuous_features"] == 1
+
+    x, y = dm.train_dataset[0]
+    assert "static_categorical_features" in x
+    assert "static_continuous_features" in x
+    assert (
+        x["static_categorical_features"].shape[1]
+        == metadata["static_categorical_features"]
+    )
+    assert (
+        x["static_continuous_features"].shape[1]
+        == metadata["static_continuous_features"]
+    )
+
+
+def test_different_train_val_test_split(sample_timeseries_data):
+    """Test with different train/val/test split ratios."""
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=24,
+        max_prediction_length=12,
+        batch_size=4,
+        train_val_test_split=(0.8, 0.1, 0.1),
+    )
+
+    dm.setup()
+
+    total_series = len(sample_timeseries_data)
+    expected_train = int(0.8 * total_series)
+    expected_val = int(0.1 * total_series)
+
+    assert len(dm._train_indices) == expected_train
+    assert len(dm._val_indices) == expected_val
+    assert len(dm._test_indices) == total_series - expected_train - expected_val
+
+
+@pytest.mark.parametrize(
+    "normalizer_list",
+    [
+        None,
+        [TorchNormalizer(), EncoderNormalizer()],
+        [EncoderNormalizer(), GroupNormalizer()],
+        [GroupNormalizer(), NaNLabelEncoder(add_nan=True)],
+        [TorchNormalizer(), GroupNormalizer()],
+        [NaNLabelEncoder(add_nan=True), EncoderNormalizer()],
+        [EncoderNormalizer(), TorchNormalizer()],
+    ],
+)
+def test_multivariate_target(normalizer_list):
+    """Test with multivariate target (multiple target columns).
+
+    Verifies correct handling of multivariate targets in data pipeline."""
+    df = pd.DataFrame(
+        {
+            "group": np.repeat([0, 1], 50),
+            "time": np.tile(pd.date_range("2020-01-01", periods=50), 2),
+            "target1": np.random.normal(0, 1, 100),
+            "target2": np.random.normal(5, 2, 100),
+            "feature1": np.random.normal(0, 1, 100),
+            "feature2": np.random.normal(0, 1, 100),
+        }
+    )
+
+    ts = TimeSeries(
+        data=df,
+        time="time",
+        target=["target1", "target2"],
+        group=["group"],
+        num=["feature1", "feature2"],
+    )
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=ts,
+        max_encoder_length=10,
+        max_prediction_length=5,
+        batch_size=4,
+        target_normalizer=normalizer_list,
+    )
+
+    dm.setup()
+
+    x, y = dm.train_dataset[0]
+    assert len(y) == 2
+    assert y[0].shape == (dm.max_prediction_length,)
+    assert y[1].shape == (dm.max_prediction_length,)
+    assert x["target_past"].shape == (dm.max_encoder_length, 2)
+    if normalizer_list is None:
+        dm._target_normalizer = None
+        dm._target_normalizer_fitted = False
+
+
+@pytest.mark.parametrize(
+    "normalizer_list",
+    [
+        None,
+        [TorchNormalizer(), EncoderNormalizer()],
+        [EncoderNormalizer(), GroupNormalizer()],
+        [GroupNormalizer(), NaNLabelEncoder(add_nan=True)],
+        [TorchNormalizer(), GroupNormalizer()],
+        [NaNLabelEncoder(add_nan=True), EncoderNormalizer()],
+        [EncoderNormalizer(), TorchNormalizer()],
+    ],
+)
+def test_multivariate_target_scale(normalizer_list):
+    """Test that target_scale is correctly computed for multivariate targets.
+
+    Verifies:
+    - target_scale is a list of length n_targets for multi-target
+    - each element is a scalar tensor
+    - scale values are positive and finite
+    - scale reflects the original (pre-normalization) target magnitude
+    """
+    np.random.seed(42)
+    target1 = np.random.normal(0, 1, 100)
+    target2 = np.random.normal(0, 100, 100)
+
+    df = pd.DataFrame(
+        {
+            "group": np.repeat([0, 1], 50),
+            "time": np.tile(pd.date_range("2020-01-01", periods=50), 2),
+            "target1": target1,
+            "target2": target2,
+            "feature1": np.random.normal(0, 1, 100),
+        }
+    )
+
+    ts = TimeSeries(
+        data=df,
+        time="time",
+        target=["target1", "target2"],
+        group=["group"],
+        num=["feature1"],
+    )
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=ts,
+        max_encoder_length=10,
+        max_prediction_length=5,
+        batch_size=4,
+        target_normalizer=normalizer_list,
+    )
+    dm.setup()
+
+    x, y = dm.train_dataset[0]
+    target_scale = x["target_scale"]
+
+    assert isinstance(
+        target_scale, list
+    ), f"expected list for multi-target, got {type(target_scale)}"
+    assert len(target_scale) == 2, f"expected 2 scale values, got {len(target_scale)}"
+
+    for i, scale in enumerate(target_scale):
+        assert isinstance(
+            scale, torch.Tensor
+        ), f"target_scale[{i}] should be a Tensor, got {type(scale)}"
+        assert (
+            scale.shape == ()
+        ), f"target_scale[{i}] should be scalar, got shape {scale.shape}"
+        assert torch.isfinite(scale), f"target_scale[{i}] is not finite: {scale}"
+        assert scale > 0, f"target_scale[{i}] should be positive, got {scale}"
+
+    assert target_scale[1] > target_scale[0], (
+        f"expected target_scale[1] > target_scale[0] given std ratio, "
+        f"got {target_scale[1]:.4f} vs {target_scale[0]:.4f}"
+    )
+
+
+@pytest.mark.parametrize(
+    "normalizer",
+    [
+        None,
+        "auto",
+        TorchNormalizer(),
+        EncoderNormalizer(),
+        GroupNormalizer(),
+        NaNLabelEncoder(add_nan=True),
+    ],
+)
+def test_target_normalizers(sample_timeseries_data, normalizer):
+    """Test different target normalizers.
+
+    Ensures compatibility and correct integration of various normalizers.
+    Verifies that:
+    - The normalizer is applied correctly.
+    - Output shapes are as expected.
+    - Target is actually scaled.
+    """
+    dm_no_norm = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=15,
+        max_prediction_length=5,
+        batch_size=4,
+        target_normalizer=None,
+    )
+    dm_no_norm.setup(stage="fit")
+
+    dm_with_norm = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=15,
+        max_prediction_length=5,
+        batch_size=4,
+        target_normalizer=normalizer,
+    )
+    dm_with_norm.setup(stage="fit")
+
+    x_no_norm, y_no_norm = dm_no_norm.train_dataset[0]
+    x_with_norm, y_with_norm = dm_with_norm.train_dataset[0]
+    assert y_with_norm.shape == y_no_norm.shape
+    assert x_with_norm["target_past"].shape == x_no_norm["target_past"].shape
+
+    if normalizer is not None and not isinstance(normalizer, EncoderNormalizer):
+        assert (
+            dm_with_norm._target_normalizer_fitted
+        ), "Target normalizer should be fitted"
+    if normalizer is None:
+        dm_with_norm._target_normalizer = None
+        dm_with_norm._target_normalizer_fitted = False
+
+
+@pytest.mark.parametrize(
+    "scaler_type",
+    [
+        None,
+        TorchNormalizer(),
+        StandardScaler(),
+        RobustScaler(),
+        EncoderNormalizer(),
+        GroupNormalizer(),
+        MinMaxScaler(),
+        MaxAbsScaler(),
+    ],
+)
+def test_feature_scaling(sample_timeseries_data, scaler_type):
+    """Test feature scaling with different scalers.
+
+    Verifies that:
+    - Scaling is actually applied (data changes)
+    - Only specified features are scaled
+    - Output format is preserved
+    """
+    scalers = {
+        "cont_feat1": scaler_type,
+        "cont_feat2": scaler_type,
+    }
+
+    dm_no_scale = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=24,
+        max_prediction_length=12,
+        batch_size=4,
+        scalers=None,
+    )
+    dm_no_scale.setup(stage="fit")
+
+    dm_with_scale = EncoderDecoderTimeSeriesDataModule(
+        time_series=sample_timeseries_data,
+        max_encoder_length=24,
+        max_prediction_length=12,
+        batch_size=4,
+        scalers=scalers,
+    )
+    dm_with_scale.setup(stage="fit")
+
+    assert dm_with_scale._feature_scalers_fitted
+    assert "cont_feat1" in dm_with_scale.scalers
+    assert "cont_feat2" in dm_with_scale.scalers
+
+    x_no_scale, _ = dm_no_scale.train_dataset[0]
+    x_with_scale, _ = dm_with_scale.train_dataset[0]
+
+    assert x_with_scale["encoder_cont"].shape == x_no_scale["encoder_cont"].shape
+    assert x_with_scale["decoder_cont"].shape == x_no_scale["decoder_cont"].shape
+    if scaler_type is None:
+        dm_with_scale._scalers = None
+        dm_with_scale._feature_scalers_fitted = False
+
+
+def test_group_normalizer_uses_groups():
+    """Test that GroupNormalizer produces different scales per group."""
+    df = pd.DataFrame(
+        {
+            "group": np.repeat([0, 1], 100),
+            "time": np.tile(range(100), 2),
+            "target": np.concatenate(
+                [
+                    np.random.normal(1, 0.1, 100),  # group 0
+                    np.random.normal(100, 10, 100),  # group 1
+                ]
+            ),
+            "feature1": np.random.normal(0, 1, 200),
+        }
+    )
+    ts = TimeSeries(
+        data=df,
+        time="time",
+        target="target",
+        group=["group"],
+        num=["feature1"],
+    )
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=ts,
+        max_encoder_length=10,
+        max_prediction_length=5,
+        batch_size=4,
+        target_normalizer=GroupNormalizer(groups=["group"]),
+    )
+    dm.setup("fit")
+
+    group0_idx = ts._group_to_idx[0]
+    group1_idx = ts._group_to_idx[1]
+
+    target0 = dm.train_dataset.preprocessed_data.get(group0_idx)
+    target1 = dm.train_dataset.preprocessed_data.get(group1_idx)
+
+    if target0 is not None and target1 is not None:
+        mean0 = target0["target"].mean().abs()
+        mean1 = target1["target"].mean().abs()
+        assert mean0 < 1.0, "Group 0 target should be normalized near 0"
+        assert mean1 < 1.0, "Group 1 target should be normalized near 0"
+
+
+def test_with_data_does_not_refit_transforms():
+    """Prediction data must be scaled with the statistics from training."""
+    train = make_timeseries(seed=0)
+    shifted = make_timeseries(offset=1000.0, seed=1)
+
+    dm = EncoderDecoderTimeSeriesDataModule(
+        time_series=train,
+        max_encoder_length=10,
+        max_prediction_length=5,
+        batch_size=4,
+        target_normalizer="auto",
+    )
+    dm.setup("fit")
+
+    x_train, _ = next(iter(dm.train_dataloader()))
+    assert abs(float(x_train["target_past"].mean())) < 5
+
+    predict_dm = dm.with_data(shifted)
+    predict_dm.setup("predict")
+    scaled = float(next(iter(predict_dm.predict_dataloader()))[0]["target_past"].mean())
+
+    assert 20 < scaled < 500, (
+        f"target_past mean {scaled:.1f}: expected the training statistics to be "
+        "reused; near 0 means they were refitted on the new data, near 1000 "
+        "means they were lost"
+    )
+
+
+def test_data_less_module_becomes_usable_with_data():
+    """A module built without data is a configuration, usable once given data."""
+    config = EncoderDecoderTimeSeriesDataModule(
+        max_encoder_length=10,
+        max_prediction_length=5,
+        batch_size=4,
+    )
+
+    dm = config.with_data(make_timeseries(seed=0))
+    dm.setup("fit")
+    x, y = next(iter(dm.train_dataloader()))
+
+    # the configuration carried over: window lengths shape the batch
+    assert x["encoder_cont"].shape[0] == 4
+    assert x["encoder_cont"].shape[1] == 10
+    assert x["decoder_cont"].shape[1] == 5
