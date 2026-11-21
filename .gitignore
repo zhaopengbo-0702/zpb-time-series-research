@@ -23,6 +23,9 @@ Thumbs.db
 /baselines/Pyraformer/data/*.txt
 /baselines/Pyraformer/data/*.npy
 /baselines/Pyraformer/data/*.npz
+/baselines/Time-LLM/dataset/ETT-small/
+/baselines/Time-LLM/dataset/*.csv
+/libraries/Time-Series-Library/dataset/
 
 # Generated model artifacts
 *.pth
@@ -38,6 +41,10 @@ Thumbs.db
 /baselines/*/test_results/
 /baselines/*/logs/
 /baselines/*/result.txt
+/libraries/*/results/
+/libraries/*/test_results/
+/libraries/*/logs/
+/libraries/*/result*.txt
 
 # Keep the original Pyraformer dataset archive and CUDA library in Git.
 # Deliberately no blanket *.zip or *.so rule here.

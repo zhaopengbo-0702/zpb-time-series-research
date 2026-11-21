@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify original baseline bytes against sources.lock.json (standard library only)."""
+"""Verify original source bytes against sources.lock.json (standard library only)."""
 
 import argparse
 import hashlib
@@ -28,7 +28,7 @@ def main():
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1],
                         help='repository directory (default: parent of tools/)')
     parser.add_argument('--strict', action='store_true',
-                        help='also fail when unlisted files exist inside a baseline directory')
+                        help='also fail when unlisted files exist inside an imported source directory')
     args = parser.parse_args()
     root = args.root.resolve()
     try:
@@ -42,11 +42,11 @@ def main():
         omitted = []
         for source in manifest['sources']:
             expected = set()
-            baseline = repository_path(root, source['local_directory'])
+            source_directory = repository_path(root, source['local_directory'])
             for entry in source['files']:
                 path = repository_path(root, entry['path'])
-                if baseline not in path.parents:
-                    raise ValueError('File is outside its baseline: ' + entry['path'])
+                if source_directory not in path.parents:
+                    raise ValueError('File is outside its imported source directory: ' + entry['path'])
                 if entry['path'] in expected:
                     raise ValueError('Duplicate locked path: ' + entry['path'])
                 expected.add(entry['path'])
@@ -59,7 +59,7 @@ def main():
                 checked += 1
                 if len(content) != entry['size_bytes'] or git_blob_sha1(content) != entry['git_blob_sha1']:
                     changed.append(entry['path'])
-            actual = {p.relative_to(root).as_posix() for p in baseline.rglob('*') if p.is_file()}
+            actual = {p.relative_to(root).as_posix() for p in source_directory.rglob('*') if p.is_file()}
             source_extra = sorted(actual - expected)
             extra.extend(source_extra)
             omitted.extend(source.get('gitlinks', []))
@@ -77,7 +77,7 @@ def main():
         print('{}: {} original files read. Git modes are recorded in the lock; filesystem executable bits are not checked.'.format(
             'FAIL' if failed else 'PASS', checked))
         if extra and not args.strict:
-            print('Additional baseline files are listed above; use --strict to treat them as failures.')
+            print('Additional source files are listed above; use --strict to treat them as failures.')
         return 1 if failed else 0
     except (OSError, ValueError, KeyError, TypeError) as error:
         print('ERROR: {}'.format(error), file=sys.stderr)

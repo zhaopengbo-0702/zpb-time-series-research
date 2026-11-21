@@ -1,6 +1,6 @@
 # 第三方源码与许可证索引
 
-本仓库汇集五个上游项目的固定提交源码，各自的许可证、版权与原始说明保留在对应目录中。下表是文件索引，不以一份根目录许可证覆盖全部上游内容。
+本仓库汇集七个上游项目的固定提交源码，其中六个是独立模型仓库，另一个是 Time-Series-Library。各自的许可证、版权与原始说明保留在对应目录中。下表是文件索引，不以一份根目录许可证覆盖全部上游内容。
 
 | 项目 | 上游仓库 | 快照内的许可证文件 | 需一并保留的说明 |
 | --- | --- | --- | --- |
@@ -9,6 +9,8 @@
 | Informer2020 | [zhouhaoyi/Informer2020](https://github.com/zhouhaoyi/Informer2020) | [Apache-2.0 LICENSE](baselines/Informer2020/LICENSE) | [原 README](baselines/Informer2020/README.md) 中的许可证徽章存在下述不一致 |
 | Autoformer | [thuml/Autoformer](https://github.com/thuml/Autoformer) | [MIT LICENSE](baselines/Autoformer/LICENSE) | 原源码版权与引用信息 |
 | ETSformer | [azkanaon/etsformer](https://github.com/azkanaon/etsformer) | [BSD-3-Clause LICENSE.txt](baselines/ETSformer/LICENSE.txt) | 原版权声明：2022 Salesforce.com, Inc.，许可证中的三项条件与原声明 |
+| Time-LLM | [KimMeen/Time-LLM](https://github.com/KimMeen/Time-LLM) | [Apache-2.0 LICENSE](baselines/Time-LLM/LICENSE) | [LEGAL.md](baselines/Time-LLM/LEGAL.md) 与原源码声明；外部大模型权重另有其条款 |
+| Time-Series-Library | [thuml/Time-Series-Library](https://github.com/thuml/Time-Series-Library) | [MIT LICENSE](libraries/Time-Series-Library/LICENSE) | 原版权声明：2021 THUML @ Tsinghua University，以及源码内保留的第三方声明 |
 
 ## Informer2020 的许可证标注差异
 

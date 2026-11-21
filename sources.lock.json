@@ -3,8 +3,8 @@
   "imported_at_utc": "2026-11-21T10:30:53+00:00",
   "import_method": "Pinned source archives; original blob bytes and Git modes recorded. Upstream Git histories are linked, not imported.",
   "hash_definition": "git_blob_sha1 = SHA1(b\"blob \" + decimal_byte_length + b\"\\0\" + original_file_bytes)",
-  "source_count": 5,
-  "original_file_count": 260,
+  "source_count": 7,
+  "original_file_count": 679,
   "sources": [
     {
       "name": "EMAformer",
@@ -1681,6 +1681,2572 @@
       ],
       "imported_at_utc": "2026-11-21T10:37:35+00:00",
       "file_count": 58
+    },
+    {
+      "name": "Time-LLM",
+      "repository": "KimMeen/Time-LLM",
+      "url": "https://github.com/KimMeen/Time-LLM",
+      "default_branch_at_import": "main",
+      "commit": "b13e881f86cd0475ce1b72c17110430663334955",
+      "local_directory": "baselines/Time-LLM",
+      "snapshot_url": "https://github.com/KimMeen/Time-LLM/tree/b13e881f86cd0475ce1b72c17110430663334955",
+      "archive_url": "https://codeload.github.com/KimMeen/Time-LLM/tar.gz/b13e881f86cd0475ce1b72c17110430663334955",
+      "archive_sha256": "809f078894d619b52c5261718d3bc18e41db59a6772a062452968c3eb6040a16",
+      "license_spdx_from_license_file": "Apache-2.0",
+      "license_files": [
+        "baselines/Time-LLM/LICENSE",
+        "baselines/Time-LLM/LEGAL.md"
+      ],
+      "notes": [
+        "No Git submodules or Git LFS pointer files were found in this pinned source snapshot. No NOTICE file is present.",
+        "LEGAL.md is preserved. External pretrained LLM weights are not included in the Git source snapshot and retain their own terms."
+      ],
+      "gitlinks": [],
+      "lfs_pointers": [],
+      "notice_files": [],
+      "files": [
+        {
+          "path": "baselines/Time-LLM/LEGAL.md",
+          "git_blob_sha1": "f96892081dd58b22ee2199adffd7b188b79e7e7f",
+          "mode": "100644",
+          "size_bytes": 572
+        },
+        {
+          "path": "baselines/Time-LLM/LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "mode": "100644",
+          "size_bytes": 11357
+        },
+        {
+          "path": "baselines/Time-LLM/README.md",
+          "git_blob_sha1": "8711cf58b2ba73100f29a138599f775acf7d3036",
+          "mode": "100644",
+          "size_bytes": 9163
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider/__init__.py",
+          "git_blob_sha1": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+          "mode": "100644",
+          "size_bytes": 1
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider/data_factory.py",
+          "git_blob_sha1": "c046f05069c5f53f0981102a34459ec54a9169a4",
+          "mode": "100644",
+          "size_bytes": 1847
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider/data_loader.py",
+          "git_blob_sha1": "a9a1569d38e2feab5fc1ea1fa3901529472a181e",
+          "mode": "100644",
+          "size_bytes": 15151
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider/m4.py",
+          "git_blob_sha1": "a541851466fa80a74ed1d3d1025c1a304f79f2a5",
+          "mode": "100644",
+          "size_bytes": 4321
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider_pretrain/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider_pretrain/data_factory.py",
+          "git_blob_sha1": "3cd3c7bccad04a55063031b195f119a039858e91",
+          "mode": "100644",
+          "size_bytes": 1294
+        },
+        {
+          "path": "baselines/Time-LLM/data_provider_pretrain/data_loader.py",
+          "git_blob_sha1": "758b1a9d72650bcf13b58037b7015bf93d35b38e",
+          "mode": "100644",
+          "size_bytes": 9005
+        },
+        {
+          "path": "baselines/Time-LLM/dataset/prompt_bank/ECL.txt",
+          "git_blob_sha1": "ecf2cd087a75e9f53db35c2344f85af6f306e86e",
+          "mode": "100644",
+          "size_bytes": 357
+        },
+        {
+          "path": "baselines/Time-LLM/dataset/prompt_bank/ETT.txt",
+          "git_blob_sha1": "f565c11794e5cf953c695f0c334e8276e66e098e",
+          "mode": "100644",
+          "size_bytes": 504
+        },
+        {
+          "path": "baselines/Time-LLM/dataset/prompt_bank/Traffic.txt",
+          "git_blob_sha1": "8a9f50a727d28a5549f1a30bac1092c16e2d3082",
+          "mode": "100644",
+          "size_bytes": 191
+        },
+        {
+          "path": "baselines/Time-LLM/dataset/prompt_bank/Weather.txt",
+          "git_blob_sha1": "5effea90f838a9771192c94efcb231268e935ee2",
+          "mode": "100644",
+          "size_bytes": 147
+        },
+        {
+          "path": "baselines/Time-LLM/dataset/prompt_bank/m4.txt",
+          "git_blob_sha1": "ee27c76202d804c51fad54ae2c82b8e776fd7cb0",
+          "mode": "100644",
+          "size_bytes": 725
+        },
+        {
+          "path": "baselines/Time-LLM/ds_config_zero2.json",
+          "git_blob_sha1": "aa37aaea7974bd297c5e99853174f1f132a98083",
+          "mode": "100644",
+          "size_bytes": 494
+        },
+        {
+          "path": "baselines/Time-LLM/figures/framework.png",
+          "git_blob_sha1": "17c27b439f624ab41a801c8af67deec41ecdbbb6",
+          "mode": "100644",
+          "size_bytes": 95394
+        },
+        {
+          "path": "baselines/Time-LLM/figures/logo.png",
+          "git_blob_sha1": "befdabc20ae0d5773548f61e3e7c77896c8ef3e2",
+          "mode": "100644",
+          "size_bytes": 264888
+        },
+        {
+          "path": "baselines/Time-LLM/figures/method-detailed-illustration.png",
+          "git_blob_sha1": "62badae7fd8fe0bbf7c8eb4121f992ec903c69e5",
+          "mode": "100644",
+          "size_bytes": 770280
+        },
+        {
+          "path": "baselines/Time-LLM/layers/AutoCorrelation.py",
+          "git_blob_sha1": "5faec7c733c6bcb1bd36e332764f7f49fcab598e",
+          "mode": "100644",
+          "size_bytes": 6440
+        },
+        {
+          "path": "baselines/Time-LLM/layers/Autoformer_EncDec.py",
+          "git_blob_sha1": "6fce4bcd6b3d3eb00e9bcf5931ed2ee301554f4a",
+          "mode": "100644",
+          "size_bytes": 6831
+        },
+        {
+          "path": "baselines/Time-LLM/layers/Conv_Blocks.py",
+          "git_blob_sha1": "96ce3fc05ac897f678542f72ec74f2007e5f8cd6",
+          "mode": "100644",
+          "size_bytes": 2367
+        },
+        {
+          "path": "baselines/Time-LLM/layers/Embed.py",
+          "git_blob_sha1": "2b0f11b9fa957aa5de85a1cbafe35e0b18bc4248",
+          "mode": "100644",
+          "size_bytes": 7265
+        },
+        {
+          "path": "baselines/Time-LLM/layers/SelfAttention_Family.py",
+          "git_blob_sha1": "3817b96a55b2a3c2a9629f8aaf32a7b16f9cd582",
+          "mode": "100644",
+          "size_bytes": 8872
+        },
+        {
+          "path": "baselines/Time-LLM/layers/StandardNorm.py",
+          "git_blob_sha1": "990d0fdc17751b724354e70b89fd6d3ff0f4dd29",
+          "mode": "100755",
+          "size_bytes": 2184
+        },
+        {
+          "path": "baselines/Time-LLM/layers/Transformer_EncDec.py",
+          "git_blob_sha1": "dabf4c2a5e1e11a04eb4ed67785033dd259ee738",
+          "mode": "100644",
+          "size_bytes": 4929
+        },
+        {
+          "path": "baselines/Time-LLM/layers/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Time-LLM/models/Autoformer.py",
+          "git_blob_sha1": "8faf0a2a0db6a2ced4b072a7c1b344957c0a776b",
+          "mode": "100644",
+          "size_bytes": 6891
+        },
+        {
+          "path": "baselines/Time-LLM/models/DLinear.py",
+          "git_blob_sha1": "db1559c0b204223a9da4073a10b3e26ee0dfbf47",
+          "mode": "100644",
+          "size_bytes": 4455
+        },
+        {
+          "path": "baselines/Time-LLM/models/TimeLLM.py",
+          "git_blob_sha1": "604a8f4d8f6135c21fb9077f68d26e6aa243fc7f",
+          "mode": "100644",
+          "size_bytes": 13248
+        },
+        {
+          "path": "baselines/Time-LLM/models/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Time-LLM/requirements.txt",
+          "git_blob_sha1": "a4a3f2a905aba45546a0444e560202eacd7658ef",
+          "mode": "100644",
+          "size_bytes": 211
+        },
+        {
+          "path": "baselines/Time-LLM/run_m4.py",
+          "git_blob_sha1": "2be9ed976dd910fc7b564e11057c108aa5f5ad2a",
+          "mode": "100644",
+          "size_bytes": 14895
+        },
+        {
+          "path": "baselines/Time-LLM/run_main.py",
+          "git_blob_sha1": "1497e19ab12168300862c62b002ecd03271aaa68",
+          "mode": "100644",
+          "size_bytes": 13160
+        },
+        {
+          "path": "baselines/Time-LLM/run_pretrain.py",
+          "git_blob_sha1": "7f6916168f1574b70467c58995dafb5e7b8b7f01",
+          "mode": "100644",
+          "size_bytes": 13469
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_ECL.sh",
+          "git_blob_sha1": "ebdde75c18b1c107ca2c92c9880dcce306aff9e2",
+          "mode": "100644",
+          "size_bytes": 2756
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_ETTh1.sh",
+          "git_blob_sha1": "952e5de3edc61003bce7bb7232bcbff749f425e5",
+          "mode": "100644",
+          "size_bytes": 2842
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_ETTh1_ETTh2.sh",
+          "git_blob_sha1": "32c4817906acd7fe713d76df7b99c040e6b5c8fb",
+          "mode": "100644",
+          "size_bytes": 3067
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_ETTh2.sh",
+          "git_blob_sha1": "f7ad30c0ab088c2713784057f6c6b6f74fb52f35",
+          "mode": "100644",
+          "size_bytes": 2876
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_ETTm1.sh",
+          "git_blob_sha1": "9cbfcf6cd1941176ed60c910059404fd1212538d",
+          "mode": "100644",
+          "size_bytes": 3043
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_ETTm2.sh",
+          "git_blob_sha1": "847179496d53b6d7b66e84389675e3d174994ef4",
+          "mode": "100644",
+          "size_bytes": 2974
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_M4.sh",
+          "git_blob_sha1": "a9b02d9a3eb3ab37309a81152b632f684db4eda8",
+          "mode": "100755",
+          "size_bytes": 4035
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_Traffic.sh",
+          "git_blob_sha1": "5ded82a9c3f6589a342c9ab5e7686d26b285401e",
+          "mode": "100644",
+          "size_bytes": 2747
+        },
+        {
+          "path": "baselines/Time-LLM/scripts/TimeLLM_Weather.sh",
+          "git_blob_sha1": "204adba1744407e238a92f6fc7538ca487c87daa",
+          "mode": "100644",
+          "size_bytes": 2852
+        },
+        {
+          "path": "baselines/Time-LLM/utils/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "baselines/Time-LLM/utils/losses.py",
+          "git_blob_sha1": "21438e741887af4d2efc14af849aad52daf26189",
+          "mode": "100644",
+          "size_bytes": 3459
+        },
+        {
+          "path": "baselines/Time-LLM/utils/m4_summary.py",
+          "git_blob_sha1": "acd50fef8e3df6185598cc2c2afc8f40dd573ec1",
+          "mode": "100644",
+          "size_bytes": 6174
+        },
+        {
+          "path": "baselines/Time-LLM/utils/masking.py",
+          "git_blob_sha1": "6c09943fafc8508948abaef327f19e367cd39d51",
+          "mode": "100644",
+          "size_bytes": 831
+        },
+        {
+          "path": "baselines/Time-LLM/utils/metrics.py",
+          "git_blob_sha1": "b4f5a76b8a96ec080401451ac54f66370dd794f8",
+          "mode": "100644",
+          "size_bytes": 866
+        },
+        {
+          "path": "baselines/Time-LLM/utils/timefeatures.py",
+          "git_blob_sha1": "913ff08859a7a2f626a76953b183e4da9dfcb10b",
+          "mode": "100644",
+          "size_bytes": 3742
+        },
+        {
+          "path": "baselines/Time-LLM/utils/tools.py",
+          "git_blob_sha1": "b9ee19b3a3473b111d7ff771ffe5583774384eee",
+          "mode": "100644",
+          "size_bytes": 8282
+        }
+      ],
+      "imported_at_utc": "2026-11-21T11:51:46+00:00",
+      "file_count": 51
+    },
+    {
+      "name": "Time-Series-Library",
+      "repository": "thuml/Time-Series-Library",
+      "url": "https://github.com/thuml/Time-Series-Library",
+      "default_branch_at_import": "main",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "local_directory": "libraries/Time-Series-Library",
+      "snapshot_url": "https://github.com/thuml/Time-Series-Library/tree/4e938a1767106324dd753b2a44832bf870a0252e",
+      "archive_url": "https://codeload.github.com/thuml/Time-Series-Library/tar.gz/4e938a1767106324dd753b2a44832bf870a0252e",
+      "archive_sha256": "9e081377ab359cc31145a7e91d0d00018c2c3f1be7495dc6c50f393d9703de91",
+      "license_spdx_from_license_file": "MIT",
+      "license_files": [
+        "libraries/Time-Series-Library/LICENSE"
+      ],
+      "notes": [
+        "No Git submodules or Git LFS pointer files were found in this pinned source snapshot. No NOTICE file is present."
+      ],
+      "gitlinks": [],
+      "lfs_pointers": [],
+      "notice_files": [],
+      "files": [
+        {
+          "path": "libraries/Time-Series-Library/.gitignore",
+          "git_blob_sha1": "8d3acf73c51e78eb13b89b948bd4a4e6c30e6ce6",
+          "mode": "100644",
+          "size_bytes": 2576
+        },
+        {
+          "path": "libraries/Time-Series-Library/CONTRIBUTING.md",
+          "git_blob_sha1": "67f5a65c4b9666cc09f8122231ce363df4799146",
+          "mode": "100644",
+          "size_bytes": 1496
+        },
+        {
+          "path": "libraries/Time-Series-Library/Dockerfile",
+          "git_blob_sha1": "252351e1730b5f3a4ca9452bb8006e242dcd5961",
+          "mode": "100644",
+          "size_bytes": 822
+        },
+        {
+          "path": "libraries/Time-Series-Library/LICENSE",
+          "git_blob_sha1": "278c2678a6167d7c110b4451c7fd1f2e51f4b532",
+          "mode": "100644",
+          "size_bytes": 1084
+        },
+        {
+          "path": "libraries/Time-Series-Library/README.md",
+          "git_blob_sha1": "612c92c4d1e25b234e7a054f6f4374949d5ade35",
+          "mode": "100644",
+          "size_bytes": 30580
+        },
+        {
+          "path": "libraries/Time-Series-Library/README_zh.md",
+          "git_blob_sha1": "eb5ba2b6eab6a15e39ec4beed2672fe60c527f43",
+          "mode": "100644",
+          "size_bytes": 28047
+        },
+        {
+          "path": "libraries/Time-Series-Library/data_provider/__init__.py",
+          "git_blob_sha1": "8b137891791fe96927ad78e64b0aad7bded08bdc",
+          "mode": "100644",
+          "size_bytes": 1
+        },
+        {
+          "path": "libraries/Time-Series-Library/data_provider/data_factory.py",
+          "git_blob_sha1": "7fc458f69bc75032b799789b8b1581c80d98d46d",
+          "mode": "100644",
+          "size_bytes": 2631
+        },
+        {
+          "path": "libraries/Time-Series-Library/data_provider/data_loader.py",
+          "git_blob_sha1": "ea28fdccd272e5108c42aa079d7104d287be9745",
+          "mode": "100644",
+          "size_bytes": 36439
+        },
+        {
+          "path": "libraries/Time-Series-Library/data_provider/m4.py",
+          "git_blob_sha1": "eb2842a25ae2d7dd8e41f050d27bc082535a01dd",
+          "mode": "100644",
+          "size_bytes": 5260
+        },
+        {
+          "path": "libraries/Time-Series-Library/data_provider/uea.py",
+          "git_blob_sha1": "f0dd0ab9e3efb49296b2cd112d1c92d2ab54e721",
+          "mode": "100644",
+          "size_bytes": 5036
+        },
+        {
+          "path": "libraries/Time-Series-Library/docker-compose.yml",
+          "git_blob_sha1": "d7e3e266c313b610e7b09d79e0dd34083e88137b",
+          "mode": "100644",
+          "size_bytes": 809
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_anomaly_detection.py",
+          "git_blob_sha1": "dd8f7b4751a5faa4bb12bbc4f815671e6566244a",
+          "mode": "100644",
+          "size_bytes": 7805
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_basic.py",
+          "git_blob_sha1": "844aaa8d43557344e19d5c0608bbf0acd8fd9bcb",
+          "mode": "100644",
+          "size_bytes": 3552
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_classification.py",
+          "git_blob_sha1": "720418e85e18d70dbdb4403ff77b892af7ffaa29",
+          "mode": "100644",
+          "size_bytes": 7456
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_imputation.py",
+          "git_blob_sha1": "a565d8fea1a33d8b9d7ca0a6699e53f8e5146d29",
+          "mode": "100644",
+          "size_bytes": 8631
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_long_term_forecasting.py",
+          "git_blob_sha1": "5c1d282eb6feed27b8ca4034c7268462fe26ebfe",
+          "mode": "100644",
+          "size_bytes": 11442
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_short_term_forecasting.py",
+          "git_blob_sha1": "50d27d2cba55a3cf5fc1d44cd8776aff968221c4",
+          "mode": "100644",
+          "size_bytes": 10325
+        },
+        {
+          "path": "libraries/Time-Series-Library/exp/exp_zero_shot_forecasting.py",
+          "git_blob_sha1": "2754d48f5649f8eb130f2fe63b9b92354556bf63",
+          "mode": "100644",
+          "size_bytes": 5787
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/AutoCorrelation.py",
+          "git_blob_sha1": "c566461eb9d61da334c2cf41f3d9748711c55993",
+          "mode": "100644",
+          "size_bytes": 6462
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/Autoformer_EncDec.py",
+          "git_blob_sha1": "6fce4bcd6b3d3eb00e9bcf5931ed2ee301554f4a",
+          "mode": "100644",
+          "size_bytes": 6831
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/Conv_Blocks.py",
+          "git_blob_sha1": "8eddfa382fe888e141a72769040e11705e019a3c",
+          "mode": "100644",
+          "size_bytes": 2376
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/Crossformer_EncDec.py",
+          "git_blob_sha1": "42fc3225ea12c34c2aca7f347d69fd36f677e308",
+          "mode": "100644",
+          "size_bytes": 4333
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/DWT_Decomposition.py",
+          "git_blob_sha1": "d21e9b180a09fa1a5640789606103522c9cb9afc",
+          "mode": "100644",
+          "size_bytes": 46759
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/ETSformer_EncDec.py",
+          "git_blob_sha1": "a3c41bad627516d2c24185bb3fa4fce9f55aef1a",
+          "mode": "100644",
+          "size_bytes": 11433
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/Embed.py",
+          "git_blob_sha1": "977e25568d37b9dd0efd442dcc5b33eab9843d71",
+          "mode": "100644",
+          "size_bytes": 7012
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/FourierCorrelation.py",
+          "git_blob_sha1": "6a8cbd459c75d690463aa03da5420ccc48e5c604",
+          "mode": "100644",
+          "size_bytes": 7523
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/MSGBlock.py",
+          "git_blob_sha1": "a7fcf62371f7605b3681fbb3fc520149f2c4acd7",
+          "mode": "100644",
+          "size_bytes": 9954
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/MambaBlock.py",
+          "git_blob_sha1": "0455e320d620a88c06ecbc7f4e1465161dbad964",
+          "mode": "100644",
+          "size_bytes": 18260
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/MultiWaveletCorrelation.py",
+          "git_blob_sha1": "b6feb59fd3417243dade96f861a58e2245038f7c",
+          "mode": "100644",
+          "size_bytes": 23039
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/Pyraformer_EncDec.py",
+          "git_blob_sha1": "1af1bf2cd05d8824882d1e074c091684109f7e9e",
+          "mode": "100644",
+          "size_bytes": 7433
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/SelfAttention_Family.py",
+          "git_blob_sha1": "b151bffc9dddab59a09abe0e8109a1658850bcda",
+          "mode": "100644",
+          "size_bytes": 12001
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/StandardNorm.py",
+          "git_blob_sha1": "990d0fdc17751b724354e70b89fd6d3ff0f4dd29",
+          "mode": "100755",
+          "size_bytes": 2184
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/TimeFilter_layers.py",
+          "git_blob_sha1": "437c3bfd135c2d2b907c7332311ac553c8a2d523",
+          "mode": "100644",
+          "size_bytes": 10046
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/Transformer_EncDec.py",
+          "git_blob_sha1": "dabf4c2a5e1e11a04eb4ed67785033dd259ee738",
+          "mode": "100644",
+          "size_bytes": 4929
+        },
+        {
+          "path": "libraries/Time-Series-Library/layers/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Autoformer.py",
+          "git_blob_sha1": "fb0cd5274cf0457e27a15c66a3c6f384b08f340d",
+          "mode": "100644",
+          "size_bytes": 6815
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Chronos.py",
+          "git_blob_sha1": "183143fee7d10b6b8466ac680b2495bf040117b6",
+          "mode": "100644",
+          "size_bytes": 1420
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Chronos2.py",
+          "git_blob_sha1": "ce9e017a50a3ca2fd23db13d0c7c9db263234d7c",
+          "mode": "100644",
+          "size_bytes": 1759
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Crossformer.py",
+          "git_blob_sha1": "7757d34218a2791bb1e1825165160fdc3b9c655b",
+          "mode": "100644",
+          "size_bytes": 6363
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/DLinear.py",
+          "git_blob_sha1": "3f4d666a9ffe7fb6f58627ba43f1a9d3d9804d78",
+          "mode": "100644",
+          "size_bytes": 4501
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/ETSformer.py",
+          "git_blob_sha1": "a79b3da7dd1017da225747eb26dcae9bfb02df84",
+          "mode": "100644",
+          "size_bytes": 4599
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/FEDformer.py",
+          "git_blob_sha1": "726eb4a2f09b6b75656b5d91e9421c6cacfb55f8",
+          "mode": "100644",
+          "size_bytes": 8587
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/FiLM.py",
+          "git_blob_sha1": "1240e37047f26b0fd905151f0b2671255b6ec045",
+          "mode": "100644",
+          "size_bytes": 11567
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/FreTS.py",
+          "git_blob_sha1": "ca4e0b648db42a1846b7a0a9a661a39177f47005",
+          "mode": "100644",
+          "size_bytes": 4630
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Informer.py",
+          "git_blob_sha1": "1c22cfccf91765e7dd092a947e0f6db4a5c0d463",
+          "mode": "100644",
+          "size_bytes": 6395
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/KANAD.py",
+          "git_blob_sha1": "399d4299475c40abbf7be0aa14ff2ef0576ced8d",
+          "mode": "100644",
+          "size_bytes": 3832
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Koopa.py",
+          "git_blob_sha1": "0eea94155561b56bc0fae055f157098627db54a9",
+          "mode": "100644",
+          "size_bytes": 13374
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/LightTS.py",
+          "git_blob_sha1": "a2051e44d864ec4ec5e72e59660b98c30c93a902",
+          "mode": "100644",
+          "size_bytes": 5622
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/MICN.py",
+          "git_blob_sha1": "4d79f647073e5d98109644a3353c3b3675dda042",
+          "mode": "100644",
+          "size_bytes": 9946
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/MSGNet.py",
+          "git_blob_sha1": "2b4061a4c8f492892650cd8370d75d72f0de249d",
+          "mode": "100644",
+          "size_bytes": 9560
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Mamba.py",
+          "git_blob_sha1": "edece42ae267e5e0364edb94050e95786cfb1c8f",
+          "mode": "100644",
+          "size_bytes": 1590
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/MambaSimple.py",
+          "git_blob_sha1": "a81e664fdddbaf2d029ee2564b0e053431f0770e",
+          "mode": "100644",
+          "size_bytes": 5501
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/MambaSingleLayer.py",
+          "git_blob_sha1": "5df3b5c60f8866e9b702bacd0386298b34a89e5b",
+          "mode": "100644",
+          "size_bytes": 5326
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Moirai.py",
+          "git_blob_sha1": "b34388e5779fea7c94dfa27d389e52cb0b578f30",
+          "mode": "100644",
+          "size_bytes": 1791
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/MultiPatchFormer.py",
+          "git_blob_sha1": "84acf888affac3d57b16f038310d1c6f6b64840d",
+          "mode": "100644",
+          "size_bytes": 12067
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Nonstationary_Transformer.py",
+          "git_blob_sha1": "211e8b8d94fb120e0ab7a9c16e8459ab25a51958",
+          "mode": "100644",
+          "size_bytes": 10251
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/PAttn.py",
+          "git_blob_sha1": "b6f4634aab87bff704a8bdc250f9790eba2cb820",
+          "mode": "100644",
+          "size_bytes": 2500
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/PatchTST.py",
+          "git_blob_sha1": "085efd89de3af3024cd993a2ef139f2c5d4c3eaf",
+          "mode": "100644",
+          "size_bytes": 9071
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Pyraformer.py",
+          "git_blob_sha1": "d92693c09d95c0866e539517a491c9029e5ec960",
+          "mode": "100644",
+          "size_bytes": 4215
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Reformer.py",
+          "git_blob_sha1": "b29336c09fff873f46a0feadc1223aa37c157f55",
+          "mode": "100644",
+          "size_bytes": 5090
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/SCINet.py",
+          "git_blob_sha1": "740d0f7d88e8a94aa7fe12c745f0876af7b0fc08",
+          "mode": "100644",
+          "size_bytes": 7357
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/SegRNN.py",
+          "git_blob_sha1": "afff1bc07dd14d227bbecdd36941d57f8aa8f63e",
+          "mode": "100644",
+          "size_bytes": 4215
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Sundial.py",
+          "git_blob_sha1": "2ec7110937b086b2646d38d02cb18650453d0983",
+          "mode": "100644",
+          "size_bytes": 1309
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TSMixer.py",
+          "git_blob_sha1": "76884d467f17d64aa87d8e22cc9f0aa6231914cf",
+          "mode": "100644",
+          "size_bytes": 1814
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TemporalFusionTransformer.py",
+          "git_blob_sha1": "564c835022c82e516d7e20133d6153fc45be20df",
+          "mode": "100644",
+          "size_bytes": 14027
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TiDE.py",
+          "git_blob_sha1": "0fbb98ea159ec5aa5d7afed83eddaf4c2476eaf1",
+          "mode": "100644",
+          "size_bytes": 7222
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TiRex.py",
+          "git_blob_sha1": "aaad4c52e2a10c5aa5efbc130513fc60b9713627",
+          "mode": "100644",
+          "size_bytes": 1221
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TimeFilter.py",
+          "git_blob_sha1": "ff952b4a7741ad2772fde3e41b0d97bc2bbe7e19",
+          "mode": "100644",
+          "size_bytes": 6769
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TimeMixer.py",
+          "git_blob_sha1": "b6b2989f6835995e784bf511fbdcd20e5fe2bf3e",
+          "mode": "100755",
+          "size_bytes": 20056
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TimeMoE.py",
+          "git_blob_sha1": "f52b10b5a8826a59aceeea391584b32d975f6ffd",
+          "mode": "100644",
+          "size_bytes": 1750
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TimeXer.py",
+          "git_blob_sha1": "c8026b74e45af938c2e234e06eef8126a6117caa",
+          "mode": "100644",
+          "size_bytes": 9019
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TimesFM.py",
+          "git_blob_sha1": "42ea2742c0e418ff22ed2e3236c2faf4169608df",
+          "mode": "100644",
+          "size_bytes": 1756
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/TimesNet.py",
+          "git_blob_sha1": "8977428617dbe85dc1cf9862b112a1d3a4b30a59",
+          "mode": "100644",
+          "size_bytes": 8735
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/Transformer.py",
+          "git_blob_sha1": "3ecae526df0d9f8022d023c75733ce966d714a92",
+          "mode": "100644",
+          "size_bytes": 5561
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/WPMixer.py",
+          "git_blob_sha1": "9271b2b3d8283a5625236bc8aebd766e89e7fd82",
+          "mode": "100644",
+          "size_bytes": 13212
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/__init__.py",
+          "git_blob_sha1": "a8f5b3ca62ebc791ce84e0fc558882df9905e02b",
+          "mode": "100644",
+          "size_bytes": 5
+        },
+        {
+          "path": "libraries/Time-Series-Library/models/iTransformer.py",
+          "git_blob_sha1": "4833a693bc230f1938fc5576b4601b49bf689c38",
+          "mode": "100644",
+          "size_bytes": 5735
+        },
+        {
+          "path": "libraries/Time-Series-Library/pic/dataset.png",
+          "git_blob_sha1": "e51eefe5ed041d410c21ffb317901209d187335b",
+          "mode": "100644",
+          "size_bytes": 159483
+        },
+        {
+          "path": "libraries/Time-Series-Library/requirements.txt",
+          "git_blob_sha1": "6a092bbbc105ce844996dee027ea838cc93667d1",
+          "mode": "100644",
+          "size_bytes": 502
+        },
+        {
+          "path": "libraries/Time-Series-Library/run.py",
+          "git_blob_sha1": "9fe7530617791f654d3353002fd4013001089f1d",
+          "mode": "100644",
+          "size_bytes": 16328
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/Autoformer.sh",
+          "git_blob_sha1": "583ddf9b919e2857d1deae5db346844a00e6cdff",
+          "mode": "100644",
+          "size_bytes": 386
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/Crossformer.sh",
+          "git_blob_sha1": "39d6c8ba409d9520c66f3ccc5b11eda9bc87b4de",
+          "mode": "100644",
+          "size_bytes": 387
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/DLinear.sh",
+          "git_blob_sha1": "d0e2b27f2d43c00506ad1c7f7be80fb6a58c7d8f",
+          "mode": "100644",
+          "size_bytes": 385
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/ETSformer.sh",
+          "git_blob_sha1": "64004581d5cfcba1bcf69bb84de83754c8968ee4",
+          "mode": "100644",
+          "size_bytes": 404
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/FEDformer.sh",
+          "git_blob_sha1": "a3e69bb20e092bd5d03224ba57aeccb9d44c9358",
+          "mode": "100644",
+          "size_bytes": 385
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/FiLM.sh",
+          "git_blob_sha1": "92ed6edfa852288da6c5ecbd0309c14338fbbe52",
+          "mode": "100644",
+          "size_bytes": 381
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/Informer.sh",
+          "git_blob_sha1": "6e3f0b0f8fe557655b498d5433d8029f1a065b74",
+          "mode": "100644",
+          "size_bytes": 384
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/KANAD.sh",
+          "git_blob_sha1": "d99e791c2f2902efc4150ab4b0237e30221def25",
+          "mode": "100644",
+          "size_bytes": 392
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/LightTS.sh",
+          "git_blob_sha1": "2a2439ec5d53450d526f3cd1fd4953d37e2774da",
+          "mode": "100644",
+          "size_bytes": 383
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/MICN.sh",
+          "git_blob_sha1": "80ab7e9bbbafad9d1f6696149c073d56363dcddf",
+          "mode": "100644",
+          "size_bytes": 380
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/Pyraformer.sh",
+          "git_blob_sha1": "c729ac8f358f0376ce5dec52425d98ce66080778",
+          "mode": "100644",
+          "size_bytes": 386
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/Reformer.sh",
+          "git_blob_sha1": "09507c37ae8819833f9772290f3561c0d1706cb2",
+          "mode": "100644",
+          "size_bytes": 384
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/TimesNet.sh",
+          "git_blob_sha1": "d6e4e11f43138b95bc3ca16246f67ac93b761358",
+          "mode": "100644",
+          "size_bytes": 394
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/Transformer.sh",
+          "git_blob_sha1": "fd0d8201848d4c091f9d91286a23c51ec5209063",
+          "mode": "100644",
+          "size_bytes": 387
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/MSL/iTransformer.sh",
+          "git_blob_sha1": "1dafe1298195b68092a7a89b82a86da7d8fbaade",
+          "mode": "100644",
+          "size_bytes": 388
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/PSM/Autoformer.sh",
+          "git_blob_sha1": "887ac1ae3cf0d6fedd3498e0b651aa563c3c984a",
+          "mode": "100644",
+          "size_bytes": 385
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/PSM/DLinear.sh",
+          "git_blob_sha1": "d531bf05d85a1619609c1cbe60e0e96676dba389",
+          "mode": "100644",
+          "size_bytes": 384
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/PSM/KANAD.sh",
+          "git_blob_sha1": "177dbfa803a47fa6e62732bcf1fc7dc3b6cbf962",
+          "mode": "100644",
+          "size_bytes": 392
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/PSM/TimesNet.sh",
+          "git_blob_sha1": "e972e61e8d1bdd30449ed50618428d9d45f9a6b4",
+          "mode": "100644",
+          "size_bytes": 395
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/PSM/Transformer.sh",
+          "git_blob_sha1": "ae765c87fb48a9c4fd4ac1cc0c70c0336ea1844f",
+          "mode": "100644",
+          "size_bytes": 386
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMAP/Autoformer.sh",
+          "git_blob_sha1": "90d3e9619bd20299ffa66c21320688d675fca913",
+          "mode": "100644",
+          "size_bytes": 388
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMAP/KANAD.sh",
+          "git_blob_sha1": "e77412c995b49d2e08dc84bc18bb41f125a0bd66",
+          "mode": "100644",
+          "size_bytes": 395
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMAP/TimesNet.sh",
+          "git_blob_sha1": "5e0bfa5476b32e2d58c6a2c775483027a2036bfa",
+          "mode": "100644",
+          "size_bytes": 400
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMAP/Transformer.sh",
+          "git_blob_sha1": "029d25c14ef689b6495baf7edd1cb7118396876e",
+          "mode": "100644",
+          "size_bytes": 389
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMD/Autoformer.sh",
+          "git_blob_sha1": "b17c459127c6d28d0d29d3fb16de1d0c69615913",
+          "mode": "100644",
+          "size_bytes": 388
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMD/KANAD.sh",
+          "git_blob_sha1": "d4d0435a2675646900c9ceede745920db8b9eca7",
+          "mode": "100644",
+          "size_bytes": 394
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMD/TimesNet.sh",
+          "git_blob_sha1": "0064211d85e243660c1ea11e745adfb4193fd86e",
+          "mode": "100644",
+          "size_bytes": 398
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SMD/Transformer.sh",
+          "git_blob_sha1": "dc695ae2d007e59d7df9fab11382a3b5e6af789d",
+          "mode": "100644",
+          "size_bytes": 389
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SWAT/Autoformer.sh",
+          "git_blob_sha1": "a2799134170562e34390c713726fa9225d4b22de",
+          "mode": "100644",
+          "size_bytes": 402
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SWAT/KANAD.sh",
+          "git_blob_sha1": "0f15f742b5ef010875b6d3eccba687e88100e9cf",
+          "mode": "100644",
+          "size_bytes": 395
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SWAT/TimesNet.sh",
+          "git_blob_sha1": "98e00acbc6128ee93bb2dfcfdcd06619648b5fa1",
+          "mode": "100644",
+          "size_bytes": 2977
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/anomaly_detection/SWAT/Transformer.sh",
+          "git_blob_sha1": "5ae62098a309110f8dc85e6dcee71c54621e6941",
+          "mode": "100644",
+          "size_bytes": 403
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/Autoformer.sh",
+          "git_blob_sha1": "84f4a7a5468176b7d5b5cdbab8d60bf94c8c0e81",
+          "mode": "100644",
+          "size_bytes": 3657
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/Crossformer.sh",
+          "git_blob_sha1": "c99a41468f9667c81c47c6c28f589b9341692174",
+          "mode": "100644",
+          "size_bytes": 3658
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/DLinear.sh",
+          "git_blob_sha1": "662dd1d8b9ce6a1fc0f86dd1fb031f6021c7e357",
+          "mode": "100644",
+          "size_bytes": 3654
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/ETSformer.sh",
+          "git_blob_sha1": "7b281b3fd78c522fc37b6a34bded9c984ab31cd5",
+          "mode": "100644",
+          "size_bytes": 3826
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/FEDformer.sh",
+          "git_blob_sha1": "0ad01928f907155332e079be91bc843ba92168b1",
+          "mode": "100644",
+          "size_bytes": 3656
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/FiLM.sh",
+          "git_blob_sha1": "421f8b069cdb0cd0ead86675d103f0eeeb73225a",
+          "mode": "100644",
+          "size_bytes": 3690
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/Informer.sh",
+          "git_blob_sha1": "cf84a5ac8940c7cf213c41505c01098a2899252f",
+          "mode": "100644",
+          "size_bytes": 3655
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/LightTS.sh",
+          "git_blob_sha1": "c47a011bbb103df2294ec33778d57fa8f6b269aa",
+          "mode": "100644",
+          "size_bytes": 3654
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/MICN.sh",
+          "git_blob_sha1": "dbb32adeb1db2373b55758c57f2094caa60f1fee",
+          "mode": "100644",
+          "size_bytes": 3665
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/MambaSL.out",
+          "git_blob_sha1": "f0dd92c50d3d5d1d960c19a6f9d94db4f0fab374",
+          "mode": "100644",
+          "size_bytes": 69622
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/MambaSL.sh",
+          "git_blob_sha1": "08076ff1649e8de05284c830701fc472fb835150",
+          "mode": "100644",
+          "size_bytes": 3196
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/PatchTST.sh",
+          "git_blob_sha1": "333ce8d199da9124b36856071e115329ffb06244",
+          "mode": "100644",
+          "size_bytes": 3655
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/Pyraformer.sh",
+          "git_blob_sha1": "d1a775e02eca27c2bfc29498c864be90c5857bcf",
+          "mode": "100644",
+          "size_bytes": 3647
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/Reformer.sh",
+          "git_blob_sha1": "1b0bd9e5b506e82539a3515374ddf62f959db35c",
+          "mode": "100644",
+          "size_bytes": 3655
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/TimesNet.sh",
+          "git_blob_sha1": "7d55dd63f8c1ff432f17f788d2800c19d407c070",
+          "mode": "100644",
+          "size_bytes": 3560
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/Transformer.sh",
+          "git_blob_sha1": "677bf0dc59e1041d1be8875feafbec07d4a04390",
+          "mode": "100644",
+          "size_bytes": 3658
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/classification/iTransformer.sh",
+          "git_blob_sha1": "2534e638bc97aba142744bcadb2af2e38cd0ec39",
+          "mode": "100644",
+          "size_bytes": 3810
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/ECL/TimeXer.sh",
+          "git_blob_sha1": "53f9a28d4f274fee3fd090d46fd729b82a7ff7c4",
+          "mode": "100644",
+          "size_bytes": 1720
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/EPF/TimeXer.sh",
+          "git_blob_sha1": "e7fcf3a21aed6d7d8aae0edd6b36d3bf49d678f7",
+          "mode": "100644",
+          "size_bytes": 2117
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/ETTh1/TimeXer.sh",
+          "git_blob_sha1": "545a2af61560def43fb6e4aa026702c1e5fa6628",
+          "mode": "100644",
+          "size_bytes": 1766
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/ETTh2/TimeXer.sh",
+          "git_blob_sha1": "95aa938df92842fc1b86d8a513df4b346df4a0cb",
+          "mode": "100644",
+          "size_bytes": 1782
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/ETTm1/TimeXer.sh",
+          "git_blob_sha1": "b6ba806e72c784afd58d69b2940ea66bc5ef8716",
+          "mode": "100644",
+          "size_bytes": 1744
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/ETTm2/TimeXer.sh",
+          "git_blob_sha1": "f014b716eae7bc4f106d593e5d76fd2186e39ac1",
+          "mode": "100644",
+          "size_bytes": 1742
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/Traffic/TimeXer.sh",
+          "git_blob_sha1": "831025a107d484d3494045197765a05a9a0af7f7",
+          "mode": "100644",
+          "size_bytes": 1842
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/exogenous_forecast/Weather/TimeXer.sh",
+          "git_blob_sha1": "30a285f69a030380340b6764b1e7383eaa6543f6",
+          "mode": "100644",
+          "size_bytes": 1685
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/Autoformer.sh",
+          "git_blob_sha1": "fedd5755e7ec74a3a85fd624959cd6c5196621b7",
+          "mode": "100644",
+          "size_bytes": 2123
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/DLinear.sh",
+          "git_blob_sha1": "2a95e502519e63a26e45fe965d9f0071340a0d69",
+          "mode": "100644",
+          "size_bytes": 2100
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/ETSformer.sh",
+          "git_blob_sha1": "36a4cddf866decf53fdb644584843172d0e407bc",
+          "mode": "100644",
+          "size_bytes": 2122
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/FEDformer.sh",
+          "git_blob_sha1": "57b2f5b71f155a65d35844c3eb8a206b77274580",
+          "mode": "100644",
+          "size_bytes": 2122
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/Informer.sh",
+          "git_blob_sha1": "cfd6264cacbee28b242d927d4aa6714dcc61ebb0",
+          "mode": "100644",
+          "size_bytes": 2121
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/LightTS.sh",
+          "git_blob_sha1": "a7bffa063ed5c9bd561b21fbc01fb915c0959f0a",
+          "mode": "100644",
+          "size_bytes": 2124
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/Pyraformer.sh",
+          "git_blob_sha1": "93a36e315cf87db77d45659abea68d4dd564ecd9",
+          "mode": "100644",
+          "size_bytes": 2123
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/Reformer.sh",
+          "git_blob_sha1": "7f50b9202f742b6f0c6ac6b6fda6e1a2a48a0a8e",
+          "mode": "100644",
+          "size_bytes": 2121
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/TimesNet.sh",
+          "git_blob_sha1": "f1930ab8daa3b0bc54744dadb4392eeae11eddac",
+          "mode": "100644",
+          "size_bytes": 2113
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/Transformer.sh",
+          "git_blob_sha1": "78559ec8e39d17197c073a62414fb57e655ca0b5",
+          "mode": "100644",
+          "size_bytes": 2124
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ECL_script/iTransformer.sh",
+          "git_blob_sha1": "93eb2d210857ada32f165efe76becbdb189fb2d2",
+          "mode": "100644",
+          "size_bytes": 2125
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Autoformer_ETTh1.sh",
+          "git_blob_sha1": "d71dc2dbb1b8e3acfce67c95b6e5c08fd7c02ee9",
+          "mode": "100644",
+          "size_bytes": 2071
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Autoformer_ETTh2.sh",
+          "git_blob_sha1": "ebdee512ca91fb16851804e08521d69267e39b1e",
+          "mode": "100644",
+          "size_bytes": 2071
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Autoformer_ETTm1.sh",
+          "git_blob_sha1": "6210df714b034f0cd867d6958bf7e832219a2c59",
+          "mode": "100644",
+          "size_bytes": 2071
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Autoformer_ETTm2.sh",
+          "git_blob_sha1": "a16e618092a73fd843283f0cbd2bb93dc1a2a501",
+          "mode": "100644",
+          "size_bytes": 2071
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Crossformer_ETTh1.sh",
+          "git_blob_sha1": "a271a1f0681244b8c62d70251a087b632f1423b8",
+          "mode": "100644",
+          "size_bytes": 2064
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/DLinear_ETTh1.sh",
+          "git_blob_sha1": "5a9da75ebed66f915f37ed940cdd4bfc7b43a10a",
+          "mode": "100644",
+          "size_bytes": 2072
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/FiLM_ETTh1.sh",
+          "git_blob_sha1": "d81190895faa43c76f3c4bbb851ed5817ed68e5b",
+          "mode": "100644",
+          "size_bytes": 2061
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/MICN_ETTh1.sh",
+          "git_blob_sha1": "5c742b52e329112f00a71ec6e512fb96578a5b1f",
+          "mode": "100644",
+          "size_bytes": 2153
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Nonstationary_Transformer_ETTh1.sh",
+          "git_blob_sha1": "ec6bb593e0013dd62c8c7113d31df043fc2375c4",
+          "mode": "100644",
+          "size_bytes": 2294
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/TiDE_ETTh1.sh",
+          "git_blob_sha1": "bb9206964bed2a0e5e1d27b9604d2a9b836d9414",
+          "mode": "100644",
+          "size_bytes": 2059
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/TimesNet_ETTh1.sh",
+          "git_blob_sha1": "6b5af0cb4e79cd5c0dc8a37564177e03c497682c",
+          "mode": "100644",
+          "size_bytes": 2061
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/TimesNet_ETTh2.sh",
+          "git_blob_sha1": "27805525da3e30138159333b63c145242d8c90b6",
+          "mode": "100644",
+          "size_bytes": 2061
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/TimesNet_ETTm1.sh",
+          "git_blob_sha1": "5250313c3e2073707312ec135cee8aa5f634b8a2",
+          "mode": "100644",
+          "size_bytes": 2061
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/TimesNet_ETTm2.sh",
+          "git_blob_sha1": "e1e8e5d2cabf8b04a29e21760c96f3037e95c517",
+          "mode": "100644",
+          "size_bytes": 2061
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Transformer_ETTh1.sh",
+          "git_blob_sha1": "eb64ee38ee84cd00e00fbc4f0ba340ba051122c9",
+          "mode": "100644",
+          "size_bytes": 2072
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Transformer_ETTh2.sh",
+          "git_blob_sha1": "f5b7e4351e5642c80ba07224a3625f0d01362ce3",
+          "mode": "100644",
+          "size_bytes": 2072
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Transformer_ETTm1.sh",
+          "git_blob_sha1": "dd8523d622fbce02bcf916477b77c2a86dd5cb21",
+          "mode": "100644",
+          "size_bytes": 2072
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/Transformer_ETTm2.sh",
+          "git_blob_sha1": "ec27338e6ae6acfaf57ce1b666bfd06c24ea214b",
+          "mode": "100644",
+          "size_bytes": 2072
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/ETT_script/iTransformer_ETTh2.sh",
+          "git_blob_sha1": "cc8a92b38cbe218dd0e99e36fd9b87728c632c32",
+          "mode": "100644",
+          "size_bytes": 2073
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/Weather_script/Autoformer.sh",
+          "git_blob_sha1": "4c9610869f068cfa03d08bc966f9754a36c32ea3",
+          "mode": "100644",
+          "size_bytes": 2095
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/Weather_script/TimesNet.sh",
+          "git_blob_sha1": "6bb14e059cbbced81cad9ebc0f308c15b1916bfc",
+          "mode": "100644",
+          "size_bytes": 2085
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/imputation/Weather_script/Transformer.sh",
+          "git_blob_sha1": "802023404c1c02d5a7b960e6ac3b761bdc8f784b",
+          "mode": "100644",
+          "size_bytes": 2096
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/AugmentSample/Classification/PatchTST.sh",
+          "git_blob_sha1": "016ca1543c14c52ee53e0928c00a489ee7b5faef",
+          "mode": "100644",
+          "size_bytes": 641
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/AugmentSample/Forecasting/PatchTST.sh",
+          "git_blob_sha1": "af41d5a5563970f50631d3eea268693c4bc87dfd",
+          "mode": "100644",
+          "size_bytes": 732
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/AugmentSample/ReadMe.md",
+          "git_blob_sha1": "6a2f89e7770e44c86fa7a1f3cbac56dd9d64e387",
+          "mode": "100644",
+          "size_bytes": 2605
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Autoformer.sh",
+          "git_blob_sha1": "d34e6d4b1fab0883117a623c9a438bab4ec35b1e",
+          "mode": "100644",
+          "size_bytes": 1694
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Crossformer.sh",
+          "git_blob_sha1": "e88befd057c3c3a7278e6b1df5bc48a0b3b0d7a2",
+          "mode": "100644",
+          "size_bytes": 1963
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/DLinear.sh",
+          "git_blob_sha1": "4fb44f7597740d7d063e60e2bce7da0768c98e54",
+          "mode": "100644",
+          "size_bytes": 1691
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/ETSformer.sh",
+          "git_blob_sha1": "087f72c65a47e5cead80bf18bcb44e1fb8d83e56",
+          "mode": "100644",
+          "size_bytes": 1693
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/FEDformer.sh",
+          "git_blob_sha1": "a748d46f7db0b424f76e0dd17eb01694acca38cd",
+          "mode": "100644",
+          "size_bytes": 1694
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/FiLM.sh",
+          "git_blob_sha1": "dac33dace238702ab79cfbc9f9c9f24b0e0add9b",
+          "mode": "100644",
+          "size_bytes": 1768
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Informer.sh",
+          "git_blob_sha1": "e2a36e6d0faa11fbcd2bbdc5644b892d21d4e160",
+          "mode": "100644",
+          "size_bytes": 1692
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Koopa.sh",
+          "git_blob_sha1": "a8da5515a6e06cf14862cd67f8a5576bc182bc20",
+          "mode": "100644",
+          "size_bytes": 1721
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/LightTS.sh",
+          "git_blob_sha1": "87046924a23f60381e7dd18f5c1f1bd930ef852c",
+          "mode": "100644",
+          "size_bytes": 1691
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/MICN.sh",
+          "git_blob_sha1": "6bbf03551297dca47bcdc0a1435839061cbcc9d3",
+          "mode": "100644",
+          "size_bytes": 1876
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Mamba.sh",
+          "git_blob_sha1": "931a1b74243582366e184a594abc355f62ffd853",
+          "mode": "100644",
+          "size_bytes": 555
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/MultiPatchFormer.sh",
+          "git_blob_sha1": "6d94d4baee065c2603b47e85b5bb4aeeca55e87c",
+          "mode": "100644",
+          "size_bytes": 1878
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Nonstationary_Transformer.sh",
+          "git_blob_sha1": "28799ef773779ebaf243537170c412219d17285e",
+          "mode": "100644",
+          "size_bytes": 1994
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/PatchTST.sh",
+          "git_blob_sha1": "b9b9863a4b941d0d6d7b8c8f70067d22bd738a5f",
+          "mode": "100644",
+          "size_bytes": 1772
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Pyraformer.sh",
+          "git_blob_sha1": "44bf3ba3d97c346f3e93313bd993b077b45bed55",
+          "mode": "100644",
+          "size_bytes": 1694
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Reformer.sh",
+          "git_blob_sha1": "e37a55fb108bdd6080a58e9c351a9538dba68da8",
+          "mode": "100644",
+          "size_bytes": 1692
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/SegRNN.sh",
+          "git_blob_sha1": "8284e0c7e08d6ab637e2005226f324305b7f99d1",
+          "mode": "100644",
+          "size_bytes": 513
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/TSMixer.sh",
+          "git_blob_sha1": "07de4346a0c42339785dc2c14a7a9f1812759092",
+          "mode": "100755",
+          "size_bytes": 1849
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/TimeMixer.sh",
+          "git_blob_sha1": "1e21206ad4ee241418880984b7409dd7e16005be",
+          "mode": "100755",
+          "size_bytes": 3091
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/TimeXer.sh",
+          "git_blob_sha1": "8c63f1a361a8aaf1982f6ff29784e57f7362271f",
+          "mode": "100644",
+          "size_bytes": 1715
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/TimesNet.sh",
+          "git_blob_sha1": "e265dfb1514236b30b054cf004eed2c29c34f353",
+          "mode": "100644",
+          "size_bytes": 1880
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/Transformer.sh",
+          "git_blob_sha1": "c2253f574b17c3c219b2b0fce5190d79166d2d27",
+          "mode": "100644",
+          "size_bytes": 1671
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/WPMixer.sh",
+          "git_blob_sha1": "ce0284e6f4ea78507be5d238fe953c35e034c5f2",
+          "mode": "100644",
+          "size_bytes": 1246
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ECL_script/iTransformer.sh",
+          "git_blob_sha1": "579ffbe0aa2cbcb95b22f628572a411a912bc333",
+          "mode": "100644",
+          "size_bytes": 2018
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Autoformer_ETTh1.sh",
+          "git_blob_sha1": "50c7f2f93ca44d86f34fb4a13930183b0cd2791a",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Autoformer_ETTh2.sh",
+          "git_blob_sha1": "8a24405634b0482a10eeacd968c46d74fa1887c1",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Autoformer_ETTm1.sh",
+          "git_blob_sha1": "323e0a3803026056f6f3936e05c82552643082cf",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Autoformer_ETTm2.sh",
+          "git_blob_sha1": "88170f992cbb4102d2dea6d04b89a1cf30fa6962",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Crossformer_ETTh1.sh",
+          "git_blob_sha1": "dc213fec47f319b0b9a8c67a5b01bf38a9e017a8",
+          "mode": "100644",
+          "size_bytes": 1643
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Crossformer_ETTh2.sh",
+          "git_blob_sha1": "e3275002664a6d40449483a4ad1d42fa92448d81",
+          "mode": "100644",
+          "size_bytes": 1643
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Crossformer_ETTm1.sh",
+          "git_blob_sha1": "526494ab481b99571c0260d6dad82de7413e2424",
+          "mode": "100644",
+          "size_bytes": 1583
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Crossformer_ETTm2.sh",
+          "git_blob_sha1": "83e4721e92112da90935600e880ed06806398bb9",
+          "mode": "100644",
+          "size_bytes": 1643
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/DLinear_ETTh1.sh",
+          "git_blob_sha1": "466776c53b2cb5625b05e7b77aa99737570ca938",
+          "mode": "100644",
+          "size_bytes": 1639
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/ETSformer_ETTh1.sh",
+          "git_blob_sha1": "7c59d5916c03eaa99b7796ab35b836dd31c81a69",
+          "mode": "100644",
+          "size_bytes": 1641
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/FEDformer_ETTh1.sh",
+          "git_blob_sha1": "a33faf592d11cb8fe063771f42abbafc8e8c0c50",
+          "mode": "100644",
+          "size_bytes": 1641
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/FiLM_ETTh1.sh",
+          "git_blob_sha1": "224af9d356d346bb4298641e05bd4acb2f640f35",
+          "mode": "100644",
+          "size_bytes": 1640
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/FiLM_ETTh2.sh",
+          "git_blob_sha1": "23591a8b8764620d8267045c50207234d09bb2bc",
+          "mode": "100644",
+          "size_bytes": 1640
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/FiLM_ETTm1.sh",
+          "git_blob_sha1": "c131881d4ca920bd1941563ddf21864a0155bacb",
+          "mode": "100644",
+          "size_bytes": 1640
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/FiLM_ETTm2.sh",
+          "git_blob_sha1": "164749d061965ab2857395a546837a994567fd93",
+          "mode": "100644",
+          "size_bytes": 1640
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Informer_ETTh1.sh",
+          "git_blob_sha1": "0412befc032c2c59ed96d4f1baa91eed5326f692",
+          "mode": "100644",
+          "size_bytes": 1640
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Koopa_ETTh1.sh",
+          "git_blob_sha1": "2c97a525f42d0b183e2627df562d13b7248b19cb",
+          "mode": "100644",
+          "size_bytes": 1669
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Koopa_ETTh2.sh",
+          "git_blob_sha1": "f4d1f326699d5dfd1dcf2b3384269036dcc0b68a",
+          "mode": "100644",
+          "size_bytes": 1669
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Koopa_ETTm1.sh",
+          "git_blob_sha1": "d1dfbd4f21845511e8e5129cda988e461d3beeb0",
+          "mode": "100644",
+          "size_bytes": 1669
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Koopa_ETTm2.sh",
+          "git_blob_sha1": "8f6439d127f5a70fbe0bf8849c7d21cf093087e4",
+          "mode": "100644",
+          "size_bytes": 1669
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/LTSM.sh",
+          "git_blob_sha1": "cadf90531bffea41b83bc8e8de76ad7720482db8",
+          "mode": "100644",
+          "size_bytes": 1848
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/LightTS_ETTh1.sh",
+          "git_blob_sha1": "f14f27c95b52b5383f27b2c6c2f43ad3762b1952",
+          "mode": "100644",
+          "size_bytes": 1639
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MICN_ETTh1.sh",
+          "git_blob_sha1": "77764b98a101131c7738e8baf46d411e1f8faa5a",
+          "mode": "100644",
+          "size_bytes": 1637
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MICN_ETTh2.sh",
+          "git_blob_sha1": "a137e66239264b9e97c78bd1ad74aac97053b972",
+          "mode": "100644",
+          "size_bytes": 1637
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MICN_ETTm1.sh",
+          "git_blob_sha1": "ac5704076e313a3701e2133a2ce9c5d12cd6908b",
+          "mode": "100644",
+          "size_bytes": 1692
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MICN_ETTm2.sh",
+          "git_blob_sha1": "d70b8df0237d8c688c04e9d1f41794d83b15c0a3",
+          "mode": "100644",
+          "size_bytes": 1692
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MambaSimple_ETTh1.sh",
+          "git_blob_sha1": "5e6606a3f00af3081df5894fa10f9304cadffdd3",
+          "mode": "100644",
+          "size_bytes": 523
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Mamba_ETT_all.sh",
+          "git_blob_sha1": "18558d6d9bc328596043a826ab550e113f0a4f9c",
+          "mode": "100644",
+          "size_bytes": 308
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Mamba_ETTh1.sh",
+          "git_blob_sha1": "9f29ac38c3fb9257fd1ee875f023ec004d89c2d6",
+          "mode": "100644",
+          "size_bytes": 516
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Mamba_ETTh2.sh",
+          "git_blob_sha1": "4c61ce7442aef6635273ed941800a6e670a58359",
+          "mode": "100644",
+          "size_bytes": 500
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Mamba_ETTm1.sh",
+          "git_blob_sha1": "eefff6feb1074df8fb3bf87b2ab0ef72acd3ea16",
+          "mode": "100644",
+          "size_bytes": 500
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Mamba_ETTm2.sh",
+          "git_blob_sha1": "2a4458cf30617ad5d44215b289d04dad55b95d2d",
+          "mode": "100644",
+          "size_bytes": 500
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MultiPatchFormer_ETTh1.sh",
+          "git_blob_sha1": "44edfdd3759cf3e5f113650508a23c2068ee3729",
+          "mode": "100644",
+          "size_bytes": 1655
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/MultiPatchFormer_ETTm1.sh",
+          "git_blob_sha1": "bc8b3e5b2c367eb2bf54ff8612ccb2a2362965d6",
+          "mode": "100644",
+          "size_bytes": 1799
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Nonstationary_Transformer_ETTh1.sh",
+          "git_blob_sha1": "a0e9f7a9e1d0a9e7748d8a8c3e28f15f0c714341",
+          "mode": "100644",
+          "size_bytes": 1937
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Nonstationary_Transformer_ETTh2.sh",
+          "git_blob_sha1": "022a0a0667292c7df32bec5e5e4f29fda3334445",
+          "mode": "100644",
+          "size_bytes": 1882
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Nonstationary_Transformer_ETTm1.sh",
+          "git_blob_sha1": "95501950122909e3ddfe1913cf9843afa3230d69",
+          "mode": "100644",
+          "size_bytes": 1821
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Nonstationary_Transformer_ETTm2.sh",
+          "git_blob_sha1": "31b3adc7fcd0e544eb3c62a0c9daa6ada2607827",
+          "mode": "100644",
+          "size_bytes": 1889
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/PAttn_ETTh1.sh",
+          "git_blob_sha1": "c213b444b628a1028cb1df1f833f24f7e6503570",
+          "mode": "100644",
+          "size_bytes": 1566
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/PatchTST_ETTh1.sh",
+          "git_blob_sha1": "b7bda804ef91fc79e70527cac3e712aecf6361d2",
+          "mode": "100644",
+          "size_bytes": 1705
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/PatchTST_ETTh2.sh",
+          "git_blob_sha1": "ba25fc132c05c4bad0019ea293606dd8931171ab",
+          "mode": "100644",
+          "size_bytes": 1704
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/PatchTST_ETTm1.sh",
+          "git_blob_sha1": "a7cfe0d4db5f350c5cd4d11584e6fab6d74a27c5",
+          "mode": "100644",
+          "size_bytes": 1787
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/PatchTST_ETTm2.sh",
+          "git_blob_sha1": "d48553d2bbcd94d2eb1c3885899283a559a40002",
+          "mode": "100644",
+          "size_bytes": 1787
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Pyraformer_ETTh1.sh",
+          "git_blob_sha1": "5976c8c1f072148afc89baa36adb47cef88cbd06",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Pyraformer_ETTh2.sh",
+          "git_blob_sha1": "0a08129218fa3c0de4cb90ffb2ad420f523b5cb6",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Pyraformer_ETTm1.sh",
+          "git_blob_sha1": "b26c54ff54c68706b0c08d81b418fc8e1b0c8ed8",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Pyraformer_ETTm2.sh",
+          "git_blob_sha1": "2e31c203e1e7ced116338ac7551767435ea26ea8",
+          "mode": "100644",
+          "size_bytes": 1642
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Reformer_ETTh1.sh",
+          "git_blob_sha1": "cbe5833b6f0897a35751111bd71cf169d1ab5a95",
+          "mode": "100644",
+          "size_bytes": 1640
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/SegRNN_ETTh1.sh",
+          "git_blob_sha1": "3d7527a448d480acb0d327f8cd92fcb6d95717c5",
+          "mode": "100644",
+          "size_bytes": 506
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/SegRNN_ETTh2.sh",
+          "git_blob_sha1": "e7617080958fbaec284e6a44e3cc7d739ec00c2f",
+          "mode": "100644",
+          "size_bytes": 506
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/SegRNN_ETTm1.sh",
+          "git_blob_sha1": "be406c47c23cf12d8487007f5ef35e029226e2c9",
+          "mode": "100644",
+          "size_bytes": 506
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/SegRNN_ETTm2.sh",
+          "git_blob_sha1": "756decb2b9afe017670e879ce909f17e7eb2bc19",
+          "mode": "100644",
+          "size_bytes": 506
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TSMixer_ETTh1.sh",
+          "git_blob_sha1": "57e2f49893b08469cdeef71efab670f9b3838feb",
+          "mode": "100755",
+          "size_bytes": 1609
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TSMixer_ETTh2.sh",
+          "git_blob_sha1": "6c33b0cd5189067092c97bcfe89299b00d5034d3",
+          "mode": "100755",
+          "size_bytes": 1609
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TSMixer_ETTm1.sh",
+          "git_blob_sha1": "7fbd15d631feb292912725a42c68b547129d551b",
+          "mode": "100755",
+          "size_bytes": 1609
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TSMixer_ETTm2.sh",
+          "git_blob_sha1": "709b58960a435b0e5cf054c2d294584cf85c9c12",
+          "mode": "100755",
+          "size_bytes": 1609
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TiDE_ETTh1.sh",
+          "git_blob_sha1": "31f56ce1890c6bd6587df5ea342b31aa3b7f1033",
+          "mode": "100644",
+          "size_bytes": 2023
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeMixer_ETTh1.sh",
+          "git_blob_sha1": "b0f447f8e55b2ee0fdffebd8cb1493f6001b3e8a",
+          "mode": "100755",
+          "size_bytes": 2822
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeMixer_ETTh2.sh",
+          "git_blob_sha1": "54492a4d92f9c9607e40de84f1097460dc727875",
+          "mode": "100755",
+          "size_bytes": 2478
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeMixer_ETTm1.sh",
+          "git_blob_sha1": "d26fa4281326633aa6434ee7e7a4a32090bed104",
+          "mode": "100755",
+          "size_bytes": 2594
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeMixer_ETTm2.sh",
+          "git_blob_sha1": "c53df603b6716ebde5bde181e770b82400788110",
+          "mode": "100755",
+          "size_bytes": 2562
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeXer_ETTh1.sh",
+          "git_blob_sha1": "928b6792685b914804972af2981b00063d8f0c62",
+          "mode": "100644",
+          "size_bytes": 1755
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeXer_ETTh2.sh",
+          "git_blob_sha1": "cc2962899533067b3d67b8684552596c35be875a",
+          "mode": "100644",
+          "size_bytes": 1766
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeXer_ETTm1.sh",
+          "git_blob_sha1": "95f20d1c93281508b5b7dfb5aabada4d1d6a76c5",
+          "mode": "100644",
+          "size_bytes": 1765
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimeXer_ETTm2.sh",
+          "git_blob_sha1": "926119916d3904090fe18e00ef23865d84c143e1",
+          "mode": "100644",
+          "size_bytes": 1764
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimesNet_ETTh1.sh",
+          "git_blob_sha1": "6a03e5f503b6a50ca17379851b0b704ff4bc529f",
+          "mode": "100644",
+          "size_bytes": 1825
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimesNet_ETTh2.sh",
+          "git_blob_sha1": "1741642ca6262d82ac353ac98317d0c2268f7336",
+          "mode": "100644",
+          "size_bytes": 1821
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimesNet_ETTm1.sh",
+          "git_blob_sha1": "7aea983542b4c3e434fc816541bcf059d7435609",
+          "mode": "100644",
+          "size_bytes": 1841
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/TimesNet_ETTm2.sh",
+          "git_blob_sha1": "4c5f8d1f4aff78597254428f4b8a4adc485679fd",
+          "mode": "100644",
+          "size_bytes": 1862
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Transformer_ETTh1.sh",
+          "git_blob_sha1": "57eece1e176f112351bef37b6ee32c57785bda94",
+          "mode": "100644",
+          "size_bytes": 1643
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Transformer_ETTh2.sh",
+          "git_blob_sha1": "1228b03a3b61aeaa7875e70574ad9b97d77fa13e",
+          "mode": "100644",
+          "size_bytes": 1643
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Transformer_ETTm1.sh",
+          "git_blob_sha1": "7966a93e18e0891c80f1daa77f25c04366be8061",
+          "mode": "100644",
+          "size_bytes": 1583
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/Transformer_ETTm2.sh",
+          "git_blob_sha1": "ce6fd1f95928780e1b222929c8faac50380ae708",
+          "mode": "100644",
+          "size_bytes": 1643
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/WPMixer_ETTh1.sh",
+          "git_blob_sha1": "0f4c07cd49e39d0da5f13548bd073c5de66d5c75",
+          "mode": "100644",
+          "size_bytes": 1249
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/WPMixer_ETTh2.sh",
+          "git_blob_sha1": "7195138b4bc60cd519826931a3d535b543330c9b",
+          "mode": "100644",
+          "size_bytes": 1227
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/WPMixer_ETTm1.sh",
+          "git_blob_sha1": "31c3c0efd749bac734d20a23219ace490fda9f89",
+          "mode": "100644",
+          "size_bytes": 1231
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/WPMixer_ETTm2.sh",
+          "git_blob_sha1": "56093cfbd6c87fdeb1d9f998ab0b8505e2afd13b",
+          "mode": "100644",
+          "size_bytes": 1255
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ETT_script/iTransformer_ETTh2.sh",
+          "git_blob_sha1": "e1a58e9d4695c7ebab0e06abc668ac5eff0f107d",
+          "mode": "100644",
+          "size_bytes": 1777
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Autoformer.sh",
+          "git_blob_sha1": "a7de6f5e79c566ac69f8072a830de33b35177fe2",
+          "mode": "100644",
+          "size_bytes": 1748
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Crossformer.sh",
+          "git_blob_sha1": "5e3c62e1e71f26f5ce77103a26138aafef528efe",
+          "mode": "100644",
+          "size_bytes": 1930
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/FiLM.sh",
+          "git_blob_sha1": "6e0b0828ccfa681e762fb33bfcd174695517d553",
+          "mode": "100644",
+          "size_bytes": 1716
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Koopa.sh",
+          "git_blob_sha1": "953ce92b751404d69ff2ab5fc65c1e748968f8d0",
+          "mode": "100644",
+          "size_bytes": 1733
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/MICN.sh",
+          "git_blob_sha1": "97c6881f18dc08ec5bcda5c6cbe7d40c962f9da2",
+          "mode": "100644",
+          "size_bytes": 1923
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Mamba.sh",
+          "git_blob_sha1": "5a72e3fd5596463e4b05fa26c23dc98b2342ea42",
+          "mode": "100644",
+          "size_bytes": 532
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Nonstationary_Transformer.sh",
+          "git_blob_sha1": "ed3af302313ba8c41ff47c0e6d537e454ead3216",
+          "mode": "100644",
+          "size_bytes": 1954
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/PatchTST.sh",
+          "git_blob_sha1": "9727816d701341e801aa218ead740a8c8c8e5030",
+          "mode": "100644",
+          "size_bytes": 1725
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Pyraformer.sh",
+          "git_blob_sha1": "87d7d343352b89be1d3c69dc3778642f62c1ee28",
+          "mode": "100644",
+          "size_bytes": 1748
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/TimesNet.sh",
+          "git_blob_sha1": "6a7e1a8438bddd73fb21c85deef5cfb071a44c76",
+          "mode": "100644",
+          "size_bytes": 1927
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Exchange_script/Transformer.sh",
+          "git_blob_sha1": "8f41145c88fac2aabf535527f763cf66cab5f5cd",
+          "mode": "100644",
+          "size_bytes": 1728
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/Autoformer.sh",
+          "git_blob_sha1": "89344621d732b4b35a8737fe17e1d4e2993713ef",
+          "mode": "100644",
+          "size_bytes": 1668
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/Crossformer.sh",
+          "git_blob_sha1": "eaca4ed5c7766547e7de5f42690c289a708157e1",
+          "mode": "100644",
+          "size_bytes": 1926
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/FiLM.sh",
+          "git_blob_sha1": "f8fe4ed0d4cf20154444c60c81bcf74572611b84",
+          "mode": "100644",
+          "size_bytes": 1626
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/Koopa.sh",
+          "git_blob_sha1": "e3df787005847480e8d25eff5ca7c34771d583a8",
+          "mode": "100644",
+          "size_bytes": 1693
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/MICN.sh",
+          "git_blob_sha1": "6b79e4647f1f50cc8d5f578b1212898e5e15537d",
+          "mode": "100644",
+          "size_bytes": 1851
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/Nonstationary_Transformer.sh",
+          "git_blob_sha1": "a83b902706739746b9812a04844657d49e90e144",
+          "mode": "100644",
+          "size_bytes": 1881
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/PatchTST.sh",
+          "git_blob_sha1": "ff8fba2e674f6548953f0db7d8526a2052d65a9a",
+          "mode": "100644",
+          "size_bytes": 1804
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/TimesNet.sh",
+          "git_blob_sha1": "cb378a13a62f3d377ebace021407c399b756dd6c",
+          "mode": "100644",
+          "size_bytes": 1854
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/ILI_script/Transformer.sh",
+          "git_blob_sha1": "eee02098c2bc12837043f2bb677afdac948dd70f",
+          "mode": "100644",
+          "size_bytes": 1669
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Mamba_all.sh",
+          "git_blob_sha1": "9e34eab3b77120f1eae26901f5a053d611790b49",
+          "mode": "100644",
+          "size_bytes": 209
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Autoformer.sh",
+          "git_blob_sha1": "9123d7e520eda073cf863e5e0327a7c310fad44e",
+          "mode": "100644",
+          "size_bytes": 1762
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Crossformer.sh",
+          "git_blob_sha1": "d6bb5d5a9bc5007bc4db58c586f08dbb7247315c",
+          "mode": "100644",
+          "size_bytes": 1875
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/FiLM.sh",
+          "git_blob_sha1": "6f4a721ec7479335756621d59b499431b76363ce",
+          "mode": "100644",
+          "size_bytes": 1752
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Koopa.sh",
+          "git_blob_sha1": "2322080b63f59d39fa4433ad62ae7a85fc006b2c",
+          "mode": "100644",
+          "size_bytes": 1705
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/MICN.sh",
+          "git_blob_sha1": "7f83d288b869761b19ae2b93785077df8d55eef1",
+          "mode": "100644",
+          "size_bytes": 1860
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Mamba.sh",
+          "git_blob_sha1": "f531e19a4dc7392186e03edee21d5ebb485f4a1a",
+          "mode": "100644",
+          "size_bytes": 524
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/MultiPatchFormer.sh",
+          "git_blob_sha1": "7e79479fb5e6eb333687f4f7eb16a9e4ba755bb3",
+          "mode": "100644",
+          "size_bytes": 1833
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Nonstationary_Transformer.sh",
+          "git_blob_sha1": "c7d63d167c63a05b51094f44c50eefa94e6ba994",
+          "mode": "100644",
+          "size_bytes": 1983
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/PatchTST.sh",
+          "git_blob_sha1": "69d9b6cd59d629e1db35dc2018f3bcc976a2ba82",
+          "mode": "100644",
+          "size_bytes": 1940
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Pyraformer.sh",
+          "git_blob_sha1": "a4e8f3bd30e78339afb6e8205e7a2ed687681dbd",
+          "mode": "100644",
+          "size_bytes": 1762
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/SegRNN.sh",
+          "git_blob_sha1": "9fceb701c2de3e01c4effa853baf80b2e4c71975",
+          "mode": "100644",
+          "size_bytes": 509
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/TSMixer.sh",
+          "git_blob_sha1": "4f8d94f12a21906c25fe7028335070e9702203cb",
+          "mode": "100755",
+          "size_bytes": 1944
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/TimeMixer.sh",
+          "git_blob_sha1": "6ee34349ab89cffe46cb195ab3c77947511a94ff",
+          "mode": "100755",
+          "size_bytes": 2815
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/TimeXer.sh",
+          "git_blob_sha1": "6d975b33b6122cba9d7ef44992dc77b379883b1e",
+          "mode": "100644",
+          "size_bytes": 1924
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/TimesNet.sh",
+          "git_blob_sha1": "0baca1061ed04b8f38dc16e5f3b1b9c7d80c1819",
+          "mode": "100644",
+          "size_bytes": 1864
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/Transformer.sh",
+          "git_blob_sha1": "88b7e5cb1eeca10cf86092571eb4f1b2258a12e0",
+          "mode": "100644",
+          "size_bytes": 1764
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/WPMixer.sh",
+          "git_blob_sha1": "16443c3b2524f7c4933956aa2ae8ebbbd816bb80",
+          "mode": "100644",
+          "size_bytes": 1236
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Traffic_script/iTransformer.sh",
+          "git_blob_sha1": "583f28d6b7422f64cc404567f92fc42ecdececab",
+          "mode": "100644",
+          "size_bytes": 1996
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/Autoformer.sh",
+          "git_blob_sha1": "e5dbb52bf39a2e6f788bc4c73711fde1df1ec10d",
+          "mode": "100644",
+          "size_bytes": 1687
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/Crossformer.sh",
+          "git_blob_sha1": "d1698f0b1e9f68b4b4c6d4cf6a85fb38e5a3d835",
+          "mode": "100644",
+          "size_bytes": 1890
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/FiLM.sh",
+          "git_blob_sha1": "7b151251678af5d8b2e2246c1b3c6f8cfc0368e2",
+          "mode": "100644",
+          "size_bytes": 1619
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/MICN.sh",
+          "git_blob_sha1": "bbe064fc63794141d328f71f3ee1946aef4e6868",
+          "mode": "100644",
+          "size_bytes": 1883
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/Mamba.sh",
+          "git_blob_sha1": "a9598bbd2d23c05dc9881c30b767eb9e92c02b2e",
+          "mode": "100644",
+          "size_bytes": 522
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/MultiPatchFormer.sh",
+          "git_blob_sha1": "6bec2d5d9b708531d0b4830b297b51b8e8d48e1b",
+          "mode": "100644",
+          "size_bytes": 1823
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/Nonstationary_Transformer.sh",
+          "git_blob_sha1": "27136d41abfdeb77330f191b065c5b130d9186d7",
+          "mode": "100644",
+          "size_bytes": 1910
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/PatchTST.sh",
+          "git_blob_sha1": "ca196831c646f48b8f78b8572277974af0e69039",
+          "mode": "100644",
+          "size_bytes": 1855
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/Pyraformer.sh",
+          "git_blob_sha1": "7af7d54bbf80d6f669723ca83711d6a2745559e0",
+          "mode": "100644",
+          "size_bytes": 1687
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/SegRNN.sh",
+          "git_blob_sha1": "5ec4613b71a3d2ca69f955a9df844ab571a16c64",
+          "mode": "100644",
+          "size_bytes": 511
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/TSMixer.sh",
+          "git_blob_sha1": "bea5bdac5ef953fdf19e6fdd7edcb6a66437f0b8",
+          "mode": "100755",
+          "size_bytes": 1819
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/TimeMixer.sh",
+          "git_blob_sha1": "2d50112c22d062e1a207a4c65896fca7d93ec8a4",
+          "mode": "100755",
+          "size_bytes": 2982
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/TimeXer.sh",
+          "git_blob_sha1": "e93bf90b0a4b2d0c3ffc96761e41d829fa5a22f7",
+          "mode": "100644",
+          "size_bytes": 1777
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/TimesNet.sh",
+          "git_blob_sha1": "fe061938852eb73624439e29fcad33889548fd32",
+          "mode": "100644",
+          "size_bytes": 1887
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/Transformer.sh",
+          "git_blob_sha1": "7c0466b18c6738b4b72e72fe61dde36427b85cb5",
+          "mode": "100644",
+          "size_bytes": 1688
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/WPMixer.sh",
+          "git_blob_sha1": "828abb2cd7a634f6e00dca08a26922a2882ba99f",
+          "mode": "100644",
+          "size_bytes": 1232
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/long_term_forecast/Weather_script/iTransformer.sh",
+          "git_blob_sha1": "4b091210e0e9eb70d4de55751e2a92b12c7627c7",
+          "mode": "100644",
+          "size_bytes": 1801
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Autoformer_M4.sh",
+          "git_blob_sha1": "f6f88f8ff7682051ce6fd2b27d320ff9e70ab18a",
+          "mode": "100644",
+          "size_bytes": 2579
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Crossformer_M4.sh",
+          "git_blob_sha1": "23786dab0e6bcb72d922aa0e0b4d80f36ff04c07",
+          "mode": "100644",
+          "size_bytes": 2741
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/DLinear_M4.sh",
+          "git_blob_sha1": "4b10f023c033a078d874443d75cce6f5fa71c7f0",
+          "mode": "100644",
+          "size_bytes": 2576
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/ETSformer_M4.sh",
+          "git_blob_sha1": "177bf628dd5881fbbff0dcc658be33f04d13c680",
+          "mode": "100644",
+          "size_bytes": 2579
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/FEDformer_M4.sh",
+          "git_blob_sha1": "a49411e5b860707cfc9e321c642853f6d0364312",
+          "mode": "100644",
+          "size_bytes": 2578
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/FiLM_M4.sh",
+          "git_blob_sha1": "b4032b5fe322a059052fff0e4aa64e67fa8a78f4",
+          "mode": "100644",
+          "size_bytes": 2734
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Informer_M4.sh",
+          "git_blob_sha1": "b83637ac2e395f9fd4b0683e7c26603b59e0069b",
+          "mode": "100644",
+          "size_bytes": 2577
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/LightTS_M4.sh",
+          "git_blob_sha1": "5a35976978707b00a8710a5ec19e6b7282ec9253",
+          "mode": "100644",
+          "size_bytes": 2576
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/MICN_M4.sh",
+          "git_blob_sha1": "1d93496a89a9a17befb60fc555d515bc335e1caa",
+          "mode": "100644",
+          "size_bytes": 2734
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Mamba_M4.sh",
+          "git_blob_sha1": "417a6c348d15d58c0b6e5e51e7c53556e58a30f7",
+          "mode": "100644",
+          "size_bytes": 2559
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Nonstationary_Transformer_M4.sh",
+          "git_blob_sha1": "29ea72d6848aae3d44d802bba5b3fe938bf858a4",
+          "mode": "100644",
+          "size_bytes": 2905
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Pyraformer_M4.sh",
+          "git_blob_sha1": "66f67b80391b1ed2f1dcef44cf10eaa156f18a98",
+          "mode": "100644",
+          "size_bytes": 2579
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Reformer_M4.sh",
+          "git_blob_sha1": "d432fedce3205b0ccca0dba1aeb30bfd5b3c30e8",
+          "mode": "100644",
+          "size_bytes": 2577
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/TSMixer_M4.sh",
+          "git_blob_sha1": "34aad1562e4116608939a5bf8fe119602c9932e2",
+          "mode": "100755",
+          "size_bytes": 2572
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/TimeMixer_M4.sh",
+          "git_blob_sha1": "15802a15bcc2de94f3f49be38f71e6ecad932d71",
+          "mode": "100755",
+          "size_bytes": 3924
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/TimesNet_M4.sh",
+          "git_blob_sha1": "0040273dee3d9c40a33d2919e814c3f5ddf3a3a6",
+          "mode": "100644",
+          "size_bytes": 2739
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/Transformer_M4.sh",
+          "git_blob_sha1": "ba0af09c027e3afdf2c62d43f94e376c1b49501d",
+          "mode": "100644",
+          "size_bytes": 2579
+        },
+        {
+          "path": "libraries/Time-Series-Library/scripts/short_term_forecast/iTransformer_M4.sh",
+          "git_blob_sha1": "5e4702cf6b901b55f18b977c21e2d2ee42f6dacd",
+          "mode": "100644",
+          "size_bytes": 2580
+        },
+        {
+          "path": "libraries/Time-Series-Library/tutorial/TimesNet_tutorial.ipynb",
+          "git_blob_sha1": "f7502b4384064bbd83f6fe9a0cf3a88f3f4b7553",
+          "mode": "100644",
+          "size_bytes": 67253
+        },
+        {
+          "path": "libraries/Time-Series-Library/tutorial/conv.png",
+          "git_blob_sha1": "97c51728a7d560b2de5a60f82d7a26f1eec1acd1",
+          "mode": "100644",
+          "size_bytes": 683079
+        },
+        {
+          "path": "libraries/Time-Series-Library/tutorial/dataset.png",
+          "git_blob_sha1": "baa0cae1ff76d389d1a082f20bcca436046176ba",
+          "mode": "100644",
+          "size_bytes": 30465
+        },
+        {
+          "path": "libraries/Time-Series-Library/tutorial/fft.png",
+          "git_blob_sha1": "1325ba300a30278b3b1bc1c20d9236876379713f",
+          "mode": "100644",
+          "size_bytes": 637644
+        },
+        {
+          "path": "libraries/Time-Series-Library/tutorial/result.png",
+          "git_blob_sha1": "0cde7890d1542365246c0084123bee4c4aee9c90",
+          "mode": "100644",
+          "size_bytes": 70386
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/ADFtest.py",
+          "git_blob_sha1": "967f776aaf6613ac87d62d85d1cf1788d565ad56",
+          "mode": "100644",
+          "size_bytes": 2490
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/__init__.py",
+          "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "mode": "100644",
+          "size_bytes": 0
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/augmentation.py",
+          "git_blob_sha1": "e574f35f5b58da59a2cb04b072cb141046e26f7a",
+          "mode": "100644",
+          "size_bytes": 19234
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/dtw.py",
+          "git_blob_sha1": "941eae8e227c441da4e7f472e310d3f7bb999a5b",
+          "mode": "100644",
+          "size_bytes": 7197
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/dtw_metric.py",
+          "git_blob_sha1": "5ab39bfdff0781f0155d0801999ed8c1ce0d9292",
+          "mode": "100644",
+          "size_bytes": 5817
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/losses.py",
+          "git_blob_sha1": "21438e741887af4d2efc14af849aad52daf26189",
+          "mode": "100644",
+          "size_bytes": 3459
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/m4_summary.py",
+          "git_blob_sha1": "acd50fef8e3df6185598cc2c2afc8f40dd573ec1",
+          "mode": "100644",
+          "size_bytes": 6174
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/masking.py",
+          "git_blob_sha1": "a19cbf63b8d1d1927eceabcbe4a1b5313238b75b",
+          "mode": "100644",
+          "size_bytes": 832
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/metrics.py",
+          "git_blob_sha1": "ccab908c29676f9ad7bb9e62c1946e3d01a4620f",
+          "mode": "100644",
+          "size_bytes": 866
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/print_args.py",
+          "git_blob_sha1": "446d81b87f6348247306c0424d33cd6837b7ad48",
+          "mode": "100644",
+          "size_bytes": 3141
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/timefeatures.py",
+          "git_blob_sha1": "7c1297293891c1c86ec938edf95e5fa3f7e52261",
+          "mode": "100644",
+          "size_bytes": 4369
+        },
+        {
+          "path": "libraries/Time-Series-Library/utils/tools.py",
+          "git_blob_sha1": "08b4f5a569958bbd3f93db094ffc032a92d2720d",
+          "mode": "100644",
+          "size_bytes": 3694
+        }
+      ],
+      "imported_at_utc": "2026-11-21T11:51:47+00:00",
+      "file_count": 368
     }
   ]
 }
