@@ -9,6 +9,7 @@ import io
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import sys
 import tarfile
@@ -17,6 +18,7 @@ import unittest
 from unittest import mock
 
 import sync_upstreams as sync
+import build_model_catalog as catalog_builder
 
 
 def blob_sha(data):
@@ -355,6 +357,73 @@ class SynchronizationTests(unittest.TestCase):
         self.assertEqual((self.root / 'README.md').read_bytes(), original)
         self.assertEqual(self.git('show', ':README.md'), original)
         self.assertNotIn('README.md', self.git('diff', '--cached', '--name-only').decode().splitlines())
+
+    def test_homepage_details_give_independent_and_library_models_equal_rows(self):
+        def source(name, directory, paths):
+            return {'name': name, 'local_directory': directory, 'url': 'https://github.com/fixture/' + name, 'files': [
+                {'path': directory + '/' + path} for path in paths]}
+
+        manifest = {'sources': [
+            source('EMAformer', 'baselines/EMAformer', ['model/EMAformer.py', 'run.py']),
+            source('Time-LLM', 'baselines/Time-LLM', ['models/TimeLLM.py', 'run_main.py']),
+            source('Time-Series-Library', 'libraries/Time-Series-Library', [
+                'models/Autoformer.py', 'models/KANAD.py', 'models/EMAformer.py', 'models/__init__.py',
+                'run.py', 'scripts/long_term_forecast/ETT_script/Autoformer_ETTh1.sh',
+                'scripts/anomaly_detection/PSM/KANAD.sh']),
+        ]}
+        metadata = {
+            'categories': [
+                {'id': 'embedding', 'title': '嵌入增强'},
+                {'id': 'decomposition', 'title': '分解建模'},
+                {'id': 'language', 'title': '语言模型'},
+                {'id': 'anomaly', 'title': '异常检测'},
+            ],
+            'models': {
+                'EMAformer': {'category': 'embedding', 'summary': 'Channel and phase embeddings.'},
+                'Autoformer': {'category': 'decomposition', 'summary': 'Decomposition and autocorrelation.'},
+                'Time-LLM': {'category': 'language', 'summary': 'Language model reprogramming.'},
+                'KANAD': {'category': 'anomaly', 'summary': 'Anomaly detector.'},
+            },
+        }
+        metadata_path = self.root / 'tools/model_categories.json'
+        metadata_path.parent.mkdir(parents=True, exist_ok=True)
+        metadata_path.write_text(json.dumps(metadata, ensure_ascii=False), encoding='utf-8')
+        details = catalog_builder.render_homepage_details(self.root, manifest)
+        rows = [line for line in details.splitlines() if line.startswith('| ') and not re.match(r'^\|\s*:?-', line)]
+        model_rows = {}
+        for name in ('EMAformer', 'Time-LLM', 'Autoformer', 'KANAD'):
+            matches = [line for line in rows if line.split('|')[1].strip() == name]
+            self.assertEqual(len(matches), 1, (name, details))
+            model_rows[name] = matches[0]
+        self.assertEqual(len(rows), 5, details)  # One header, four peer model rows.
+        self.assertEqual(len({len(re.split(r'(?<!\\)\|', line)) for line in rows}), 1, details)
+        self.assertNotIn('__init__', details)
+        self.assertIn('baselines/EMAformer/model/EMAformer.py', model_rows['EMAformer'])
+        self.assertIn('libraries/Time-Series-Library/models/EMAformer.py', model_rows['EMAformer'])
+        self.assertIn('baselines/Time-LLM/models/TimeLLM.py', model_rows['Time-LLM'])
+        self.assertIn('libraries/Time-Series-Library/models/Autoformer.py', model_rows['Autoformer'])
+        self.assertIn('libraries/Time-Series-Library/models/KANAD.py', model_rows['KANAD'])
+
+    def test_new_upstream_model_updates_homepage_details_and_keeps_custom_text(self):
+        self.manifest['sources'][6]['name'] = 'Time-Series-Library'
+        (self.root / 'sources.lock.json').write_text(json.dumps(self.manifest, indent=2) + '\n', encoding='utf-8')
+        before_details = '# Personal page\n\nMy motivation stays.\n\n<!-- MODEL_DETAILS_START -->'
+        after_details = '<!-- MODEL_DETAILS_END -->\n\nMy experiment links stay.\n'
+        (self.root / 'README.md').write_text(before_details + '\nOutdated details.\n' + after_details, encoding='utf-8')
+        self.git('add', '--', 'sources.lock.json', 'README.md')
+        self.git('commit', '-q', '-m', 'Homepage details fixture')
+        update = self.update(6)
+        update['files']['models/NewPeerModel.py'] = (b'class Model:\n    pass\n', '100644')
+        report, _ = self.invoke({'Time-Series-Library': update}, stage=True)
+        self.assertEqual(report['status'], 'updated')
+        homepage = (self.root / 'README.md').read_text(encoding='utf-8')
+        self.assertTrue(homepage.startswith(before_details))
+        self.assertTrue(homepage.endswith(after_details))
+        self.assertIn('| NewPeerModel |', homepage)
+        self.assertIn('libraries/Source6/models/NewPeerModel.py', homepage)
+        self.assertIn('方法说明待补充', homepage)
+        self.assertNotIn('Outdated details.', homepage)
+        self.assertEqual(self.git('show', ':README.md'), (self.root / 'README.md').read_bytes())
 
     @unittest.skipIf(os.name == 'nt', 'Windows does not expose POSIX executable bits')
     def test_local_executable_mode_change_is_a_conflict(self):

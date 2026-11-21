@@ -51,182 +51,306 @@
   "models": {
     "Autoformer": {
       "category": "decomposition_frequency",
-      "summary": "逐层拆分趋势与季节变化，再用自相关选择时延并聚合序列。"
+      "summary": "逐层拆分趋势与季节变化，再用自相关选择时延并聚合序列。",
+      "paper_url": "https://arxiv.org/abs/2106.13008",
+      "paper_source": "baselines/Autoformer/README.md",
+      "original_upstream_url": "https://github.com/thuml/Autoformer"
     },
     "Chronos": {
       "category": "pretrained_foundation",
-      "summary": "调用预训练 Chronos，把数值序列交给其预测管线，库内入口用于零样本预测。"
+      "summary": "调用预训练 Chronos，把数值序列交给其预测管线，库内入口用于零样本预测。",
+      "paper_url": "https://arxiv.org/pdf/2403.07815",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_note": "链接为上游 README 列出的 Chronos 系列论文；当前接口实际加载 chronos-bolt-base，不将该链接标成该权重的专属论文。"
     },
     "Chronos2": {
       "category": "pretrained_foundation",
       "summary": "调用 Chronos-2 预训练预测管线，与第一代 Chronos 分开保留接口。",
-      "aliases": ["Chronos-2"]
+      "aliases": [
+        "Chronos-2"
+      ],
+      "paper_url": "https://arxiv.org/abs/2510.15821",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Crossformer": {
       "category": "transformer_attention",
-      "summary": "把每个变量的序列切成片段，用分层和两阶段注意力处理时间与变量关系。"
+      "summary": "把每个变量的序列切成片段，用分层和两阶段注意力处理时间与变量关系。",
+      "paper_url": "https://openreview.net/pdf?id=vSVLM2j9eie",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "DLinear": {
       "category": "linear_mlp",
-      "summary": "先分解趋势与剩余变化，再分别做线性预测，是结构简单的对照模型。"
+      "summary": "先分解趋势与剩余变化，再分别做线性预测，是结构简单的对照模型。",
+      "paper_url": "https://arxiv.org/pdf/2205.13504.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "EMAformer": {
       "category": "transformer_attention",
-      "summary": "在变量 token 上叠加通道、相位和联合嵌入，再用 Transformer 预测。"
+      "summary": "在变量 token 上叠加通道、相位和联合嵌入，再用 Transformer 预测。",
+      "paper_url": "https://arxiv.org/abs/2511.08396",
+      "paper_source": "baselines/EMAformer/README.md",
+      "original_upstream_url": "https://github.com/PlanckChang/EMAformer"
     },
     "ETSformer": {
       "category": "decomposition_frequency",
-      "summary": "将水平、增长和季节项分开建模，结合可学习指数平滑、傅里叶外推与增长阻尼。"
+      "summary": "将水平、增长和季节项分开建模，结合可学习指数平滑、傅里叶外推与增长阻尼。",
+      "paper_url": "https://arxiv.org/abs/2202.01381",
+      "paper_source": "baselines/ETSformer/README.md",
+      "original_upstream_url": "https://github.com/azkanaon/etsformer"
     },
     "FEDformer": {
       "category": "decomposition_frequency",
-      "summary": "在趋势季节分解的基础上，用傅里叶或小波模块处理长期依赖。"
+      "summary": "在趋势季节分解的基础上，用傅里叶或小波模块处理长期依赖。",
+      "paper_url": "https://proceedings.mlr.press/v162/zhou22g.html",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_url": "https://github.com/MAZiqing/FEDformer",
+      "original_upstream_source": "libraries/Time-Series-Library/README.md"
     },
     "FiLM": {
       "category": "state_space_dynamics",
-      "summary": "用 Legendre/HiPPO 状态投影压缩历史，再以频域处理提取预测信息。"
+      "summary": "用 Legendre/HiPPO 状态投影压缩历史，再以频域处理提取预测信息。",
+      "paper_url": "https://openreview.net/forum?id=zTQdHSQUQWc",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "FreTS": {
       "category": "decomposition_frequency",
-      "summary": "把序列变到频域，用复数 MLP 混合时间和通道信息，再还原预测。"
+      "summary": "把序列变到频域，用复数 MLP 混合时间和通道信息，再还原预测。",
+      "paper_url": "https://arxiv.org/pdf/2311.06184.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Informer": {
       "category": "transformer_attention",
       "summary": "用 ProbSparse 选择重要 query，并通过编码器蒸馏压缩长序列。",
-      "aliases": ["Informer2020"]
+      "aliases": [
+        "Informer2020"
+      ],
+      "paper_url": "https://arxiv.org/abs/2012.07436",
+      "paper_source": "baselines/Informer2020/README.md",
+      "original_upstream_url": "https://github.com/zhouhaoyi/Informer2020"
     },
     "iTransformer": {
       "category": "transformer_attention",
-      "summary": "把每个变量的历史作为一个 token，让注意力直接学习变量之间的关系。"
+      "summary": "把每个变量的历史作为一个 token，让注意力直接学习变量之间的关系。",
+      "paper_url": "https://arxiv.org/abs/2310.06625",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "KANAD": {
       "category": "anomaly_specialized",
-      "summary": "结合周期余弦特征和卷积重建序列，当前库内模型只实现异常检测。"
+      "summary": "结合周期余弦特征和卷积重建序列，当前库内模型只实现异常检测。",
+      "paper_url": "https://arxiv.org/abs/2411.00278",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Koopa": {
       "category": "state_space_dynamics",
-      "summary": "分离不同变化成分，用可学习和动态估计的 Koopman 算子推进隐状态。"
+      "summary": "分离不同变化成分，用可学习和动态估计的 Koopman 算子推进隐状态。",
+      "paper_url": "https://arxiv.org/pdf/2305.18803.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "LightTS": {
       "category": "linear_mlp",
-      "summary": "通过连续与间隔采样提取序列片段，用 MLP 混合局部和跨片段信息。"
+      "summary": "通过连续与间隔采样提取序列片段，用 MLP 混合局部和跨片段信息。",
+      "paper_url": "https://arxiv.org/abs/2207.01186",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Mamba": {
       "category": "state_space_dynamics",
-      "summary": "用 Mamba 的选择性状态空间模块递推处理序列，减少对全量注意力的依赖。"
+      "summary": "用 Mamba 的选择性状态空间模块递推处理序列，减少对全量注意力的依赖。",
+      "paper_url": "https://arxiv.org/abs/2312.00752",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "MambaSimple": {
       "category": "state_space_dynamics",
-      "summary": "在库内保留较简化的 Mamba 与扫描计算实现，便于阅读状态递推机制。"
+      "summary": "在库内保留较简化的 Mamba 与扫描计算实现，便于阅读状态递推机制。",
+      "paper_url": "https://arxiv.org/abs/2312.00752",
+      "paper_source": "libraries/Time-Series-Library/models/MambaSimple.py",
+      "original_upstream_url": "https://github.com/johnma2006/mamba-minimal/",
+      "original_upstream_source": "libraries/Time-Series-Library/models/MambaSimple.py",
+      "paper_note": "共用 Mamba 方法论文；当前文件是简化实现，参考 mamba-minimal，不宣称另有独立论文。",
+      "original_upstream_note": "实现参考仓库，来源为本地模型文件头注释。"
     },
     "MambaSingleLayer": {
       "category": "state_space_dynamics",
       "summary": "用单层 Mamba 做序列分类，当前构造和前向路径限定分类任务。",
-      "aliases": ["MambaSL"]
+      "aliases": [
+        "MambaSL"
+      ],
+      "paper_url": "https://openreview.net/forum?id=YDl4vqQqGP",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_url": "https://github.com/yoom618/MambaSL",
+      "original_upstream_source": "libraries/Time-Series-Library/models/MambaSingleLayer.py",
+      "paper_note": "当前模块对应 MambaSL 分类论文；文件名 MambaSingleLayer 与论文模型名 MambaSL 分别保留。"
     },
     "MICN": {
       "category": "recurrent_convolution",
-      "summary": "用多尺度下采样、等距和上采样卷积提取局部与全局变化，并结合序列分解。"
+      "summary": "用多尺度下采样、等距和上采样卷积提取局部与全局变化，并结合序列分解。",
+      "paper_url": "https://openreview.net/pdf?id=zt53IDUR1U",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Moirai": {
       "category": "pretrained_foundation",
-      "summary": "调用 uni2ts 的预训练 Moirai 模型，库内接口用于零样本预测。"
+      "summary": "调用 uni2ts 的预训练 Moirai 模型，库内接口用于零样本预测。",
+      "paper_url": "https://arxiv.org/pdf/2402.02592",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_note": "链接为上游 README 列出的 Moirai 系列论文；当前接口实际加载 moirai-2.0-R-small，具体版本以源码和权重标识为准。"
     },
     "MSGNet": {
       "category": "graph",
-      "summary": "先发现不同周期尺度，再通过图卷积和注意力学习多变量之间的关系。"
+      "summary": "先发现不同周期尺度，再通过图卷积和注意力学习多变量之间的关系。",
+      "paper_url": "https://dl.acm.org/doi/10.1609/aaai.v38i10.28991",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "MultiPatchFormer": {
       "category": "transformer_attention",
-      "summary": "用多种 patch 尺度表示序列，再结合注意力组织不同尺度与通道信息。"
+      "summary": "用多种 patch 尺度表示序列，再结合注意力组织不同尺度与通道信息。",
+      "paper_url": "https://www.nature.com/articles/s41598-024-82417-4",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Nonstationary_Transformer": {
       "category": "transformer_attention",
       "summary": "在归一化输入之外学习去平稳注意力因子，补回序列的非平稳信息。",
-      "aliases": ["Non-stationary Transformer"]
+      "aliases": [
+        "Non-stationary Transformer"
+      ],
+      "paper_url": "https://openreview.net/pdf?id=ucNDIDRNjjv",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_url": "https://github.com/thuml/Nonstationary_Transformers",
+      "original_upstream_source": "libraries/Time-Series-Library/README.md"
     },
     "PAttn": {
       "category": "transformer_attention",
-      "summary": "用 patch 嵌入和单层注意力进行预测，提供无需调用语言模型的对照入口。"
+      "summary": "用 patch 嵌入和单层注意力进行预测，提供无需调用语言模型的对照入口。",
+      "paper_url": "https://arxiv.org/pdf/2406.16964",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "PatchTST": {
       "category": "transformer_attention",
-      "summary": "把连续时间点切为 patch，并以通道独立的 Transformer 建模长历史。"
+      "summary": "把连续时间点切为 patch，并以通道独立的 Transformer 建模长历史。",
+      "paper_url": "https://openreview.net/pdf?id=Jbdc0vTOcol",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_url": "https://github.com/yuqinie98/PatchTST",
+      "original_upstream_source": "libraries/Time-Series-Library/README.md"
     },
     "Pyraformer": {
       "category": "transformer_attention",
-      "summary": "构建多尺度金字塔，在层内与层间设置稀疏连接以传递长期信息。"
+      "summary": "构建多尺度金字塔，在层内与层间设置稀疏连接以传递长期信息。",
+      "paper_url": "https://openreview.net/forum?id=0EXmFzUn5I",
+      "paper_source": "baselines/Pyraformer/README.md",
+      "original_upstream_url": "https://github.com/ant-research/Pyraformer"
     },
     "Reformer": {
       "category": "transformer_attention",
-      "summary": "使用 Reformer 的局部敏感哈希注意力处理长序列。"
+      "summary": "使用 Reformer 的局部敏感哈希注意力处理长序列。",
+      "paper_url": "https://openreview.net/forum?id=rkgNKkHtvB",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "SCINet": {
       "category": "recurrent_convolution",
-      "summary": "递归拆分奇偶时间点，用交互卷积交换信息后重新合并序列。"
+      "summary": "递归拆分奇偶时间点，用交互卷积交换信息后重新合并序列。",
+      "paper_url": "https://openreview.net/pdf?id=AyajSjTAzmg",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "SegRNN": {
       "category": "recurrent_convolution",
-      "summary": "将序列分段后交给 GRU 编码，再按预测片段输出未来值。"
+      "summary": "将序列分段后交给 GRU 编码，再按预测片段输出未来值。",
+      "paper_url": "https://arxiv.org/abs/2308.11200.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Sundial": {
       "category": "pretrained_foundation",
-      "summary": "调用外部预训练 Sundial 时序模型，保留其零样本预测适配接口。"
+      "summary": "调用外部预训练 Sundial 时序模型，保留其零样本预测适配接口。",
+      "paper_url": "https://arxiv.org/pdf/2502.00816",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TemporalFusionTransformer": {
       "category": "transformer_attention",
       "summary": "通过变量选择、门控循环层和注意力融合历史与时间协变量。",
-      "aliases": ["TFT"]
+      "aliases": [
+        "TFT"
+      ],
+      "paper_url": "https://arxiv.org/abs/1912.09363",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TiDE": {
       "category": "linear_mlp",
-      "summary": "用残差 MLP 编码历史和协变量，再通过稠密解码与时间投影得到预测。"
+      "summary": "用残差 MLP 编码历史和协变量，再通过稠密解码与时间投影得到预测。",
+      "paper_url": "https://arxiv.org/pdf/2304.08424.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Time-LLM": {
       "category": "llm_reprogramming",
       "summary": "把时序 patch 对齐到文本原型，并用提示词与冻结语言模型生成预测表示。",
-      "aliases": ["TimeLLM"]
+      "aliases": [
+        "TimeLLM"
+      ],
+      "paper_url": "https://arxiv.org/abs/2310.01728",
+      "paper_source": "baselines/Time-LLM/README.md",
+      "original_upstream_url": "https://github.com/KimMeen/Time-LLM"
     },
     "TimeFilter": {
       "category": "graph",
-      "summary": "将时序 patch 组织成图，用邻接构造和路由过滤关系后预测。"
+      "summary": "将时序 patch 组织成图，用邻接构造和路由过滤关系后预测。",
+      "paper_url": "https://arxiv.org/abs/2501.13041",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TimeMixer": {
       "category": "decomposition_frequency",
-      "summary": "将序列分为多个尺度和趋势季节成分，通过 MLP 混合并汇总多尺度预测。"
+      "summary": "将序列分为多个尺度和趋势季节成分，通过 MLP 混合并汇总多尺度预测。",
+      "paper_url": "https://openreview.net/pdf?id=7oLshfEIC2",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TimeMoE": {
       "category": "pretrained_foundation",
       "summary": "调用预训练 TimeMoE 混合专家时序模型，库内入口用于零样本预测。",
-      "aliases": ["Time-MoE"]
+      "aliases": [
+        "Time-MoE"
+      ],
+      "paper_url": "https://arxiv.org/pdf/2409.16040",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TimesFM": {
       "category": "pretrained_foundation",
-      "summary": "调用预训练 TimesFM 预测接口，外部权重与运行依赖单独加载。"
+      "summary": "调用预训练 TimesFM 预测接口，外部权重与运行依赖单独加载。",
+      "paper_url": "https://arxiv.org/abs/2310.10688",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_note": "链接为上游 README 列出的 TimesFM 系列论文；当前接口实际调用 TimesFM 2.5，具体版本以源码和权重标识为准。"
     },
     "TimesNet": {
       "category": "recurrent_convolution",
-      "summary": "用 FFT 寻找周期，将序列按周期重排为二维，再用 Inception 卷积提取变化。"
+      "summary": "用 FFT 寻找周期，将序列按周期重排为二维，再用 Inception 卷积提取变化。",
+      "paper_url": "https://openreview.net/pdf?id=ju_Uqw384Oq",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TimeXer": {
       "category": "transformer_attention",
-      "summary": "结合目标序列的 patch 与外生变量表示，用注意力融合两类信息。"
+      "summary": "结合目标序列的 patch 与外生变量表示，用注意力融合两类信息。",
+      "paper_url": "https://arxiv.org/abs/2402.19072",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TiRex": {
       "category": "pretrained_foundation",
-      "summary": "调用 tirex-ts 的预训练模型，为库内零样本预测提供接口。"
+      "summary": "调用 tirex-ts 的预训练模型，为库内零样本预测提供接口。",
+      "paper_url": "https://arxiv.org/pdf/2505.23719",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "Transformer": {
       "category": "transformer_attention",
-      "summary": "使用标准编码器和解码器注意力结构，作为其他改造模型的对照。"
+      "summary": "使用标准编码器和解码器注意力结构，作为其他改造模型的对照。",
+      "paper_url": "https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "TSMixer": {
       "category": "linear_mlp",
-      "summary": "交替沿时间轴和变量轴使用 MLP 混合信息，再映射到预测窗口。"
+      "summary": "交替沿时间轴和变量轴使用 MLP 混合信息，再映射到预测窗口。",
+      "paper_url": "https://arxiv.org/pdf/2303.06053.pdf",
+      "paper_source": "libraries/Time-Series-Library/README.md"
     },
     "WPMixer": {
       "category": "decomposition_frequency",
-      "summary": "先用离散小波拆分序列，再对不同分量做 patch 混合与预测重建。"
+      "summary": "先用离散小波拆分序列，再对不同分量做 patch 混合与预测重建。",
+      "paper_url": "https://arxiv.org/abs/2412.17176",
+      "paper_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_url": "https://github.com/Secure-and-Intelligent-Systems-Lab/WPMixer",
+      "original_upstream_source": "libraries/Time-Series-Library/models/WPMixer.py"
     }
   }
 }

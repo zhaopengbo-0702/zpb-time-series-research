@@ -29,7 +29,8 @@ def link(label, path):
     return f'[{safe_label}](../{path})'
 
 
-def render_catalog(root, manifest):
+def model_inventory(root, manifest):
+    """Collect every model once, irrespective of its imported source."""
     root = Path(root)
     metadata_path = root / 'tools' / 'model_categories.json'
     metadata = json.loads(metadata_path.read_text(encoding='utf-8')) if metadata_path.exists() else {}
@@ -61,8 +62,14 @@ def render_catalog(root, manifest):
         core, training = INDEPENDENT[source['name']]
         item['independent'] = source['local_directory']
         item['independent_name'] = source['name']
+        item['independent_url'] = source.get('url', 'https://github.com/' + source['repository'])
         item['core'] = source['local_directory'] + '/' + core if source['local_directory'] + '/' + core in known else None
         item['training'] = source['local_directory'] + '/' + training if source['local_directory'] + '/' + training in known else None
+    return metadata, categories, details, families, library, library_count, independent_count
+
+
+def render_catalog(root, manifest):
+    metadata, categories, details, families, library, library_count, independent_count = model_inventory(root, manifest)
     grouped = {}
     valid_categories = {category['id'] for category in categories}
     for name, item in families.items():
@@ -173,16 +180,74 @@ def render_homepage_models(root, manifest):
     return '\n'.join(rows) + '\n'
 
 
-def render_homepage(root, manifest, previous):
-    start = '<!-- MODEL_CATALOG_START -->'
-    end = '<!-- MODEL_CATALOG_END -->'
+def render_homepage_details(root, manifest):
+    """Keep the same six fields for every model, with compact link labels."""
+    _, categories, details, families, library, _, _ = model_inventory(root, manifest)
+    titles = {category['id']: category['title'] for category in categories}
+    rows = [f'共 **{len(families)} 个模型**，按名称排序，每个模型一行。分类见上表；各行使用相同字段，'
+            '有多个实现时同时列出。悬停在链接上可查看完整文件路径。', '',
+            '| 模型 | 主要思路 | 源码 | 核心模型 | 运行入口 | 论文&nbsp;/&nbsp;项目 |',
+            '| :--- | :--- | :---: | :---: | :---: | :---: |']
+
+    def compact(label, target, hint=None):
+        hint = (hint or target).replace('"', "'")
+        return f'[{label}]({target} "{hint}")'
+
+    for name, item in sorted(families.items(), key=lambda value: value[0].casefold()):
+        info = details.get(name, {})
+        sources, models, entries = [], [], []
+        if item.get('independent'):
+            sources.append(compact('原项目', item['independent'] + '/'))
+            if item.get('core'):
+                models.append(compact('原版模型', item['core']))
+            if item.get('training'):
+                entries.append(compact('原版入口', item['training']))
+            if name == 'Pyraformer':
+                original = next(s for s in manifest['sources'] if s['name'] == 'Pyraformer')
+                tracked = {entry['path'] for entry in original['files']}
+                single_model = item['independent'] + '/pyraformer/Pyraformer_SS.py'
+                single_entry = item['independent'] + '/single_step_main.py'
+                if single_model in tracked:
+                    models.append(compact('单步模型', single_model))
+                if single_entry in tracked:
+                    entries.append(compact('单步入口', single_entry))
+        if item.get('library') and library:
+            sources.append(compact('TSLib', library['local_directory'] + '/'))
+            models.append(compact('库内模型', item['library']))
+            entries.append(compact('库内入口', library['local_directory'] + '/run.py',
+                                   '按任务选择参数；查看库内 scripts 目录'))
+        references = []
+        if info.get('paper_url'):
+            references.append(compact('论文', info['paper_url'], info.get('paper_note') or '模型论文'))
+        project = info.get('original_upstream_url') or item.get('independent_url') or (library or {}).get('url')
+        if project:
+            references.append(compact('项目', project))
+        display_name = {'Nonstationary_Transformer': 'Nonstationary<br>Transformer',
+                        'TemporalFusionTransformer': 'Temporal Fusion<br>Transformer'}.get(name, name)
+        values = [display_name, info.get('summary', '方法说明待补充，源码已完整收录。'),
+                  '<br>'.join(sources) or '—', '<br>'.join(models) or '—',
+                  '<br>'.join(entries) or '见源码', '&nbsp;·&nbsp;'.join(references) or '见源码']
+        rows.append('| ' + ' | '.join(str(value).replace('|', '\\|').replace('\n', ' ') for value in values) + ' |')
+    rows += ['', '原项目与库内入口对应不同实现；运行参数和支持任务见各自源码。'
+             '系列论文与当前预训练权重的差异已放入论文链接的悬停说明。', '']
+    return '\n'.join(rows)
+
+
+def replace_generated_block(previous, key, content):
+    start = f'<!-- {key}_START -->'
+    end = f'<!-- {key}_END -->'
     if start not in previous and end not in previous:
         return previous
     if previous.count(start) != 1 or previous.count(end) != 1 or previous.index(start) > previous.index(end):
         raise ValueError('Invalid homepage model catalog markers')
     begin = previous.index(start) + len(start)
     finish = previous.index(end)
-    return previous[:begin] + '\n\n' + render_homepage_models(root, manifest) + '\n' + previous[finish:]
+    return previous[:begin] + '\n\n' + content + '\n' + previous[finish:]
+
+
+def render_homepage(root, manifest, previous):
+    previous = replace_generated_block(previous, 'MODEL_CATALOG', render_homepage_models(root, manifest))
+    return replace_generated_block(previous, 'MODEL_DETAILS', render_homepage_details(root, manifest))
 
 
 def main():
