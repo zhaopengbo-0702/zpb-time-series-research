@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "name": "Pyraformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/pyraformer",
+  "summary": "构建多尺度金字塔，在层内与层间设置稀疏连接以传递长期信息。",
+  "paper_url": "https://openreview.net/forum?id=0EXmFzUn5I",
+  "profile": {
+    "intuition": "Pyraformer 把一条长序列组织成金字塔。底层看细节，上层看更粗的时间范围，让相隔很远的信息可以经过少量层间连接传递。",
+    "mechanism": "模型先构造多尺度节点，再通过层内邻居和父子节点形成稀疏注意力。粗尺度聚合与金字塔注意力共同形成表示，随后由长预测或单步预测头输出结果。",
+    "use_cases": "适合比较长历史预测中的多尺度归纳偏置与稀疏连接，尤其是希望控制全注意力开销的实验。",
+    "limitations": "窗口大小、尺度层数和内层邻域决定连接结构，不能直接套到任意序列长度。可选加速实现另有平台依赖，标准计算路径与加速路径应分别验证。",
+    "reading_tip": "先画出金字塔各层节点数量，再读注意力 mask 与索引生成。长预测和单步预测是不同入口，比较结果时要核对任务、数据和解码设置。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-02",
+      "core": "_sources/source-02/pyraformer/Pyraformer_LR.py",
+      "entry": "_sources/source-02/long_range_main.py",
+      "commit": "84af4dbd93b7b96975b5034f0dde412005260123",
+      "extra_cores": [
+        "_sources/source-02/pyraformer/Pyraformer_SS.py"
+      ],
+      "extra_entries": [
+        "_sources/source-02/single_step_main.py"
+      ],
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Pyraformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/Pyraformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现3"
+    }
+  ]
+}

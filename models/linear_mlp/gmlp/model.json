@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "gMLP",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/gmlp",
+  "summary": "通过空间门控前馈模块混合序列位置，替代完整注意力。",
+  "paper_url": "https://arxiv.org/abs/2105.08050",
+  "profile": {
+    "intuition": "用一个分支为另一个分支生成门值，从而让不同时间位置交换信息。它保留前馈网络风格，不靠常见的 query-key 注意力矩阵完成交互。",
+    "mechanism": "特征扩展后分成两半，一半经过归一化与空间投影，作为门值乘到另一半，再投影并加残差。时间长度参与空间门控层的参数化。",
+    "use_cases": "适合固定长度时间序列表示学习、分类或回归，也适合与自注意力进行结构消融。当前任务形式取决于所选输出头，不能默认等同多步预测器。",
+    "limitations": "固定长度投影可能限制对变长输入的直接使用；门控虽不同于注意力，也仍有参数和计算开销。长期泛化与局部模式处理需独立检验。",
+    "reading_tip": "从 SpatialGatingUnit 看切分、位置混合和相乘，确认“空间”在这里对应哪条轴。随后检查最终池化和输出头，弄清它解决什么任务。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/gMLP.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "gMLP",
+      "label": "实现1"
+    }
+  ]
+}

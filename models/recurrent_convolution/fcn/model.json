@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "FCN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/fcn",
+  "summary": "用多层一维卷积和全局池化提取序列特征。",
+  "paper_url": "https://arxiv.org/abs/1611.06455",
+  "profile": {
+    "intuition": "FCN 用几层一维卷积寻找局部波形，再把整段序列汇总成一个表示。它不依赖循环状态，主要通过卷积检测哪些形状在序列中出现。",
+    "mechanism": "结构依次堆叠卷积、归一化与激活，经过全局平均池化压缩时间轴，最后线性映射到类别或回归目标；输出通常是整段序列的一个向量。",
+    "use_cases": "适合序列分类、片段级回归和卷积基线实验，特别适合观察局部形状是否已足够区分类别。",
+    "limitations": "全局平均池化会弱化事件发生的精确位置，有限卷积感受野也会限制远距离组合。现成的分类头不能直接等同于多步预测头。",
+    "reading_tip": "先看卷积核和通道数，再确认池化前后形状与输出损失。若要做预测，需要明确构造未来时间轴，而不是只把类别数改成预测长度后忽略任务语义。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/FCN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "FCN",
+      "label": "实现1"
+    }
+  ]
+}

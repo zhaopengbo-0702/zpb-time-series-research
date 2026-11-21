@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "model": "DLinear",
+  "adapter": "torch_source",
+  "protocol": {
+    "dataset_sha256": "7d75fb76830a9b75b4329a8341ca4a1255c457fe6a9fdc2342cbf78c3bad8d7b",
+    "time_column": "date",
+    "columns": [
+      "signal",
+      "trend"
+    ],
+    "train_end": 120,
+    "test_start": 144,
+    "row_count": 192,
+    "lookback": 24,
+    "horizon": 12,
+    "stride": 12,
+    "origins": [
+      144,
+      156,
+      168,
+      180
+    ],
+    "metric_scale": "original",
+    "history_policy": "observed_rolling_frozen_fit",
+    "mase_period": 24,
+    "missing_policy": "reject"
+  },
+  "protocol_id": "57489b66ab5297b8f81d12599c54ef6b8a1e7dd147985766d0c5388e667b7d7a",
+  "implementation": {
+    "adapter": "torch_source",
+    "model": "DLinear",
+    "implementation": {
+      "source": "Time-Series-Library",
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/DLinear.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    "core": "_sources/source-07/models/DLinear.py",
+    "source_directory": "_sources/source-07",
+    "source_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "device": "cpu",
+    "normalization": "Per-channel mean/std fitted on train only; predictions returned in original units.",
+    "train_observations": 120,
+    "training_windows": 85,
+    "optimization_steps": 15,
+    "epoch_train_mse_standardized": [
+      0.6902565465253943,
+      0.6401418840183931,
+      0.5951063969556023,
+      0.553466838948867,
+      0.5145635078935062
+    ],
+    "normalization_mean": [
+      0.29750000000000004,
+      1.1900000000000002
+    ],
+    "normalization_scale": [
+      0.7014407646493537,
+      0.7042490089302708
+    ],
+    "torch_version": "2.7.0+cpu",
+    "python_executable": "python.exe",
+    "model_class_module": "_sources/source-07/models/DLinear.py",
+    "seed": 7,
+    "resolved_training_options": {
+      "lookback": 24,
+      "epochs": 5,
+      "batch_size": 32,
+      "learning_rate": 0.001,
+      "seed": 7,
+      "device": "cpu",
+      "moving_avg": 25,
+      "d_model": 32,
+      "e_layers": 2,
+      "dropout": 0.0,
+      "threads": 1
+    }
+  },
+  "seed": 7,
+  "options": {
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "seed": 7,
+    "device": "cpu",
+    "adapter": "torch_source",
+    "lookback": 24
+  },
+  "metrics": {
+    "mae": 0.5627573191985397,
+    "mse": 0.4050562916569754,
+    "rmse": 0.636440328433841,
+    "smape": 51.90301460045214,
+    "mase": 2.785950223006638
+  },
+  "metrics_by_column": {
+    "signal": {
+      "mae": 0.5163325252297639,
+      "mse": 0.34821967786507885,
+      "rmse": 0.5901014132037635,
+      "smape": 83.47530102486411,
+      "mase": 4.302771043581365
+    },
+    "trend": {
+      "mae": 0.6091821131673153,
+      "mse": 0.4618929054488719,
+      "rmse": 0.679627034077421,
+      "smape": 20.330728176040164,
+      "mase": 1.2691294024319066
+    }
+  },
+  "metrics_by_horizon": {
+    "1": {
+      "mae": 0.11666888685703325,
+      "mse": 0.0196016901219722,
+      "rmse": 0.14000603601978096,
+      "smape": 11.13608540826245,
+      "mase": 0.8391523052367815
+    },
+    "2": {
+      "mae": 0.34045470175528103,
+      "mse": 0.13731448494749815,
+      "rmse": 0.3705596914769578,
+      "smape": 21.30392349126714,
+      "mase": 1.4152919787614864
+    },
+    "3": {
+      "mae": 0.40693940588462424,
+      "mse": 0.17036410842960045,
+      "rmse": 0.4127518727148315,
+      "smape": 34.29153957205897,
+      "mase": 2.125768123375439
+    },
+    "4": {
+      "mae": 0.5716890218488676,
+      "mse": 0.35252331094939926,
+      "rmse": 0.5937367353881678,
+      "smape": 55.27613641073248,
+      "mase": 2.958656152204871
+    },
+    "5": {
+      "mae": 0.7105276260875453,
+      "mse": 0.5691691916361992,
+      "rmse": 0.7544330266075308,
+      "smape": 79.25689435345203,
+      "mase": 3.609999683130428
+    },
+    "6": {
+      "mae": 0.6088989653717038,
+      "mse": 0.40371721414752154,
+      "rmse": 0.6353874519909262,
+      "smape": 75.34997480386265,
+      "mase": 3.600505843276115
+    },
+    "7": {
+      "mae": 0.6526047492169552,
+      "mse": 0.45866185974142715,
+      "rmse": 0.6772457897554086,
+      "smape": 77.02802618127812,
+      "mase": 3.7930087467831823
+    },
+    "8": {
+      "mae": 0.5399574210884348,
+      "mse": 0.3346685356890388,
+      "rmse": 0.5785054327221473,
+      "smape": 68.55613388043662,
+      "mase": 3.4544080947713667
+    },
+    "9": {
+      "mae": 0.6948730285716056,
+      "mse": 0.4933600804518253,
+      "rmse": 0.7023959570298118,
+      "smape": 72.4806536751936,
+      "mase": 3.6003702612326407
+    },
+    "10": {
+      "mae": 0.7346729190320354,
+      "mse": 0.5880870214963108,
+      "rmse": 0.7668683208324039,
+      "smape": 57.96127131416591,
+      "mase": 3.2963624657777477
+    },
+    "11": {
+      "mae": 0.7876726118227009,
+      "mse": 0.8322986742810585,
+      "rmse": 0.912304047059454,
+      "smape": 42.87553723896453,
+      "mase": 2.8822170440796566
+    },
+    "12": {
+      "mae": 0.5881284928456887,
+      "mse": 0.5009093279918533,
+      "rmse": 0.7077494810961384,
+      "smape": 27.319998875751118,
+      "mase": 1.855661977449945
+    }
+  },
+  "forecast_count": 96,
+  "fit_seconds": 7.954787,
+  "environment": {
+    "python": "3.9.12",
+    "numpy": "1.26.4",
+    "repository_commit": "1c3c29d5d7f897142338058be4463d09ba55b019",
+    "repository_dirty": true,
+    "workspace_code_sha256": {
+      "zpbts/__init__.py": "711e19a67fff24d957227768a27e678c378cff887ac39749e9c8e44f6ba35841",
+      "zpbts/__main__.py": "ccc319ccb745b9d91f761930a58667117a97413b9a15aced985a9091e27ffcfb",
+      "zpbts/adapters.py": "e75646b449b9170811fe9123e46b3ea11dbec16c40c08957bc2f53032edeeee3",
+      "zpbts/experiment.py": "1dab3efa262e1faa843d89b2fd19c709b7915e301bfa8cba81c8c54f8c46b0ce",
+      "zpbts/registry.py": "bd0975a798f3a85d0e413d54684d81d7305ebdb7b8bb4aeeac90e3785add3ba9"
+    }
+  }
+}

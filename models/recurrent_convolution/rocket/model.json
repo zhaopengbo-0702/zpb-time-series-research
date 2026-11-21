@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "ROCKET",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/rocket",
+  "summary": "用大量随机卷积核生成统计特征，再接线性分类或回归器。",
+  "paper_url": "https://arxiv.org/abs/1910.13051",
+  "profile": {
+    "intuition": "ROCKET 用大量随机卷积核从序列中生成特征，不要求所有卷积核都经梯度训练。它把许多随机观察交给后续较简单的分类器或回归器组合。",
+    "mechanism": "随机核采用不同长度、权重、偏置与膨胀率，从响应中提取最大值、正响应比例等统计，形成高维特征；再训练决策模型，收录版本的后端封装有所区别。",
+    "use_cases": "适合为序列分类或回归建立有竞争力的特征基线，也适合衡量数据是否真的需要复杂的深层表征学习。",
+    "limitations": "随机性与特征数影响结果及内存成本，特征标准化和决策器正则化也很重要。统计特征不能完整表达事件顺序，需对不同种子与样本规模做检验。",
+    "reading_tip": "先分清随机核生成、特征变换和下游拟合三个阶段。核对 fit 与 transform 的数据范围，保存随机状态，并明确比较的是特征器还是完整流水线。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/ROCKET.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "RocketClassifier",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/ROCKET.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "RocketRegressor",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/ROCKET_Pytorch.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "ROCKET",
+      "label": "实现3"
+    }
+  ]
+}

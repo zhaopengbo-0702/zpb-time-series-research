@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "RegressionEnsembleModel",
+  "category": "ensemble_calibration",
+  "directory": "models/ensemble_calibration/regressionensemblemodel",
+  "summary": "学习回归式组合器，融合多个基础预测结果。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "不固定平均所有成员，而是训练一个组合器，学习怎样把基础模型的预测转成更好的最终预测。这通常被称为堆叠，重点在于组合器的训练样本必须真实。",
+    "mechanism": "先让基础模型在保留区间或历史回测起点生成预测，再把这些预测作为回归特征，拟合最终组合器。可选训练策略决定基础模型随后是否重新拟合以及组合器看到多少历史。",
+    "use_cases": "适合已有多种基础模型、且有足够独立历史验证它们互补性的任务。也适合检验可学习组合是否比简单平均带来稳定收益。",
+    "limitations": "若用基础模型拟合过的同一批样本训练组合器，容易产生严重乐观偏差。组合器还可能过拟合少量验证窗口，训练成本和误差相关性也会影响结果。",
+    "reading_tip": "重点读 regression_train_n_points、历史预测生成、基础模型重训和回归器的目标对齐。先画清每一步能看到哪些时间段，再讨论集成性能，否则很难排除泄漏。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/regression_ensemble_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "RegressionEnsembleModel",
+      "label": "实现1"
+    }
+  ]
+}

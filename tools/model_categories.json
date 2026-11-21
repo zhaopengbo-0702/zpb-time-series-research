@@ -73,17 +73,17 @@
       "category": "decomposition_frequency",
       "summary": "逐层拆分趋势与季节变化，再用自相关选择时延并聚合序列。",
       "paper_url": "https://arxiv.org/abs/2106.13008",
-      "paper_source": "baselines/Autoformer/README.md",
+      "paper_source": "_sources/source-04/README.md",
       "original_upstream_url": "https://github.com/thuml/Autoformer",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/autoformer.py"
+        "_sources/source-10/neuralforecast/models/autoformer.py"
       ]
     },
     "Chronos": {
       "category": "pretrained_foundation",
       "summary": "调用预训练 Chronos，把数值序列交给其预测管线，库内入口用于零样本预测。",
       "paper_url": "https://arxiv.org/pdf/2403.07815",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "paper_note": "链接为上游 README 列出的 Chronos 系列论文；当前接口实际加载 chronos-bolt-base，不将该链接标成该权重的专属论文。"
     },
     "Chronos2": {
@@ -94,75 +94,75 @@
         "Chronos2Model"
       ],
       "paper_url": "https://arxiv.org/abs/2510.15821",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/chronos2_model.py"
+        "_sources/source-12/darts/models/forecasting/chronos2_model.py"
       ]
     },
     "Crossformer": {
       "category": "transformer_attention",
       "summary": "把每个变量的序列切成片段，用分层和两阶段注意力处理时间与变量关系。",
       "paper_url": "https://openreview.net/pdf?id=vSVLM2j9eie",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "DLinear": {
       "category": "linear_mlp",
       "summary": "先分解趋势与剩余变化，再分别做线性预测，是结构简单的对照模型。",
       "paper_url": "https://arxiv.org/pdf/2205.13504.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "DLinearForecaster",
         "DLinearModel"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/dlinear.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/dlinear/_dlinear_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/dlinear/_dlinear_forecaster_v2.py",
-        "libraries/darts/darts/models/forecasting/dlinear.py"
+        "_sources/source-10/neuralforecast/models/dlinear.py",
+        "_sources/source-11/pytorch_forecasting/models/dlinear/_dlinear_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/dlinear/_dlinear_forecaster_v2.py",
+        "_sources/source-12/darts/models/forecasting/dlinear.py"
       ]
     },
     "EMAformer": {
       "category": "transformer_attention",
       "summary": "在变量 token 上叠加通道、相位和联合嵌入，再用 Transformer 预测。",
       "paper_url": "https://arxiv.org/abs/2511.08396",
-      "paper_source": "baselines/EMAformer/README.md",
+      "paper_source": "_sources/source-01/README.md",
       "original_upstream_url": "https://github.com/PlanckChang/EMAformer"
     },
     "ETSformer": {
       "category": "decomposition_frequency",
       "summary": "将水平、增长和季节项分开建模，结合可学习指数平滑、傅里叶外推与增长阻尼。",
       "paper_url": "https://arxiv.org/abs/2202.01381",
-      "paper_source": "baselines/ETSformer/README.md",
+      "paper_source": "_sources/source-05/README.md",
       "original_upstream_url": "https://github.com/azkanaon/etsformer"
     },
     "FEDformer": {
       "category": "decomposition_frequency",
       "summary": "在趋势季节分解的基础上，用傅里叶或小波模块处理长期依赖。",
       "paper_url": "https://proceedings.mlr.press/v162/zhou22g.html",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "original_upstream_url": "https://github.com/MAZiqing/FEDformer",
-      "original_upstream_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_source": "_sources/source-07/README.md",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/fedformer.py"
+        "_sources/source-10/neuralforecast/models/fedformer.py"
       ]
     },
     "FiLM": {
       "category": "state_space_dynamics",
       "summary": "用 Legendre/HiPPO 状态投影压缩历史，再以频域处理提取预测信息。",
       "paper_url": "https://openreview.net/forum?id=zTQdHSQUQWc",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "FreTS": {
       "category": "decomposition_frequency",
       "summary": "把序列变到频域，用复数 MLP 混合时间和通道信息，再还原预测。",
       "paper_url": "https://arxiv.org/pdf/2311.06184.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "FreTSForecaster"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/frets/_frets_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/frets/_frets_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/frets/_frets_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/frets/_frets_forecaster_v2.py"
       ]
     },
     "Informer": {
@@ -172,52 +172,52 @@
         "Informer2020"
       ],
       "paper_url": "https://arxiv.org/abs/2012.07436",
-      "paper_source": "baselines/Informer2020/README.md",
+      "paper_source": "_sources/source-03/README.md",
       "original_upstream_url": "https://github.com/zhouhaoyi/Informer2020",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/informer.py"
+        "_sources/source-10/neuralforecast/models/informer.py"
       ]
     },
     "iTransformer": {
       "category": "transformer_attention",
       "summary": "把每个变量的历史作为一个 token，让注意力直接学习变量之间的关系。",
       "paper_url": "https://arxiv.org/abs/2310.06625",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/itransformer.py"
+        "_sources/source-10/neuralforecast/models/itransformer.py"
       ]
     },
     "KANAD": {
       "category": "anomaly_specialized",
       "summary": "结合周期余弦特征和卷积重建序列，当前库内模型只实现异常检测。",
       "paper_url": "https://arxiv.org/abs/2411.00278",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "Koopa": {
       "category": "state_space_dynamics",
       "summary": "分离不同变化成分，用可学习和动态估计的 Koopman 算子推进隐状态。",
       "paper_url": "https://arxiv.org/pdf/2305.18803.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "LightTS": {
       "category": "linear_mlp",
       "summary": "通过连续与间隔采样提取序列片段，用 MLP 混合局部和跨片段信息。",
       "paper_url": "https://arxiv.org/abs/2207.01186",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "Mamba": {
       "category": "state_space_dynamics",
       "summary": "用 Mamba 的选择性状态空间模块递推处理序列，减少对全量注意力的依赖。",
       "paper_url": "https://arxiv.org/abs/2312.00752",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "MambaSimple": {
       "category": "state_space_dynamics",
       "summary": "在库内保留较简化的 Mamba 与扫描计算实现，便于阅读状态递推机制。",
       "paper_url": "https://arxiv.org/abs/2312.00752",
-      "paper_source": "libraries/Time-Series-Library/models/MambaSimple.py",
+      "paper_source": "_sources/source-07/models/MambaSimple.py",
       "original_upstream_url": "https://github.com/johnma2006/mamba-minimal/",
-      "original_upstream_source": "libraries/Time-Series-Library/models/MambaSimple.py",
+      "original_upstream_source": "_sources/source-07/models/MambaSimple.py",
       "paper_note": "共用 Mamba 方法论文；当前文件是简化实现，参考 mamba-minimal，不宣称另有独立论文。",
       "original_upstream_note": "实现参考仓库，来源为本地模型文件头注释。"
     },
@@ -228,35 +228,35 @@
         "MambaSL"
       ],
       "paper_url": "https://openreview.net/forum?id=YDl4vqQqGP",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "original_upstream_url": "https://github.com/yoom618/MambaSL",
-      "original_upstream_source": "libraries/Time-Series-Library/models/MambaSingleLayer.py",
+      "original_upstream_source": "_sources/source-07/models/MambaSingleLayer.py",
       "paper_note": "当前模块对应 MambaSL 分类论文；文件名 MambaSingleLayer 与论文模型名 MambaSL 分别保留。"
     },
     "MICN": {
       "category": "recurrent_convolution",
       "summary": "用多尺度下采样、等距和上采样卷积提取局部与全局变化，并结合序列分解。",
       "paper_url": "https://openreview.net/pdf?id=zt53IDUR1U",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "Moirai": {
       "category": "pretrained_foundation",
       "summary": "调用 uni2ts 的预训练 Moirai 模型，库内接口用于零样本预测。",
       "paper_url": "https://arxiv.org/pdf/2402.02592",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "paper_note": "链接为上游 README 列出的 Moirai 系列论文；当前接口实际加载 moirai-2.0-R-small，具体版本以源码和权重标识为准。"
     },
     "MSGNet": {
       "category": "graph",
       "summary": "先发现不同周期尺度，再通过图卷积和注意力学习多变量之间的关系。",
       "paper_url": "https://dl.acm.org/doi/10.1609/aaai.v38i10.28991",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "MultiPatchFormer": {
       "category": "transformer_attention",
       "summary": "用多种 patch 尺度表示序列，再结合注意力组织不同尺度与通道信息。",
       "paper_url": "https://www.nature.com/articles/s41598-024-82417-4",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "Nonstationary_Transformer": {
       "category": "transformer_attention",
@@ -265,75 +265,75 @@
         "Non-stationary Transformer"
       ],
       "paper_url": "https://openreview.net/pdf?id=ucNDIDRNjjv",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "original_upstream_url": "https://github.com/thuml/Nonstationary_Transformers",
-      "original_upstream_source": "libraries/Time-Series-Library/README.md"
+      "original_upstream_source": "_sources/source-07/README.md"
     },
     "PAttn": {
       "category": "transformer_attention",
       "summary": "用 patch 嵌入和单层注意力进行预测，提供无需调用语言模型的对照入口。",
       "paper_url": "https://arxiv.org/pdf/2406.16964",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "PatchTST": {
       "category": "transformer_attention",
       "summary": "把连续时间点切为 patch，并以通道独立的 Transformer 建模长历史。",
       "paper_url": "https://openreview.net/pdf?id=Jbdc0vTOcol",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "original_upstream_url": "https://github.com/yuqinie98/PatchTST",
-      "original_upstream_source": "libraries/Time-Series-Library/README.md",
+      "original_upstream_source": "_sources/source-07/README.md",
       "aliases": [
         "PatchTSTForecaster",
         "PatchTST_pkg",
         "PatchTST_v2"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/patchtst.py",
-        "libraries/tsai/tsai/models/PatchTST.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/patch_tst/patch_tst.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/patch_tst/_patch_tst_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/patch_tst/_patch_tst_pkg.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/patch_tst/_patch_tst_forecaster_v2.py"
+        "_sources/source-10/neuralforecast/models/patchtst.py",
+        "_sources/source-09/tsai/models/PatchTST.py",
+        "_sources/source-11/pytorch_forecasting/models/patch_tst/patch_tst.py",
+        "_sources/source-11/pytorch_forecasting/models/patch_tst/_patch_tst_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/patch_tst/_patch_tst_pkg.py",
+        "_sources/source-11/pytorch_forecasting/models/patch_tst/_patch_tst_forecaster_v2.py"
       ]
     },
     "Pyraformer": {
       "category": "transformer_attention",
       "summary": "构建多尺度金字塔，在层内与层间设置稀疏连接以传递长期信息。",
       "paper_url": "https://openreview.net/forum?id=0EXmFzUn5I",
-      "paper_source": "baselines/Pyraformer/README.md",
+      "paper_source": "_sources/source-02/README.md",
       "original_upstream_url": "https://github.com/ant-research/Pyraformer"
     },
     "Reformer": {
       "category": "transformer_attention",
       "summary": "使用 Reformer 的局部敏感哈希注意力处理长序列。",
       "paper_url": "https://openreview.net/forum?id=rkgNKkHtvB",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "SCINet": {
       "category": "recurrent_convolution",
       "summary": "递归拆分奇偶时间点，用交互卷积交换信息后重新合并序列。",
       "paper_url": "https://openreview.net/pdf?id=AyajSjTAzmg",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "SCINetForecaster",
         "SCINet_v2"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/scinet/_scinet_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/scinet/_scinet_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/scinet/_scinet_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/scinet/_scinet_forecaster_v2.py"
       ]
     },
     "SegRNN": {
       "category": "recurrent_convolution",
       "summary": "将序列分段后交给 GRU 编码，再按预测片段输出未来值。",
       "paper_url": "https://arxiv.org/abs/2308.11200.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "Sundial": {
       "category": "pretrained_foundation",
       "summary": "调用外部预训练 Sundial 时序模型，保留其零样本预测适配接口。",
       "paper_url": "https://arxiv.org/pdf/2502.00816",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "TemporalFusionTransformer": {
       "category": "transformer_attention",
@@ -345,20 +345,20 @@
         "TemporalFusionTransformer_pkg"
       ],
       "paper_url": "https://arxiv.org/abs/1912.09363",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/tft.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/temporal_fusion_transformer/_tft.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/temporal_fusion_transformer/_tft_forecaster_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/temporal_fusion_transformer/_tft_pkg.py",
-        "libraries/darts/darts/models/forecasting/tft_model.py"
+        "_sources/source-10/neuralforecast/models/tft.py",
+        "_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft.py",
+        "_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_forecaster_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_pkg.py",
+        "_sources/source-12/darts/models/forecasting/tft_model.py"
       ]
     },
     "TiDE": {
       "category": "linear_mlp",
       "summary": "用残差 MLP 编码历史和协变量，再通过稠密解码与时间投影得到预测。",
       "paper_url": "https://arxiv.org/pdf/2304.08424.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "TIDE",
         "TIDEForecaster",
@@ -366,12 +366,12 @@
         "TiDEModel_pkg"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/tide.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/tide/_tide.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/tide/_tide_pkg.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/tide/_tide_dsipts/_tide_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/tide/_tide_dsipts/_tide_forecaster_v2.py",
-        "libraries/darts/darts/models/forecasting/tide_model.py"
+        "_sources/source-10/neuralforecast/models/tide.py",
+        "_sources/source-11/pytorch_forecasting/models/tide/_tide.py",
+        "_sources/source-11/pytorch_forecasting/models/tide/_tide_pkg.py",
+        "_sources/source-11/pytorch_forecasting/models/tide/_tide_dsipts/_tide_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/tide/_tide_dsipts/_tide_forecaster_v2.py",
+        "_sources/source-12/darts/models/forecasting/tide_model.py"
       ]
     },
     "Time-LLM": {
@@ -381,25 +381,25 @@
         "TimeLLM"
       ],
       "paper_url": "https://arxiv.org/abs/2310.01728",
-      "paper_source": "baselines/Time-LLM/README.md",
+      "paper_source": "_sources/source-06/README.md",
       "original_upstream_url": "https://github.com/KimMeen/Time-LLM",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/timellm.py"
+        "_sources/source-10/neuralforecast/models/timellm.py"
       ]
     },
     "TimeFilter": {
       "category": "graph",
       "summary": "将时序 patch 组织成图，用邻接构造和路由过滤关系后预测。",
       "paper_url": "https://arxiv.org/abs/2501.13041",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "TimeMixer": {
       "category": "decomposition_frequency",
       "summary": "将序列分为多个尺度和趋势季节成分，通过 MLP 混合并汇总多尺度预测。",
       "paper_url": "https://openreview.net/pdf?id=7oLshfEIC2",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/timemixer.py"
+        "_sources/source-10/neuralforecast/models/timemixer.py"
       ]
     },
     "TimeMoE": {
@@ -409,89 +409,89 @@
         "Time-MoE"
       ],
       "paper_url": "https://arxiv.org/pdf/2409.16040",
-      "paper_source": "libraries/Time-Series-Library/README.md"
+      "paper_source": "_sources/source-07/README.md"
     },
     "TimesFM": {
       "category": "pretrained_foundation",
       "summary": "调用预训练 TimesFM 预测接口，外部权重与运行依赖单独加载。",
       "paper_url": "https://arxiv.org/abs/2310.10688",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "paper_note": "链接为上游 README 列出的 TimesFM 系列论文；当前接口实际调用 TimesFM 2.5，具体版本以源码和权重标识为准。"
     },
     "TimesNet": {
       "category": "recurrent_convolution",
       "summary": "用 FFT 寻找周期，将序列按周期重排为二维，再用 Inception 卷积提取变化。",
       "paper_url": "https://openreview.net/pdf?id=ju_Uqw384Oq",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/timesnet.py"
+        "_sources/source-10/neuralforecast/models/timesnet.py"
       ]
     },
     "TimeXer": {
       "category": "transformer_attention",
       "summary": "结合目标序列的 patch 与外生变量表示，用注意力融合两类信息。",
       "paper_url": "https://arxiv.org/abs/2402.19072",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "TimeXerForecaster",
         "TimeXer_pkg"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/timexer.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/timexer/_timexer.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/timexer/_timexer_pkg.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/timexer/_timexer_forecaster_v2.py"
+        "_sources/source-10/neuralforecast/models/timexer.py",
+        "_sources/source-11/pytorch_forecasting/models/timexer/_timexer.py",
+        "_sources/source-11/pytorch_forecasting/models/timexer/_timexer_pkg.py",
+        "_sources/source-11/pytorch_forecasting/models/timexer/_timexer_forecaster_v2.py"
       ]
     },
     "TiRex": {
       "category": "pretrained_foundation",
       "summary": "调用 tirex-ts 的预训练模型，为库内零样本预测提供接口。",
       "paper_url": "https://arxiv.org/pdf/2505.23719",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "TiRexModel"
       ],
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/tirex_model.py"
+        "_sources/source-12/darts/models/forecasting/tirex_model.py"
       ]
     },
     "Transformer": {
       "category": "transformer_attention",
       "summary": "使用标准编码器和解码器注意力结构，作为其他改造模型的对照。",
       "paper_url": "https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "TransformerModel",
         "VanillaTransformer"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/vanillatransformer.py",
-        "libraries/darts/darts/models/forecasting/transformer_model.py"
+        "_sources/source-10/neuralforecast/models/vanillatransformer.py",
+        "_sources/source-12/darts/models/forecasting/transformer_model.py"
       ]
     },
     "TSMixer": {
       "category": "linear_mlp",
       "summary": "交替沿时间轴和变量轴使用 MLP 混合信息，再映射到预测窗口。",
       "paper_url": "https://arxiv.org/pdf/2303.06053.pdf",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "aliases": [
         "TSMixerForecaster",
         "TSMixerModel"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/tsmixer.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/tsmixer/_tsmixer_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/tsmixer/_tsmixer_forecaster_v2.py",
-        "libraries/darts/darts/models/forecasting/tsmixer_model.py"
+        "_sources/source-10/neuralforecast/models/tsmixer.py",
+        "_sources/source-11/pytorch_forecasting/models/tsmixer/_tsmixer_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/tsmixer/_tsmixer_forecaster_v2.py",
+        "_sources/source-12/darts/models/forecasting/tsmixer_model.py"
       ]
     },
     "WPMixer": {
       "category": "decomposition_frequency",
       "summary": "先用离散小波拆分序列，再对不同分量做 patch 混合与预测重建。",
       "paper_url": "https://arxiv.org/abs/2412.17176",
-      "paper_source": "libraries/Time-Series-Library/README.md",
+      "paper_source": "_sources/source-07/README.md",
       "original_upstream_url": "https://github.com/Secure-and-Intelligent-Systems-Lab/WPMixer",
-      "original_upstream_source": "libraries/Time-Series-Library/models/WPMixer.py"
+      "original_upstream_source": "_sources/source-07/models/WPMixer.py"
     },
     "RNN": {
       "category": "recurrent_convolution",
@@ -500,30 +500,30 @@
         "RNNModel"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/rnn.py",
-        "libraries/tsai/tsai/models/RNN.py",
-        "libraries/darts/darts/models/forecasting/rnn_model.py"
+        "_sources/source-10/neuralforecast/models/rnn.py",
+        "_sources/source-09/tsai/models/RNN.py",
+        "_sources/source-12/darts/models/forecasting/rnn_model.py"
       ]
     },
     "GRU": {
       "category": "recurrent_convolution",
       "summary": "以更新门和重置门递推隐藏状态，学习序列信息。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/gru.py",
-        "libraries/tsai/tsai/models/RNN.py"
+        "_sources/source-10/neuralforecast/models/gru.py",
+        "_sources/source-09/tsai/models/RNN.py"
       ],
       "paper_url": "https://arxiv.org/abs/1412.3555",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/gru.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/gru.py"
     },
     "LSTM": {
       "category": "recurrent_convolution",
       "summary": "用输入、遗忘和输出门维护长期记忆，学习序列映射。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/lstm.py",
-        "libraries/tsai/tsai/models/RNN.py"
+        "_sources/source-10/neuralforecast/models/lstm.py",
+        "_sources/source-09/tsai/models/RNN.py"
       ],
       "paper_url": "https://ieeexplore.ieee.org/abstract/document/6795963/",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "TCN": {
       "category": "recurrent_convolution",
@@ -532,12 +532,12 @@
         "TCNModel"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/tcn.py",
-        "libraries/tsai/tsai/models/TCN.py",
-        "libraries/darts/darts/models/forecasting/tcn_model.py"
+        "_sources/source-10/neuralforecast/models/tcn.py",
+        "_sources/source-09/tsai/models/TCN.py",
+        "_sources/source-12/darts/models/forecasting/tcn_model.py"
       ],
       "paper_url": "https://arxiv.org/abs/1803.01271",
-      "paper_source": "libraries/darts/darts/models/forecasting/tcn_model.py"
+      "paper_source": "_sources/source-12/darts/models/forecasting/tcn_model.py"
     },
     "DeepAR": {
       "category": "recurrent_convolution",
@@ -546,39 +546,39 @@
         "DeepAR_pkg"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/deepar.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/deepar/_deepar.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/deepar/_deepar_pkg.py"
+        "_sources/source-10/neuralforecast/models/deepar.py",
+        "_sources/source-11/pytorch_forecasting/models/deepar/_deepar.py",
+        "_sources/source-11/pytorch_forecasting/models/deepar/_deepar_pkg.py"
       ],
       "paper_url": "https://www.sciencedirect.com/science/article/pii/S0169207019301888",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/deepar.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/deepar.py"
     },
     "DilatedRNN": {
       "category": "recurrent_convolution",
       "summary": "以不同时间跨度的循环连接捕捉长期依赖。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/dilated_rnn.py"
+        "_sources/source-10/neuralforecast/models/dilated_rnn.py"
       ],
       "paper_url": "https://arxiv.org/pdf/1710.02224",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/dilated_rnn.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/dilated_rnn.py"
     },
     "BiTCN": {
       "category": "recurrent_convolution",
       "summary": "以时间卷积分支处理历史和已知未来协变量，产生概率预测。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/bitcn.py"
+        "_sources/source-10/neuralforecast/models/bitcn.py"
       ],
       "paper_url": "https://doi.org/10.1016/j.ijforecast.2021.11.011",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/bitcn.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/bitcn.py"
     },
     "xLSTM": {
       "category": "recurrent_convolution",
       "summary": "使用扩展 LSTM 记忆结构处理历史，再接入预测头。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/xlstm.py"
+        "_sources/source-10/neuralforecast/models/xlstm.py"
       ],
       "paper_url": "https://arxiv.org/abs/2405.04517",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/xlstm.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/xlstm.py"
     },
     "xLSTMTime": {
       "category": "recurrent_convolution",
@@ -589,13 +589,13 @@
         "xLSTMTime_v2"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/xlstm/_xlstm.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/xlstm/_xlstm_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/xlstm/_xlstm_pkg.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/xlstm/_xlstm_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm.py",
+        "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_pkg.py",
+        "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_forecaster_v2.py"
       ],
       "paper_url": "https://arxiv.org/pdf/2407.10240",
-      "paper_source": "libraries/pytorch-forecasting/pytorch_forecasting/models/xlstm/_xlstm.py"
+      "paper_source": "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm.py"
     },
     "RecurrentNetwork": {
       "category": "recurrent_convolution",
@@ -604,8 +604,8 @@
         "RecurrentNetwork_pkg"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/rnn/_rnn.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/rnn/_rnn_pkg.py"
+        "_sources/source-11/pytorch_forecasting/models/rnn/_rnn.py",
+        "_sources/source-11/pytorch_forecasting/models/rnn/_rnn_pkg.py"
       ]
     },
     "ModernTCN": {
@@ -615,11 +615,11 @@
         "ModernTCNForecaster"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/modern_tcn/_modern_tcn_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_forecaster_v2.py"
       ],
       "paper_url": "https://arxiv.org/abs/2401.17593",
-      "paper_source": "libraries/pytorch-forecasting/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py"
+      "paper_source": "_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py"
     },
     "BlockRNN": {
       "category": "recurrent_convolution",
@@ -628,56 +628,56 @@
         "BlockRNNModel"
       ],
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/block_rnn_model.py"
+        "_sources/source-12/darts/models/forecasting/block_rnn_model.py"
       ],
       "paper_url": "https://openreview.net/forum?id=cGDAkQo1C0p",
-      "paper_source": "libraries/darts/darts/models/forecasting/block_rnn_model.py",
+      "paper_source": "_sources/source-12/darts/models/forecasting/block_rnn_model.py",
       "paper_note": "此链接是源码引用的 TiDE 相关架构文献，不是 BlockRNN 的独立论文。"
     },
     "FCN": {
       "category": "recurrent_convolution",
       "summary": "用多层一维卷积和全局池化提取序列特征。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/FCN.py"
+        "_sources/source-09/tsai/models/FCN.py"
       ],
       "paper_url": "https://arxiv.org/abs/1611.06455",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "HydraPlus": {
       "category": "recurrent_convolution",
       "summary": "通过分组随机卷积的竞争响应生成特征，再接任务头。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/HydraPlus.py"
+        "_sources/source-09/tsai/models/HydraPlus.py"
       ]
     },
     "HydraMultiRocketPlus": {
       "category": "recurrent_convolution",
       "summary": "融合 Hydra 竞争卷积和 MultiRocket 统计特征。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/HydraMultiRocketPlus.py"
+        "_sources/source-09/tsai/models/HydraMultiRocketPlus.py"
       ]
     },
     "InceptionTime": {
       "category": "recurrent_convolution",
       "summary": "并行使用不同长度的一维卷积核提取多尺度模式。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/InceptionTime.py"
+        "_sources/source-09/tsai/models/InceptionTime.py"
       ],
       "paper_url": "https://arxiv.org/abs/1909.04939",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "InCoordTime": {
       "category": "recurrent_convolution",
       "summary": "在 InceptionTimePlus 中加入坐标卷积信息的变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/InceptionTimePlus.py"
+        "_sources/source-09/tsai/models/InceptionTimePlus.py"
       ]
     },
     "XCoordTime": {
       "category": "recurrent_convolution",
       "summary": "结合坐标信息与可分离卷积的 InceptionTimePlus 变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/InceptionTimePlus.py"
+        "_sources/source-09/tsai/models/InceptionTimePlus.py"
       ]
     },
     "MiniRocket": {
@@ -688,53 +688,53 @@
         "MiniRocketRegressor"
       ],
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MINIROCKET.py",
-        "libraries/tsai/tsai/models/MINIROCKET.py",
-        "libraries/tsai/tsai/models/MINIROCKET_Pytorch.py"
+        "_sources/source-09/tsai/models/MINIROCKET.py",
+        "_sources/source-09/tsai/models/MINIROCKET.py",
+        "_sources/source-09/tsai/models/MINIROCKET_Pytorch.py"
       ],
       "paper_url": "https://arxiv.org/abs/2102.00457",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "InceptionRocketPlus": {
       "category": "recurrent_convolution",
       "summary": "将多尺度卷积特征与 Rocket 风格任务头结合。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MINIROCKETPlus_Pytorch.py"
+        "_sources/source-09/tsai/models/MINIROCKETPlus_Pytorch.py"
       ]
     },
     "MultiRocketPlus": {
       "category": "recurrent_convolution",
       "summary": "联合原序列与差分序列的多种卷积池化统计特征。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MultiRocketPlus.py"
+        "_sources/source-09/tsai/models/MultiRocketPlus.py"
       ]
     },
     "OmniScaleCNN": {
       "category": "recurrent_convolution",
       "summary": "组合不同尺度的一维卷积核，减少手工选择尺度的依赖。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/OmniScaleCNN.py"
+        "_sources/source-09/tsai/models/OmniScaleCNN.py"
       ],
       "paper_url": "https://arxiv.org/abs/2002.10061",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "ResCNN": {
       "category": "recurrent_convolution",
       "summary": "结合一维卷积和残差连接的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/ResCNN.py"
+        "_sources/source-09/tsai/models/ResCNN.py"
       ],
       "paper_url": "https://www.sciencedirect.com/science/article/pii/S0925231219311506",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "ResNet": {
       "category": "recurrent_convolution",
       "summary": "通过残差一维卷积堆叠提取时间序列特征。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/ResNet.py"
+        "_sources/source-09/tsai/models/ResNet.py"
       ],
       "paper_url": "https://arxiv.org/abs/1611.06455",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "ROCKET": {
       "category": "recurrent_convolution",
@@ -744,40 +744,40 @@
         "RocketRegressor"
       ],
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/ROCKET.py",
-        "libraries/tsai/tsai/models/ROCKET.py",
-        "libraries/tsai/tsai/models/ROCKET_Pytorch.py"
+        "_sources/source-09/tsai/models/ROCKET.py",
+        "_sources/source-09/tsai/models/ROCKET.py",
+        "_sources/source-09/tsai/models/ROCKET_Pytorch.py"
       ],
       "paper_url": "https://arxiv.org/abs/1910.13051",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "TSSequencerPlus": {
       "category": "recurrent_convolution",
       "summary": "以双向 LSTM 混合序列位置，并结合前馈块。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TSSequencerPlus.py"
+        "_sources/source-09/tsai/models/TSSequencerPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/2205.01972",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "由所链接的方法适配而来，不宣称此时序变体有独立论文。"
     },
     "XceptionTime": {
       "category": "recurrent_convolution",
       "summary": "将深度可分离卷积与多尺度时序模块结合。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/XceptionTime.py"
+        "_sources/source-09/tsai/models/XceptionTime.py"
       ],
       "paper_url": "https://arxiv.org/abs/1911.03803",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "XCM": {
       "category": "recurrent_convolution",
       "summary": "同时提取时间与变量卷积特征，支持解释序列分类结果。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/XCM.py"
+        "_sources/source-09/tsai/models/XCM.py"
       ],
       "paper_url": "https://hal.inria.fr/hal-03469487/document",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "XResNet1d": {
       "category": "recurrent_convolution",
@@ -796,17 +796,17 @@
         "xresnet1d50_deeper"
       ],
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py",
-        "libraries/tsai/tsai/models/XResNet1d.py"
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py",
+        "_sources/source-09/tsai/models/XResNet1d.py"
       ]
     },
     "XResNet1dPlus": {
@@ -826,29 +826,29 @@
         "xresnet1d50plus"
       ],
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py",
-        "libraries/tsai/tsai/models/XResNet1dPlus.py"
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py",
+        "_sources/source-09/tsai/models/XResNet1dPlus.py"
       ]
     },
     "MLP": {
       "category": "linear_mlp",
       "summary": "将历史窗口或表格变量交给多层前馈网络，作为非线性对照。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/mlp.py",
-        "libraries/tsai/tsai/models/MLP.py"
+        "_sources/source-10/neuralforecast/models/mlp.py",
+        "_sources/source-09/tsai/models/MLP.py"
       ],
       "paper_url": "https://arxiv.org/abs/1611.06455",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "NHITS": {
       "category": "linear_mlp",
@@ -861,15 +861,15 @@
         "NHiTS_v2"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/nhits.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nhits/_nhits.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nhits/_nhits_pkg.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nhits/_nhits_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nhits/_nhits_forecaster_v2.py",
-        "libraries/darts/darts/models/forecasting/nhits.py"
+        "_sources/source-10/neuralforecast/models/nhits.py",
+        "_sources/source-11/pytorch_forecasting/models/nhits/_nhits.py",
+        "_sources/source-11/pytorch_forecasting/models/nhits/_nhits_pkg.py",
+        "_sources/source-11/pytorch_forecasting/models/nhits/_nhits_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/nhits/_nhits_forecaster_v2.py",
+        "_sources/source-12/darts/models/forecasting/nhits.py"
       ],
       "paper_url": "https://arxiv.org/abs/2201.12886",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/nhits.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/nhits.py"
     },
     "NBEATS": {
       "category": "linear_mlp",
@@ -880,22 +880,22 @@
         "NBeats_pkg"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/nbeats.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nbeats/_nbeats.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nbeats/_nbeats_pkg.py",
-        "libraries/darts/darts/models/forecasting/nbeats.py"
+        "_sources/source-10/neuralforecast/models/nbeats.py",
+        "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeats.py",
+        "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeats_pkg.py",
+        "_sources/source-12/darts/models/forecasting/nbeats.py"
       ],
       "paper_url": "https://arxiv.org/abs/1905.10437",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/nbeats.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/nbeats.py"
     },
     "NBEATSx": {
       "category": "linear_mlp",
       "summary": "在 N-BEATS 中加入历史和未来外生变量。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/nbeatsx.py"
+        "_sources/source-10/neuralforecast/models/nbeatsx.py"
       ],
       "paper_url": "https://arxiv.org/abs/2104.05522",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/nbeatsx.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/nbeatsx.py"
     },
     "NBEATSKAN": {
       "category": "linear_mlp",
@@ -905,8 +905,8 @@
         "NBeatsKAN_pkg"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nbeats/_nbeatskan.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/nbeats/_nbeatskan_pkg.py"
+        "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan.py",
+        "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan_pkg.py"
       ]
     },
     "NLinear": {
@@ -916,37 +916,37 @@
         "NLinearModel"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/nlinear.py",
-        "libraries/darts/darts/models/forecasting/nlinear.py"
+        "_sources/source-10/neuralforecast/models/nlinear.py",
+        "_sources/source-12/darts/models/forecasting/nlinear.py"
       ],
       "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/26317",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/nlinear.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/nlinear.py"
     },
     "TSMixerx": {
       "category": "linear_mlp",
       "summary": "在时间与变量混合 MLP 中接入外生变量和静态特征。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/tsmixerx.py"
+        "_sources/source-10/neuralforecast/models/tsmixerx.py"
       ],
       "paper_url": "https://arxiv.org/abs/2303.06053",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/tsmixerx.py",
+      "paper_source": "_sources/source-10/neuralforecast/models/tsmixerx.py",
       "paper_note": "引用当前实现列出的基础方法或相关工作，不宣称变体另有专属论文。"
     },
     "MLPMultivariate": {
       "category": "linear_mlp",
       "summary": "将多条序列的历史合并输入 MLP，联合产生多变量预测。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/mlpmultivariate.py"
+        "_sources/source-10/neuralforecast/models/mlpmultivariate.py"
       ]
     },
     "DeepNPTS": {
       "category": "linear_mlp",
       "summary": "学习历史观测的权重，以非参数方式形成预测分布。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/deepnpts.py"
+        "_sources/source-10/neuralforecast/models/deepnpts.py"
       ],
       "paper_url": "https://arxiv.org/abs/2312.14657",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/deepnpts.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/deepnpts.py"
     },
     "SOFTS": {
       "category": "linear_mlp",
@@ -955,49 +955,49 @@
         "SOFTSForecaster"
       ],
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/softs.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/softs/_softs_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/softs/_softs_forecaster_v2.py"
+        "_sources/source-10/neuralforecast/models/softs.py",
+        "_sources/source-11/pytorch_forecasting/models/softs/_softs_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/softs/_softs_forecaster_v2.py"
       ],
       "paper_url": "https://arxiv.org/pdf/2404.14197",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/softs.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/softs.py"
     },
     "SOFTSSharp": {
       "category": "linear_mlp",
       "summary": "在 SOFTS 类结构中加入随机变量位置编码。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/softssharp.py"
+        "_sources/source-10/neuralforecast/models/softssharp.py"
       ],
       "original_upstream_url": "https://github.com/hljubic/SOFTSsharp",
-      "original_upstream_source": "libraries/neuralforecast/neuralforecast/models/softssharp.py",
+      "original_upstream_source": "_sources/source-10/neuralforecast/models/softssharp.py",
       "paper_note": "源码说明独立稿件仍在准备；不把 SOFTS 或 SOFTS++ 论文作为此变体的论文。"
     },
     "KAN": {
       "category": "linear_mlp",
       "summary": "用可学习的一元函数替代普通 MLP 边权拟合非线性关系。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/kan.py"
+        "_sources/source-10/neuralforecast/models/kan.py"
       ],
       "paper_url": "https://arxiv.org/abs/2404.19756",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/kan.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/kan.py"
     },
     "RMoK": {
       "category": "linear_mlp",
       "summary": "通过路由组合多种 KAN 专家，利用不同函数基预测。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/rmok.py"
+        "_sources/source-10/neuralforecast/models/rmok.py"
       ],
       "paper_url": "https://arxiv.org/abs/2408.11306",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/rmok.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/rmok.py"
     },
     "XLinear": {
       "category": "linear_mlp",
       "summary": "以轻量 MLP 结合历史和外生输入，直接输出未来窗口。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/xlinear.py"
+        "_sources/source-10/neuralforecast/models/xlinear.py"
       ],
       "paper_url": "https://arxiv.org/abs/2601.09237",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/xlinear.py"
+      "paper_source": "_sources/source-10/neuralforecast/models/xlinear.py"
     },
     "DecoderMLP": {
       "category": "linear_mlp",
@@ -1008,104 +1008,104 @@
         "DecoderMLP_v2"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/mlp/_decodermlp.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/mlp/_decodermlp_pkg.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/mlp/_decodermlp_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/mlp/_decodermlp_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp.py",
+        "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_pkg.py",
+        "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_forecaster_v2.py"
       ]
     },
     "gMLP": {
       "category": "linear_mlp",
       "summary": "通过空间门控前馈模块混合序列位置，替代完整注意力。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/gMLP.py"
+        "_sources/source-09/tsai/models/gMLP.py"
       ],
       "paper_url": "https://arxiv.org/abs/2105.08050",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "TabModel": {
       "category": "linear_mlp",
       "summary": "对类别嵌入和连续表格变量进行前馈建模。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TabModel.py"
+        "_sources/source-09/tsai/models/TabModel.py"
       ]
     },
     "ConvTranPlus": {
       "category": "transformer_attention",
       "summary": "结合卷积嵌入、时序绝对位置和相对位置注意力。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/ConvTranPlus.py"
+        "_sources/source-09/tsai/models/ConvTranPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/2305.16642v1",
-      "paper_source": "libraries/tsai/nbs/081_models.ConvTranPlus.ipynb"
+      "paper_source": "_sources/source-09/nbs/081_models.ConvTranPlus.ipynb"
     },
     "GatedTabTransformer": {
       "category": "transformer_attention",
       "summary": "以门控和注意力表示表格变量，可用于带静态属性任务。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/GatedTabTransformer.py"
+        "_sources/source-09/tsai/models/GatedTabTransformer.py"
       ],
       "paper_url": "https://arxiv.org/abs/2201.00199",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "TabFusionTransformer": {
       "category": "transformer_attention",
       "summary": "将类别和连续特征编码为 token，再用注意力融合。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TabFusionTransformer.py"
+        "_sources/source-09/tsai/models/TabFusionTransformer.py"
       ]
     },
     "TSTabFusionTransformer": {
       "category": "transformer_attention",
       "summary": "通过 Transformer 融合时间序列与表格特征。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TabFusionTransformer.py"
+        "_sources/source-09/tsai/models/TabFusionTransformer.py"
       ]
     },
     "TabTransformer": {
       "category": "transformer_attention",
       "summary": "以注意力上下文化类别变量，再结合连续变量输出。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TabTransformer.py"
+        "_sources/source-09/tsai/models/TabTransformer.py"
       ],
       "paper_url": "https://arxiv.org/pdf/2012.06678",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "TransformerModel": {
       "category": "transformer_attention",
       "summary": "tsai 的通用序列 Transformer 接口，与其他库实现分别保留。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TransformerModel.py"
+        "_sources/source-09/tsai/models/TransformerModel.py"
       ]
     },
     "TSiTPlus": {
       "category": "transformer_attention",
       "summary": "将 ViT 式 token 和 Transformer 结构适配到时间序列。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TSiTPlus.py"
+        "_sources/source-09/tsai/models/TSiTPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/2010.11929",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "由所链接的方法适配而来，不宣称此时序变体有独立论文。"
     },
     "TSPerceiver": {
       "category": "transformer_attention",
       "summary": "以交叉注意力将长输入压缩到潜在表示，再在潜在空间建模。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TSPerceiver.py"
+        "_sources/source-09/tsai/models/TSPerceiver.py"
       ],
       "paper_url": "https://arxiv.org/abs/2107.14795",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "由所链接的方法适配而来，不宣称此时序变体有独立论文。"
     },
     "TST": {
       "category": "transformer_attention",
       "summary": "使用时序嵌入和编码器注意力构建序列分类或回归。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TST.py"
+        "_sources/source-09/tsai/models/TST.py"
       ],
       "paper_url": "https://dl.acm.org/doi/abs/10.1145/3447548.3467401",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "Samformer": {
       "category": "transformer_attention",
@@ -1114,8 +1114,8 @@
         "SamformerForecaster"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/samformer/_samformer_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/samformer/_samformer_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/samformer/_samformer_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/samformer/_samformer_forecaster_v2.py"
       ]
     },
     "UniTS": {
@@ -1125,372 +1125,372 @@
         "UniTSForecaster"
       ],
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/units/_units_v2.py",
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/units/_units_forecaster_v2.py"
+        "_sources/source-11/pytorch_forecasting/models/units/_units_v2.py",
+        "_sources/source-11/pytorch_forecasting/models/units/_units_forecaster_v2.py"
       ],
       "paper_url": "https://arxiv.org/abs/2403.00131",
-      "paper_source": "libraries/pytorch-forecasting/pytorch_forecasting/models/units/_units_v2.py"
+      "paper_source": "_sources/source-11/pytorch_forecasting/models/units/_units_v2.py"
     },
     "mWDN": {
       "category": "decomposition_frequency",
       "summary": "以可训练小波分解形成多分辨率表示，再接序列任务网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/mWDN.py"
+        "_sources/source-09/tsai/models/mWDN.py"
       ],
       "paper_url": "https://dl.acm.org/doi/abs/10.1145/3219819.3220060",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "FFT": {
       "category": "decomposition_frequency",
       "summary": "在去趋势等处理后选择傅里叶成分并外推周期变化。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/fft.py"
+        "_sources/source-12/darts/models/forecasting/fft.py"
       ]
     },
     "StemGNN": {
       "category": "graph",
       "summary": "结合图傅里叶与时间傅里叶变换，学习变量关系和时间依赖。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/stemgnn.py"
+        "_sources/source-10/neuralforecast/models/stemgnn.py"
       ],
       "paper_url": "https://proceedings.neurips.cc/paper/2020/hash/cdf6581cb7aca4b7e19ef136c6e601a5-Abstract.html",
-      "paper_source": "libraries/neuralforecast/docs/models.stemgnn.html.md"
+      "paper_source": "_sources/source-10/docs/models.stemgnn.html.md"
     },
     "KalmanForecaster": {
       "category": "state_space_dynamics",
       "summary": "估计状态空间模型的隐状态，再以 Kalman 模型递推未来。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/kalman_forecaster.py"
+        "_sources/source-12/darts/models/forecasting/kalman_forecaster.py"
       ]
     },
     "HINT": {
       "category": "ensemble_calibration",
       "summary": "结合基础预测与层级协调，使不同聚合层级的预测一致。",
       "implementation_evidence": [
-        "libraries/neuralforecast/neuralforecast/models/hint.py"
+        "_sources/source-10/neuralforecast/models/hint.py"
       ],
       "paper_url": "https://arxiv.org/abs/2305.07089",
-      "paper_source": "libraries/neuralforecast/docs/models.hint.html.md"
+      "paper_source": "_sources/source-10/docs/models.hint.html.md"
     },
     "MultiInceptionTimePlus": {
       "category": "ensemble_calibration",
       "summary": "以多个 InceptionTimePlus 分支处理输入组并融合输出。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/InceptionTimePlus.py"
+        "_sources/source-09/tsai/models/InceptionTimePlus.py"
       ]
     },
     "MiniRocketVotingClassifier": {
       "category": "ensemble_calibration",
       "summary": "通过投票组合多个 MiniRocket 分类器。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MINIROCKET.py"
+        "_sources/source-09/tsai/models/MINIROCKET.py"
       ]
     },
     "MiniRocketVotingRegressor": {
       "category": "ensemble_calibration",
       "summary": "通过投票或平均组合多个 MiniRocket 回归器。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MINIROCKET.py"
+        "_sources/source-09/tsai/models/MINIROCKET.py"
       ]
     },
     "NaiveEnsembleModel": {
       "category": "ensemble_calibration",
       "summary": "训练多个基础预测器，对预测结果做简单平均。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/naive_ensemble_model.py"
+        "_sources/source-12/darts/models/forecasting/naive_ensemble_model.py"
       ]
     },
     "RegressionEnsembleModel": {
       "category": "ensemble_calibration",
       "summary": "学习回归式组合器，融合多个基础预测结果。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/regression_ensemble_model.py"
+        "_sources/source-12/darts/models/forecasting/regression_ensemble_model.py"
       ]
     },
     "ConformalNaiveModel": {
       "category": "ensemble_calibration",
       "summary": "对基础预测历史误差做保形校准，调整区间覆盖目标。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/conformal_models.py"
+        "_sources/source-12/darts/models/forecasting/conformal_models.py"
       ]
     },
     "ConformalQRModel": {
       "category": "ensemble_calibration",
       "summary": "在分位数预测上做保形校准，修正预测区间。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/conformal_models.py"
+        "_sources/source-12/darts/models/forecasting/conformal_models.py"
       ]
     },
     "MultiInputNet": {
       "category": "model_adapter",
       "summary": "将多个输入分支或骨干连接到统一输出头的封装。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MultiInputNet.py"
+        "_sources/source-09/tsai/models/MultiInputNet.py"
       ]
     },
     "MultiTSTPlus": {
       "category": "model_adapter",
       "summary": "对输入组分别应用 TSTPlus，再融合表示的封装。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TSTPlus.py"
+        "_sources/source-09/tsai/models/TSTPlus.py"
       ]
     },
     "MultivariateModel": {
       "category": "model_adapter",
       "summary": "将多个单变量预测器组合为统一多变量模型。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/multivariate_model.py"
+        "_sources/source-12/darts/models/forecasting/multivariate_model.py"
       ]
     },
     "NeuralForecastModel": {
       "category": "model_adapter",
       "summary": "把 NeuralForecast 模型接入 Darts 的训练和预测接口。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/nf_model.py"
+        "_sources/source-12/darts/models/forecasting/nf_model.py"
       ],
       "paper_url": "https://openreview.net/forum?id=cGDAkQo1C0p",
-      "paper_source": "libraries/darts/darts/models/forecasting/nf_model.py",
+      "paper_source": "_sources/source-12/darts/models/forecasting/nf_model.py",
       "paper_note": "此链接是源码列出的 TiDE 相关文献；本项是 NeuralForecast 接口适配器，不是该论文方法。"
     },
     "StatsForecastModel": {
       "category": "model_adapter",
       "summary": "把 StatsForecast 统计模型接入 Darts 接口。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_model.py"
+        "_sources/source-12/darts/models/forecasting/sf_model.py"
       ]
     },
     "SKLearnModel": {
       "category": "model_adapter",
       "summary": "将 scikit-learn 回归器接入滞后特征预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sklearn_model.py"
+        "_sources/source-12/darts/models/forecasting/sklearn_model.py"
       ]
     },
     "SKLearnClassifierModel": {
       "category": "model_adapter",
       "summary": "将 scikit-learn 分类器接入序列预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sklearn_model.py"
+        "_sources/source-12/darts/models/forecasting/sklearn_model.py"
       ]
     },
     "Baseline": {
       "category": "statistical",
       "summary": "重复最后一个历史观测值，作为朴素预测对照。",
       "implementation_evidence": [
-        "libraries/pytorch-forecasting/pytorch_forecasting/models/baseline.py"
+        "_sources/source-11/pytorch_forecasting/models/baseline.py"
       ]
     },
     "ARIMA": {
       "category": "statistical",
       "summary": "通过自回归、差分和移动平均描述时间依赖。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/arima.py"
+        "_sources/source-12/darts/models/forecasting/arima.py"
       ]
     },
     "AutoARIMA": {
       "category": "statistical",
       "summary": "自动选择 ARIMA 配置并生成统计预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_auto_arima.py"
+        "_sources/source-12/darts/models/forecasting/sf_auto_arima.py"
       ]
     },
     "AutoCES": {
       "category": "statistical",
       "summary": "调用自动复指数平滑预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_auto_ces.py"
+        "_sources/source-12/darts/models/forecasting/sf_auto_ces.py"
       ]
     },
     "AutoETS": {
       "category": "statistical",
       "summary": "自动选择误差、趋势与季节结构的指数平滑模型。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_auto_ets.py"
+        "_sources/source-12/darts/models/forecasting/sf_auto_ets.py"
       ]
     },
     "AutoMFLES": {
       "category": "statistical",
       "summary": "自动配置 MFLES 多成分拟合并产生统计预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_auto_mfles.py"
+        "_sources/source-12/darts/models/forecasting/sf_auto_mfles.py"
       ]
     },
     "AutoTBATS": {
       "category": "statistical",
       "summary": "自动选择含三角季节项、趋势等成分的 TBATS 配置。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_auto_tbats.py"
+        "_sources/source-12/darts/models/forecasting/sf_auto_tbats.py"
       ]
     },
     "AutoTheta": {
       "category": "statistical",
       "summary": "自动配置 Theta 方法，预测并组合分解后的成分。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_auto_theta.py"
+        "_sources/source-12/darts/models/forecasting/sf_auto_theta.py"
       ]
     },
     "Croston": {
       "category": "statistical",
       "summary": "分别估计间歇需求大小和到达间隔，处理大量零值需求。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_croston.py"
+        "_sources/source-12/darts/models/forecasting/sf_croston.py"
       ]
     },
     "ExponentialSmoothing": {
       "category": "statistical",
       "summary": "用递减权重估计水平、趋势和季节变化并外推。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/exponential_smoothing.py"
+        "_sources/source-12/darts/models/forecasting/exponential_smoothing.py"
       ]
     },
     "FourTheta": {
       "category": "statistical",
       "summary": "组合多条 Theta 变换线及其配置产生预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/theta.py"
+        "_sources/source-12/darts/models/forecasting/theta.py"
       ]
     },
     "Theta": {
       "category": "statistical",
       "summary": "组合趋势与平滑后的 Theta 线进行外推。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/theta.py"
+        "_sources/source-12/darts/models/forecasting/theta.py"
       ]
     },
     "TBATS": {
       "category": "statistical",
       "summary": "组合变换、趋势、ARMA 误差和三角季节项。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/sf_tbats.py"
+        "_sources/source-12/darts/models/forecasting/sf_tbats.py"
       ]
     },
     "VARIMA": {
       "category": "statistical",
       "summary": "把多个序列联合建模为向量自回归、差分和移动平均过程。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/varima.py"
+        "_sources/source-12/darts/models/forecasting/varima.py"
       ]
     },
     "NaiveDrift": {
       "category": "statistical",
       "summary": "将首尾观测确定的平均变化速率延伸到未来。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/baselines.py"
+        "_sources/source-12/darts/models/forecasting/baselines.py"
       ]
     },
     "NaiveMean": {
       "category": "statistical",
       "summary": "以历史平均值预测未来。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/baselines.py"
+        "_sources/source-12/darts/models/forecasting/baselines.py"
       ]
     },
     "NaiveMovingAverage": {
       "category": "statistical",
       "summary": "利用末段窗口的移动平均递推预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/baselines.py"
+        "_sources/source-12/darts/models/forecasting/baselines.py"
       ]
     },
     "NaiveSeasonal": {
       "category": "statistical",
       "summary": "重复最后一个季节周期的观测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/baselines.py"
+        "_sources/source-12/darts/models/forecasting/baselines.py"
       ]
     },
     "GlobalNaiveAggregate": {
       "category": "statistical",
       "summary": "在全局模型接口中对输入窗口做指定聚合。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/global_baseline_models.py"
+        "_sources/source-12/darts/models/forecasting/global_baseline_models.py"
       ]
     },
     "GlobalNaiveDrift": {
       "category": "statistical",
       "summary": "在全局模型接口中延伸输入窗口的漂移趋势。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/global_baseline_models.py"
+        "_sources/source-12/darts/models/forecasting/global_baseline_models.py"
       ]
     },
     "GlobalNaiveSeasonal": {
       "category": "statistical",
       "summary": "在全局模型接口中重复窗口中的季节观测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/global_baseline_models.py"
+        "_sources/source-12/darts/models/forecasting/global_baseline_models.py"
       ]
     },
     "Prophet": {
       "category": "statistical",
       "summary": "组合可分解的趋势、季节与节假日成分预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/prophet_model.py"
+        "_sources/source-12/darts/models/forecasting/prophet_model.py"
       ]
     },
     "LinearRegressionModel": {
       "category": "machine_learning",
       "summary": "将滞后值与协变量展开为监督样本，用线性回归预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/linear_regression_model.py"
+        "_sources/source-12/darts/models/forecasting/linear_regression_model.py"
       ]
     },
     "RandomForestModel": {
       "category": "machine_learning",
       "summary": "以随机森林学习滞后值和协变量到未来值的映射。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/random_forest.py"
+        "_sources/source-12/darts/models/forecasting/random_forest.py"
       ]
     },
     "LightGBMModel": {
       "category": "machine_learning",
       "summary": "以 LightGBM 梯度提升树对滞后窗口回归。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/lgbm.py"
+        "_sources/source-12/darts/models/forecasting/lgbm.py"
       ]
     },
     "LightGBMClassifierModel": {
       "category": "machine_learning",
       "summary": "以 LightGBM 分类器预测离散目标。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/lgbm.py"
+        "_sources/source-12/darts/models/forecasting/lgbm.py"
       ]
     },
     "CatBoostModel": {
       "category": "machine_learning",
       "summary": "以 CatBoost 提升树学习带滞后和协变量的预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/catboost_model.py"
+        "_sources/source-12/darts/models/forecasting/catboost_model.py"
       ]
     },
     "CatBoostClassifierModel": {
       "category": "machine_learning",
       "summary": "用 CatBoost 分类接口预测序列离散标签。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/catboost_model.py"
+        "_sources/source-12/darts/models/forecasting/catboost_model.py"
       ]
     },
     "XGBModel": {
       "category": "machine_learning",
       "summary": "以 XGBoost 提升树对滞后特征和协变量回归。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/xgboost.py"
+        "_sources/source-12/darts/models/forecasting/xgboost.py"
       ]
     },
     "XGBClassifierModel": {
       "category": "machine_learning",
       "summary": "以 XGBoost 分类器处理离散目标预测。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/xgboost.py"
+        "_sources/source-12/darts/models/forecasting/xgboost.py"
       ]
     },
     "PatchTSTFMModel": {
       "category": "pretrained_foundation",
       "summary": "调用预训练 PatchTST foundation model，与从头训练版本区分。",
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/patchtst_fm_model.py"
+        "_sources/source-12/darts/models/forecasting/patchtst_fm_model.py"
       ],
       "paper_url": "https://arxiv.org/abs/2602.06909",
-      "paper_source": "libraries/darts/darts/models/forecasting/patchtst_fm_model.py"
+      "paper_source": "_sources/source-12/darts/models/forecasting/patchtst_fm_model.py"
     },
     "TimesFM2p5": {
       "category": "pretrained_foundation",
@@ -1499,10 +1499,10 @@
         "TimesFM2p5Model"
       ],
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/timesfm2p5_model.py"
+        "_sources/source-12/darts/models/forecasting/timesfm2p5_model.py"
       ],
       "paper_url": "https://arxiv.org/abs/2310.10688",
-      "paper_source": "libraries/darts/darts/models/forecasting/timesfm2p5_model.py",
+      "paper_source": "_sources/source-12/darts/models/forecasting/timesfm2p5_model.py",
       "paper_note": "TimesFM 系列基础论文，不将其标为 2.5 权重版本的专属论文。"
     },
     "TimesFM3": {
@@ -1512,10 +1512,10 @@
         "TimesFM3Model"
       ],
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/timesfm3_model.py"
+        "_sources/source-12/darts/models/forecasting/timesfm3_model.py"
       ],
       "paper_url": "https://arxiv.org/abs/2310.10688",
-      "paper_source": "libraries/darts/darts/models/forecasting/timesfm3_model.py",
+      "paper_source": "_sources/source-12/darts/models/forecasting/timesfm3_model.py",
       "paper_note": "TimesFM 系列基础论文，不将其标为 3.0 权重版本的专属论文。"
     },
     "TiRex2": {
@@ -1525,10 +1525,10 @@
         "TiRex2Model"
       ],
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/tirex2_model.py"
+        "_sources/source-12/darts/models/forecasting/tirex2_model.py"
       ],
       "paper_url": "https://arxiv.org/abs/2607.01204",
-      "paper_source": "libraries/darts/darts/models/forecasting/tirex2_model.py"
+      "paper_source": "_sources/source-12/darts/models/forecasting/tirex2_model.py"
     },
     "T0": {
       "category": "pretrained_foundation",
@@ -1537,17 +1537,17 @@
         "T0Model"
       ],
       "implementation_evidence": [
-        "libraries/darts/darts/models/forecasting/t0_model.py"
+        "_sources/source-12/darts/models/forecasting/t0_model.py"
       ]
     },
     "FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "用多层一维卷积和全局池化提取序列特征。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/FCNPlus.py"
+        "_sources/source-09/tsai/models/FCNPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1611.06455",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "InceptionTimePlus": {
@@ -1561,264 +1561,264 @@
         "InceptionTimeXLPlus"
       ],
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/InceptionTimePlus.py",
-        "libraries/tsai/tsai/models/InceptionTimePlus.py",
-        "libraries/tsai/tsai/models/InceptionTimePlus.py",
-        "libraries/tsai/tsai/models/InceptionTimePlus.py",
-        "libraries/tsai/tsai/models/InceptionTimePlus.py",
-        "libraries/tsai/tsai/models/InceptionTimePlus.py"
+        "_sources/source-09/tsai/models/InceptionTimePlus.py",
+        "_sources/source-09/tsai/models/InceptionTimePlus.py",
+        "_sources/source-09/tsai/models/InceptionTimePlus.py",
+        "_sources/source-09/tsai/models/InceptionTimePlus.py",
+        "_sources/source-09/tsai/models/InceptionTimePlus.py",
+        "_sources/source-09/tsai/models/InceptionTimePlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1909.04939",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "MiniRocketPlus": {
       "category": "recurrent_convolution",
       "summary": "用固定形式的卷积核和阈值统计快速生成分类或回归特征。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/MINIROCKETPlus_Pytorch.py"
+        "_sources/source-09/tsai/models/MINIROCKETPlus_Pytorch.py"
       ],
       "paper_url": "https://arxiv.org/abs/2102.00457",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "mWDNPlus": {
       "category": "decomposition_frequency",
       "summary": "以可训练小波分解形成多分辨率表示，再接序列任务网络。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/mWDN.py"
+        "_sources/source-09/tsai/models/mWDN.py"
       ],
       "paper_url": "https://dl.acm.org/doi/abs/10.1145/3219819.3220060",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "ResNetPlus": {
       "category": "recurrent_convolution",
       "summary": "通过残差一维卷积堆叠提取时间序列特征。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/ResNetPlus.py"
+        "_sources/source-09/tsai/models/ResNetPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1611.06455",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "TSTPlus": {
       "category": "transformer_attention",
       "summary": "使用时序嵌入和编码器注意力构建序列分类或回归。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TSTPlus.py"
+        "_sources/source-09/tsai/models/TSTPlus.py"
       ],
       "paper_url": "https://dl.acm.org/doi/abs/10.1145/3447548.3467401",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "XceptionTimePlus": {
       "category": "recurrent_convolution",
       "summary": "将深度可分离卷积与多尺度时序模块结合。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/XceptionTimePlus.py"
+        "_sources/source-09/tsai/models/XceptionTimePlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1911.03803",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "XCMPlus": {
       "category": "recurrent_convolution",
       "summary": "同时提取时间与变量卷积特征，支持解释序列分类结果。 此项为 tsai 的 Plus 可配置变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/XCMPlus.py"
+        "_sources/source-09/tsai/models/XCMPlus.py"
       ],
       "paper_url": "https://hal.inria.fr/hal-03469487/document",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "RNNPlus": {
       "category": "recurrent_convolution",
       "summary": "RNN 的 tsai 可配置骨干与任务头变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNPlus.py"
+        "_sources/source-09/tsai/models/RNNPlus.py"
       ]
     },
     "RNNAttention": {
       "category": "recurrent_convolution",
       "summary": "结合 RNN 循环表示和注意力编码模块的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNAttention.py"
+        "_sources/source-09/tsai/models/RNNAttention.py"
       ]
     },
     "RNNAttentionPlus": {
       "category": "recurrent_convolution",
       "summary": "结合 RNN 循环表示和注意力编码模块的序列网络。 此项保留 Plus 配置扩展。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNAttentionPlus.py"
+        "_sources/source-09/tsai/models/RNNAttentionPlus.py"
       ]
     },
     "RNN_FCN": {
       "category": "recurrent_convolution",
       "summary": "融合 RNN 循环分支与全卷积分支的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCN.py"
+        "_sources/source-09/tsai/models/RNN_FCN.py"
       ]
     },
     "RNN_FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "融合 RNN 循环分支与全卷积分支的序列网络。 此项保留 Plus 配置扩展。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCNPlus.py"
+        "_sources/source-09/tsai/models/RNN_FCNPlus.py"
       ]
     },
     "MRNN_FCN": {
       "category": "recurrent_convolution",
       "summary": "面向多变量序列的 RNN 与全卷积混合网络，保留通道增强和对应配置。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCN.py"
+        "_sources/source-09/tsai/models/RNN_FCN.py"
       ]
     },
     "MRNN_FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "面向多变量序列的 RNN 与全卷积混合网络，保留通道增强和对应配置。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCNPlus.py"
+        "_sources/source-09/tsai/models/RNN_FCNPlus.py"
       ]
     },
     "LSTMPlus": {
       "category": "recurrent_convolution",
       "summary": "LSTM 的 tsai 可配置骨干与任务头变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNPlus.py"
+        "_sources/source-09/tsai/models/RNNPlus.py"
       ],
       "paper_url": "https://ieeexplore.ieee.org/abstract/document/6795963/",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "LSTMAttention": {
       "category": "recurrent_convolution",
       "summary": "结合 LSTM 循环表示和注意力编码模块的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNAttention.py"
+        "_sources/source-09/tsai/models/RNNAttention.py"
       ]
     },
     "LSTMAttentionPlus": {
       "category": "recurrent_convolution",
       "summary": "结合 LSTM 循环表示和注意力编码模块的序列网络。 此项保留 Plus 配置扩展。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNAttentionPlus.py"
+        "_sources/source-09/tsai/models/RNNAttentionPlus.py"
       ]
     },
     "LSTM_FCN": {
       "category": "recurrent_convolution",
       "summary": "融合 LSTM 循环分支与全卷积分支的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCN.py"
+        "_sources/source-09/tsai/models/RNN_FCN.py"
       ],
       "paper_url": "https://arxiv.org/abs/1709.05206",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "LSTM_FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "融合 LSTM 循环分支与全卷积分支的序列网络。 此项保留 Plus 配置扩展。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCNPlus.py"
+        "_sources/source-09/tsai/models/RNN_FCNPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1709.05206",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "MLSTM_FCN": {
       "category": "recurrent_convolution",
       "summary": "面向多变量序列的 LSTM 与全卷积混合网络，保留通道增强和对应配置。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCN.py"
+        "_sources/source-09/tsai/models/RNN_FCN.py"
       ],
       "paper_url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608019301200",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "MLSTM_FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "面向多变量序列的 LSTM 与全卷积混合网络，保留通道增强和对应配置。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCNPlus.py"
+        "_sources/source-09/tsai/models/RNN_FCNPlus.py"
       ],
       "paper_url": "https://www.sciencedirect.com/science/article/abs/pii/S0893608019301200",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "GRUPlus": {
       "category": "recurrent_convolution",
       "summary": "GRU 的 tsai 可配置骨干与任务头变体。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNPlus.py"
+        "_sources/source-09/tsai/models/RNNPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1412.3555",
-      "paper_source": "libraries/neuralforecast/neuralforecast/models/gru.py",
+      "paper_source": "_sources/source-10/neuralforecast/models/gru.py",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "GRUAttention": {
       "category": "recurrent_convolution",
       "summary": "结合 GRU 循环表示和注意力编码模块的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNAttention.py"
+        "_sources/source-09/tsai/models/RNNAttention.py"
       ]
     },
     "GRUAttentionPlus": {
       "category": "recurrent_convolution",
       "summary": "结合 GRU 循环表示和注意力编码模块的序列网络。 此项保留 Plus 配置扩展。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNNAttentionPlus.py"
+        "_sources/source-09/tsai/models/RNNAttentionPlus.py"
       ]
     },
     "GRU_FCN": {
       "category": "recurrent_convolution",
       "summary": "融合 GRU 循环分支与全卷积分支的序列网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCN.py"
+        "_sources/source-09/tsai/models/RNN_FCN.py"
       ],
       "paper_url": "https://arxiv.org/abs/1812.07683",
-      "paper_source": "libraries/tsai/README.md"
+      "paper_source": "_sources/source-09/README.md"
     },
     "GRU_FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "融合 GRU 循环分支与全卷积分支的序列网络。 此项保留 Plus 配置扩展。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCNPlus.py"
+        "_sources/source-09/tsai/models/RNN_FCNPlus.py"
       ],
       "paper_url": "https://arxiv.org/abs/1812.07683",
-      "paper_source": "libraries/tsai/README.md",
+      "paper_source": "_sources/source-09/README.md",
       "paper_note": "引用基础方法论文；此项是库内 Plus 变体，未核实独立论文。"
     },
     "MGRU_FCN": {
       "category": "recurrent_convolution",
       "summary": "面向多变量序列的 GRU 与全卷积混合网络，保留通道增强和对应配置。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCN.py"
+        "_sources/source-09/tsai/models/RNN_FCN.py"
       ]
     },
     "MGRU_FCNPlus": {
       "category": "recurrent_convolution",
       "summary": "面向多变量序列的 GRU 与全卷积混合网络，保留通道增强和对应配置。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/RNN_FCNPlus.py"
+        "_sources/source-09/tsai/models/RNN_FCNPlus.py"
       ]
     },
     "TransformerRNNPlus": {
       "category": "transformer_attention",
       "summary": "将 Transformer 编码与 RNN 循环结构结合的时序网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TransformerRNNPlus.py"
+        "_sources/source-09/tsai/models/TransformerRNNPlus.py"
       ]
     },
     "TransformerLSTMPlus": {
       "category": "transformer_attention",
       "summary": "将 Transformer 编码与 LSTM 循环结构结合的时序网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TransformerRNNPlus.py"
+        "_sources/source-09/tsai/models/TransformerRNNPlus.py"
       ]
     },
     "TransformerGRUPlus": {
       "category": "transformer_attention",
       "summary": "将 Transformer 编码与 GRU 循环结构结合的时序网络。",
       "implementation_evidence": [
-        "libraries/tsai/tsai/models/TransformerRNNPlus.py"
+        "_sources/source-09/tsai/models/TransformerRNNPlus.py"
       ]
     }
   }

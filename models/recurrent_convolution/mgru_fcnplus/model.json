@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MGRU_FCNPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/mgru_fcnplus",
+  "summary": "面向多变量序列的 GRU 与全卷积混合网络，保留通道增强和对应配置。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "MGRU_FCNPlus 在GRU与全卷积双支路结构上加入通道重标定。它不仅提取局部模式，还根据整段响应调整不同特征通道的重要程度。",
+    "mechanism": "循环支路采用门控循环单元，卷积支路在前两层之后默认启用 squeeze-excitation：汇总时间信息后产生通道权重，再与原特征相乘，最终和循环表示拼接。Plus 版本进一步开放任务头。",
+    "use_cases": "适合多变量序列的分类和回归，并可研究通道重标定是否比单纯增加卷积宽度更有用；应与同一循环单元的非 M 版本直接对照。",
+    "limitations": "M 变体的关键差异是默认 SE 配置，不代表自动解决变量间的所有关系。shuffle 仍会改变循环轴，通道权重也不能直接解释为原始变量的因果重要性。",
+    "reading_tip": "先比较 MGRU_FCNPlus 与 GRU_FCNPlus 构造参数中的 se 默认值，再读 SE 的压缩和门控。保留相同 shuffle、隐藏宽度与卷积核，单独检查重标定与头部变化。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNN_FCNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MGRU_FCNPlus",
+      "label": "实现1"
+    }
+  ]
+}

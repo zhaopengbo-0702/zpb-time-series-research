@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "xLSTM",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xlstm",
+  "summary": "使用扩展 LSTM 记忆结构处理历史，再接入预测头。",
+  "paper_url": "https://arxiv.org/abs/2405.04517",
+  "profile": {
+    "intuition": "xLSTM 延续循环记忆的思路，但把记忆单元与门控做得更丰富。它希望在逐步读入数据时，既能保留有用历史，又能更灵活地更新和组合记忆。",
+    "mechanism": "收录实现把可选的标量记忆 sLSTM 或矩阵记忆 mLSTM 堆叠为编码器，再接多层感知机解码头，可配置直接或递推预测，并接入历史、未来与静态特征。",
+    "use_cases": "适合比较传统门控循环与扩展记忆结构的预测效果，或研究记忆类型、块数和解码方式如何影响较长历史的利用。",
+    "limitations": "额外记忆结构和外部算子依赖会改变运行条件，不能仅凭名称推断更省显存或更准确。sLSTM 与 mLSTM 是不同配置，预测协议和参数量要一并记录。",
+    "reading_tip": "先看 backbone 选择与块栈配置，再追踪输入嵌入、循环状态与解码头。核对 recurrent 参数的实际作用，并把记忆单元本身与外部训练包装分开理解。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/xlstm.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "xLSTM",
+      "label": "实现1"
+    }
+  ]
+}

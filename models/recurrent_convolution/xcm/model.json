@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XCM",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xcm",
+  "summary": "同时提取时间与变量卷积特征，支持解释序列分类结果。",
+  "paper_url": "https://hal.inria.fr/hal-03469487/document",
+  "profile": {
+    "intuition": "XCM 分别观察每个变量随时间的局部变化，以及多个变量在同一时间附近的联合变化。两条卷积路径汇合后，再形成整段序列的判断。",
+    "mechanism": "实现包含保留变量轴的二维卷积分支和跨变量的一维卷积分支，经过逐点压缩、拼接及后续卷积，最后用池化或展平头输出，并提供梯度归因图接口。",
+    "use_cases": "适合多变量序列分类与片段回归，也适合探索模型关注哪些变量和时间区域；可对两分支分别消融。",
+    "limitations": "梯度热图是模型局部敏感性的描述，不等同于因果解释。卷积窗口与序列长度相关，归因归一化和汇总方式也会影响可视化，预测任务需另设输出语义。",
+    "reading_tip": "先画出两条分支的输入与输出轴，再追踪拼接位置。若使用解释接口，明确选择的层、目标输出及归一化规则，并对不同样本检查稳定性。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XCM.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "XCM",
+      "label": "实现1"
+    }
+  ]
+}

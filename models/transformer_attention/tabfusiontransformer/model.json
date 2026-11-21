@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TabFusionTransformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/tabfusiontransformer",
+  "summary": "将类别和连续特征编码为 token，再用注意力融合。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "TabFusionTransformer 把类别和连续属性都转为 token，让它们在同一注意力空间里互相参考。它面向混合类型的表格输入。",
+    "mechanism": "类别特征采用嵌入，连续特征通过映射形成表示，融合编码器以多头注意力处理这些 token，任务头生成最终分类或回归输出。",
+    "use_cases": "适合静态表格预测，或研究连续与类别信息怎样联合表示；可与只上下文化类别特征的 TabTransformer 对照。",
+    "limitations": "特征 token 的关系不是时间顺序。应用到未来预测时，需要额外的数据窗口与时序分支，不能从名称中的 Transformer 推断已支持预测。",
+    "reading_tip": "先看 TabFusionBackbone 的 token 构造，再确认连续变量如何映射，最后追踪 flatten 与预测头对应的字段数量。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TabFusionTransformer.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TabFusionTransformer",
+      "label": "实现1"
+    }
+  ]
+}

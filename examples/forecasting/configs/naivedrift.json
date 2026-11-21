@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "model": "NaiveDrift",
+  "adapter": "reference",
+  "data": {
+    "path": "../synthetic.csv",
+    "time_column": "date",
+    "columns": [
+      "signal",
+      "trend"
+    ],
+    "train_end": 120,
+    "test_start": 144
+  },
+  "evaluation": {
+    "lookback": 24,
+    "horizon": 12,
+    "stride": 12,
+    "mase_period": 24
+  },
+  "options": {
+    "seed": 7
+  }
+}

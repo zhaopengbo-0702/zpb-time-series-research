@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "CatBoostModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/catboostmodel",
+  "summary": "以 CatBoost 提升树学习带滞后和协变量的预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "用逐步叠加的决策树学习历史窗口和协变量如何对应未来值。与纯数值网络相比，这类接口还可以利用模型允许的类别型特征处理能力。",
+    "mechanism": "先将时间序列切成监督表格样本，再由提升树优化回归或指定的分布、分位数目标。哪些静态或时间特征被标为类别变量，以及它们如何传入，是实际使用中的关键配置。",
+    "use_cases": "适合混有业务类别、静态属性与数值历史的预测任务，也适合检验表格化模型能否利用变量交互。类别特征的具体支持应以当前实现为准。",
+    "limitations": "原生支持类别特征不代表所有外层接口都自动正确识别类别；编码、稀有类别和训练测试分布变化仍需检查。树的数量与深度还会影响计算与过拟合。",
+    "reading_tip": "从 lag 和协变量生成看到类别索引，再看 loss_function、深度、迭代数和随机种子。确认未来类别值在预测时已知，并保留与其他模型相同的时间切分。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/catboost_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "CatBoostModel",
+      "label": "实现1"
+    }
+  ]
+}

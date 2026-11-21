@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TSMixerx",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/tsmixerx",
+  "summary": "在时间与变量混合 MLP 中接入外生变量和静态特征。",
+  "paper_url": "https://arxiv.org/abs/2303.06053",
+  "profile": {
+    "intuition": "在时间与变量混合之外，把外部变量也纳入预测。可以理解为让一个 MLP 混合器同时考虑过去发生了什么，以及未来已经知道的条件。",
+    "mechanism": "利用混合块处理目标历史，并通过相应投影连接历史、未来和静态外生特征。具体特征类型由实现声明，不能仅凭名称就认为任意协变量都可直接输入。",
+    "use_cases": "适合有日历、节假日、计划信息或序列静态属性的预测任务，也适合与不使用外生变量的混合器比较，隔离结构收益和信息收益。",
+    "limitations": "协变量质量和可获得时间决定可用性；错误地输入未来未知量会造成泄漏。额外特征增加参数与调参空间，小样本下未必稳定受益。",
+    "reading_tip": "先列出三类外生变量并标注可获得时刻，再查看它们在网络中的拼接和投影位置。消融时保持输入信息相同，避免把新增信息误当结构创新。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/tsmixerx.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TSMixerx",
+      "label": "实现1"
+    }
+  ]
+}

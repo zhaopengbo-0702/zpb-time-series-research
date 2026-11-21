@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "OmniScaleCNN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/omniscalecnn",
+  "summary": "组合不同尺度的一维卷积核，减少手工选择尺度的依赖。",
+  "paper_url": "https://arxiv.org/abs/2002.10061",
+  "profile": {
+    "intuition": "OmniScaleCNN 用许多不同长度的卷积核覆盖局部模式，尝试减少只凭经验选一个核宽的限制。可以把它看作让模型同时使用多把时间尺。",
+    "mechanism": "当前实现根据序列长度与感受野范围生成一组核长度，使用包含质数尺度的并行卷积与归一化，拼接各尺度输出，再通过全局池化和线性头得到结果。",
+    "use_cases": "适合局部事件长度未知或跨样本变化较大的分类问题，也可作为研究核宽选择策略的卷积对照。",
+    "limitations": "覆盖更多尺度不等于覆盖所有时间关系，计算量取决于核组和通道预算。全局池化会弱化位置，few_shot 选项返回的表示与普通分类输出也不同。",
+    "reading_tip": "先看核长度与通道预算的生成逻辑，再看并行卷积输出如何拼接。把 few_shot 开关、全局池化和隐藏层的调用关系核对清楚后再解释结果。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/OmniScaleCNN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "OmniScaleCNN",
+      "label": "实现1"
+    }
+  ]
+}

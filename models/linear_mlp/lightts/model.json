@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "LightTS",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/lightts",
+  "summary": "通过连续与间隔采样提取序列片段，用 MLP 混合局部和跨片段信息。",
+  "paper_url": "https://arxiv.org/abs/2207.01186",
+  "profile": {
+    "intuition": "不让网络逐点处理全部历史，而是用两种采样方式看同一条曲线：一边看相邻片段，一边看间隔较远的位置，再把信息汇合。",
+    "mechanism": "连续采样和间隔采样重排历史数据，通过信息交换模块中的 MLP 混合片段内、片段间及通道信息，最后投影到未来。采样分块大小决定网络怎样观察时间。",
+    "use_cases": "适合研究长窗口中的局部形状与跨周期关联，或作为轻量 MLP 时序方案与注意力结构对照。采样策略本身也适合独立做消融。",
+    "limitations": "重排与分块对序列长度有配置约束，采样间隔若与真实周期不合，可能漏掉关键模式。轻量结构的目标不代表在所有硬件和数据上都更快或更准确。",
+    "reading_tip": "用一个可编号的短序列实际画出两种采样后的矩阵，先弄清相邻元素代表什么，再看信息交换和输出投影，避免只看层名。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/LightTS.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/LightTS.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

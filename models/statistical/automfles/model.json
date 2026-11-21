@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "AutoMFLES",
+  "category": "statistical",
+  "directory": "models/statistical/automfles",
+  "summary": "自动配置 MFLES 多成分拟合并产生统计预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把复杂序列拆成较容易拟合的变化成分，再自动挑选平滑与季节处理配置。它试图减少完全靠人工决定每个成分怎么处理的负担。",
+    "mechanism": "当前实现对季节权重、平滑器、移动平均和季节周期等可行组合做选择，默认选择指标为 sMAPE。具体成分如何更新由底层 MFLES 完成，接口还可组织未来协变量和预测区间。",
+    "use_cases": "适合有趋势与季节变化、希望加入自动统计建模的预测比较。对多个统计方法做基准时，应把配置搜索也算进方法的训练与调参预算。",
+    "limitations": "选型质量受候选配置和序列长度制约；默认 sMAPE 选型与最终按 MSE 排名可能关注不同误差。某些实现首次调用还有编译开销，不能直接当作稳定推理时间。",
+    "reading_tip": "先读构造说明中自动搜索的四类参数，再看搜索指标和协变量路径。评估效率时区分首次初始化与后续调用，比较准确率时保留实际选出的参数组合。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_auto_mfles.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "AutoMFLES",
+      "label": "实现1"
+    }
+  ]
+}

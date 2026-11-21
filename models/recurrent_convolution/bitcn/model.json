@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "BiTCN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/bitcn",
+  "summary": "以时间卷积分支处理历史和已知未来协变量，产生概率预测。",
+  "paper_url": "https://doi.org/10.1016/j.ijforecast.2021.11.011",
+  "profile": {
+    "intuition": "BiTCN 把两类信息分别处理：已经发生的目标与历史特征走一条卷积分支，预测时已知的未来特征走另一条分支，然后把它们合在一起。",
+    "mechanism": "网络使用方向不同的时间卷积编码历史观察与未来协变量，并借助残差卷积块提取表示、输出预测。这里的双向针对可用信息的组织，不等于可以使用未来真实目标。",
+    "use_cases": "适合有明确未来日历、计划或其他已知协变量的预测任务，也可用于研究未来外生信息与历史目标分别编码的价值。",
+    "limitations": "该实现以单变量目标预测为主，协变量的可获得性必须按真实应用确认。缺少可靠未来信息时，一条分支的优势可能无法发挥；概率输出还取决于配置的损失。",
+    "reading_tip": "先区分 hist_exog 与 futr_exog 的时间覆盖范围，再看两条卷积分支的方向、padding 和特征拼接，最后确认网络没有从未来目标构造输入。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/bitcn.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "BiTCN",
+      "label": "实现1"
+    }
+  ]
+}

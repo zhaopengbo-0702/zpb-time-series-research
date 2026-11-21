@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "name": "XResNet1dPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xresnet1dplus",
+  "summary": "一维 xresnet 的增强版本，保留可配置头和深度工厂。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "XResNet1dPlus 将一维深度残差骨干与更灵活的输出构造结合。它保留多尺度逐层提取和捷径相加的路线，同时为任务头及网络规模提供配置。",
+    "mechanism": "实现提供多个深度与扩展构造函数，组织一维残差 stage、特征汇总和可配置头；同一条目还包含 deep、deeper 等不同块数设置。",
+    "use_cases": "适合需要复用残差表示的分类、回归任务，也适合在不同模型容量或输出形式间做明确的对照实验。",
+    "limitations": "不同构造器与头部配置会改变容量，Plus 后缀不代表固定结构或确定提升。若用展平头，输入长度会影响参数量，必须与数据窗口一起记录。",
+    "reading_tip": "先确认调用的是哪个深度构造器，再看 stage 数与头部创建逻辑。将骨干参数和输出头参数分别列出，与基础一维残差网络比较时逐项保持一致。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "XResNet1dPlus",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d101plus",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d152plus",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d18_deeperplus",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d18_deepplus",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d18plus",
+      "label": "实现6"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d34_deeperplus",
+      "label": "实现7"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d34_deepplus",
+      "label": "实现8"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d34plus",
+      "label": "实现9"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d50_deeperplus",
+      "label": "实现10"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d50_deepplus",
+      "label": "实现11"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1dPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d50plus",
+      "label": "实现12"
+    }
+  ]
+}

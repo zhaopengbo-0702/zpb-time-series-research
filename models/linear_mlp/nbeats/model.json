@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "NBEATS",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/nbeats",
+  "summary": "堆叠残差前馈块，分别拟合历史与预测基函数并累加结果。",
+  "paper_url": "https://arxiv.org/abs/1905.10437",
+  "profile": {
+    "intuition": "让多个前馈模块接力工作：每个模块解释掉一部分历史，同时贡献一部分未来预测，后面的模块继续处理剩下没解释好的部分。",
+    "mechanism": "块输出回看重建和前瞻预测，回看项从残差中减去，前瞻项逐块相加。基展开可以采用通用可学习形式，也可选趋势、季节等带结构的形式。",
+    "use_cases": "适合单变量多步预测和残差分解研究，也适合观察逐块预测如何累加，以及结构化基与通用基的差异。是否支持协变量须看具体变体。",
+    "limitations": "块的可加分量不天然等同真实物理成分；通用块的解释性尤其有限。网络堆叠深度和宽度会增加训练开销，外部信息通常需要专门扩展。",
+    "reading_tip": "先理解一个块的 backcast 和 forecast，再看残差减法与预测加法。最后核对该实现使用通用块还是解释型块，以及训练预算与集成设置。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/nbeats.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "NBEATS",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeats.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NBeats",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeats_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NBeats_pkg",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/nbeats.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NBEATSModel",
+      "label": "实现4"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "iTransformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/itransformer",
+  "summary": "把每个变量的历史作为一个 token，让注意力直接学习变量之间的关系。",
+  "paper_url": "https://arxiv.org/abs/2310.06625",
+  "profile": {
+    "intuition": "iTransformer 把常见 Transformer 的观察方向转了过来。一个 token 代表一条变量的整段历史，注意力主要比较变量之间的关系。",
+    "mechanism": "倒置嵌入将时间维映射到隐藏特征，编码器在变量 token 间做注意力，前馈层处理每条变量的历史表示，预测头输出每个变量的未来。",
+    "use_cases": "适合多变量预测和通道关系研究，尤其可与把时间点作为 token 的模型进行直接比较。",
+    "limitations": "变量很多时注意力开销随变量数增长，历史长度通常进入嵌入层的输入维度。单变量场景中，跨变量注意力可利用的结构会显著减少。",
+    "reading_tip": "重点核对输入转置前后的形状，再读倒置嵌入与预测投影，最后比较时间 token 与变量 token 两种设置。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/iTransformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/iTransformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/itransformer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "iTransformer",
+      "label": "实现3"
+    }
+  ]
+}

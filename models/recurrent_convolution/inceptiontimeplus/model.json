@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "name": "InceptionTimePlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/inceptiontimeplus",
+  "summary": "并行使用不同长度的一维卷积核提取多尺度模式。 此项为 的 Plus 可配置变体。",
+  "paper_url": "https://arxiv.org/abs/1909.04939",
+  "profile": {
+    "intuition": "InceptionTimePlus 将多尺度卷积模型拆成骨干和任务头，并开放更多结构配置。它保留同时观察不同时间宽度的核心思路，方便按任务调整输出。",
+    "mechanism": "实现使用可配置的多分支卷积与残差堆叠，支持卷积形式、注意力或通道重标定等开关，并允许自定义头；同一条目还收录不同深度和宽度的构造函数。",
+    "use_cases": "适合研究 Inception 骨干上的结构消融，或在分类与片段回归间复用表示；也适合比较固定模型容量下不同卷积与头部设计。",
+    "limitations": "增强选项并非默认全部开启，不同构造函数也不代表相同网络。固定序列长度的展平头会改变容量，应把所有开关与头部参数完整记录。",
+    "reading_tip": "先从实际调用的构造函数读取参数，确认 depth、nf 和各增强开关，再分别查看 backbone 与 head；不要把 Plus 作为一个无需展开的性能标签。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTimePlus",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTimePlus17x17",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTimePlus32x32",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTimePlus47x47",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTimePlus62x62",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTimeXLPlus",
+      "label": "实现6"
+    }
+  ]
+}

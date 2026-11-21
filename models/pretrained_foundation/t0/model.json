@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "T0",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/t0",
+  "summary": "调用 T0 预训练时序模型，支持多变量和协变量。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "T0 是调用预训练 patch Transformer 的预测适配，可在不针对当前数据训练的情况下提供零样本结果。它有多个不同权重版本。",
+    "mechanism": "实现将目标和协变量组织为模型接口规定的序列结构，预测逻辑委托给外部 T0 包。默认使用 t0-gamma 并输出中位数，也可请求分位数或启用微调。",
+    "use_cases": "适合短期和长期零样本预测、多变量与协变量实验，以及不同权重迭代版本的比较。",
+    "limitations": "权重仓库需要申请访问并认证，源码可读不代表本机已有权重。微调单次前向的预测范围受 max_horizon 限制，非预训练分位数可能采用插值而非直接学习输出。",
+    "reading_tip": "先确认 hub_model_name、访问权限和实际权重版本，再看过去与未来协变量怎样进入模型，最后检查分位数和微调范围。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/t0_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "T0Model",
+      "label": "实现1"
+    }
+  ]
+}

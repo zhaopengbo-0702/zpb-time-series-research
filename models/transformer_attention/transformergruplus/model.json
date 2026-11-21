@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TransformerGRUPlus",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/transformergruplus",
+  "summary": "将 Transformer 编码与 GRU 循环结构结合的时序网络。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "TransformerGRUPlus 用 GRU 汇总 Transformer 已编码的序列。相对 LSTM，它使用另一种门控结构，适合比较混合编码器的复杂度。",
+    "mechanism": "输入经过共同的投影、位置编码和注意力模块，后续循环层使用 GRU，最终任务头将序列表示映射到目标。",
+    "use_cases": "适合序列分类或回归，以及保持注意力部分不变时比较循环单元。",
+    "limitations": "GRU 变体并不保证更快或更准，实际表现依赖隐藏维度、序列长度与设备。双向模式同样需要遵守预测时可用信息边界。",
+    "reading_tip": "先读共享 _TransformerRNNPlus，再核对 _cell=nn.GRU，比较三变体时固定隐藏维度、层数和输出头。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TransformerRNNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TransformerGRUPlus",
+      "label": "实现1"
+    }
+  ]
+}

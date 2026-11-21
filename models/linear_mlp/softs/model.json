@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "SOFTS",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/softs",
+  "summary": "将多变量聚合到共享核心，再融合回各变量，控制交互成本。",
+  "paper_url": "https://arxiv.org/pdf/2404.14197",
+  "profile": {
+    "intuition": "多个变量先向一个共享核心汇报信息，再由核心把汇总结果分发回每个变量。这样用中心交换代替显式列出所有变量两两关系。",
+    "mechanism": "序列先形成变量表示，STAD 模块执行聚合与分发，再结合前馈变换输出预测。共享核心的维度决定被压缩、保留和反馈的信息容量。",
+    "use_cases": "适合多变量预测以及研究集中式变量交互，可以与通道独立 MLP 和成对注意力比较，分析交互方式、核心宽度与变量数量的影响。",
+    "limitations": "共享核心会构成信息瓶颈，少数局部关系可能在聚合中被稀释。减少成对交互的设计动机不意味着所有规模下都有精度或速度优势。",
+    "reading_tip": "先画清变量表示、核心表示及分发后表示的形状，再看聚合是否含随机机制。比较时同时测试相关变量较多和较少的数据。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/softs.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "SOFTS",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/softs/_softs_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "SOFTSForecaster",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/softs/_softs_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "SOFTS",
+      "label": "实现3"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "NaiveSeasonal",
+  "category": "statistical",
+  "directory": "models/statistical/naiveseasonal",
+  "summary": "重复最后一个季节周期的观测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "如果明天同一时刻大致像今天，或本周同一位置像上周，就把最近一个周期重复到未来。它把周期性直接写进预测规则。",
+    "mechanism": "指定周期 K 后，保存或读取最近 K 个观测，按周期位置循环复制。当前参考适配器从预测起点之前的可见 context 中取周期片段，周期不能超过可见历史长度。",
+    "use_cases": "适合季节规律明显的小时、日或周序列，也是判断复杂模型是否超过简单季节延续的必要对照。周期设置应来自训练数据分析或业务采样定义。",
+    "limitations": "趋势、季节幅度变化、节假日错位和异常观测会使机械复制失效。周期不是越大越好，错误周期可能与真实模式完全错相。",
+    "reading_tip": "先检查 K 或 seasonal_period 的单位，再看最近周期从哪里切出。对多步预测核对取模逻辑，确保没有读取未来同周期的真实值来补齐预测。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/baselines.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NaiveSeasonal",
+      "label": "实现1"
+    }
+  ]
+}

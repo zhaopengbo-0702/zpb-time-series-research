@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "HINT",
+  "category": "ensemble_calibration",
+  "directory": "models/ensemble_calibration/hint",
+  "summary": "结合基础预测与层级协调，使不同聚合层级的预测一致。",
+  "paper_url": "https://arxiv.org/abs/2305.07089",
+  "profile": {
+    "intuition": "如果商店销售、城市销售和全国销售存在加总关系，分别预测后可能互相对不上。HINT 在基础预测之外加入层级协调，让不同层级的概率预测满足这些关系。",
+    "mechanism": "包装已配置的基础神经预测器，结合层级聚合矩阵和样本协调，将基础预测分布转换为一致的层级预测。可用 BottomUp、最小迹等不同协调方式，不能把外层封装当作唯一固定骨干。",
+    "use_cases": "适合地域、产品和组织等具有明确聚合结构的预测任务。它主要回答预测如何保持层级一致，而不是替代所有基础模型的时间特征提取。",
+    "limitations": "错误的层级矩阵或序列顺序会直接破坏结果；协调策略与基础概率质量也都会影响表现。一致性是约束，不自动意味着每个层级的误差都下降。",
+    "reading_tip": "先确认基础 model、聚合矩阵 S、底层序列顺序和 reconciliation 选项，再看 bootstrap 样本如何协调。实验应同时报告层级一致性和各层级误差，并与相同基础模型比较。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/hint.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "HINT",
+      "label": "实现1"
+    }
+  ]
+}

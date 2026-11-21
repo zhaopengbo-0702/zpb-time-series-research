@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "name": "FreTS",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/frets",
+  "summary": "把序列变到频域，用复数 MLP 混合时间和通道信息，再还原预测。",
+  "paper_url": "https://arxiv.org/pdf/2311.06184.pdf",
+  "profile": {
+    "intuition": "先把序列变到频域，让 MLP 学习频率成分之间的关系，再变回来预测。它尝试用频域的紧凑表达同时处理时间与变量联系。",
+    "mechanism": "输入嵌入后沿相关轴做 Fourier 变换，复数 MLP 分别处理实部与虚部并混合，逆变换后经过预测头。通道独立配置决定是否启用部分跨变量操作。",
+    "use_cases": "适合周期信号、多变量关系与频域前馈网络的研究，可对比时间域 MLP、只沿时间变换以及加入变量方向变换的不同效果。",
+    "limitations": "输入窗口、频率分辨率与通道独立开关会改变模型行为；有限窗口存在边界问题。频域表示不能保证更适合非周期突变，复数参数也需注意稳定性。",
+    "reading_tip": "先看 FFT 沿哪条轴做，再逐行对应复数乘法的实部虚部公式。检查逆变换长度及最终投影，避免将变量轴和时间轴混淆。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/FreTS.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/FreTS.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/frets/_frets_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "FreTSForecaster",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/frets/_frets_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "FreTS",
+      "label": "实现4"
+    }
+  ]
+}

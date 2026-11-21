@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "InceptionRocketPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/inceptionrocketplus",
+  "summary": "将多尺度卷积特征与 Rocket 风格任务头结合。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "InceptionRocketPlus 在多个卷积核长度上分别提取 MiniRocket 风格统计，再把它们合并。它借用多尺度并行的想法，但核心是统计特征而不是普通 Inception 深层卷积。",
+    "mechanism": "实现为不同 kernel_sizes 构造特征提取器，分配各自的特征预算和膨胀率，拟合阈值后拼接统计量，再经归一化、可选 dropout 和线性或自定义头输出。",
+    "use_cases": "适合局部模式时长差异较大的分类或回归，也适合研究固定总特征数下增加卷积尺度是否有用。",
+    "limitations": "多尺度会改变特征预算分配，不能只增加核宽而忽略总维度。阈值仅能从训练数据获取，长度过短时部分核会被过滤，需检查实际启用的尺度。",
+    "reading_tip": "先看 kernel_sizes 过滤和特征分配函数，再确认每个子提取器的 fit 与拼接顺序。与 MiniRocket 比较时保持总特征数和输出头一致。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKETPlus_Pytorch.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionRocketPlus",
+      "label": "实现1"
+    }
+  ]
+}

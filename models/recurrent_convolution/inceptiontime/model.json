@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "InceptionTime",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/inceptiontime",
+  "summary": "并行使用不同长度的一维卷积核提取多尺度模式。",
+  "paper_url": "https://arxiv.org/abs/1909.04939",
+  "profile": {
+    "intuition": "InceptionTime 同时用长短不同的卷积核观察同一段序列。短核看细小波形，长核看较宽的模式，再把这些观察结果合成新的特征。",
+    "mechanism": "Inception 模块并行进行多尺度一维卷积与池化分支，通过拼接扩大表示；多个模块与残差连接堆叠，最后汇总时间轴并输出分类或回归结果。",
+    "use_cases": "适合持续时间不固定的局部模式识别，例如多变量传感器片段分类，也适合检验多尺度卷积相对单一核宽的价值。",
+    "limitations": "卷积核长度与采样频率有关，换数据后不能直接沿用原尺度。全局汇总可能淡化位置关系，所收录单网络也不应自动视为论文中的多个模型集成。",
+    "reading_tip": "先看 bottleneck、各核长度和池化分支如何拼接，再查残差每隔几层连接。最后区分单个网络、训练策略和是否额外做了集成。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTime.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InceptionTime",
+      "label": "实现1"
+    }
+  ]
+}

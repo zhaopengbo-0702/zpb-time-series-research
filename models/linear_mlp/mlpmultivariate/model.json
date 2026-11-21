@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MLPMultivariate",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/mlpmultivariate",
+  "summary": "将多条序列的历史合并输入 MLP，联合产生多变量预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把多个变量的历史一起交给一个 MLP，让它联合预测这些变量。和逐条序列单独建模相比，重点是允许网络利用变量之间的共同变化。",
+    "mechanism": "输入同时保留历史时间窗和变量维度，再在全连接结构中联合映射到多个未来值。它将跨变量关系交给训练学习，而不预设一张图或一套注意力连接。",
+    "use_cases": "适合变量集合固定、时间对齐明确的多变量预测，尤其适合检验联合学习是否优于通道独立建模。也可作为图模型或跨变量注意力的低结构对照。",
+    "limitations": "变量数量和窗口增长会扩大输入输出规模；无关变量、量纲差异或变量顺序变化可能影响学习。联合建模并不保证每个变量都得到改善。",
+    "reading_tip": "先核对张量的时间轴和变量轴在哪里被展开，再检查损失如何跨变量聚合。对比时同时报告逐变量指标，避免总体平均掩盖某些通道退化。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/mlpmultivariate.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "MLPMultivariate",
+      "label": "实现1"
+    }
+  ]
+}

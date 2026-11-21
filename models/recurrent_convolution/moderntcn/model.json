@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "name": "ModernTCN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/moderntcn",
+  "summary": "用现代深度卷积分别组织时间、变量和特征维的信息。",
+  "paper_url": "https://arxiv.org/abs/2401.17593",
+  "profile": {
+    "intuition": "ModernTCN 用较大的时间卷积核看更长的局部上下文，同时把时间、变量与特征的混合拆开安排，借鉴现代卷积结构来处理时序数据。",
+    "mechanism": "当前实现先按 patch 嵌入，再通过可重参数化的大核深度卷积与逐点前馈块加工表示，配合可逆实例归一化和展开预测头，可选择变量独立的输出投影。",
+    "use_cases": "适合检验纯卷积在长期预测中的作用，也便于研究 patch 长度、大核大小和分组混合方式对性能与成本的影响。",
+    "limitations": "大核不自动保证有效利用全部历史，补齐与 patch 边界也会影响细节。训练期多分支与部署期重参数化若被使用，需要核实具体实现是否完成融合。",
+    "reading_tip": "先看 patch stem 与四维张量的轴，再追踪大核卷积及两个前馈块分别混合哪个维度，最后检查 RevIN 的还原和 Flatten_Head 的输出形状。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "ModernTCNForecaster",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "ModernTCN",
+      "label": "实现2"
+    }
+  ]
+}

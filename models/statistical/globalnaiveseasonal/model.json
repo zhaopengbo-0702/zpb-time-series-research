@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "GlobalNaiveSeasonal",
+  "category": "statistical",
+  "directory": "models/statistical/globalnaiveseasonal",
+  "summary": "在全局模型接口中重复窗口中的季节观测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把输入窗口开头对应的一个季节参照值延伸为预测块，在统一多序列接口中提供简单对照。它并非在一次输出块内逐点重放整个历史周期。",
+    "mechanism": "当前模块取输入窗口的第一个目标值，将它重复 output_chunk_length 次；如果预测长于输出块，再按自回归方式继续处理，可能出现随块移动的季节值。窗口与块长共同决定实际季节含义。",
+    "use_cases": "适合与采用统一窗口的全局模型做季节基线对照，尤其适合验证样本长度、多个通道和多条序列是否正确批处理。",
+    "limitations": "季节模式变化、趋势漂移和节假日错位都会破坏复制假设。接口虽支持协变量，内置朴素规则通常并不使用它们，因此不能把可传参数误当作实际信息利用。",
+    "reading_tip": "重点核对内部 y_target[:, 0, :] 的取值与输出块重复，确认 input_chunk_length 表示向前取多远的参照值。不要把它直接解释为逐点重复最后 K 点的 NaiveSeasonal；两种规则只在特定配置下对应。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/global_baseline_models.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "GlobalNaiveSeasonal",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "DecoderMLP",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/decodermlp",
+  "summary": "使用解码区间可用的协变量构建前馈预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "只看预测阶段能取得的特征，用 MLP 逐步给出未来目标。它不是先把历史全部编码再预测，而是把重点放在未来已知条件本身。",
+    "mechanism": "从解码阶段可用的连续特征、类别嵌入等构造输入，再通过全连接模块形成输出。实际能输入什么由数据集对已知变量的定义决定。",
+    "use_cases": "适合评估日历、静态属性和计划特征本身能够解释多少目标变化，也适合给使用完整历史编码的模型建立一个信息较少的参照。",
+    "limitations": "历史动态信息不足时会限制预测能力；如果把实际预测时未知的未来目标或衍生变量当解码特征，结果将有泄漏。它的输入约束必须先说明。",
+    "reading_tip": "从数据集的 decoder 字段开始，逐一核对部署时可否获得。与历史模型比较时，分别标明信息集合差异和网络结构差异。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "DecoderMLP",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "DecoderMLPForecaster",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "DecoderMLP_pkg",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "DecoderMLP_v2",
+      "label": "实现4"
+    }
+  ]
+}

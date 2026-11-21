@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "TimeMixer",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/timemixer",
+  "summary": "将序列分为多个尺度和趋势季节成分，通过 MLP 混合并汇总多尺度预测。",
+  "paper_url": "https://openreview.net/pdf?id=7oLshfEIC2",
+  "profile": {
+    "intuition": "同时用粗细不同的时间尺度看历史，让快变化和慢变化分别交流，再汇总多尺度预测。直观上是把一条曲线变成几种分辨率后分工处理。",
+    "mechanism": "下采样构造多尺度输入，分解趋势和季节成分，通过前馈混合在尺度之间传递信息，再由多尺度预测模块组合未来输出。",
+    "use_cases": "适合多尺度趋势和周期共存的预测，也适合研究不同采样分辨率的互补性。可以比较尺度数、下采样形式、分解方法与混合方向。",
+    "limitations": "下采样会丢失部分高频信息，尺度设置与实际周期不匹配时可能无益。多分支预测也会增加配置空间，不能仅凭更复杂的结构断言效果更好。",
+    "reading_tip": "先列出每个尺度的时间长度，再看趋势和季节分支沿什么方向跨尺度传递。最后确认各尺度预测如何对齐相加，并核对归一化路径。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TimeMixer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/TimeMixer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/timemixer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TimeMixer",
+      "label": "实现3"
+    }
+  ]
+}

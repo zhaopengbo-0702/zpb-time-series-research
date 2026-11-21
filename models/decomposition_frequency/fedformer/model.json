@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "FEDformer",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/fedformer",
+  "summary": "在趋势季节分解的基础上，用傅里叶或小波模块处理长期依赖。",
+  "paper_url": "https://proceedings.mlr.press/v162/zhou22g.html",
+  "profile": {
+    "intuition": "在趋势和季节分解的基础上，把部分序列交互搬到频率或小波表示中处理。可以理解为先换一个更容易看周期和尺度的坐标系，再做预测。",
+    "mechanism": "分解模块处理趋势与剩余项，频域增强块采用 Fourier 或小波等形式对选定表示进行变换和交互，再回到时间域。具体分支和频率模式由配置决定。",
+    "use_cases": "适合长序列中的周期与多尺度研究，也适合比较时间域注意力、Fourier 处理和小波处理。可以把分解与频域模块拆开验证贡献。",
+    "limitations": "频率选择和边界效应会影响结果，非平稳突变不一定能用少量模式充分表达。计算复杂度的理论比较也需结合实际实现、长度和硬件。",
+    "reading_tip": "先确定当前配置选 Fourier 还是小波分支，画出变换前后张量的含义，再看保留了哪些模式。阅读论文结论时对应到相同分支与设置。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/FEDformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/FEDformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/fedformer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "FEDformer",
+      "label": "实现3"
+    }
+  ]
+}

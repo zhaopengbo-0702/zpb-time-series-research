@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "GatedTabTransformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/gatedtabtransformer",
+  "summary": "以门控和注意力表示表格变量，可用于带静态属性任务。",
+  "paper_url": "https://arxiv.org/abs/2201.00199",
+  "profile": {
+    "intuition": "GatedTabTransformer 主要处理表格变量，而不是天然处理按时间展开的历史。它先让类别特征形成上下文化表示，再用门控 MLP 组合特征。",
+    "mechanism": "实现继承类别嵌入与 Transformer 表示部分，把类别嵌入和连续特征拼接后送入 gMLP 头。门控发生在后续特征混合中。",
+    "use_cases": "适合包含类别属性和连续属性的分类或回归，可作为时序任务中静态特征分支的候选组件。",
+    "limitations": "输入是表格特征结构，不能直接把多步历史当成原生时间模型。类别字典与连续特征顺序必须一致，未出现类别的处理依赖数据编码。",
+    "reading_tip": "先理解 TabTransformer 的输入字段，再看本类怎样替换 MLP 为 gMLP，确认门控头接收到的展平维度。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/GatedTabTransformer.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "GatedTabTransformer",
+      "label": "实现1"
+    }
+  ]
+}

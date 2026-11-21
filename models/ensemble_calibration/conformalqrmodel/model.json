@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "ConformalQRModel",
+  "category": "ensemble_calibration",
+  "directory": "models/ensemble_calibration/conformalqrmodel",
+  "summary": "在分位数预测上做保形校准，修正预测区间。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "基础模型已经会给分位数区间，但这些区间可能偏窄或偏宽。ConformalQR 在原区间基础上再校准，使误差历史参与上下界修正。",
+    "mechanism": "从基础分位数预测与真实观测计算非一致性分数，再用校准分位数修正现有边界。对称或非对称规则决定修正是否成对共享；不同跨度和分量也可能有各自的误差结构。",
+    "use_cases": "适合已有分位数预测器、需要检验其区间覆盖与校准质量的任务。可以比较校准前后的覆盖率和宽度，观察是否只是通过过宽区间换取覆盖。",
+    "limitations": "它依赖基础分位数输出和过去误差，不能凭校准恢复缺失的未来信息。分位数交叉、分布变化和少量校准窗口都可能影响区间解释。",
+    "reading_tip": "先核对基础模型的 quantiles，再看非一致性分数、q_hat 与边界相加方式。明确校准集来自哪里、是否按步长分组，以及最终输出是分位数还是从区间采样的路径。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/conformal_models.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "ConformalQRModel",
+      "label": "实现1"
+    }
+  ]
+}

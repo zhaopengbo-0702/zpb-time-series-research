@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XLinear",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/xlinear",
+  "summary": "以轻量 MLP 结合历史和外生输入，直接输出未来窗口。",
+  "paper_url": "https://arxiv.org/abs/2601.09237",
+  "profile": {
+    "intuition": "在线性和 MLP 映射之外加上门控，让模型根据输入调节哪些时间信息、哪些变量信息应通过。它的重点是有条件地选择信息。",
+    "mechanism": "实现包含 sigmoid 门控块，结合时间门控、全局 token 和跨通道门控，逐元素调整特征后输出多变量预测。名称中的 Linear 不代表整个网络只有一个线性层。",
+    "use_cases": "适合研究轻量时间与变量交互，尤其适合与普通线性层、MLP 混合器比较门控是否提供收益，以及全局 token 承担什么作用。",
+    "limitations": "门值饱和可能削弱梯度，额外门控也可能只增加参数而无收益。门控权重反映内部计算选择，不能直接解释为真实因果重要度。",
+    "reading_tip": "先看 GatingBlock 的输入乘 sigmoid 输出，再沿时间和通道两条门控路线确认维度。将门控、全局 token 和深度分别消融，避免一次改动过多。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/xlinear.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "XLinear",
+      "label": "实现1"
+    }
+  ]
+}

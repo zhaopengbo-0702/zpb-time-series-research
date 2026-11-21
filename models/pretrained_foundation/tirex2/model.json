@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TiRex2",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/tirex2",
+  "summary": "调用 TiRex-2，支持多变量及过去、未来协变量预测。",
+  "paper_url": "https://arxiv.org/abs/2607.01204",
+  "profile": {
+    "intuition": "TiRex2 是面向第二代权重的预测适配，支持多个目标一起预测，也允许过去和未来协变量参与条件化。",
+    "mechanism": "适配器构造目标与协变量输入，调用 TiRex-2 的联合预测接口，并按预训练分位数处理输出和微调损失。可选择冻结、部分微调或全量微调。",
+    "use_cases": "适合多变量概率预测、协变量增益分析及第二代预训练模型的微调比较。",
+    "limitations": "预测长度加输出移位不能超过权重允许的最大范围；微调要保留预训练分位数的损失约定。外部权重与依赖需要另外取得。",
+    "reading_tip": "先读目标和协变量的形状注释，再核对输出移位与最大预测长度检查，最后区分训练全分位数和推理选择分位数。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/tirex2_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TiRex2Model",
+      "label": "实现1"
+    }
+  ]
+}

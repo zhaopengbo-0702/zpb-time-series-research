@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "Croston",
+  "category": "statistical",
+  "directory": "models/statistical/croston",
+  "summary": "分别估计间歇需求大小和到达间隔，处理大量零值需求。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "对很长时间为零、偶尔出现需求的序列，分别估计“每次出现多少”和“多久出现一次”。直接平滑整条含零序列，可能掩盖这两个不同问题。",
+    "mechanism": "经典版本分别更新非零需求量与到达间隔，再以二者之比形成需求速率预测。当前接口还提供优化、偏差修正和 TSB 等变体，具体版本必须由参数指定。",
+    "use_cases": "适合备件、低频销售和其他间歇需求的对照分析。评估时除了平均误差，还应考虑零值比例、需求是否已消失，以及业务真正关心的库存或缺货目标。",
+    "limitations": "它通常不直接刻画每个未来时刻是否非零，经典预测也不等于完整需求分布。不同变体对过时需求和偏差的处理不同，不能仅写 Croston 就认为配置一致。",
+    "reading_tip": "先找 version、平滑参数与零需求处理，再检查预测是否为常数速率以及区间如何产生。不要把需求为零的时间段删除后再训练，否则到达间隔的含义已经被改变。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_croston.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "Croston",
+      "label": "实现1"
+    }
+  ]
+}

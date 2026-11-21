@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TSTabFusionTransformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/tstabfusiontransformer",
+  "summary": "通过 Transformer 融合时间序列与表格特征。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "TSTabFusionTransformer 尝试把时间序列和静态表格信息一起处理。可以把它理解为把两类输入转换成可被同一注意力模块处理的表示。",
+    "mechanism": "实现以表格融合 Transformer 为基础，增加时序输入的表示路径，将时间序列信息与类别、连续属性组合，再由任务头输出。",
+    "use_cases": "适合序列分类或回归同时拥有对象属性、设备信息等静态字段的场景。",
+    "limitations": "必须核对时序张量与表格字段的输入协议，缺失某类输入时并非自动适配。最终头部决定输出任务，不能直接当作任意预测长度的现成模型。",
+    "reading_tip": "把本类与 TabFusionTransformer 的 forward 对照，找出新增时序输入怎样进入 token 组合，并核对样本维是否一一对应。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TabFusionTransformer.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TSTabFusionTransformer",
+      "label": "实现1"
+    }
+  ]
+}

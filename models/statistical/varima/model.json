@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "VARIMA",
+  "category": "statistical",
+  "directory": "models/statistical/varima",
+  "summary": "把多个序列联合建模为向量自回归、差分和移动平均过程。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "不只看一个变量的过去，而是让多个变量的历史一起解释每个变量的未来。它把跨变量关系写成线性的动态方程。",
+    "mechanism": "先按配置差分，再用向量自回归和移动平均结构联合拟合各通道；预测后恢复到原尺度。变量数、阶数和趋势项共同决定参数规模，可选外生输入还会增加结构。",
+    "use_cases": "适合变量数不多、希望研究线性相互作用的多变量统计对照。对照通道独立模型时，可以检验是否存在可由线性跨变量关系利用的信息。",
+    "limitations": "参数量随变量数和阶数增长，样本不足时容易估计不稳定。共线性、非平稳处理不当和结构变化都会影响结果；它不等于能捕捉任意非线性因果关系。",
+    "reading_tip": "先看通道顺序、差分和阶数，再查拟合器与预测还原流程。报告训练时的完整变量集合；删掉、增加或重排通道都可能改变模型含义和参数对应关系。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/varima.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "VARIMA",
+      "label": "实现1"
+    }
+  ]
+}

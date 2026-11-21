@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "Baseline",
+  "category": "statistical",
+  "directory": "models/statistical/baseline",
+  "summary": "重复最后一个历史观测值，作为朴素预测对照。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把最近已经看到的目标值直接复制到未来。它提出一个很朴素但必要的问题：如果暂时假设接下来没有变化，复杂模型究竟能多解决多少问题。这里的 Baseline 是最后值预测器，不是所有基线方法的统称。",
+    "mechanism": "预测时从每条样本的有效历史区间取最后一个目标值，再扩展到指定预测长度；多个目标分量分别复制，不学习它们之间的联系，也不训练趋势或季节参数。",
+    "use_cases": "适合短期惯性较强的传感器、价格水平等任务，尤其适合作为训练流程和数据划分的快速检查。如果复杂模型持续输给它，应检查任务难度、训练配置和数据处理。",
+    "limitations": "它不会主动发现趋势、周期或外生事件；预测跨度拉长后，所有未来点仍然相同。异常的最后一个观测也会被整段复制，因此需要明确异常值预处理规则。",
+    "reading_tip": "先看 forward 如何根据有效编码长度找到最后观测，再看输出如何广播到未来。比较结果时确认历史窗口截止时刻相同，不能让这个简单方法比其他模型多看到一个真实未来值。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/baseline.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "Baseline",
+      "label": "实现1"
+    }
+  ]
+}

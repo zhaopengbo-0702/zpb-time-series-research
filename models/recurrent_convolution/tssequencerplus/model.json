@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TSSequencerPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/tssequencerplus",
+  "summary": "以双向 LSTM 混合序列位置，并结合前馈块。",
+  "paper_url": "https://arxiv.org/abs/2205.01972",
+  "profile": {
+    "intuition": "TSSequencerPlus 用双向循环模块在序列位置之间交换信息，再配合前馈层和残差结构。它借用了编码器式堆叠，但混合位置时使用 LSTM 而不是自注意力。",
+    "mechanism": "实现先做可选分词与线性嵌入，加入位置与分类 token，再经过双向 LSTM 混合、前馈层、归一化和残差，最后由可定制头输出序列级结果。",
+    "use_cases": "适合研究完整已观测窗口的分类或回归，也适合对比循环式混合与注意力式混合在相同嵌入和头部下的差别。",
+    "limitations": "双向处理可使用整个输入窗口，不能直接当作逐时刻因果预测器。固定序列长度、token 设置和位置嵌入影响形状，长窗口成本需实际测量。",
+    "reading_tip": "先核对输入嵌入与转置的轴，再看 LSTM 在何种维度上混合。重点追踪 q_len、分类 token 和输出头，区分模块名称与实际循环的维度。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TSSequencerPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TSSequencerPlus",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "SKLearnModel",
+  "category": "model_adapter",
+  "directory": "models/model_adapter/sklearnmodel",
+  "summary": "将 scikit-learn 回归器接入滞后特征预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把通用回归器变成时间序列预测器：先用滞后窗口组织监督样本，再调用熟悉的 fit 和 predict。这里的关键是数据转换，底层回归器可以替换。",
+    "mechanism": "根据目标与协变量的 lags 提取特征，为指定输出块构造训练目标，再调用所传估计器。多输出支持不足时可能使用额外包装，多步预测也可能涉及递推。",
+    "use_cases": "适合把已有表格回归方法纳入时序基准，或研究特征选择、滞后设计和静态属性的作用。它可复用线性模型、树模型等，但不是额外提出一种新预测算法。",
+    "limitations": "预测性能和概率能力取决于具体估计器，外层不会自动识别错误的未来特征。时间对齐、递归误差和预处理泄漏往往比接口本身更值得检查。",
+    "reading_tip": "先看传入 model，再追踪 lag 样本和多输出包装；最后核对预测块如何拼接。实验名称应包含真实估计器及参数，并在训练切分之后拟合所有缩放与特征处理。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sklearn_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "SKLearnModel",
+      "label": "实现1"
+    }
+  ]
+}

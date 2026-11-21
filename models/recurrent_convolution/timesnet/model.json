@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "TimesNet",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/timesnet",
+  "summary": "用 FFT 寻找周期，将序列按周期重排为二维，再用 Inception 卷积提取变化。",
+  "paper_url": "https://openreview.net/pdf?id=ju_Uqw384Oq",
+  "profile": {
+    "intuition": "TimesNet 把一维序列换一种摆放方式来观察。先找几个主要周期，再把数据按周期折成二维表，让卷积同时观察周期内部的变化和不同周期之间的变化。",
+    "mechanism": "时间块用 FFT 选择显著频率，将序列补齐并按候选周期重排为二维张量，经过二维 Inception 卷积后还原时间轴；不同周期分支按频率幅度加权，并带残差叠加。",
+    "use_cases": "适合周期性明显但同时存在多种节律的预测或表征任务，也便于研究频率选择、二维卷积和多周期加权分别带来的影响。",
+    "limitations": "频谱峰不一定代表稳定的因果周期，趋势、短窗口与噪声会影响周期选择。二维折叠通常要补齐长度，不同任务的输入投影、归一化和输出头也需分别核对。",
+    "reading_tip": "先看 FFT_for_Period 和候选周期生成，再用一个小例子核对补齐、reshape 与还原过程。随后看周期权重来自哪里，最后才读预测或分类任务的输出分支。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TimesNet.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/TimesNet.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/timesnet.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TimesNet",
+      "label": "实现3"
+    }
+  ]
+}

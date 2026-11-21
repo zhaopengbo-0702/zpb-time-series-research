@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "LightGBMModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/lightgbmmodel",
+  "summary": "以 LightGBM 梯度提升树对滞后窗口回归。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把时序预测改写成滞后特征表上的回归，再逐棵增加决策树修正已有误差。它不靠循环状态记住历史，而是依赖你提供的历史和协变量特征。",
+    "mechanism": "外层接口生成目标滞后、过去与未来协变量样本，内部提升树优化指定目标。树叶数、深度、学习率和迭代数决定拟合能力；部分配置还可组织分位数等预测输出。",
+    "use_cases": "适合结构化协变量丰富、变量交互明显的预测任务，例如业务日历与天气特征并用。与深度模型比较时，需要同时报告滞后特征和超参数搜索预算。",
+    "limitations": "错误的时间对齐会直接造成泄漏，过多树叶也可能记住训练噪声。树模型对训练范围外的趋势外推有限，概率输出是否校准仍需另外验证。",
+    "reading_tip": "从样本构造读起，再核对 objective、学习率、叶子规模和验证规则。若使用已知未来特征，检查它在每个预测起点是否真的可获得，而不是事后观测。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/lgbm.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "LightGBMModel",
+      "label": "实现1"
+    }
+  ]
+}

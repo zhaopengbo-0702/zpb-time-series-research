@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TSiTPlus",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/tsitplus",
+  "summary": "将 ViT 式 token 和 Transformer 结构适配到时间序列。",
+  "paper_url": "https://arxiv.org/abs/2010.11929",
+  "profile": {
+    "intuition": "TSiTPlus 将视觉 Transformer 一类的 token 编码思路适配到时间序列。它是可配置的时序网络变体，不应把基础方法论文自动当作这个变体的专属论文。",
+    "mechanism": "输入通过可配置 token 表示进入带位置编码的 Transformer，编码块支持注意力与前馈网络，并可配置分类 token、池化或任务头等结构。",
+    "use_cases": "适合序列分类和回归，尤其是比较不同 token 化、位置编码和输出汇聚方式的研究。",
+    "limitations": "可配置项很多，名称相同的实验也可能采用不同结构。token 数与窗口长度影响计算成本，任务能力由所选头部决定。",
+    "reading_tip": "先固定 token 构造与输出头，读清编码块再逐项开启可选设置，避免同时改变多个因素后无法解释收益。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TSiTPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TSiTPlus",
+      "label": "实现1"
+    }
+  ]
+}

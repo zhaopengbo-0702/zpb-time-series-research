@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "WPMixer",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/wpmixer",
+  "summary": "先用离散小波拆分序列，再对不同分量做 patch 混合与预测重建。",
+  "paper_url": "https://arxiv.org/abs/2412.17176",
+  "profile": {
+    "intuition": "先用小波把信号拆成不同频带，再在每个频带中按片段做预测，最后拼回完整曲线。它把频率分工和 patch 混合结合起来。",
+    "mechanism": "离散小波分解产生低频与细节序列，各分量经过 patch 表示与混合器输出未来分量，再由逆小波变换重建预测。小波类型、层数和分块影响整个数据流。",
+    "use_cases": "适合同时关注慢趋势与局部高频波动的任务，尤其适合研究分频后是否更容易预测。可对小波层数、patch 长度和分量共享方式做对照。",
+    "limitations": "分解与重建需要满足长度和边界处理约定；层数过深可能让短序列过度压缩。高频噪声也可能被单独放大，效果依赖数据与配置。",
+    "reading_tip": "先用一个样本检查小波分解后各分量的长度，再追踪每条预测分支怎样回到同一时间窗。确认重建只使用预测分量，没有混入未来观测。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/WPMixer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/WPMixer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

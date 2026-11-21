@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "name": "XResNet1d",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xresnet1d",
+  "summary": "将 xresnet 架构适配为一维卷积，保留多种深度工厂。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "XResNet1d 把改进型残差卷积架构用于一维序列。它提供不同深度的构造方式，让相同的残差建模思路可以在不同模型规模下使用。",
+    "mechanism": "收录文件将 xresnet 构造器配置为一维卷积，提供十八、三十四、五十等层级以及更深的变体；具体 stem、残差块与输出头由对应构造器决定。",
+    "use_cases": "适合序列分类与回归中的深度残差基线，也适合控制数据和训练协议后研究网络深度与容量的影响。",
+    "limitations": "家族页面中的多个构造函数不是同一个模型规模，训练成本与参数量应分别报告。使用一维残差网络也不自动获得任意长历史依赖或因果预测能力。",
+    "reading_tip": "先定位实际调用的构造函数，查看传入的 ndim、c_in 与 n_out，再沿依赖读 residual block 与 stem。记录具体深度和 head，避免只写家族名称。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d101",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d152",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d18",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d18_deep",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d18_deeper",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d34",
+      "label": "实现6"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d34_deep",
+      "label": "实现7"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d34_deeper",
+      "label": "实现8"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d50",
+      "label": "实现9"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d50_deep",
+      "label": "实现10"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XResNet1d.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "xresnet1d50_deeper",
+      "label": "实现11"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "HydraMultiRocketPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/hydramultirocketplus",
+  "summary": "融合 Hydra 竞争卷积和 MultiRocket 统计特征。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "这个模型把两种不同的随机卷积特征放在一起：一类统计核之间的竞争，另一类统计响应的比例、强度和持续方式，希望提供互补的序列描述。",
+    "mechanism": "实现并行构建 Hydra 与 MultiRocket 特征骨干，将它们的输出拼接，再通过可配置头映射到目标。原序列、差分与多种膨胀率参与特征提取。",
+    "use_cases": "适合评估特征组合能否帮助序列分类或回归，也便于分别移除两个分支，判断收益来自哪类统计。",
+    "limitations": "拼接特征会增加存储和头部输入维度，分支互补需要实验验证。参数与初始化可能影响高维表示，不能将组合名称直接当成效果提升的证据。",
+    "reading_tip": "先核对两个子骨干各自产生多少特征，再看拼接、归一化和输出头。阅读拟合过程时确认哪些阈值来自训练集，并记录随机种子与特征预算。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/HydraMultiRocketPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "HydraMultiRocketPlus",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "EMAformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/emaformer",
+  "summary": "在变量 token 上叠加通道、相位和联合嵌入，再用 Transformer 预测。",
+  "paper_url": "https://arxiv.org/abs/2511.08396",
+  "profile": {
+    "intuition": "EMAformer 是一种多变量预测模型。可以把它理解为先给每条变量历史补上身份和周期位置，再让 Transformer 比较变量之间的联系。它关注的是输入表示怎样影响预测。",
+    "mechanism": "历史序列通过倒置嵌入变成变量 token，叠加通道嵌入、相位嵌入或通道与相位的联合嵌入。编码器处理这些表示，线性预测头将编码结果映射到未来区间。不同嵌入策略是需要比较的实验因素。",
+    "use_cases": "适合研究多变量长期预测中的变量差异、周期结构与嵌入设计，例如比较相同主干在不同周期设置下的表现。",
+    "limitations": "周期长度与相位索引依赖数据的采样规律。周期配置不合适或周期随时间变化时，额外嵌入未必有效；增加嵌入后的收益也需要与参数量变化分开验证。",
+    "reading_tip": "先读 Model 的嵌入构造与 forecast，再核对数据加载器如何生成周期索引，最后比较常规实验、增加回看长度和嵌入策略脚本。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-01",
+      "core": "_sources/source-01/model/EMAformer.py",
+      "entry": "_sources/source-01/run.py",
+      "commit": "b8f37c0c7d089e7263bbaeb681672a94f5afe233",
+      "label": "实现1"
+    }
+  ]
+}

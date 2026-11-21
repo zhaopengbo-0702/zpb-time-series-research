@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "Moirai",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/moirai",
+  "summary": "调用 uni2ts 的预训练 Moirai 模型，接口用于零样本预测。",
+  "paper_url": "https://arxiv.org/pdf/2402.02592",
+  "profile": {
+    "intuition": "Moirai 入口把历史交给已有的通用时序预测模型。本次简单包装实际使用 Moirai 2.0 的小型权重，而名称仍保留为系列名。",
+    "mechanism": "实现构建 Moirai2Forecast，设置历史长度与预测长度，逐变量传入历史并汇总输出。当前包装将目标维度设为 1，动态协变量维度设为 0。",
+    "use_cases": "适合零样本预测对照和 Moirai 系列迁移表现观察，尤其是先不修改模型结构的评估。",
+    "limitations": "这里的包装没有暴露模型可能具备的全部多变量或协变量能力；输出汇总也会压缩分布信息。系列论文与当前权重版本需要分别记录。",
+    "reading_tip": "先核对 moirai-2.0-R-small 权重和 target_dim，再看逐变量循环。阅读论文时把通用模型能力与本包装器实际开放的输入区分开。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Moirai.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

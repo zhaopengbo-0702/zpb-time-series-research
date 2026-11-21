@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XceptionTimePlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xceptiontimeplus",
+  "summary": "将深度可分离卷积与多尺度时序模块结合。 此项为 的 Plus 可配置变体。",
+  "paper_url": "https://arxiv.org/abs/1911.03803",
+  "profile": {
+    "intuition": "XceptionTimePlus 在可分离的多尺度残差卷积上提供更多可配置组件，使骨干与输出设置可以按任务调整，而非只沿用固定的末端结构。",
+    "mechanism": "实现将 Xception 模块、残差块与任务头分层，支持坐标输入、归一化、可分离卷积等配置，头部使用自适应汇总及逐点变换；实际参数决定启用哪些机制。",
+    "use_cases": "适合对可分离多尺度卷积做消融，或研究不同汇总与输出设计如何影响序列级分类和回归。",
+    "limitations": "Plus 变体不保证比基础结构更好，多项可选设置会改变容量和归纳偏置。输入长度变化、自适应池化和类别头之间的关系也应验证。",
+    "reading_tip": "从构造参数开始核对 backbone 与 head 的边界，再读残差通道投影。比较基础版时，分别固定核宽、通道数、池化长度和增强开关。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "XceptionTimePlus",
+      "label": "实现1"
+    }
+  ]
+}

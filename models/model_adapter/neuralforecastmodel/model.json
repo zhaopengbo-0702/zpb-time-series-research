@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "NeuralForecastModel",
+  "category": "model_adapter",
+  "directory": "models/model_adapter/neuralforecastmodel",
+  "summary": "把 模型接入 的训练和预测接口。",
+  "paper_url": "https://openreview.net/forum?id=cGDAkQo1C0p",
+  "profile": {
+    "intuition": "让一组神经预测器能够通过另一套统一时序对象和调用方式使用。它的作用类似接口转换器，真正执行预测的是传入的基础模型。",
+    "mechanism": "将目标、时间索引、序列标识和协变量转换成基础预测器要求的数据格式，转交 fit 和 predict，再把结果恢复为外层统一序列对象。训练参数和概率输出也需要经过接口映射。",
+    "use_cases": "适合在已有回测、数据变换或集成流程中接入另一种神经预测实现。它减少手写格式转换，但比较模型时仍需记录实际基础模型与配置。",
+    "limitations": "封装不会自动消除两个接口在样本切窗、缺失处理、缩放和保存方式上的差异。某些模型或概率能力可能需要额外适配，不能假定底层全部功能都会原样暴露。",
+    "reading_tip": "沿构造的基础 model、数据表转换、训练调用和预测还原逐步阅读。重点核对目标顺序、频率和历史窗口，并把底层实现版本记入实验记录，而不只记录封装类名。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/nf_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NeuralForecastModel",
+      "label": "实现1"
+    }
+  ]
+}

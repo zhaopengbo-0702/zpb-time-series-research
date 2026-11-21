@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "KalmanForecaster",
+  "category": "state_space_dynamics",
+  "directory": "models/state_space_dynamics/kalmanforecaster",
+  "summary": "估计状态空间模型的隐状态，再以 Kalman 模型递推未来。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "KalmanForecaster 假设观测背后有一个随时间演化的隐状态，用滤波器估计这个状态，再递推未来。它是结构化统计状态空间预测器。",
+    "mechanism": "用户可以提供状态空间滤波器，也可以由训练序列通过 N4SID 识别系统。预测时将未来观测视为缺失，利用状态转移和协方差递推得到预测，并可接收控制信号形式的未来协变量。",
+    "use_cases": "适合近似线性动态系统、带噪测量和需要状态估计的预测，可作为深度状态空间方法的统计对照。",
+    "limitations": "线性状态转移与噪声假设限制复杂非线性表达；状态维度和识别所需样本量会影响稳定性。提供滤波器时其维度必须匹配观测与协变量。",
+    "reading_tip": "先理解状态、观测、过程噪声和测量噪声，再看 fit 是否进行系统识别，最后读未来缺失观测怎样触发递推。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/kalman_forecaster.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "KalmanForecaster",
+      "label": "实现1"
+    }
+  ]
+}

@@ -4,18 +4,18 @@
 
 | 项目 | 上游仓库 | 快照内的许可证文件 | 需一并保留的说明 |
 | --- | --- | --- | --- |
-| EMAformer | [PlanckChang/EMAformer](https://github.com/PlanckChang/EMAformer) | [MIT LICENSE](baselines/EMAformer/LICENSE) | 原版权声明：2025 Zhiwei Zhang @ Beijing Jiaotong University |
-| Pyraformer | [ant-research/Pyraformer](https://github.com/ant-research/Pyraformer) | [Apache-2.0 LICENSE](baselines/Pyraformer/LICENSE) | [LEGAL.md](baselines/Pyraformer/LEGAL.md) 与原源码版权声明 |
-| Informer2020 | [zhouhaoyi/Informer2020](https://github.com/zhouhaoyi/Informer2020) | [Apache-2.0 LICENSE](baselines/Informer2020/LICENSE) | [原 README](baselines/Informer2020/README.md) 中的许可证徽章存在下述不一致 |
-| Autoformer | [thuml/Autoformer](https://github.com/thuml/Autoformer) | [MIT LICENSE](baselines/Autoformer/LICENSE) | 原源码版权与引用信息 |
-| ETSformer | [azkanaon/etsformer](https://github.com/azkanaon/etsformer) | [BSD-3-Clause LICENSE.txt](baselines/ETSformer/LICENSE.txt) | 原版权声明：2022 Salesforce.com, Inc.，许可证中的三项条件与原声明 |
-| Time-LLM | [KimMeen/Time-LLM](https://github.com/KimMeen/Time-LLM) | [Apache-2.0 LICENSE](baselines/Time-LLM/LICENSE) | [LEGAL.md](baselines/Time-LLM/LEGAL.md) 与原源码声明；外部大模型权重另有其条款 |
-| Time-Series-Library | [thuml/Time-Series-Library](https://github.com/thuml/Time-Series-Library) | [MIT LICENSE](libraries/Time-Series-Library/LICENSE) | 原版权声明：2021 THUML @ Tsinghua University，以及源码内保留的第三方声明 |
-| TimeSeriesLibrary-ZJ | [ZJ-LuoGuangQing/TimeSeriesLibrary](https://github.com/ZJ-LuoGuangQing/TimeSeriesLibrary) | [MIT LICENSE](libraries/TimeSeriesLibrary-ZJ/LICENSE) | 原版权声明：2021 THUML @ Tsinghua University；保留该来源快照内的原声明 |
-| tsai | [timeseriesAI/tsai](https://github.com/timeseriesAI/tsai) | [Apache-2.0 LICENSE](libraries/tsai/LICENSE) | 原源码声明、项目引用与文档 |
-| neuralforecast | [Nixtla/neuralforecast](https://github.com/Nixtla/neuralforecast) | [Apache-2.0 LICENSE](libraries/neuralforecast/LICENSE) | [THIRD_PARTY_LICENSES.md](libraries/neuralforecast/THIRD_PARTY_LICENSES.md) 与原源码声明 |
-| pytorch-forecasting | [sktime/pytorch-forecasting](https://github.com/sktime/pytorch-forecasting) | [MIT LICENSE](libraries/pytorch-forecasting/LICENSE) | 原版权声明：pytorch-forecasting developers、Jan Beitner，以及文件内声明 |
-| darts | [unit8co/darts](https://github.com/unit8co/darts) | [Apache-2.0 LICENSE](libraries/darts/LICENSE) | 原源码声明、项目引用与文档 |
+| EMAformer | [PlanckChang/EMAformer](https://github.com/PlanckChang/EMAformer) | [MIT LICENSE](_sources/source-01/LICENSE) | 原版权声明：2025 Zhiwei Zhang @ Beijing Jiaotong University |
+| Pyraformer | [ant-research/Pyraformer](https://github.com/ant-research/Pyraformer) | [Apache-2.0 LICENSE](_sources/source-02/LICENSE) | [LEGAL.md](_sources/source-02/LEGAL.md) 与原源码版权声明 |
+| Informer2020 | [zhouhaoyi/Informer2020](https://github.com/zhouhaoyi/Informer2020) | [Apache-2.0 LICENSE](_sources/source-03/LICENSE) | [原 README](_sources/source-03/README.md) 中的许可证徽章存在下述不一致 |
+| Autoformer | [thuml/Autoformer](https://github.com/thuml/Autoformer) | [MIT LICENSE](_sources/source-04/LICENSE) | 原源码版权与引用信息 |
+| ETSformer | [azkanaon/etsformer](https://github.com/azkanaon/etsformer) | [BSD-3-Clause LICENSE.txt](_sources/source-05/LICENSE.txt) | 原版权声明：2022 Salesforce.com, Inc.，许可证中的三项条件与原声明 |
+| Time-LLM | [KimMeen/Time-LLM](https://github.com/KimMeen/Time-LLM) | [Apache-2.0 LICENSE](_sources/source-06/LICENSE) | [LEGAL.md](_sources/source-06/LEGAL.md) 与原源码声明；外部大模型权重另有其条款 |
+| Time-Series-Library | [thuml/Time-Series-Library](https://github.com/thuml/Time-Series-Library) | [MIT LICENSE](_sources/source-07/LICENSE) | 原版权声明：2021 THUML @ Tsinghua University，以及源码内保留的第三方声明 |
+| TimeSeriesLibrary-ZJ | [ZJ-LuoGuangQing/TimeSeriesLibrary](https://github.com/ZJ-LuoGuangQing/TimeSeriesLibrary) | [MIT LICENSE](_sources/source-08/LICENSE) | 原版权声明：2021 THUML @ Tsinghua University；保留该来源快照内的原声明 |
+| tsai | [timeseriesAI/tsai](https://github.com/timeseriesAI/tsai) | [Apache-2.0 LICENSE](_sources/source-09/LICENSE) | 原源码声明、项目引用与文档 |
+| neuralforecast | [Nixtla/neuralforecast](https://github.com/Nixtla/neuralforecast) | [Apache-2.0 LICENSE](_sources/source-10/LICENSE) | [THIRD_PARTY_LICENSES.md](_sources/source-10/THIRD_PARTY_LICENSES.md) 与原源码声明 |
+| pytorch-forecasting | [sktime/pytorch-forecasting](https://github.com/sktime/pytorch-forecasting) | [MIT LICENSE](_sources/source-11/LICENSE) | 原版权声明：pytorch-forecasting developers、Jan Beitner，以及文件内声明 |
+| darts | [unit8co/darts](https://github.com/unit8co/darts) | [Apache-2.0 LICENSE](_sources/source-12/LICENSE) | 原源码声明、项目引用与文档 |
 
 ## Informer2020 的许可证标注差异
 

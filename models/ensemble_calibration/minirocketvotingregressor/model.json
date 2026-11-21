@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MiniRocketVotingRegressor",
+  "category": "ensemble_calibration",
+  "directory": "models/ensemble_calibration/minirocketvotingregressor",
+  "summary": "通过投票或平均组合多个 MiniRocket 回归器。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "让多个 MiniRocket 回归管线各自给出数值，再把它们组合。它使用的是特征提取加回归器的集成思路，不能与类别硬投票混为一谈。",
+    "mechanism": "为每个成员建立 MiniRocket 特征与线性回归管线，预测后由回归投票器做平均或加权平均。成员数、权重、正则化候选和随机特征配置共同决定最终预测。",
+    "use_cases": "适合固定长度序列到连续目标的回归任务，也适合研究随机特征管线的输出稳定性。若用于预测，必须由实验协议明确样本窗口与未来目标怎样对应。",
+    "limitations": "平均无法修正所有成员共有的偏差，重复的成员甚至可能完全没有新增信息。计算开销随成员增加，不能把集成时间隐藏在单模型结果之外。",
+    "reading_tip": "先看成员构造和随机状态，再查权重是否归一化、输出维度与回归评分方式。与单成员比较时使用相同训练样本和目标尺度，并同时记录成员数量。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKET.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MiniRocketVotingRegressor",
+      "label": "实现1"
+    }
+  ]
+}

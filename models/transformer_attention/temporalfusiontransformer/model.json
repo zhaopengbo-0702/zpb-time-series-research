@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "name": "TemporalFusionTransformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/temporalfusiontransformer",
+  "summary": "通过变量选择、门控循环层和注意力融合历史与时间协变量。",
+  "paper_url": "https://arxiv.org/abs/1912.09363",
+  "profile": {
+    "intuition": "TemporalFusionTransformer 将历史目标、已知未来特征和静态属性分别处理，再决定哪些信息应参与每个时间点的预测。它适合把多种类型的协变量接在一起。",
+    "mechanism": "变量选择网络和门控残差块筛选特征，循环层处理局部时间信息，注意力层融合较长依赖。不同实现可提供分位数输出、静态上下文或不同程度的结构简化。",
+    "use_cases": "适合同时拥有静态属性、历史观测和未来已知计划特征的多步预测，如需求与负荷预测。",
+    "limitations": "必须区分未来可知特征和未来不可知观测，错误配置会造成泄漏。变量选择权重有解释用途，但不能直接视为因果效应；各实现的特征支持要单独核实。",
+    "reading_tip": "先把输入按静态、历史、未来已知三组列出来，再读变量选择、循环处理、注意力和输出头的连接。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TemporalFusionTransformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/TemporalFusionTransformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/tft.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TFT",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TemporalFusionTransformer",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TFTForecaster",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TemporalFusionTransformer_pkg",
+      "label": "实现6"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/tft_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TFTModel",
+      "label": "实现7"
+    }
+  ]
+}

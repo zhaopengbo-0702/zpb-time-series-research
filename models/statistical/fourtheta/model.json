@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "FourTheta",
+  "category": "statistical",
+  "directory": "models/statistical/fourtheta",
+  "summary": "组合多条 Theta 变换线及其配置产生预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "通过更灵活的 Theta 变换和组合方式，同时保留长期变化与局部起伏。名字里的 FourTheta 指这一方法族的具体扩展，不是简单把四个任意预测器平均。",
+    "mechanism": "实现会根据趋势模型、模型组合形式、Theta 参数与季节处理构造变换序列，再拟合相应统计成分并重组预测。线性或指数趋势、加法或乘法组合对应不同假设。",
+    "use_cases": "适合与标准 Theta、指数平滑等方法并排比较，检查更灵活的趋势与组合设置是否有价值。主要用于单序列任务，尤其需要明确季节结构和数据取值范围。",
+    "limitations": "参数选项增多也增加选择不当的可能；乘法或指数形式对零值和负值可能不适合。它仍不直接学习复杂的跨变量联系，也不能自动解释外生事件。",
+    "reading_tip": "先看 FourTheta 的构造参数与 fit 中的变换，再逐项核对 predict 如何恢复尺度和季节项。不要把标准 Theta 的默认设置直接搬过来而省略扩展选项。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/theta.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "FourTheta",
+      "label": "实现1"
+    }
+  ]
+}

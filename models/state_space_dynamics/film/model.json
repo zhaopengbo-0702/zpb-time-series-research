@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "FiLM",
+  "category": "state_space_dynamics",
+  "directory": "models/state_space_dynamics/film",
+  "summary": "用 Legendre/HiPPO 状态投影压缩历史，再以频域处理提取预测信息。",
+  "paper_url": "https://openreview.net/forum?id=zTQdHSQUQWc",
+  "profile": {
+    "intuition": "FiLM 把一段较长历史压缩成一组多项式投影状态，再从这些状态中提取有用的频率变化。它的重点是用结构化记忆保存历史。",
+    "mechanism": "HiPPO/Legendre 投影以递推形式更新状态，频域卷积对状态序列做傅里叶变换和可学习过滤，再重构或映射为预测。投影阶数决定状态容量。",
+    "use_cases": "适合研究长历史压缩、结构化状态表示，以及频域过滤对预测的作用。",
+    "limitations": "投影阶数、离散化步长和频率保留范围影响信息损失与计算量。压缩后的表示不保证保留全部短暂事件，设备与缓冲区放置也需检查。",
+    "reading_tip": "先读 transition 与 HiPPO_LegT 的递推，再看 SpectralConv1d 如何处理频率，最后追踪状态重构与预测头。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/FiLM.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/FiLM.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

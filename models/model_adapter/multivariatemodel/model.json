@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MultivariateModel",
+  "category": "model_adapter",
+  "directory": "models/model_adapter/multivariatemodel",
+  "summary": "将多个单变量预测器组合为统一多变量模型。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "有些预测器只会处理一条目标序列，这个封装为每个目标分量复制一个预测器，让它们以统一多变量接口使用。多个输出放在一起，不等于学到了变量之间的关系。",
+    "mechanism": "若基础模型不支持多变量，就为每个分量建立独立模型副本，分别拟合和预测后拼回结果；如果基础模型本来支持多变量，则直接复用其联合能力而不再强行拆分。",
+    "use_cases": "适合把单变量统计方法纳入多变量实验，也适合建立“各通道独立预测”的对照。它让接口一致，但不会改变所用基础算法的内部机制。",
+    "limitations": "独立副本不学习跨通道依赖，变量多时训练与存储成本也会上升。协变量支持、最短历史和预测能力仍受基础模型限制，不能仅凭外层接口推断。",
+    "reading_tip": "先看 supports_multivariate 的判断和每个分量的模型复制，再查拼接顺序与协变量切分。报告时写清基础模型和是否触发拆分路径，避免把封装名称当作新的联合建模方法。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/multivariate_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "MultivariateModel",
+      "label": "实现1"
+    }
+  ]
+}

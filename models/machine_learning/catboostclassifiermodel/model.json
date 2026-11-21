@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "CatBoostClassifierModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/catboostclassifiermodel",
+  "summary": "用 CatBoost 分类接口预测序列离散标签。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把未来离散状态作为分类标签，利用历史数值和类别特征判断状态变化。它是分类式预测器，不应被介绍成直接输出任意连续值的回归模型。",
+    "mechanism": "时间序列接口生成滞后分类样本，分类提升树逐轮修正预测，并根据调用返回标签或概率。类别特征的处理、类别权重和多步输出由配置与外层接口共同决定。",
+    "use_cases": "适合设备状态、离散需求等级或其他预先定义的序列类别任务。需要检查少数类别表现时，应同时查看混淆矩阵、召回率或适当的概率指标。",
+    "limitations": "标签定义改变会改变任务本身；训练集缺失的类别可能无法正常预测，类别失衡也会掩盖错误。概率输出并不自动保证校准良好。",
+    "reading_tip": "重点看目标列怎样编码、类别特征怎样标记及返回值的含义。分类阈值与权重只能用训练或验证信息设定，不可根据最终测试表现反复调整。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/catboost_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "CatBoostClassifierModel",
+      "label": "实现1"
+    }
+  ]
+}

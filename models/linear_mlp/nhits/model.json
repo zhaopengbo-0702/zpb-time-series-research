@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "name": "NHITS",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/nhits",
+  "summary": "以多分辨率采样和分层插值组合短期细节与长期预测。",
+  "paper_url": "https://arxiv.org/abs/2201.12886",
+  "profile": {
+    "intuition": "预测很远的未来时，不要求每个模块都逐点描绘细节。不同模块先看不同分辨率的历史，输出疏密不同的未来锚点，再插值拼出整段预测。",
+    "mechanism": "输入经多尺度池化，前馈残差块学习不同频率的贡献；分层插值将较少的预测系数展开为完整预测窗，并累加各块结果。",
+    "use_cases": "适合长预测窗与多尺度变化任务，适合研究粗尺度趋势和细尺度波动的分工。也可对池化核、插值形式和块级分辨率做消融。",
+    "limitations": "粗分辨率可能平滑掉重要突变或高频信息，插值无法凭空恢复训练中缺失的细节。不同采样频率下，尺度与池化参数需要重新设置。",
+    "reading_tip": "先画出每一层看到的历史分辨率及输出锚点数，再理解如何插值到预测长度。对照 NBEATS 时核对块数、宽度和实际参数量。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/nhits.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "NHITS",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nhits/_nhits.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NHiTS",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nhits/_nhits_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NHiTSForecaster",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nhits/_nhits_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NHiTS_pkg",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nhits/_nhits_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NHiTS_v2",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/nhits.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NHiTSModel",
+      "label": "实现6"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "DeepNPTS",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/deepnpts",
+  "summary": "学习历史观测的权重，以非参数方式形成预测分布。",
+  "paper_url": "https://arxiv.org/abs/2312.14657",
+  "profile": {
+    "intuition": "不直接预测一个任意的新数，而是学习历史观测值应得到多大权重，再将这些值加权组合成未来预测。它源于加权经验分布的思路；当前收录实现输出的是点预测。",
+    "mechanism": "网络根据历史窗口和可用特征，为各预测步生成历史位置权重，沿历史轴做 softmax，再与历史目标逐项相乘求和。因此每个预测值是当前窗口历史观测的非负归一化加权平均。",
+    "use_cases": "适合作为基于历史取值重组的点预测对照，也适合研究跨相关序列学习的权重能否优于均匀权重、末值或直接 MLP 映射。",
+    "limitations": "当前实现明确只支持点损失，forward 没有提供经验分布抽样或分位数输出。预测是历史观测的凸组合，直接外推到当前窗口最小值和最大值以外的能力受到限制。",
+    "reading_tip": "先核对构造函数的点损失检查，再追踪 softmax 的历史轴及最终求和。不要把原方法的概率解释直接当成当前接口已实现的概率预测功能。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/deepnpts.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "DeepNPTS",
+      "label": "实现1"
+    }
+  ]
+}

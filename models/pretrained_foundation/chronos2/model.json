@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "Chronos2",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/chronos2",
+  "summary": "调用 Chronos-2 预训练预测管线，与第一代 Chronos 分开保留接口。",
+  "paper_url": "https://arxiv.org/abs/2510.15821",
+  "profile": {
+    "intuition": "Chronos2 是调用第二代 Chronos 预训练预测模型的入口。它与第一代系列接口分开索引，便于明确比较所用模型版本。",
+    "mechanism": "简单包装器加载 amazon/chronos-2，对历史做标准化后调用分位数预测接口并恢复尺度；另一份适配提供更完整的时间序列对象和协变量接口。",
+    "use_cases": "适合零样本预测与预训练模型版本比较，也可按具体实现研究协变量和适配训练能力。",
+    "limitations": "各实现传入变量、协变量和分位数的方式不同，不能把全部接口能力视为一致。需要外部权重及对应版本依赖，设备和可用上下文长度受权重配置限制。",
+    "reading_tip": "先确定选择的是哪个实现，再看权重标识、输入轴、分位数与点预测输出；检查归一化是否由包装器和模型重复执行。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Chronos2.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/chronos2_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "Chronos2Model",
+      "label": "实现2"
+    }
+  ]
+}

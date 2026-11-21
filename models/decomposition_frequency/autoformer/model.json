@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "name": "Autoformer",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/autoformer",
+  "summary": "逐层拆分趋势与季节变化，再用自相关选择时延并聚合序列。",
+  "paper_url": "https://arxiv.org/abs/2106.13008",
+  "profile": {
+    "intuition": "边建模边把序列拆成趋势和季节变化，再寻找相隔若干时刻却重复出现的模式。直观上，它更关心“隔多久会重复”，而非只逐点比较相似度。",
+    "mechanism": "在编解码层中反复使用序列分解，利用自相关机制发现时延并聚合对应子序列；趋势与季节路径共同形成预测。实现中的频域运算服务于时延估计。",
+    "use_cases": "适合有重复结构和多尺度走向的长期预测，也适合研究层内分解与时延聚合。可与一次性预分解、普通注意力及线性分解模型对照。",
+    "limitations": "周期和时延关系发生变化时，历史重复模式可能不再可靠；分解窗口和输入长度影响学习。自相关表示统计依赖，不意味着发现了真实因果机制。",
+    "reading_tip": "先画出一层的趋势/季节两条路径，再看相关性如何选出时延并移动聚合子序列。比较各实现时核对编解码输入和分解窗口。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-04",
+      "core": "_sources/source-04/models/Autoformer.py",
+      "entry": "_sources/source-04/run.py",
+      "commit": "51c7d416ae120b805fd5beef2f4ccf7de496a6ff",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Autoformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/Autoformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/autoformer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "Autoformer",
+      "label": "实现4"
+    }
+  ]
+}

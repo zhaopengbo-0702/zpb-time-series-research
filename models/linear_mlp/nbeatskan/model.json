@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "name": "NBEATSKAN",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/nbeatskan",
+  "summary": "在 N-BEATS 式残差结构中使用 KAN 层的变体。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把 NBEATS 的残差接力框架保留下来，再把部分普通前馈映射换成 KAN 形式。研究重点是可学习的一元函数能否改变块的表达方式。",
+    "mechanism": "趋势块、季节块或通用块仍输出历史解释项和未来贡献，块内部通过 KAN 映射产生展开系数。它是结构组合变体，不应把基础 NBEATS 论文的结果直接移给它。",
+    "use_cases": "适合在固定残差框架下比较 MLP 与 KAN，研究参数化方式、基函数和块类型的影响。当前条目保留实际变体代码及其接口。",
+    "limitations": "KAN 的可解释性取决于具体函数与组合方式，并非网络名字自带保证。参数规模、数值稳定性和优化条件需要重新评估，基础模型的最优超参数不能直接照搬。",
+    "reading_tip": "先理解 NBEATS 的双输出与残差，再定位 KAN 替换了哪些层。阅读引用时区分基础框架依据与这个变体的实现依据，并用同预算重新实验。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NBeatsKAN",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "NBeatsKAN_pkg",
+      "label": "实现2"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "GRUAttentionPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/gruattentionplus",
+  "summary": "结合 GRU 循环表示和注意力编码模块的序列网络。 此项保留 Plus 配置扩展。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "GRUAttentionPlus 将门控循环单元与全位置注意力组合为骨干，并开放更灵活的输出头。它让顺序编码与跨位置混合能够共同服务不同目标形状。",
+    "mechanism": "循环编码通过通过更新门与重置门控制旧状态和新候选状态的组合得到逐位置表示，多头注意力与前馈残差层继续加工；Plus 版本明确分离 backbone/head，并支持多维输出、归一化与自定义读出。",
+    "use_cases": "适合需要循环和注意力联合表征的分类、回归或自定义序列级输出，也适合研究不同读出方式能否更好利用完整位置表示。",
+    "limitations": "输出形状可配置不等于所有任务已完成数据适配。全位置注意力与展平头仍有窗口长度成本，增强配置和双向处理必须与信息可见范围一致。",
+    "reading_tip": "沿 GRU 输出到 attention encoder 再到 lin_nd_head 的路径读，先核对 d 与 flatten 的实际意义；与非 Plus 版本比较时固定骨干，只改变可确认的头部选项。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNNAttentionPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "GRUAttentionPlus",
+      "label": "实现1"
+    }
+  ]
+}

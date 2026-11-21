@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "name": "PatchTST",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/patchtst",
+  "summary": "把连续时间点切为 patch，并以通道独立的 Transformer 建模长历史。",
+  "paper_url": "https://openreview.net/pdf?id=Jbdc0vTOcol",
+  "profile": {
+    "intuition": "PatchTST 把多个连续时间点当作一个词块，减少模型要处理的 token 数。常见实现分别处理各通道，但让各通道共享同一套 Transformer 参数。",
+    "mechanism": "历史窗口按长度和步长切成 patch，线性投影后进入编码器，预测头把 patch 表示映射到未来。通道独立策略使跨通道信息主要通过参数共享体现，而不是显式通道注意力。",
+    "use_cases": "适合长历史预测、patch 长度研究，以及检验通道独立建模是否足够。也适合作为多变量复杂交互方法的对照。",
+    "limitations": "局部切片可能弱化细粒度时序位置，通道独立可能遗漏变量间关系。这里保留的多个实现包含不同输出头和接口变体，训练参数不能直接混用。",
+    "reading_tip": "先看切片与 padding，再确认是否通道独立、是否共享头部，最后对齐输出维度、归一化和预测损失。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/PatchTST.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/PatchTST.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/PatchTST.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "PatchTST",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/patchtst.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "PatchTST",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/patch_tst/_patch_tst_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "PatchTSTForecaster",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/patch_tst/_patch_tst_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "PatchTST_pkg",
+      "label": "实现6"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/patch_tst/_patch_tst_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "PatchTST_v2",
+      "label": "实现7"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/patch_tst/patch_tst.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "PatchTST",
+      "label": "实现8"
+    }
+  ]
+}

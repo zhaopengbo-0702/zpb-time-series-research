@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "GRU_FCNPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/gru_fcnplus",
+  "summary": "融合 GRU 循环分支与全卷积分支的序列网络。 此项保留 Plus 配置扩展。",
+  "paper_url": "https://arxiv.org/abs/1812.07683",
+  "profile": {
+    "intuition": "GRU_FCNPlus 同时走两条路：门控循环单元提取顺序表示，全卷积支路寻找局部波形。两路最后合并，尝试让状态记忆与局部形状提供互补信息。",
+    "mechanism": "循环分支通过更新门与重置门控制旧状态和新候选状态的组合并取最后输出；卷积分支经过多层卷积和全局池化，两者拼接后映射到目标。Plus 将骨干与头部分开，支持自定义和多维输出。",
+    "use_cases": "适合同时依赖局部波形与较整体表示的序列分类或回归。可分别移除循环或卷积分支，确认组合效果是否确实来自互补信息。",
+    "limitations": "特别要核对 shuffle：默认配置可能把变量轴当作循环步，完整时间窗成为每步特征，不能仍解释为逐时间循环。两分支组合也增加容量，需公平控制。",
+    "reading_tip": "先确认 GRU 分支的实际输入形状与 shuffle，再看卷积分支的池化维度和拼接宽度。继续读 head 的 d 与 custom_head 设置，确认输出轴。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNN_FCNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "GRU_FCNPlus",
+      "label": "实现1"
+    }
+  ]
+}

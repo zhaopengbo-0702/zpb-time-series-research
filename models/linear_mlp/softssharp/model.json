@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "SOFTSSharp",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/softssharp",
+  "summary": "在 SOFTS 类结构中加入随机变量位置编码。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "沿用共享核心汇总再分发的流程，并在变量位置表示上增加随机处理。它试图让中心交互结构获得额外的位置提示与训练扰动。",
+    "mechanism": "变体包含位置嵌入和 STADSharp 聚合分发模块，通过配置控制位置编码保留概率等行为。它应与基础 SOFTS 分开读实现和训练设置。",
+    "use_cases": "适合研究变量位置提示、随机正则与中心交互的组合，可在固定数据和基础网络下逐项关闭位置编码与随机部分做消融。",
+    "limitations": "位置提示可能让输出依赖变量排列；随机机制增加实验波动。名称中的 Sharp 不能作为更准确的证据，效果须在相同划分和预算下验证。",
+    "reading_tip": "先对照 STAD 和 STADSharp，列出真正新增的运算，再检查训练与推断的随机行为。调换变量顺序和重复种子是理解这个变体的实用测试。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/softssharp.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "SOFTSSharp",
+      "label": "实现1"
+    }
+  ]
+}

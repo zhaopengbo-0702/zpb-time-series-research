@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "name": "ETSformer",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/etsformer",
+  "summary": "将水平、增长和季节项分开建模，结合可学习指数平滑、傅里叶外推与增长阻尼。",
+  "paper_url": "https://arxiv.org/abs/2202.01381",
+  "profile": {
+    "intuition": "把序列理解成当前水平、增长趋势和季节重复三部分，让神经网络学习怎样平滑和组合它们。它将经典指数平滑思想与可训练表示连接起来。",
+    "mechanism": "模型通过可学习的指数平滑处理增长等成分，利用 Fourier 相关操作提取季节信息，再由分层结构与预测头组合各部分。具体递推和频率选择应沿实现查看。",
+    "use_cases": "适合趋势与周期成分明显的预测，以及检验可学习平滑是否优于固定滤波。也适合按水平、增长和季节路径分别设计消融。",
+    "limitations": "分量名称不保证每个隐表示都具有严格物理含义。突变、非稳定周期和观测噪声可能使成分估计困难，平滑系数与频率选择也影响外推。",
+    "reading_tip": "先复习简单指数平滑，再把其权重与网络里的可学习权重对应。沿水平更新、增长提取、季节提取和预测组合逐块阅读，避免只记缩写。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-05",
+      "core": "_sources/source-05/models/etsformer/model.py",
+      "entry": "_sources/source-05/run.py",
+      "commit": "0df5daa7149bbfcaf33a5325ee249f679bebf268",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/ETSformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/ETSformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现3"
+    }
+  ]
+}

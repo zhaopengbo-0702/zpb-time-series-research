@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XGBModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/xgbmodel",
+  "summary": "以 XGBoost 提升树对滞后特征和协变量回归。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把过去窗口变成特征表，用一系列提升树逐步修正预测。它用特征分裂学习非线性，而不是显式建立注意力或循环时间状态。",
+    "mechanism": "外层负责生成目标与协变量的滞后样本，内部回归器按目标函数增加树。学习率、树深、采样与正则化控制复杂度，多步预测则由输出块和多模型设置组织。",
+    "use_cases": "适合结构化协变量较多的预测对照，特别是有阈值与交互的任务。对小到中等规模数据，可以先验证合理的 lag 集合，再扩大搜索。",
+    "limitations": "滞后设计不足会丢失重要时间模式，过多特征与深树又可能过拟合。它通常不善于超出历史范围的趋势外推，递归多步还可能累积误差。",
+    "reading_tip": "先读 lag 的时间对齐和多步策略，再看 objective、max_depth、n_estimators、subsample 等。保存实际配置和训练预算，不能只比较模型名称或默认参数。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/xgboost.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "XGBModel",
+      "label": "实现1"
+    }
+  ]
+}

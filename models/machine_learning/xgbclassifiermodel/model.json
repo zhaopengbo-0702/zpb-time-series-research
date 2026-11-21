@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XGBClassifierModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/xgbclassifiermodel",
+  "summary": "以 XGBoost 分类器处理离散目标预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "对未来离散类别做预测，把时间历史和协变量作为分类特征。它与同家族回归器共享树提升思路，但目标、输出和评估问题不同。",
+    "mechanism": "将序列按滞后规则转成分类样本，通过分类目标训练多棵提升树，再输出类标签或概率。类别数量、编码与未来窗口如何展开必须保持一致。",
+    "use_cases": "适合离散状态预测、事件类型判断等已明确标签的任务。可以用于比较卷积或循环分类网络，但需要完全相同的数据切分和标签定义。",
+    "limitations": "时间相邻样本随机打散可能造成过乐观评估；类别不平衡和漂移会降低少数类表现。把类别概率直接当连续目标值，也可能产生没有业务含义的解释。",
+    "reading_tip": "检查分类目标、classes 和概率列顺序，再沿监督样本生成核对每个标签对应的未来时刻。评价时同时报告预测跨度与类别分布，避免被单一总体准确率误导。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/xgboost.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "XGBClassifierModel",
+      "label": "实现1"
+    }
+  ]
+}

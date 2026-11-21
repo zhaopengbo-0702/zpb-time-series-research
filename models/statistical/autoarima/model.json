@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "AutoARIMA",
+  "category": "statistical",
+  "directory": "models/statistical/autoarima",
+  "summary": "自动选择 ARIMA 配置并生成统计预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把人工尝试多个 ARIMA 阶数的过程交给搜索程序。自动的含义是按设定规则选择候选结构，不代表数据可以不检查，也不代表所有候选都被穷举过。",
+    "mechanism": "根据允许的阶数、季节周期与搜索策略拟合候选 ARIMA，用指定信息准则等规则筛选，再以选中的统计模型预测。搜索范围、是否逐步搜索以及差分判定都会影响最后的模型。",
+    "use_cases": "适合需要批量建立统计基线、但不想逐条手工挑选阶数的预测任务。对比神经模型时，可以把它作为具有明确自动调参预算的传统预测入口。",
+    "limitations": "搜索成本随候选范围增加，短序列或不稳定序列也可能难以可靠选型。一次拟合中的信息准则选择不等于独立验证集上的公平调参，二者不能混为一谈。",
+    "reading_tip": "先核对自动搜索参数怎样传入，以及结果保存了哪些被选阶数。保留搜索范围与拟合日志，并确认滚动测试是在固定模型上预测，还是每个起点重新搜索和拟合。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_auto_arima.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "AutoARIMA",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MiniRocketVotingClassifier",
+  "category": "ensemble_calibration",
+  "directory": "models/ensemble_calibration/minirocketvotingclassifier",
+  "summary": "通过投票组合多个 MiniRocket 分类器。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "用多个 MiniRocket 分类器分别投票，希望降低一次随机特征选择导致的偶然波动。它是完整分类管线的集成封装，不是又提出了一种全新的卷积骨干。",
+    "mechanism": "构建多个由 MiniRocket 特征和线性分类器组成的估计器，再采用硬投票决定类别，可配置估计器数量、权重和并行度。是否真正产生不同成员，需要核对每个成员的随机状态。",
+    "use_cases": "适合时间序列分类中想比较单成员与多成员稳定性的场景。可以在相同分类划分下，记录重复随机种子和集成带来的额外计算。",
+    "limitations": "成员高度相似时投票可能没有收益；类不平衡和系统性偏差也不会因投票自动消失。更多成员会增加训练、存储和预测成本。",
+    "reading_tip": "重点检查构造循环传入的 random_state、n_estimators、weights 与 voting='hard'。确认成员是否使用独立随机性，再解释集成效果；不要仅凭成员数推断多样性。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKET.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MiniRocketVotingClassifier",
+      "label": "实现1"
+    }
+  ]
+}

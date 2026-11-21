@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TabModel",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/tabmodel",
+  "summary": "对类别嵌入和连续表格变量进行前馈建模。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "这是处理结构化表格特征的普通神经模型：类别字段先变成向量，连续字段直接处理，再一起输入 MLP。它常用来配合时序统计特征，而非直接记住整条曲线。",
+    "mechanism": "TabBackbone 合并类别嵌入与连续输入，TabHead 用全连接层、归一化和可选残差生成输出。时间结构需要通过事先构造的滞后、统计或日历特征体现。",
+    "use_cases": "适合将时间序列转成表格特征后的分类或回归，以及混合类别属性、连续属性的研究。可与直接读原始序列的网络比较特征工程价值。",
+    "limitations": "模型本身不负责时序切窗、时间顺序或防止未来信息泄漏。类别编码、缺失值和训练测试划分若处理不当，预测表现会失真。",
+    "reading_tip": "先明确一行表格对应什么时刻或样本，再看每列特征的可获得时间。检查 embedding 大小、连续变量缩放和输出头，不把普通表格网络当作时序专用算法。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TabModel.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TabModel",
+      "label": "实现1"
+    }
+  ]
+}

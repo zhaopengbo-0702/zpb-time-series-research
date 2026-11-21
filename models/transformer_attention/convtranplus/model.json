@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "ConvTranPlus",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/convtranplus",
+  "summary": "结合卷积嵌入、时序绝对位置和相对位置注意力。",
+  "paper_url": "https://arxiv.org/abs/2305.16642v1",
+  "profile": {
+    "intuition": "ConvTranPlus 先用卷积提取局部时序与通道特征，再让注意力关联较远的位置。它的一个重点是为时序设计绝对和相对位置表示。",
+    "mechanism": "两阶段二维卷积先沿时间再融合通道，之后加入可选 tAPE 等绝对编码，并使用 eRPE 等相对位置注意力。编码结果经池化或自定义头输出。",
+    "use_cases": "适合多变量序列分类或序列级回归，尤其是同时包含局部波形和较长位置关系的任务。",
+    "limitations": "默认头部并非通用多步预测器，预测任务要明确设计输出形状。位置编码与输入长度绑定，改变长度时需要检查相关参数。",
+    "reading_tip": "先读两层卷积如何改变张量形状，再对照 abs_pos_encode、rel_pos_encode 的分支，最后看默认池化头与自定义头的区别。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/ConvTranPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "ConvTranPlus",
+      "label": "实现1"
+    }
+  ]
+}

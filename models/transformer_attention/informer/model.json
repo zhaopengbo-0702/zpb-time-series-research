@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "name": "Informer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/informer",
+  "summary": "用 ProbSparse 选择重要 query，并通过编码器蒸馏压缩长序列。",
+  "paper_url": "https://arxiv.org/abs/2012.07436",
+  "profile": {
+    "intuition": "Informer 试图减少长序列中大量相似的注意力计算。它优先精算较有区分度的 query，并逐层压缩历史表示，用于较长范围的预测。",
+    "mechanism": "ProbSparse 注意力借助采样估计 query 的重要性，只对一部分 query 进行较完整的注意力计算。编码器可使用卷积与下采样蒸馏，解码器一次输出预测区间。",
+    "use_cases": "适合研究长序列预测、注意力稀疏化和编码器蒸馏，并与标准 Transformer 在相同窗口下比较。",
+    "limitations": "稀疏采样和下采样可能遗漏短暂细节；实际成本还受窗口、批量与实现影响。不同实现对长短期任务、时间特征和输出头的处理并不完全一致。",
+    "reading_tip": "先对比 ProbAttention 与 FullAttention，再看蒸馏层是否开启，最后沿模型 forward 追踪编码器输入、解码器已知区间与待预测区间。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-03",
+      "core": "_sources/source-03/models/model.py",
+      "entry": "_sources/source-03/main_informer.py",
+      "commit": "29f2a739226a509202a092b464163da81fa74960",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Informer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/Informer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/informer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "Informer",
+      "label": "实现4"
+    }
+  ]
+}

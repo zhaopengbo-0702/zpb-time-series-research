@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "name": "SCINet",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/scinet",
+  "summary": "递归拆分奇偶时间点，用交互卷积交换信息后重新合并序列。",
+  "paper_url": "https://openreview.net/pdf?id=AyajSjTAzmg",
+  "profile": {
+    "intuition": "SCINet 的想法是把时间交错的观测拆成两组，让它们分别加工后互相交流，再拼回一条序列。递归重复这个过程，相当于在多个疏密层次上组织信息。",
+    "mechanism": "网络按奇偶位置拆分输入，通过卷积分支学习两组之间的交互变换，在树状层级中递归处理，随后交错合并；残差与投影层把加工后的历史转换成预测输出。",
+    "use_cases": "适合检验交错采样和层级交互对长窗口预测的作用，也适合对比普通卷积堆叠与显式多层时间拆分的差别。",
+    "limitations": "递归层数与输入长度需要兼容，奇偶拆分也不能代替不规则时间处理。不同实现的堆叠、残差和预测头可能不同，不能仅靠模型名判断输出行为。",
+    "reading_tip": "从 splitting 和交互块读起，手算一个短序列被拆分与还原的顺序，再看递归层数、padding 和投影形状；这样容易发现时间位置是否被正确拼回。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/SCINet.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/SCINet.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/scinet/_scinet_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "SCINetForecaster",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/scinet/_scinet_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "SCINet_v2",
+      "label": "实现4"
+    }
+  ]
+}

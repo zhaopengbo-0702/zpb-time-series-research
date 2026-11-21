@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "RNNPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/rnnplus",
+  "summary": "RNN 的 可配置骨干与任务头变体。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "RNNPlus 保留普通循环单元的基本记忆方式，同时将骨干与任务头拆开。它更像一套可配置的循环模型组件，方便按数据类型与目标输出调整接口。",
+    "mechanism": "骨干中使用当前输入与上一步隐藏状态，经线性变换和非线性激活得到新状态，并支持类别嵌入、可选前端特征提取、不同隐藏宽度和双向层；头部可以取末步或展平全序列，并接归一化、dropout 或自定义映射。",
+    "use_cases": "适合需要混合输入特征或替换输出头的分类和回归，也适合固定循环骨干后单独检验头部、前端提取器和读出方式的影响。",
+    "limitations": "Plus 不表示所有增强都默认启用。展平读出依赖序列长度，可能显著增加参数；类别嵌入和双向配置也需要符合预测时可获得的信息。",
+    "reading_tip": "先读 _RNN_Backbone 的特征输入，再对照 RNNPlus 选定的循环单元，最后检查 last_step、custom_head 与隐藏维数；把骨干变化和读出变化分开记录。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "RNNPlus",
+      "label": "实现1"
+    }
+  ]
+}

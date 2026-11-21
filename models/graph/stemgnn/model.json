@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "StemGNN",
+  "category": "graph",
+  "directory": "models/graph/stemgnn",
+  "summary": "结合图傅里叶与时间傅里叶变换，学习变量关系和时间依赖。",
+  "paper_url": "https://proceedings.neurips.cc/paper/2020/hash/cdf6581cb7aca4b7e19ef136c6e601a5-Abstract.html",
+  "profile": {
+    "intuition": "StemGNN 同时在变量关系和时间变化上做频域建模。它试图把相互关联的多条序列变换到更容易预测的表示空间。",
+    "mechanism": "模型学习潜在的变量关联，通过图谱处理和时间傅里叶变换组织依赖，频域模块与预测块共同输出未来序列。图结构可从输入特征中学习。",
+    "use_cases": "适合多变量预测、关系图未知但变量可能相关的场景，也适合研究图频域与时间频域的组合。",
+    "limitations": "图谱和频谱计算带来结构假设与成本，变量数和输入窗口影响可扩展性。学到的邻接关系是预测表示的一部分，不是经过因果验证的网络。",
+    "reading_tip": "先确认变量轴与时间轴，分别追踪图变换和时间变换，再读预测块的堆叠与输出形状。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/stemgnn.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "StemGNN",
+      "label": "实现1"
+    }
+  ]
+}

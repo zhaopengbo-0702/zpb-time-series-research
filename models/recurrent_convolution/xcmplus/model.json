@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XCMPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xcmplus",
+  "summary": "同时提取时间与变量卷积特征，支持解释序列分类结果。 此项为 的 Plus 可配置变体。",
+  "paper_url": "https://hal.inria.fr/hal-03469487/document",
+  "profile": {
+    "intuition": "XCMPlus 保留分别建模时间与变量变化的双分支思路，同时把特征骨干和任务头拆开，方便复用表示、替换汇总方式与输出形状。",
+    "mechanism": "骨干以二维卷积和跨变量一维卷积分开提取特征，再拼接卷积；输出端支持池化、展平、自定义头和范围映射，并继续提供针对两个分支的归因接口。",
+    "use_cases": "适合多变量分类或回归中对特征融合和头部设计的研究，也适合在相同骨干上分析解释图与预测结果的关系。",
+    "limitations": "可解释接口不能证明变量之间的因果作用，Plus 的头部可配置性也会带来不同参数预算。固定长度展平头和全局池化头不应混为同一设置。",
+    "reading_tip": "先看 _XCMPlus_Backbone，再看 create_head 与 show_gradcam 分别读取哪些层。对比 XCM 时重点记录头部差异，而不是把所有变化归为卷积结构改进。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XCMPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "XCMPlus",
+      "label": "实现1"
+    }
+  ]
+}

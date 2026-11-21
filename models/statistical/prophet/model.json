@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "Prophet",
+  "category": "statistical",
+  "directory": "models/statistical/prophet",
+  "summary": "组合可分解的趋势、季节与节假日成分预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把序列解释为长期趋势、周期变化和特殊日期影响的叠加。它适合把业务日历放进预测，而不必让网络从头猜测每种日历效应。",
+    "mechanism": "通过可变趋势、傅里叶季节项以及可选节假日和回归项拟合目标；趋势转折点、先验约束和季节阶数控制复杂度。预测需要为相应时间段构造一致的日历与协变量。",
+    "use_cases": "适合有明确日期信息、季节规律和已知节假日的业务序列，也适合做可分解的统计比较。可以逐项检查趋势或某个季节项在预测中的作用。",
+    "limitations": "默认日历设置不一定适合高频传感器或不规则采样；转折点过多会追随噪声，过少又可能滞后。未知未来事件和无法获得的外生变量不能凭接口自动解决。",
+    "reading_tip": "先看日期索引如何转换，再核对趋势、changepoints、seasonalities、holidays 和额外回归项。比较前检查这些配置是否从测试信息中人工挑选，避免隐性的调参泄漏。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/prophet_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "Prophet",
+      "label": "实现1"
+    }
+  ]
+}

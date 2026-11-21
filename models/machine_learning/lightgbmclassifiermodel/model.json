@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "LightGBMClassifierModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/lightgbmclassifiermodel",
+  "summary": "以 LightGBM 分类器预测离散目标。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "预测的目标是类别或离散状态时，用提升树回答“未来属于哪一类”。它仍然使用时间序列的历史特征，但输出的含义与连续数值回归不同。",
+    "mechanism": "按滞后与协变量构造分类样本，训练分类提升树，再按预测接口输出类别或概率。每个未来位置如何形成分类目标、类别编码如何对应，需要沿构造和预测路径确认。",
+    "use_cases": "适合离散运行状态、事件类别或其他分类式序列预测。可以与数值模型配合，但比较时应使用任务相符的分类指标及相同预测起点。",
+    "limitations": "将连续数值随意切成类别会改变研究问题；不平衡类别、训练中未出现的新类别和概率失准都可能影响应用。分类准确率也不能直接与数值预测 MAE 排名。",
+    "reading_tip": "检查目标编码、classes、predict 与 predict_proba 的使用方式，再核对多步输出维度。保留类别定义和阈值来源，确保它们只根据训练数据或事先规则确定。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/lgbm.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "LightGBMClassifierModel",
+      "label": "实现1"
+    }
+  ]
+}

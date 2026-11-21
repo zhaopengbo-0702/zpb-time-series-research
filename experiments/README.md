@@ -1,15 +1,14 @@
 # 实验管理
 
-每组实验建立一个目录，例如 `exp-001-ema-phase/`。先复制[实验记录模板](templates/experiment.md)，再保存配置与运行命令。小型表格和必要图片可以提交，权重、完整预测数组及大日志留在本地。
+统一入口：`python -m zpbts run CONFIG --output DIR`。一次运行保存可再次执行的 `config.json`、包含数据协议和来源版本的 `metrics.json`、逐预测点的 `predictions.csv`。本地实验放在 `experiments/local/`，已加入忽略规则。
 
-| 内容 | 建议保存位置 |
+`python -m zpbts compare DIR1 DIR2` 按 MAE 排序，展示 MSE、RMSE、sMAPE 与 MASE。只有数据哈希、列、时间划分、输入窗、预测窗、步长和评价协议完全相同的结果才能比较。
+
+| 内容 | 位置 |
 | --- | --- |
-| 假设、对比方案、完整命令 | `exp-001-主题/README.md` |
-| 配置与参数 | `exp-001-主题/config.*` |
-| 可提交的简明指标 | `exp-001-主题/metrics.csv` |
-| 跨实验汇总索引 | [results/index.csv](results/index.csv) |
-| 大体积本地输出 | `exp-001-主题/artifacts/`（已忽略） |
+| 统一配置、指标和数学定义 | [整合实验指南](../docs/integration.md) |
+| 最小可运行示例与验证结果 | [forecasting](../examples/forecasting/README.md) |
+| 研究假设、消融和完整命令 | [实验记录模板](templates/experiment.md) |
+| 自己的模型与改进 | [研究工作区](../research/README.md) |
 
-每个实验引用具体代码提交、来源清单中的上游提交、数据版本和种子。比较多个模型之前，统一输入窗、预测长度、变量选择、训练/验证/测试划分、归一化方式、指标尺度与重复次数。原仓库脚本的默认设置不构成统一基准。
-
-这里尚无训练结果，汇总 CSV 只有字段表头。
+合成示例检查训练、数据流和指标管道。正式研究应固定预算、运行多个种子，并在自己的数据上比较。

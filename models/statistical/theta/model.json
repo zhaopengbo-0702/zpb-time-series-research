@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "Theta",
+  "category": "statistical",
+  "directory": "models/statistical/theta",
+  "summary": "组合趋势与平滑后的 Theta 线进行外推。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把原序列分成更强调长期趋势与更强调局部波动的视图，分别预测后组合。这样用较少结构就能同时保留趋势和近期水平。",
+    "mechanism": "当前实现可先去季节，再用 Theta 参数改变序列的曲率，并结合线性趋势与简单指数平滑预测，最后恢复季节成分。参数为一时会退化到更简单的平滑形式。",
+    "use_cases": "适合作为单变量预测的易解释统计基线，用来检查复杂结构是否真正超过趋势加平滑。季节较明确且历史足够时，可以先评估去季节与不去季节两种设定。",
+    "limitations": "趋势与季节假设失效时，组合预测也可能失效；自动推断周期不是可靠性的保证。乘法去季节和零、负值之间的关系需要特别检查。",
+    "reading_tip": "按去季节、Theta 变换、平滑与趋势预测、恢复季节的顺序读代码。记录 theta、seasonality_period 和 season_mode，避免只用方法名字描述一个实际包含多项选择的实验。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/theta.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "Theta",
+      "label": "实现1"
+    }
+  ]
+}

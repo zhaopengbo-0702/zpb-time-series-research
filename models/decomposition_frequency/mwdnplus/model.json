@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "mWDNPlus",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/mwdnplus",
+  "summary": "以可训练小波分解形成多分辨率表示，再接序列任务网络。 此项为 的 Plus 可配置变体。",
+  "paper_url": "https://dl.acm.org/doi/abs/10.1145/3219819.3220060",
+  "profile": {
+    "intuition": "同样采用可学习小波分解，但以可组合模块形式连接后续主干。它提供一个便于替换多尺度前端和预测头的工程变体。",
+    "mechanism": "mWDNBlocks 组织多个 WaveBlock，将低频递归分解与分量组合封装起来，再与主干网络连接。Plus 表示这里保留的实现变体，不能据此直接推断额外性能。",
+    "use_cases": "适合在同一个训练框架中替换分解前端或主干，研究多尺度表示对分类、回归等任务的帮助，也适合与基础 mWDN 逐层核对差异。",
+    "limitations": "分解深度、序列长度和所选主干需要匹配；训练后的滤波系数不保证严格小波约束。模块组合方便并不代表输出可直接用于任意多步预测。",
+    "reading_tip": "先对照 mWDN 与 mWDNPlus 的构造及 forward，再看哪些参数传给分解块、哪些传给主干。将工程接口变化与算法变化分别记录。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/mWDN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "mWDNPlus",
+      "label": "实现1"
+    }
+  ]
+}

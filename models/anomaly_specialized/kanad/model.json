@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "KANAD",
+  "category": "anomaly_specialized",
+  "directory": "models/anomaly_specialized/kanad",
+  "summary": "结合周期余弦特征和卷积重建序列，当前模型只实现异常检测。",
+  "paper_url": "https://arxiv.org/abs/2411.00278",
+  "profile": {
+    "intuition": "KANAD 通过学习正常序列的重构规律来辅助异常检测。它把数值的周期余弦特征与卷积处理结合，异常判断还需要配套的误差评分与阈值流程。",
+    "mechanism": "输入先按变量展开，构造不同阶的余弦特征，经过卷积、归一化和残差重构，再恢复为序列。模型输出重构值，检测流程比较观测与重构之间的差异。",
+    "use_cases": "适合序列异常检测与重构型检测器对照，尤其可研究周期特征阶数怎样影响重构能力。",
+    "limitations": "当前 forward 仅实现异常检测，预测、补全与分类分支明确未实现。重构误差并不自动等于异常概率，阈值选择和训练数据污染需要单独评估。",
+    "reading_tip": "先看余弦特征生成与 order，再读按变量展平和还原步骤，最后进入异常实验流程核对误差分数与阈值。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/KANAD.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

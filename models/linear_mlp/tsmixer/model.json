@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "name": "TSMixer",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/tsmixer",
+  "summary": "交替沿时间轴和变量轴使用 MLP 混合信息，再映射到预测窗口。",
+  "paper_url": "https://arxiv.org/pdf/2303.06053.pdf",
+  "profile": {
+    "intuition": "轮流在时间方向和变量方向使用 MLP：先让一个变量的不同时刻交换信息，再让同一时刻的不同变量交换信息，反复几次后预测。",
+    "mechanism": "残差块包含时间混合与通道混合，两种操作通过转置张量选择作用轴；最后把历史长度映射到预测长度。工作区已接通真实原始模型的统一训练与预测。",
+    "use_cases": "适合多变量预测，以及检验“时间混合加变量混合”是否足以替代更复杂交互结构。可分别移除时间分支、变量分支或残差连接做消融。",
+    "limitations": "混合层的尺寸依赖输入窗口和变量配置；参数学习到的关联不等于因果关系。变量强弱相关、噪声及样本量都会影响联合混合是否有收益。",
+    "reading_tip": "从一个张量的转置前后形状入手，确认每个 MLP 究竟沿哪个轴工作。统一示例提供训练损失和逐变量预测，便于先验证数据链再改结构。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TSMixer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/TSMixer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/tsmixer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TSMixer",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/tsmixer/_tsmixer_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TSMixerForecaster",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/tsmixer/_tsmixer_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TSMixer",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/tsmixer_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TSMixerModel",
+      "label": "实现6"
+    }
+  ]
+}

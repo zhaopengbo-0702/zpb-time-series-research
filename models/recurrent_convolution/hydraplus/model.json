@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "HydraPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/hydraplus",
+  "summary": "通过分组随机卷积的竞争响应生成特征，再接任务头。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "HydraPlus 让一组随机卷积核互相竞争，统计哪些核在不同位置赢了或输了。它把这种竞争结果变成特征，再交给输出头完成分类或回归。",
+    "mechanism": "骨干在多种膨胀率下对原序列和差分序列做分组卷积，找组内最大、最小响应，累计对应强度或次数；这些特征拼接后进入可训练头。",
+    "use_cases": "适合片段分类或回归的特征型基线，也适合比较随机竞争特征与端到端学习卷积核两种路线。",
+    "limitations": "随机核、分组数和通道采样会影响特征与可复现性，高维特征也有内存成本。它不会自动保留每个事件的时间顺序，需结合任务检查输出头。",
+    "reading_tip": "先看卷积权重与通道索引如何生成，再追踪 max/min 的索引统计和差分分支。特别区分固定特征生成部分与真正参与梯度更新的头部。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/HydraPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "HydraPlus",
+      "label": "实现1"
+    }
+  ]
+}

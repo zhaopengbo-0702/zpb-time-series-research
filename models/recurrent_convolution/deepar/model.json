@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "DeepAR",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/deepar",
+  "summary": "用自回归循环网络学习未来值的概率分布。",
+  "paper_url": "https://www.sciencedirect.com/science/article/pii/S0169207019301888",
+  "profile": {
+    "intuition": "DeepAR 不只给出一个未来数值，还让循环网络描述下一步可能落在哪些范围。预测时根据前一步的结果继续向前展开，从而形成多步预测分布。",
+    "mechanism": "模型用循环状态编码历史目标与可用协变量，再输出指定概率分布的参数，以分布损失训练；多步预测通常通过自回归展开或采样传播不确定性，分布种类由实现配置决定。",
+    "use_cases": "适合需要预测区间、概率评价或大量相关序列共享参数的场景，例如需求量与负荷预测；也可用于分析逐步递推的误差传播。",
+    "limitations": "所选分布的支持域必须符合目标值类型，区间校准也需要实际检验。长预测步的误差会沿递推传播，未来协变量必须确实能在预测时获得。",
+    "reading_tip": "先确认分布损失、参数转换和目标缩放，再看训练时使用真实前值还是预测值。最后追踪采样维度与区间汇总，区分网络原始参数、点预测和分位数。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/deepar.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "DeepAR",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/deepar/_deepar.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "DeepAR",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/deepar/_deepar_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "DeepAR_pkg",
+      "label": "实现3"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "TimeFilter",
+  "category": "graph",
+  "directory": "models/graph/timefilter",
+  "summary": "将时序 patch 组织成图，用邻接构造和路由过滤关系后预测。",
+  "paper_url": "https://arxiv.org/abs/2501.13041",
+  "profile": {
+    "intuition": "TimeFilter 把各变量的时间片段当作图节点，先区分关系类型，再选择值得保留的信息连接。它强调减少无关时间和变量联系的干扰。",
+    "mechanism": "patch 嵌入后，模型构造时间内、变量间及联合关系掩码，通过过滤或路由主干处理节点关系。任务头将处理后的 patch 表示还原为预测、重构或分类输出。",
+    "use_cases": "适合研究多变量序列中的关系选择、稀疏过滤及跨时间跨通道交互。",
+    "limitations": "图节点数随变量和片段数量增长，mask 构造与路由仍有开销。alpha、top_p 与 patch_len 改变信息选择，不应未经消融就把过滤解释为真实关系发现。",
+    "reading_tip": "先画出 _get_mask 中三类连接，再看 patch 展平顺序与主干路由，最后检查各任务头如何恢复时间和变量轴。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TimeFilter.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

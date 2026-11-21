@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "model": "TSMixer",
+  "adapter": "torch_source",
+  "data": {
+    "path": "../synthetic.csv",
+    "time_column": "date",
+    "columns": [
+      "signal",
+      "trend"
+    ],
+    "train_end": 120,
+    "test_start": 144
+  },
+  "evaluation": {
+    "lookback": 24,
+    "horizon": 12,
+    "stride": 12,
+    "mase_period": 24
+  },
+  "options": {
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "d_model": 32,
+    "e_layers": 2,
+    "seed": 7,
+    "device": "cpu"
+  }
+}

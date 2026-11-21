@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "DilatedRNN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/dilatedrnn",
+  "summary": "以不同时间跨度的循环连接捕捉长期依赖。",
+  "paper_url": "https://arxiv.org/pdf/1710.02224",
+  "profile": {
+    "intuition": "DilatedRNN 让循环状态可以跨着时间走。某些层读取相邻位置，另一些层隔几步更新状态，以多种时间间隔连接历史，减少长距离信息必须逐点传递的路径。",
+    "mechanism": "实现按 dilation 对序列重排并组织多个循环分支，可配置不同循环单元和层组，提取跨尺度状态后通过解码头输出预测；膨胀循环与膨胀卷积的计算机制不同。",
+    "use_cases": "适合研究短期依赖与较慢变化并存的预测问题，也适合比较增加循环深度和改变时间跳步两种扩大历史联系的方式。",
+    "limitations": "跳步结构可能降低局部细节的直接联系，dilation 需要结合窗口和预测尺度选择。不同循环单元、残差配置和解码头会改变参数量，不能只对比名称。",
+    "reading_tip": "从 DRNN 的重排与恢复顺序读起，用短序列画出不同 dilation 下哪些位置共享循环状态，再看层组如何汇总状态并送入最终预测头。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/dilated_rnn.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "DilatedRNN",
+      "label": "实现1"
+    }
+  ]
+}

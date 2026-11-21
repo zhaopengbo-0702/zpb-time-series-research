@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "AutoCES",
+  "category": "statistical",
+  "directory": "models/statistical/autoces",
+  "summary": "调用自动复指数平滑预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "用复指数平滑描述随时间变化的状态，并自动挑选合适的结构。名称中的“复”来自模型状态的数学构造，不是把数值序列当作带实际虚部的观测。",
+    "mechanism": "当前公开接口把配置交给复指数平滑实现，用信息准则选择候选 CES 模型。选定结构后更新状态并外推；若接入未来协变量，接口还可能先做回归，再对残差建立平滑模型。",
+    "use_cases": "适合加入统计预测对照，观察平滑状态模型能否解释水平和季节变化。想减少手工枚举季节结构时，可以与 AutoETS 等自动统计方法在相同协议下比较。",
+    "limitations": "自动选型依然受候选集合、样本长度和季节设定限制，不会自动解决结构突变。协变量处理和概率输出可能由接口额外提供，不能全部归因于 CES 核心机制。",
+    "reading_tip": "先看模型构造和自动准则，再沿父类检查协变量回归、残差拟合与区间产生方式。记录底层版本、周期和搜索设置，避免把不同封装的默认行为当成同一实验。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_auto_ces.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "AutoCES",
+      "label": "实现1"
+    }
+  ]
+}

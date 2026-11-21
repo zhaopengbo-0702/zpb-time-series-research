@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "BlockRNN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/blockrnn",
+  "summary": "循环编码历史窗口，再以块输出同时预测多个未来点。",
+  "paper_url": "https://openreview.net/forum?id=cGDAkQo1C0p",
+  "profile": {
+    "intuition": "BlockRNN 先让循环网络读完一段历史，再一次性给出一整块未来。它与逐点滚动输出的循环预测器不同，预测块内部通常由同一个输出头直接生成。",
+    "mechanism": "编码器可使用 RNN、LSTM 或 GRU，取历史编码状态，经全连接层映射到 output_chunk_length 对应的多步输出；更长预测可能通过多个输出块继续展开。",
+    "use_cases": "适合研究直接多步预测与自回归逐步预测的区别，也适合在固定预测窗口下作为门控循环结构的清晰对照。",
+    "limitations": "输出块长度会影响参数量和可学习的预测关系，跨多个块外推仍可能累计误差。支持哪些协变量要按所选实现检查，不能从其他循环模型推断。",
+    "reading_tip": "重点看编码器最后状态如何选择，以及全连接输出如何 reshape 为时间与变量轴。再核对 input_chunk_length、output_chunk_length 和多块预测的调用逻辑。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/block_rnn_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "BlockRNNModel",
+      "label": "实现1"
+    }
+  ]
+}

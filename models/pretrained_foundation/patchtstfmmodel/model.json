@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "PatchTSTFMModel",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/patchtstfmmodel",
+  "summary": "调用预训练 PatchTST foundation model，与从头训练版本区分。",
+  "paper_url": "https://arxiv.org/abs/2602.06909",
+  "profile": {
+    "intuition": "PatchTSTFMModel 是预训练 PatchTST-FM 的适配器，复用大型预训练权重预测，而不是普通 PatchTST 在当前数据上从零训练。",
+    "mechanism": "patch 编码器配合分位数头生成概率预测，默认只输出中位数。接口可配置分位数并支持全量或部分微调，多变量输入逐分量独立处理。",
+    "use_cases": "适合零样本预测、预训练与从零训练对照，以及数据量较小时的微调研究。",
+    "limitations": "当前实现明确不支持协变量，多变量也不是联合交互建模。预训练分位数集合限制可选输出；不同权重标识的许可条款可能不同，必须核对实际权重。",
+    "reading_tip": "先看 hub_model_name 与权重版本，再读 likelihood、微调开关及分量独立处理。比较普通 PatchTST 时同时交代预训练数据与权重来源。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/patchtst_fm_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "PatchTSTFMModel",
+      "label": "实现1"
+    }
+  ]
+}

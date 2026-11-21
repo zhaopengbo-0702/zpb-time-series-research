@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "TiRex",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/tirex",
+  "summary": "调用 tirex-ts 的预训练模型，为零样本预测提供接口。",
+  "paper_url": "https://arxiv.org/pdf/2505.23719",
+  "profile": {
+    "intuition": "TiRex 入口调用预训练的时序模型预测未来。它保留简单零样本包装和另一份较完整适配，方便按同一个方法家族查找。",
+    "mechanism": "简单包装加载 NX-AI/TiRex，对各变量调用 forecast，接收分位数与点预测，再组织输出。完整适配还管理权重、输入窗口和可选训练配置。",
+    "use_cases": "适合预训练时序模型的零样本预测比较，也可研究分位数输出与点预测的使用差异。",
+    "limitations": "简单包装逐变量预测，未直接利用跨变量联合关系。不同适配暴露的能力不同，需要外部权重、依赖和足够的运行资源。",
+    "reading_tip": "先分清调用的是简单包装还是完整适配，再核对 forecast 的两个返回值和分位数设置，避免把分布输出丢失过程忽略。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TiRex.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/tirex_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TiRexModel",
+      "label": "实现2"
+    }
+  ]
+}

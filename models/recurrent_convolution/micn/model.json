@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "MICN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/micn",
+  "summary": "用多尺度下采样、等距和上采样卷积提取局部与全局变化，并结合序列分解。",
+  "paper_url": "https://openreview.net/pdf?id=zt53IDUR1U",
+  "profile": {
+    "intuition": "可以把 MICN 理解为同时用几把不同长度的尺子观察序列。它不只看相邻点，还把历史压缩成不同时间尺度，尝试同时抓住短暂波动和较慢的整体变化。",
+    "mechanism": "模型先分离趋势与季节性部分，再通过多尺度下采样、局部卷积和等距卷积处理不同跨度的信息，最后融合各尺度表示并输出未来窗口。趋势分支与变化分支共同组成预测。",
+    "use_cases": "适合研究一个序列中同时存在局部变化与较长周期时，多尺度卷积是否有帮助；也可作为分解模型与纯注意力模型之间的结构对照。",
+    "limitations": "尺度由配置与序列长度共同决定，并非自动发现任意周期。若重要事件比下采样尺度更短，细节可能被压缩；任务支持和输入长度约束需按具体实现核查。",
+    "reading_tip": "先追踪趋势分解，再看各尺度如何下采样、恢复长度与融合。画出每条分支的时间维度，重点核对卷积核长度及最终预测头，不要只看多尺度模块名称。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/MICN.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/MICN.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

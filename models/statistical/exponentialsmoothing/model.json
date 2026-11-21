@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "ExponentialSmoothing",
+  "category": "statistical",
+  "directory": "models/statistical/exponentialsmoothing",
+  "summary": "用递减权重估计水平、趋势和季节变化并外推。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "让越新的观测通常拥有越大的影响，用少量状态跟踪水平、趋势与季节。它强调持续更新当前状态，而不是为每一个历史位置都保存独立参数。",
+    "mechanism": "根据配置使用简单平滑、趋势平滑及季节平滑，通过平滑系数递推状态，再向未来外推。是否使用加法、乘法、阻尼以及如何初始化，要看当前模型实际参数。",
+    "use_cases": "适合结构较稳定的单序列预测、业务统计基线以及快速判断趋势季节项是否足够解释任务。结构简单时，也便于理解每个分量对预测的贡献。",
+    "limitations": "它对突发事件和结构断点的反应依赖平滑速度，过快易追噪声，过慢则滞后。长预测不会自动获取新的外部信息，乘法形式还需要检查数据取值条件。",
+    "reading_tip": "先辨认水平、趋势和季节的具体形式，再查平滑参数、季节长度和初始化。与使用指数平滑模块的神经网络区分开来：相似术语不代表相同训练目标或模型结构。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/exponential_smoothing.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "ExponentialSmoothing",
+      "label": "实现1"
+    }
+  ]
+}

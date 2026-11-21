@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "MambaSimple",
+  "category": "state_space_dynamics",
+  "directory": "models/state_space_dynamics/mambasimple",
+  "summary": "在保留较简化的 Mamba 与扫描计算实现，便于阅读状态递推机制。",
+  "paper_url": "https://arxiv.org/abs/2312.00752",
+  "profile": {
+    "intuition": "MambaSimple 是便于阅读的简化 Mamba 实现。它把选择性状态递推较直接地写出来，适合先理解机制再看专门加速版本。",
+    "mechanism": "输入经过投影、局部卷积与门控，选择性状态空间计算产生随时间演化的隐状态，再通过残差与输出映射形成预测。代码包含显式扫描计算。",
+    "use_cases": "适合学习状态空间递推、检查张量公式，或作为研究性结构修改的起点。",
+    "limitations": "简化实现的运行效率不能代表专门优化的 Mamba 内核。它共用基础方法思路，不应把文件名当作另一篇独立方法论文。",
+    "reading_tip": "先在短序列上手算一次状态更新，再对照 selective scan 的循环与张量乘法，最后读外层预测包装。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/MambaSimple.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/MambaSimple.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

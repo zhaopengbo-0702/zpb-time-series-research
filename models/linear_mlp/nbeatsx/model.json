@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "NBEATSx",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/nbeatsx",
+  "summary": "在 N-BEATS 中加入历史和未来外生变量。",
+  "paper_url": "https://arxiv.org/abs/2104.05522",
+  "profile": {
+    "intuition": "保留残差块接力预测的结构，同时把外部信息告诉每个预测模块。例如电价预测时，不只看过去的价格，还可利用事先已知的供需条件。",
+    "mechanism": "在基展开和残差堆叠中接入静态、历史或未来外生特征，具体拼接与基函数设计由实现配置决定。模型仍通过各块预测的相加形成最终输出。",
+    "use_cases": "适合存在有用外生信息的多步预测，也适合与 NBEATS 做特征增益分析。比较时要控制目标历史、预测范围和外部变量集合。",
+    "limitations": "外生变量未必在部署时可用，甚至可能受到目标反向影响。新增条件无法自动保证可靠解释，复杂块与大特征集也会增加过拟合风险。",
+    "reading_tip": "先沿数据集字段确认哪些变量是未来已知的，再看它们怎样影响每个残差块。将“增加信息”和“更换模块”分开消融，才能理解改进来源。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/nbeatsx.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "NBEATSx",
+      "label": "实现1"
+    }
+  ]
+}

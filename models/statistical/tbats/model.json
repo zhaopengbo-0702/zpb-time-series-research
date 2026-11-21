@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TBATS",
+  "category": "statistical",
+  "directory": "models/statistical/tbats",
+  "summary": "组合变换、趋势、ARMA 误差和三角季节项。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把序列中的变换、趋势、自相关误差和多个周期放进一个统计状态模型。周期用三角函数表示，因此不必为每个季节位置都单独存一套状态。",
+    "mechanism": "模型结合 Box-Cox 类变换、趋势或阻尼趋势、ARMA 误差以及三角季节项，拟合后递推状态并输出未来预测。使用几个季节周期、是否搜索某些成分由参数决定。",
+    "use_cases": "适合含多个季节尺度或较长周期的统计预测对照。对于日内、周内等周期叠加的数据，可以用它检查周期状态建模是否已足够。",
+    "limitations": "复杂状态和结构选择可能使训练变慢，缺少多个完整周期时也难以可靠估计。结构突变、时间不规则以及未来未知的外生冲击仍需要另外处理。",
+    "reading_tip": "先核对周期的单位与采样频率，再查看变换、趋势和误差模型选项。固定配置 TBATS 与自动搜索版本应分别报告，不要把搜索时间隐藏在训练开销之外。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_tbats.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TBATS",
+      "label": "实现1"
+    }
+  ]
+}

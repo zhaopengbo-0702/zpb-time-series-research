@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "Chronos",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/chronos",
+  "summary": "调用预训练 Chronos，把数值序列交给其预测管线，入口用于零样本预测。",
+  "paper_url": "https://arxiv.org/pdf/2403.07815",
+  "profile": {
+    "intuition": "Chronos 这一入口复用已经训练好的时序模型，先做零样本预测，不在当前数据上从头训练。文件名属于 Chronos 系列，当前代码实际加载 Chronos-Bolt 权重。",
+    "mechanism": "包装器调用 chronos-bolt-base 的预测管线，逐变量传入历史窗口，再汇总管线输出并堆叠为多变量预测。外部模型承担主要的序列表示与预测计算。",
+    "use_cases": "适合建立预训练模型的零样本预测对照，观察不在目标数据上训练时的迁移表现。",
+    "limitations": "当前包装器逐变量处理，并非联合建模所有通道；它只实现 zero_shot_forecast 分支。权重、运行依赖与设备需另外准备，系列论文不应混称为 Bolt 权重的专属论文。",
+    "reading_tip": "先看 from_pretrained 的实际权重标识，再核对逐变量循环与输出汇总。比较结果时记录权重版本、历史长度和预测长度。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Chronos.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

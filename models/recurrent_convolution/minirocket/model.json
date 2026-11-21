@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "MiniRocket",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/minirocket",
+  "summary": "用固定形式的卷积核和阈值统计快速生成分类或回归特征。",
+  "paper_url": "https://arxiv.org/abs/2102.00457",
+  "profile": {
+    "intuition": "MiniRocket 用一组规则化的固定卷积核快速把序列变成很多数字特征，再训练一个较简单的预测头。主要学习负担从深层网络转向特征后的决策。",
+    "mechanism": "特征提取器使用固定模式卷积、多种膨胀率和从训练数据拟合的阈值，统计响应超过阈值的比例；收录实现包括分类、回归封装及带线性头的版本。",
+    "use_cases": "适合作为时间序列分类与回归的特征型基线，也适合在有限预算下检验复杂端到端模型是否必要。",
+    "limitations": "阈值拟合必须只使用训练数据，特征数、采样和随机状态影响可复现性。高维特征不直接保留完整时间顺序，不同后端的接口和输出形式也不完全一致。",
+    "reading_tip": "先看特征提取器的 fit，再看 dilation、阈值和比例统计。随后确认分类器或回归器真正训练哪些参数，并区分离线特征流水线与在线线性头。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKET.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MiniRocketClassifier",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKET.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MiniRocketRegressor",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKET_Pytorch.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MiniRocket",
+      "label": "实现3"
+    }
+  ]
+}

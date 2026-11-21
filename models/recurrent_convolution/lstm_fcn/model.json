@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "LSTM_FCN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/lstm_fcn",
+  "summary": "融合 LSTM 循环分支与全卷积分支的序列网络。",
+  "paper_url": "https://arxiv.org/abs/1709.05206",
+  "profile": {
+    "intuition": "LSTM_FCN 同时走两条路：长短期记忆单元提取顺序表示，全卷积支路寻找局部波形。两路最后合并，尝试让状态记忆与局部形状提供互补信息。",
+    "mechanism": "循环分支利用输入门、遗忘门和输出门更新细胞状态与隐藏状态并取最后输出；卷积分支经过多层卷积和全局池化，两者拼接后映射到目标。基础版使用拼接后的全连接读出。",
+    "use_cases": "适合同时依赖局部波形与较整体表示的序列分类或回归。可分别移除循环或卷积分支，确认组合效果是否确实来自互补信息。",
+    "limitations": "特别要核对 shuffle：默认配置可能把变量轴当作循环步，完整时间窗成为每步特征，不能仍解释为逐时间循环。两分支组合也增加容量，需公平控制。",
+    "reading_tip": "先确认 LSTM 分支的实际输入形状与 shuffle，再看卷积分支的池化维度和拼接宽度。最后检查循环 dropout 与输出头，区分支路改变和训练正则化改变。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNN_FCN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "LSTM_FCN",
+      "label": "实现1"
+    }
+  ]
+}

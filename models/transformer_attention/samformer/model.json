@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "name": "Samformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/samformer",
+  "summary": "以浅层注意力组织变量关系，结合对应训练策略预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "Samformer 关注较浅的注意力结构能否做好预测，并把变量间关系作为建模重点。论文方法还涉及训练优化策略，结构和训练器应分开理解。",
+    "mechanism": "当前实现将历史长度映射为 query、key 和 value，在通道维做注意力，配合可逆归一化与线性预测头。是否使用论文中的 SAM 优化需由训练配置确认。",
+    "use_cases": "适合比较浅层通道注意力、线性预测和归一化设置，也适合研究优化器对预测结果的影响。",
+    "limitations": "当前类要求单目标 out_channels=1，不能默认多目标通用。仅实例化模型不会自动保证采用论文训练策略，优化器与训练流程需要另查。",
+    "reading_tip": "先核对 query 和 key 的轴，再看 RevIN 与线性头，最后检查训练器实际选择的优化器及是否存在 SAM 步骤。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/samformer/_samformer_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "SamformerForecaster",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/samformer/_samformer_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "Samformer",
+      "label": "实现2"
+    }
+  ]
+}

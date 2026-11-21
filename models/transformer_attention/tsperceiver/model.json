@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TSPerceiver",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/tsperceiver",
+  "summary": "以交叉注意力将长输入压缩到潜在表示，再在潜在空间建模。",
+  "paper_url": "https://arxiv.org/abs/2107.14795",
+  "profile": {
+    "intuition": "TSPerceiver 用较少的潜在向量读取一条较长的序列，再主要在潜在空间里计算。它试图把输入长度与后续表示计算的规模分开。",
+    "mechanism": "潜在 token 通过交叉注意力吸收输入，随后进行潜在自注意力与前馈变换，任务头从压缩后的表示得到输出。",
+    "use_cases": "适合长序列分类、回归以及潜在瓶颈长度研究，可与完整时间注意力模型比较计算和信息保留。",
+    "limitations": "潜在向量过少可能丢失局部细节，增加潜在向量又会提高计算量。时序适配版本的输入与头部需独立检查。",
+    "reading_tip": "先区分输入 token 和 latent token 的维度，再看交叉注意力的 query 来自哪里，最后检查输出如何从 latent 汇聚。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TSPerceiver.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TSPerceiver",
+      "label": "实现1"
+    }
+  ]
+}

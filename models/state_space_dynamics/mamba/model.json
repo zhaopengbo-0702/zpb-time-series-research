@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "Mamba",
+  "category": "state_space_dynamics",
+  "directory": "models/state_space_dynamics/mamba",
+  "summary": "用 Mamba 的选择性状态空间模块递推处理序列，减少对全量注意力的依赖。",
+  "paper_url": "https://arxiv.org/abs/2312.00752",
+  "profile": {
+    "intuition": "Mamba 用持续更新的状态读取序列，并让部分状态更新参数随输入变化。它通过记忆递推处理较长上下文，避免每个位置都比较所有其他位置。",
+    "mechanism": "当前时序实现将输入嵌入后送入选择性状态空间模块，再由输出映射生成预测。状态更新、门控和局部卷积共同决定信息如何保留与传递。",
+    "use_cases": "适合比较长历史预测中的状态空间主干与注意力主干，以及研究记忆状态容量。",
+    "limitations": "实现依赖专门的状态空间模块和对应环境；速度收益依赖具体内核。当前包装的任务分支主要是长短期预测，并不自动包含分类或补全。",
+    "reading_tip": "先读时序包装器中的归一化、嵌入与输出头，再进入 Mamba 模块理解状态更新；先确认依赖可用再评估性能。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Mamba.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/Mamba.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

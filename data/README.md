@@ -1,32 +1,21 @@
-# 数据索引
+# 数据管理
 
-这里记录公共数据来源、文件版本和划分约定。将本地大数据放到 `data/raw/` 或 `data/processed/`；两者已加入忽略规则。六个独立项目与 TSLib 仍使用各自的数据路径参数，根目录中的数据不会自动被它们发现。
+统一实验使用一份带表头的 CSV：时间列为严格递增、无重复的 ISO 8601 时间，目标列为有限数值。多个目标列按配置中的顺序读取。原始数据放在 `data/raw/`，处理结果放在 `data/processed/`，两者不提交到 Git。
 
-## ETT 路径对照
+## 统一划分
 
-| 模型 | 从模型目录运行时，原 ETTh1 脚本使用的数据文件 |
+`train_end` 是训练段结束位置（不含该行），`test_start` 是测试第一行的位置，均从零计数。两者之间可预留验证段。适配器只用训练段拟合；测试采用固定模型、滚动历史窗口，每个预测点只读取该点之前已观测的数据。
+
+CSV 路径相对于配置文件解析。同一文件供多个模型共用。每次运行自动记录文件 SHA-256、列顺序、划分边界、输入窗、预测窗和实际预测起点，比较时逐项核对。
+
+[完整配置与运行方法](../docs/integration.md) · [可运行合成示例](../examples/forecasting/README.md)
+
+| 每份研究数据应记录 | 内容 |
 | --- | --- |
-| EMAformer | `dataset/ETT-small/ETTh1.csv` |
-| Pyraformer | `data/ETT/ETTh1.csv` |
-| Informer2020 | `data/ETT/ETTh1.csv` |
-| Autoformer | `dataset/ETT-small/ETTh1.csv` |
-| ETSformer | `dataset/ETT-small/ETTh1.csv`（按运行指南显式设置；原脚本提供 ETTm2 示例） |
-| Time-LLM | `dataset/ETT-small/ETTh1.csv` |
-| Time-Series-Library | `dataset/ETT-small/ETTh1.csv`（相对于库目录） |
+| 名称与版本 | 数据名称、采集或下载日期、文件 SHA-256 |
+| 来源和条件 | 原始出处、许可与访问方式 |
+| 时间和单位 | 采样频率、时间范围、变量单位 |
+| 划分 | 训练、验证、测试边界 |
+| 处理 | 缺失值、异常值、重采样以及拟合范围 |
 
-ETT 来源：[zhouhaoyi/ETDataset](https://github.com/zhouhaoyi/ETDataset)。其他数据的上游下载入口保留在各项目原 README 中。下载后可通过各入口的路径参数指向同一份本地数据，详见[运行指南](../docs/running-baselines.md)。
-
-Time-LLM 的 `dataset/prompt_bank/` 是上游提供的文本提示资源，随源码保留；它与训练 CSV 分别管理。TSLib 的预测、插补、分类和异常检测使用不同加载器及数据格式，任务入口见[模型与任务索引](../docs/model-catalog.md)。外部语言模型或大型时间序列模型的权重按对应模型加载要求另行缓存。
-
-## 每份数据建议记录
-
-| 字段 | 内容 |
-| --- | --- |
-| 名称与版本 | 数据集名称、下载日期、文件名及 SHA-256 |
-| 来源与使用条件 | 原始链接、许可或访问要求 |
-| 时间范围与采样间隔 | 起止日期、频率、是否存在断点 |
-| 字段 | 时间列、目标列、输入变量、单位 |
-| 划分 | 训练、验证、测试的边界 |
-| 预处理 | 缺失值、异常值、重采样、标准化及拟合范围 |
-
-Pyraformer 上游自带的 `baselines/Pyraformer/data/app_zone_rpc_hour_encrypted.zip` 作为原始快照保留；本次没有额外下载训练数据。
+各模型完整入口的数据接口与文件路径可从模型页查找。用于横向比较的实验优先共用工作区数据协议。

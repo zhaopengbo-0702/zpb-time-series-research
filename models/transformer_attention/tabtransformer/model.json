@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TabTransformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/tabtransformer",
+  "summary": "以注意力上下文化类别变量，再结合连续变量输出。",
+  "paper_url": "https://arxiv.org/pdf/2012.06678",
+  "profile": {
+    "intuition": "TabTransformer 让一个类别特征的表示取决于同一条样本中的其他类别特征。它主要解决表格特征编码，而不是时间依赖。",
+    "mechanism": "各类别字段先嵌入并加入列身份，再由 Transformer 生成上下文化的类别表示，与连续变量组合后送到 MLP 输出头。",
+    "use_cases": "适合类别字段较多的分类和回归，也可作为时间序列系统的静态属性编码器。",
+    "limitations": "没有天然的时间窗口或未来解码逻辑。训练与预测必须使用一致的类别编码，注意力权重也不能直接解释为字段的因果贡献。",
+    "reading_tip": "从类别嵌入和列嵌入开始，核对连续变量的归一化与拼接位置，最后读 MLP 输入维度及任务输出。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TabTransformer.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TabTransformer",
+      "label": "实现1"
+    }
+  ]
+}

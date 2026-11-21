@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "NaiveDrift",
+  "category": "statistical",
+  "directory": "models/statistical/naivedrift",
+  "summary": "将首尾观测确定的平均变化速率延伸到未来。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "如果过去一段时间平均每步增长多少，就把这个速度继续延伸。它是带直线趋势的朴素预测，不需要训练一个复杂的趋势网络。",
+    "mechanism": "用选定历史区间首尾的差除以步数得到平均斜率，再从最后值向未来按步长加上斜率。历史区间的定义很关键：全训练段与最近观察窗口会产生不同结果。",
+    "use_cases": "适合趋势近似线性的短期对照，也适合检查一个复杂模型是否至少能利用简单漂移信息。可以与最后值基线比较，判断外推趋势是否比保持不变更有帮助。",
+    "limitations": "首尾值异常会显著改变斜率；弯曲趋势、周期和突变也不能由一条直线描述。较长预测会持续放大错误斜率，因此不能把趋势延伸视作稳定规律。",
+    "reading_tip": "本工作区参考适配器使用每个预测起点的 context 窗口计算漂移；有些保留实现使用整段拟合历史。比较前先核对具体定义、窗口长度和可见观测，不能把同名结果直接等同。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/baselines.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NaiveDrift",
+      "label": "实现1"
+    }
+  ]
+}

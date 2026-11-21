@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MultiInputNet",
+  "category": "model_adapter",
+  "directory": "models/model_adapter/multiinputnet",
+  "summary": "将多个输入分支或骨干连接到统一输出头的封装。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "一个样本可能同时有多组序列、静态属性或不同传感器输入。MultiInputNet 把这些输入交给各自分支，再用共同输出连接起来，解决的是输入组织与融合。",
+    "mechanism": "接收多个已有模型或骨干，按输入顺序分别计算表示，经过可配置的 reshape、拼接或输出头形成结果。multi_output 等配置还可改变是否保留多个分支输出。",
+    "use_cases": "适合多模态、多组传感器或需要不同分支处理不同输入形状的任务。它能帮助复用已有骨干，但每个分支具体学什么仍取决于所选模型。",
+    "limitations": "它本身没有固定的时间建模算法；如果输入错配、形状不兼容或融合头配置错误，封装无法自动修复。参数增加也不意味着模型一定利用了互补信息。",
+    "reading_tip": "先读 models 列表、数据加载器返回的输入顺序，再查 forward 对各输出如何 reshape 和合并。做消融时分别报告单分支与融合结果，防止把更多数据源的优势误当结构创新。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MultiInputNet.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MultiInputNet",
+      "label": "实现1"
+    }
+  ]
+}

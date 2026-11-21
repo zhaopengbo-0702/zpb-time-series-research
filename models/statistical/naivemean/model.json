@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "NaiveMean",
+  "category": "statistical",
+  "directory": "models/statistical/naivemean",
+  "summary": "以历史平均值预测未来。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "假设未来围绕过去的平均水平波动，就用这个平均值预测每个未来点。它帮助判断任务中有多少变化是连常数水平都无法改进的。",
+    "mechanism": "对指定拟合历史按变量分别求平均，再重复到预测窗口。当前参考适配器只用训练区间估计均值，测试期间保持固定，不把验证间隔或未来真实目标加入均值。",
+    "use_cases": "适合平稳水平序列和数据流程检查，也适合检查模型是否出现了未来信息泄漏。改变测试目标不应改变同一时刻已经生成的首次预测。",
+    "limitations": "它没有时间顺序信息，不能描述趋势、季节或局部状态改变；很早的历史也会影响整体均值。异常值可能拉动均值，稳健聚合需要另行定义。",
+    "reading_tip": "先查 fit 使用的切片和均值轴，再看 predict 是否仅复制已保存统计量。明确它是训练段均值还是滚动窗口均值；两种定义都可作为基线，但实验含义不同。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/baselines.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NaiveMean",
+      "label": "实现1"
+    }
+  ]
+}

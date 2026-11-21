@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "MiniRocketPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/minirocketplus",
+  "summary": "用固定形式的卷积核和阈值统计快速生成分类或回归特征。 此项为 的 Plus 可配置变体。",
+  "paper_url": "https://arxiv.org/abs/2102.00457",
+  "profile": {
+    "intuition": "MiniRocketPlus 延续固定卷积特征加输出头的路线，开放卷积核与特征配置，让同一套统计特征更方便接到不同目标的输出形状。",
+    "mechanism": "骨干配置卷积核数量、通道组合、膨胀率及阈值拟合，在响应上计算比例等统计；特征随后送入可定制头，可选额外统计和正则化。",
+    "use_cases": "适合比较特征预算、通道组合和头部设计，也适合需要将固定随机特征接到自定义分类或回归目标的实验。",
+    "limitations": "Plus 并不表示特征骨干变为全面端到端学习，阈值拟合范围仍要严格控制。更多特征可能增加内存或过拟合，默认参数不能跨数据直接视为最佳。",
+    "reading_tip": "先区分 registered buffer 与可训练参数，再读 fit、prefit 和 forward 的关系；记录 num_features、kernel_size 与自定义头，检查首次前向是否触发拟合。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/MINIROCKETPlus_Pytorch.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "MiniRocketPlus",
+      "label": "实现1"
+    }
+  ]
+}

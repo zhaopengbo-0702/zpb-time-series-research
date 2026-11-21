@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XCoordTime",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xcoordtime",
+  "summary": "结合坐标信息与可分离卷积的 InceptionTimePlus 变体。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "XCoordTime 把位置坐标与可分离卷积一起放入多尺度 Inception 结构。它既显式告诉网络时间位置，也改变每个卷积如何处理通道与时间。",
+    "mechanism": "该变体默认启用 coord、separable 和 zero_norm；在相同多分支残差框架中，用可分离卷积拆开部分时间与通道计算，再通过任务头输出。",
+    "use_cases": "适合研究具有位置含义的序列识别，并分别比较坐标输入和可分离卷积的作用；需要同时关注参数量和模式提取方式。",
+    "limitations": "它同时改变多项设计，直接与普通模型比较无法归因。位置依赖可能受窗口对齐影响，可分离结构是否足够表达通道关系也需要实际检验。",
+    "reading_tip": "从构造函数的三个默认开关读起，分别定位坐标生成、可分离卷积和残差初始化；消融时一次只改一个开关，避免把组合效果归给某一项。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "XCoordTime",
+      "label": "实现1"
+    }
+  ]
+}

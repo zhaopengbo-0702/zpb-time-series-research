@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "GlobalNaiveAggregate",
+  "category": "statistical",
+  "directory": "models/statistical/globalnaiveaggregate",
+  "summary": "在全局模型接口中对输入窗口做指定聚合。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "让很多条序列都能使用同一个“对当前历史窗口做聚合”的简单规则。Global 指接口能处理多序列，不表示它已经从所有序列学到了共享神经参数。",
+    "mechanism": "对每个输入窗口和目标通道执行指定聚合，例如平均或其他可调用统计函数，再沿预测长度重复输出。当前内置全局朴素模型通常不需要实际优化训练。",
+    "use_cases": "适合在具有统一多序列数据接口的实验中建立简单对照，避免因为训练器接口不同而改变样本和评价流程。也可用来测试自定义聚合规则。",
+    "limitations": "聚合通常会丢失时间顺序，不能自动刻画趋势、周期或通道关系。自定义函数的行为与维度要求需要检查，不同聚合不能被当作同一配置。",
+    "reading_tip": "看 aggregate_func 如何作用于输入维度，再查输出扩展和 no-training 路径。明确它使用的是每次输入窗口而非整段训练均值，与 NaiveMean 的参考适配定义区分。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/global_baseline_models.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "GlobalNaiveAggregate",
+      "label": "实现1"
+    }
+  ]
+}

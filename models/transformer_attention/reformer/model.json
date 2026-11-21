@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "Reformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/reformer",
+  "summary": "使用 Reformer 的局部敏感哈希注意力处理长序列。",
+  "paper_url": "https://openreview.net/forum?id=rkgNKkHtvB",
+  "profile": {
+    "intuition": "Reformer 用哈希把可能相关的 token 放到相近的组里，从而避免对所有位置都做完整比较。本项目收录的是把这种注意力接入时序模型的实现。",
+    "mechanism": "编码器调用局部敏感哈希注意力，用分桶与哈希轮次近似查找相关位置。时序嵌入与任务头负责把数值序列接入注意力并生成输出。",
+    "use_cases": "适合比较长输入下的近似注意力与完整注意力，以及研究桶大小和哈希轮次带来的精度成本权衡。",
+    "limitations": "依赖额外的注意力实现；长度补齐、桶大小和随机哈希会影响行为。收录时序适配文件不表示原论文中所有训练或内存优化都逐项实现。",
+    "reading_tip": "先定位 Reformer 注意力包装层及长度补齐逻辑，再核对任务头。比较时要固定随机种子并单独记录桶与哈希参数。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Reformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/Reformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "XceptionTime",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xceptiontime",
+  "summary": "将深度可分离卷积与多尺度时序模块结合。",
+  "paper_url": "https://arxiv.org/abs/1911.03803",
+  "profile": {
+    "intuition": "XceptionTime 把多尺度卷积与深度可分离卷积结合。它用不同时间宽度找波形，同时将部分通道和时间计算拆开，以改变普通卷积的参数组织。",
+    "mechanism": "模块包含瓶颈投影、多尺度可分离卷积和池化支路，多个模块通过残差连接堆叠，随后经自适应池化与逐点卷积头生成分类或回归输出。",
+    "use_cases": "适合多变量动作、手势或传感器片段识别，也适合研究多尺度与可分离结构分别对模型容量和表征的影响。",
+    "limitations": "可分离结构对通道交互的约束不同于完整卷积，是否合适取决于数据。自适应池化弱化部分时间位置，分类输出也不能直接当作多步预测。",
+    "reading_tip": "先看 SeparableConv1d 与瓶颈，再核对每个尺度的拼接和残差投影。最后追踪 adaptive_size 与逐点卷积头，确认时间轴如何压缩。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/XceptionTime.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "XceptionTime",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "mWDN",
+  "category": "decomposition_frequency",
+  "directory": "models/decomposition_frequency/mwdn",
+  "summary": "以可训练小波分解形成多分辨率表示，再接序列任务网络。",
+  "paper_url": "https://dl.acm.org/doi/abs/10.1145/3219819.3220060",
+  "profile": {
+    "intuition": "从小波滤波器出发，把分解过程变成可训练网络，再把分解出的表示交给任务模型。它希望既保留多尺度结构，又能按任务调整滤波。",
+    "mechanism": "WaveBlock 的高低频线性映射以小波滤波系数初始化，经非线性与池化形成分量，继续对低频部分递归分解，再接入所选主干。收录代码是对应论文思路的实现。",
+    "use_cases": "适合时间序列分类、回归及多尺度表示研究，可比较固定小波、可训练分解与直接输入原序列。最终任务由后接主干与输出头决定。",
+    "limitations": "训练后分量不一定仍严格满足标准小波的数学性质；分解层数受序列长度限制。具体实现如何使用各层输出要看代码，不能只按论文示意图假定。",
+    "reading_tip": "先检查滤波器初始化矩阵，再追踪每层低频递归和送入主干的实际张量。核对不同层是否都被使用，以及初始化后的滤波参数如何更新。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/mWDN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "mWDN",
+      "label": "实现1"
+    }
+  ]
+}

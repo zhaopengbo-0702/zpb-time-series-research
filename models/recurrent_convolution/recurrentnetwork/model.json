@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "name": "RecurrentNetwork",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/recurrentnetwork",
+  "summary": "以可配置的 LSTM 或 GRU 网络进行多步预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "RecurrentNetwork 把一个循环预测器包装成完整的编码与解码流程。它先读历史，再逐步产生未来值，并把不同变量类型与序列分组信息接入模型。",
+    "mechanism": "核心可选择 LSTM 或 GRU，将目标和协变量送入循环层，利用编码后的状态启动解码预测；训练、目标变换和输出参数由对应模型及损失接口协同管理。",
+    "use_cases": "适合带分组序列和多种协变量的预测实验，也是对照复杂结构时较容易解释的循环基线。需要时可以研究不同单元、隐藏宽度与解码策略。",
+    "limitations": "递推式预测可能积累误差，已知与未知未来特征必须正确声明。不同损失产生的输出语义不同，不能把所有输出通道都当作直接预测值。",
+    "reading_tip": "从输入向量构造与目标列位置读起，再看 encode、decode 和循环状态传递。重点确认训练与预测阶段喂给解码器的值是否一致，以及输出如何还原到目标尺度。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/rnn/_rnn.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "RecurrentNetwork",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/rnn/_rnn_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "RecurrentNetwork_pkg",
+      "label": "实现2"
+    }
+  ]
+}

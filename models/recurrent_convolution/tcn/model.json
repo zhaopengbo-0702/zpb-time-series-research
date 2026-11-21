@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "TCN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/tcn",
+  "summary": "叠加因果与扩张卷积，扩展时间感受野。",
+  "paper_url": "https://arxiv.org/abs/1803.01271",
+  "profile": {
+    "intuition": "TCN 用卷积来记住过去。它让卷积隔着不同距离取样，随着层数加深，较远的历史也能进入当前表示，同时保留卷积可以批量计算的特点。",
+    "mechanism": "典型结构堆叠因果膨胀卷积与残差块，通过逐层增加 dilation 扩大感受野，再用预测头或序列级输出头产生结果；具体实现的填充和输出策略需分别查看。",
+    "use_cases": "适合需要局部模式和较长历史的预测、分类或回归对照实验，也适合研究循环网络与卷积网络在相同感受野下的表现与计算代价。",
+    "limitations": "可用历史范围由卷积核、膨胀率和层数决定，窗口很长不代表模型实际看到了全部历史。若使用非因果填充，序列内部任务还需检查是否读到不该使用的位置。",
+    "reading_tip": "把每层 kernel_size 与 dilation 列出来估算感受野，核对因果 padding 的裁剪方向，再追踪最终输出选取的是最后时刻、全局池化还是整个预测窗口。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TCN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TCN",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/tcn.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TCN",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/tcn_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TCNModel",
+      "label": "实现3"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "name": "Transformer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/transformer",
+  "summary": "使用标准编码器和解码器注意力结构，作为其他改造模型的对照。",
+  "paper_url": "https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf",
+  "profile": {
+    "intuition": "这里的 Transformer 是用标准注意力结构处理数值序列的模型家族。每个位置可以比较其他位置，学习哪些历史信息与当前预测有关。",
+    "mechanism": "数值与时间信息被嵌入为 token，经过多头注意力、前馈网络和残差连接。编码器或编码器解码器结构由具体实现决定，任务头生成未来值或其他任务输出。",
+    "use_cases": "适合作为稀疏注意力、分解、patch 和状态空间改造的基础对照，也方便学习注意力模型的数据流。",
+    "limitations": "标准全注意力随 token 数增长较快；位置编码、解码器输入和掩码容易造成实现差异。多个实现共享方法名称，不代表预测协议和参数默认值相同。",
+    "reading_tip": "先弄清每个 token 对应时间点还是变量，再看掩码与解码器输入。以相同历史长度、预测长度和损失比较各项改造。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Transformer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/Transformer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/vanillatransformer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "VanillaTransformer",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/transformer_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TransformerModel",
+      "label": "实现4"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "AutoETS",
+  "category": "statistical",
+  "directory": "models/statistical/autoets",
+  "summary": "自动选择误差、趋势与季节结构的指数平滑模型。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把一条序列理解为水平、趋势和季节变化的组合，再自动决定这些成分如何出现。它不仅是在几个平滑系数之间挑数值，还可能在不同结构之间选择。",
+    "mechanism": "在允许的误差、趋势和季节形式下构造指数平滑状态空间模型，依据选型规则确定结构和参数，再通过状态递推预测。加法、乘法和阻尼趋势等选项的可用范围取决于实际接口。",
+    "use_cases": "适合水平、趋势和周期具有较清楚规律的业务序列，也适合作为神经预测的统计对照。批量任务中，可以减少每条序列单独手工挑选平滑结构的工作。",
+    "limitations": "乘法结构对取值范围有要求，短历史可能不足以识别季节性；变化突然的序列也会破坏已拟合规律。自动搜索的结果仍应通过独立测试检查。",
+    "reading_tip": "重点读模型字符串、季节长度、阻尼和信息准则的传递方式，再检查 predict 是否复用了已拟合状态。报告时既写 AutoETS，也写最终选中的结构及其训练区间。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_auto_ets.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "AutoETS",
+      "label": "实现1"
+    }
+  ]
+}

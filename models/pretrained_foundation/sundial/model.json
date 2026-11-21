@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "Sundial",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/sundial",
+  "summary": "调用外部预训练 Sundial 时序模型，保留其零样本预测适配接口。",
+  "paper_url": "https://arxiv.org/pdf/2502.00816",
+  "profile": {
+    "intuition": "Sundial 入口复用预训练时序模型生成未来，主要用于考察跨数据的零样本能力。当前文件是加载和调用适配层。",
+    "mechanism": "实现通过预训练接口加载 sundial-base-128m，整理历史输入并调用其生成逻辑，再将结果组织成任务所需预测张量。",
+    "use_cases": "适合与其他预训练模型、从头训练的小模型进行相同预测协议下的比较。",
+    "limitations": "权重与外部模型代码不包含在这个适配文件中，运行依赖和生成参数会影响结果。当前 forward 仅开放 zero_shot_forecast，不能据此宣称提供完整训练流程。",
+    "reading_tip": "先看权重加载与生成参数，再追踪输入、采样和输出汇总，记录输出是点预测还是分布样本。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/Sundial.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "StatsForecastModel",
+  "category": "model_adapter",
+  "directory": "models/model_adapter/statsforecastmodel",
+  "summary": "把 StatsForecast 统计模型接入 接口。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "为多种统计预测器提供共同的外层接口，让它们可以使用相同的时序对象、协变量处理和预测输出形式。它是适配器基座，不是某一个固定的统计方程。",
+    "mechanism": "接收具体统计模型，准备一维目标或相关协变量，调用其拟合与预测，再还原结果；部分扩展会先回归未来协变量，再对残差建统计模型，区间也可能经过另外的校准路径。",
+    "use_cases": "适合把不同统计方法放进统一回测流程，也适合理解 AutoARIMA、AutoETS 等具体封装共享了哪些数据与输出逻辑。",
+    "limitations": "实际能力受所传统计模型限制，不同基础模型支持的缺失值、协变量与概率输出可能不同。外层提供相同方法名，并不能保证训练或推理过程完全等价。",
+    "reading_tip": "先辨认真实的底层模型实例，再读协变量回归、残差拟合和预测区间的分支。报告时必须写具体算法与参数，不能只把 StatsForecastModel 当作一个可独立比较的方法。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/sf_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "StatsForecastModel",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "name": "TimeXer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/timexer",
+  "summary": "结合目标序列的 patch 与外生变量表示，用注意力融合两类信息。",
+  "paper_url": "https://arxiv.org/abs/2402.19072",
+  "profile": {
+    "intuition": "TimeXer 区分真正要预测的目标序列和辅助外生变量。它让目标保留细的时间片段，同时用另一套表示吸收外部信息。",
+    "mechanism": "目标序列进行 patch 嵌入，配合全局 token；外生变量形成变量表示，通过交叉注意力与目标编码交互。输出头利用融合后的目标表示完成预测。",
+    "use_cases": "适合研究外生变量能否帮助预测，例如天气、价格或控制条件与目标序列的关系。",
+    "limitations": "外生变量必须在预测时真实可用。不同实现对单目标、多目标和特征排列有约定，不能把输入所有列不加区分地交给模型。",
+    "reading_tip": "先确认目标列与外生列的拆分规则，再追踪 patch token、全局 token 和交叉注意力，最后核对 M、MS 等特征设置。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TimeXer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/TimeXer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/timexer.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "TimeXer",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/timexer/_timexer.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TimeXer",
+      "label": "实现4"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/timexer/_timexer_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TimeXerForecaster",
+      "label": "实现5"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/timexer/_timexer_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "TimeXer_pkg",
+      "label": "实现6"
+    }
+  ]
+}

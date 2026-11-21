@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "InCoordTime",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/incoordtime",
+  "summary": "在 InceptionTimePlus 中加入坐标卷积信息的变体。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "InCoordTime 在多尺度卷积输入中加入位置坐标，使网络除了知道出现了什么波形，还能知道波形处于窗口的什么位置。",
+    "mechanism": "它继承可配置的 Inception 结构，构造时默认启用 coord 与 zero_norm；坐标通道参与卷积，残差归一化配置则影响初始的残差分支行为。",
+    "use_cases": "适合事件相对窗口位置具有意义的分类或回归，例如经过对齐的动作或周期片段，也适合检验显式位置是否比纯平移共享更合适。",
+    "limitations": "位置坐标会削弱对任意平移的鲁棒性，若窗口对齐方式变化，模型可能学到脆弱的位置规律。必须与相同骨干关闭 coord 的设置做对照。",
+    "reading_tip": "先看该类构造函数覆盖了哪些默认参数，再追到坐标卷积的通道拼接。用平移同一波形的例子理解位置输入变化，核对训练和测试的对齐方式。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/InceptionTimePlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "InCoordTime",
+      "label": "实现1"
+    }
+  ]
+}

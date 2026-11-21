@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "ResCNN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/rescnn",
+  "summary": "结合一维卷积和残差连接的序列网络。",
+  "paper_url": "https://www.sciencedirect.com/science/article/pii/S0925231219311506",
+  "profile": {
+    "intuition": "ResCNN 先用残差块保留原始信息，再通过更多卷积逐步提取波形。残差捷径让新特征可以在已有表示上增量修改，而不是每层完全重写。",
+    "mechanism": "收录结构以三层卷积残差块起步，后接若干卷积块，并采用不同激活函数；经过自适应平均池化后，由线性层输出序列级类别或回归值。",
+    "use_cases": "适合传感器片段分类与回归，也是比较残差连接、激活函数和普通卷积堆叠的实用基线。",
+    "limitations": "它与多层 ResNet 的残差分布不同，不能因名字相近认定结构一致。池化后的输出不保留逐时刻序列，感受野是否覆盖关键事件也需核算。",
+    "reading_tip": "先看第一个残差块的 shortcut 与通道扩展，再检查后续激活函数和池化头。与其他残差模型比较时，把残差块数量和所在位置明确列出。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/ResCNN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "ResCNN",
+      "label": "实现1"
+    }
+  ]
+}

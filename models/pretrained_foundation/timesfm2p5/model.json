@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TimesFM2p5",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/timesfm2p5",
+  "summary": "调用 TimesFM 2.5 预训练模型，保留版本特定接口。",
+  "paper_url": "https://arxiv.org/abs/2310.10688",
+  "profile": {
+    "intuition": "TimesFM2p5 明确对应 TimesFM 2.5 的预训练模型适配。它提供比简单系列包装更完整的窗口、分位数与微调配置。",
+    "mechanism": "实现按 patch 组织输入，进行尺度处理，通过预训练主干与投影头输出点预测和分位数，再恢复原尺度。微调与推理会使用不同的分位数选择逻辑。",
+    "use_cases": "适合 TimesFM 2.5 的零样本、概率预测和可控微调实验。",
+    "limitations": "权重上下文、输出块和分位数配置有限制，不能任意扩大预测范围而假设行为不变。适配接口是否使用协变量应按支持属性核对；系列基础论文不等于该权重版本的专属说明。",
+    "reading_tip": "先读 input_chunk_length、output_chunk_length 与输出移位，再看量化头和微调分位数处理，记录权重 revision 保证比较可追溯。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/timesfm2p5_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "TimesFM2p5Model",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Shared experiment protocol. Install torch separately for torch_source adapters.
+numpy>=1.23,<3

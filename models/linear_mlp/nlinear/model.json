@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "name": "NLinear",
+  "category": "linear_mlp",
+  "directory": "models/linear_mlp/nlinear",
+  "summary": "减去窗口最后一个值后线性预测变化，再加回该值。",
+  "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/26317",
+  "profile": {
+    "intuition": "先减掉历史窗口最后一个数，只预测相对这个基准的变化，最后把基准加回来。可以把它看成让模型先回答“接下来比现在高多少或低多少”。",
+    "mechanism": "取窗口末值作为每个样本的局部参照，对历史做平移后用线性层输出预测段，再加回参照。它采用局部水平对齐，和先做趋势季节分解的 DLinear 是不同路径。",
+    "use_cases": "适合检验均值水平发生变化时，局部基准是否比直接映射原始数值更有效；也适合与普通线性层和分解线性层做同预算的多步预测对照。",
+    "limitations": "末值若带有尖峰或测量噪声，参照本身会受影响。线性预测部分仍有表达限制，局部减末值也不能消除趋势变化、异方差或训练测试分布差异。",
+    "reading_tip": "手算一个短窗口的减末值和加回过程，再比较各实现是否对每个通道单独处理、是否共享权重，以及协变量和额外标准化怎样进入模型。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/nlinear.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "NLinear",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/nlinear.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NLinearModel",
+      "label": "实现2"
+    }
+  ]
+}

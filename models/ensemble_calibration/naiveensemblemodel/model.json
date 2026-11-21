@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "NaiveEnsembleModel",
+  "category": "ensemble_calibration",
+  "directory": "models/ensemble_calibration/naiveensemblemodel",
+  "summary": "训练多个基础预测器，对预测结果做简单平均。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把几种已经能够预测的方法放在一起，直接平均它们的结果。它不学习哪一个成员在某种情况下更可靠，价值在于提供一个简单透明的组合基线。",
+    "mechanism": "组织成员训练并对齐输出：确定性预测取分量平均；概率采样时按成员形成混合分布，每条样本轨迹来自一个随机成员；似然参数输出则按参数平均。具体调用模式决定组合方式。",
+    "use_cases": "适合快速检验不同模型是否具有互补误差，也适合作为更复杂堆叠方法的对照。一个有用的实验是同时报告各成员、简单平均和学习式集成。",
+    "limitations": "差模型可能拖累平均，强相关成员也未必互补；输出尺度或时间错位则会使平均失去含义。它不是概率校准或最优加权的保证。",
+    "reading_tip": "先查 forecasting_models、是否重训成员和预测模式，再看组合的是点值、完整采样轨迹还是似然参数。确保成员只用允许的数据，且结果对应同一起点、跨度、通道与尺度。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/naive_ensemble_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "NaiveEnsembleModel",
+      "label": "实现1"
+    }
+  ]
+}

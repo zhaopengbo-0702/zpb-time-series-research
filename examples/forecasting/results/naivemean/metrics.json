@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "model": "NaiveMean",
+  "adapter": "reference",
+  "protocol": {
+    "dataset_sha256": "7d75fb76830a9b75b4329a8341ca4a1255c457fe6a9fdc2342cbf78c3bad8d7b",
+    "time_column": "date",
+    "columns": [
+      "signal",
+      "trend"
+    ],
+    "train_end": 120,
+    "test_start": 144,
+    "row_count": 192,
+    "lookback": 24,
+    "horizon": 12,
+    "stride": 12,
+    "origins": [
+      144,
+      156,
+      168,
+      180
+    ],
+    "metric_scale": "original",
+    "history_policy": "observed_rolling_frozen_fit",
+    "mase_period": 24,
+    "missing_policy": "reject"
+  },
+  "protocol_id": "57489b66ab5297b8f81d12599c54ef6b8a1e7dd147985766d0c5388e667b7d7a",
+  "implementation": {
+    "adapter": "reference",
+    "model": "NaiveMean",
+    "implementation": "workspace_reference",
+    "core": "zpbts/adapters.py",
+    "source_commit": null,
+    "note": "Workspace NumPy reference forecast; does not execute an indexed upstream implementation."
+  },
+  "seed": 7,
+  "options": {
+    "seed": 7,
+    "adapter": "reference",
+    "lookback": 24
+  },
+  "metrics": {
+    "mae": 1.4364319174999995,
+    "mse": 2.7583929064455686,
+    "rmse": 1.6608410238326752,
+    "smape": 107.20321166684799,
+    "mase": 5.220265979166671
+  },
+  "metrics_by_column": {
+    "signal": {
+      "mae": 0.712863835,
+      "mse": 0.7584191463118698,
+      "rmse": 0.8708726349540843,
+      "smape": 119.72746437949503,
+      "mase": 5.940531958333331
+    },
+    "trend": {
+      "mae": 2.1599999999999997,
+      "mse": 4.758366666579268,
+      "rmse": 2.1813680722379862,
+      "smape": 94.67895895420094,
+      "mase": 4.499999999999999
+    }
+  },
+  "metrics_by_horizon": {
+    "1": {
+      "mae": 1.38125,
+      "mse": 2.7008281249999997,
+      "rmse": 1.6434196436090205,
+      "smape": 94.49960162507645,
+      "mase": 4.4791666666666705
+    },
+    "2": {
+      "mae": 1.38035254,
+      "mse": 2.7138667192903543,
+      "rmse": 1.6473817770299495,
+      "smape": 92.30013688341218,
+      "mase": 4.492921958333337
+    },
+    "3": {
+      "mae": 1.3581249999999998,
+      "mse": 2.682803124999999,
+      "rmse": 1.6379264711823907,
+      "smape": 83.26811235929172,
+      "mase": 4.4739583333333375
+    },
+    "4": {
+      "mae": 1.39355339,
+      "mse": 2.6322149207609837,
+      "rmse": 1.622410219630345,
+      "smape": 98.2825785385929,
+      "mase": 5.01919491666667
+    },
+    "5": {
+      "mae": 1.4330127,
+      "mse": 2.5894973597225794,
+      "rmse": 1.609191523629981,
+      "smape": 122.98693850103143,
+      "mase": 5.598022500000004
+    },
+    "6": {
+      "mae": 1.456360375,
+      "mse": 2.574090782499497,
+      "rmse": 1.60439732687994,
+      "smape": 130.7691494623175,
+      "mase": 5.958852333333338
+    },
+    "7": {
+      "mae": 1.4699999999999998,
+      "mse": 2.5958531249999997,
+      "rmse": 1.6111651451666895,
+      "smape": 130.95016472248295,
+      "mase": 6.0937500000000036
+    },
+    "8": {
+      "mae": 1.476360375,
+      "mse": 2.6593875792994974,
+      "rmse": 1.6307628826103129,
+      "smape": 131.341160610747,
+      "mase": 6.000519000000004
+    },
+    "9": {
+      "mae": 1.4730127,
+      "mse": 2.7659473597225794,
+      "rmse": 1.6631137542942092,
+      "smape": 121.83372464506724,
+      "mase": 5.6813558333333365
+    },
+    "10": {
+      "mae": 1.4535533899999997,
+      "mse": 2.9088899207609833,
+      "rmse": 1.7055468099002686,
+      "smape": 95.51214830042692,
+      "mase": 5.14419491666667
+    },
+    "11": {
+      "mae": 1.4562499999999998,
+      "mse": 3.0677031249999995,
+      "rmse": 1.7514859762498813,
+      "smape": 87.61079336053109,
+      "mase": 4.7916666666666705
+    },
+    "12": {
+      "mae": 1.5053525399999999,
+      "mse": 3.209632735290354,
+      "rmse": 1.791544790199328,
+      "smape": 97.08403099319841,
+      "mase": 4.909588625000004
+    }
+  },
+  "forecast_count": 96,
+  "fit_seconds": 0.00018400000000001748,
+  "environment": {
+    "python": "3.9.12",
+    "numpy": "1.26.4",
+    "repository_commit": "1c3c29d5d7f897142338058be4463d09ba55b019",
+    "repository_dirty": true,
+    "workspace_code_sha256": {
+      "zpbts/__init__.py": "711e19a67fff24d957227768a27e678c378cff887ac39749e9c8e44f6ba35841",
+      "zpbts/__main__.py": "ccc319ccb745b9d91f761930a58667117a97413b9a15aced985a9091e27ffcfb",
+      "zpbts/adapters.py": "e75646b449b9170811fe9123e46b3ea11dbec16c40c08957bc2f53032edeeee3",
+      "zpbts/experiment.py": "1dab3efa262e1faa843d89b2fd19c709b7915e301bfa8cba81c8c54f8c46b0ce",
+      "zpbts/registry.py": "bd0975a798f3a85d0e413d54684d81d7305ebdb7b8bb4aeeac90e3785add3ba9"
+    }
+  }
+}

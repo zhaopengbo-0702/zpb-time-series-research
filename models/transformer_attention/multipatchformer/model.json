@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "MultiPatchFormer",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/multipatchformer",
+  "summary": "用多种 patch 尺度表示序列，再结合注意力组织不同尺度与通道信息。",
+  "paper_url": "https://www.nature.com/articles/s41598-024-82417-4",
+  "profile": {
+    "intuition": "MultiPatchFormer 用不同大小的片段看同一段历史。短片段保留局部变化，长片段提供较大的上下文，再把多尺度表示组合起来预测。",
+    "mechanism": "实现包含多个 patch 尺度的嵌入与时间编码，并进一步处理通道之间的联系。多尺度结果通过预测头组织为未来时间段输出。",
+    "use_cases": "适合探索单一 patch 长度是否限制预测，以及多尺度输入表示对不同频率变化的帮助。",
+    "limitations": "多分支会增加参数与计算量，收益需要对照等容量模型验证。当前实现主要提供预测路径，不能从目录包含其他任务入口推断该模型也已支持。",
+    "reading_tip": "先标记每个 patch 分支的长度、步长和输出维度，再追踪分支合并及通道处理，检查最终输出与目标变量数量是否一致。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/MultiPatchFormer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-08",
+      "core": "_sources/source-08/models/MultiPatchFormer.py",
+      "entry": "_sources/source-08/run.py",
+      "commit": "1a4559b37e4b8de5856e2d58e7fcb1b403b51a99",
+      "label": "实现2"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TransformerLSTMPlus",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/transformerlstmplus",
+  "summary": "将 Transformer 编码与 LSTM 循环结构结合的时序网络。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "TransformerLSTMPlus 在注意力编码后接 LSTM，用带门控的记忆状态汇总窗口信息。它是同一混合结构中的 LSTM 变体。",
+    "mechanism": "共享的混合编码器完成投影、位置编码和 Transformer 处理，循环单元改为 LSTM，再接统一可配置头。门控状态控制哪些编码信息继续保留。",
+    "use_cases": "适合序列分类、回归和 RNN、LSTM、GRU 三种循环单元的受控比较。",
+    "limitations": "增加门控与隐藏状态会增加训练成本，未必改善每种数据。双向配置的可见范围及输入轴顺序需特别核实。",
+    "reading_tip": "与 TransformerRNNPlus 对照，确认主要变化是 _cell=nn.LSTM；再核对循环层数、双向维度和任务头。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TransformerRNNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TransformerLSTMPlus",
+      "label": "实现1"
+    }
+  ]
+}

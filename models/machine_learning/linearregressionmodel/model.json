@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "LinearRegressionModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/linearregressionmodel",
+  "summary": "将滞后值与协变量展开为监督样本，用线性回归预测。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "把过去几个时间点和已知协变量展开为普通表格特征，再用线性加权预测未来。它帮助检验复杂网络之外，简单线性关系能解释多少变化。",
+    "mechanism": "通过 lags、过去与未来协变量的滞后配置构造监督样本，以回归器拟合目标。多步可为不同未来位置分别建模，也可能采用递推方式；是否带截距、正则化或概率设置由具体参数决定。",
+    "use_cases": "适合数据量有限、变量含义明确的预测基线，也适合做特征与滞后分析。需要快速验证外生变量是否提供线性增益时，这类方法较容易检查。",
+    "limitations": "线性结构难以直接描述复杂交互，强共线性还会使系数不稳定。滞后展开并不能自动消除泄漏，未来协变量只有在真实预测时已知才可使用。",
+    "reading_tip": "先追踪监督样本的时间对齐和 lag 定义，再看输出窗口、多模型开关及底层回归器参数。记录拟合尺度与正则化规则，不要只用“线性回归”概括全部设置。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/linear_regression_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "LinearRegressionModel",
+      "label": "实现1"
+    }
+  ]
+}

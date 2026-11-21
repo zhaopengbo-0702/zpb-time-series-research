@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "TimesFM",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/timesfm",
+  "summary": "调用预训练 TimesFM 预测接口，外部权重与运行依赖单独加载。",
+  "paper_url": "https://arxiv.org/abs/2310.10688",
+  "profile": {
+    "intuition": "TimesFM 这一系列入口直接调用预训练时序预测模型。当前简单文件实际调用 TimesFM 2.5，因此它与按版本命名的适配入口存在方法关联。",
+    "mechanism": "代码加载 timesfm-2.5-200m-pytorch，整理各变量的历史，调用预测接口并将输出还原成统一形状。主要模型结构由外部权重和运行包提供。",
+    "use_cases": "适合快速建立 TimesFM 系列的零样本对照，并与完整版本适配的输入输出协议进行比较。",
+    "limitations": "当前文件有设备和外部 API 参数约定，实际可用性需要对应版本验证。系列名不能替代精确权重版本，点预测输出也不等于已保留全部不确定性信息。",
+    "reading_tip": "先核对加载类名与权重标识，再看 forecast 返回值怎样截取与堆叠；比较时明确写 TimesFM 2.5，而不只写系列名。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TimesFM.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "xLSTMTime",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/xlstmtime",
+  "summary": "面向时间序列预测的 xLSTM 适配结构，与通用 xLSTM 分开保留。",
+  "paper_url": "https://arxiv.org/pdf/2407.10240",
+  "profile": {
+    "intuition": "xLSTMTime 将扩展循环记忆用于时间序列预测，并配合分解和归一化处理。可以把它理解为先整理序列的变化，再用更丰富的记忆单元生成未来表示。",
+    "mechanism": "实现提供 sLSTM 与 mLSTM 风格的网络组件，结合时序分解、归一化及预测映射；不同接口版本的元数据、输入包装与预测输出形式有所区别。",
+    "use_cases": "适合研究扩展记忆与时序分解的组合，也适合与相同输入窗口的普通 LSTM、分解线性模型做结构消融。",
+    "limitations": "它不是普通 LSTM 改个名字，记忆类型与接口版本会影响实际计算。长预测任务需要检查输出长度、反归一化和协变量处理，不能混用不同版本的构造方式。",
+    "reading_tip": "先确认选中实现的模型类和数据接口，再读分解、sLSTM 或 mLSTM 层、预测头的连接。把归一化前后张量单位与预测长度写清楚后再做修改。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "xLSTMTime",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_forecaster_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "xLSTMTimeForecaster",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_pkg.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "xLSTMTime_pkg",
+      "label": "实现3"
+    },
+    {
+      "directory": "_sources/source-11",
+      "core": "_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_v2.py",
+      "entry": "_sources/source-11/README.md",
+      "commit": "5df452554ce09db0c909f992b83e9ba7afafbcdf",
+      "class_name": "xLSTMTime_v2",
+      "label": "实现4"
+    }
+  ]
+}

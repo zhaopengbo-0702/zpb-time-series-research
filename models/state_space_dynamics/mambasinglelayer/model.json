@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "MambaSingleLayer",
+  "category": "state_space_dynamics",
+  "directory": "models/state_space_dynamics/mambasinglelayer",
+  "summary": "用单层 Mamba 做序列分类，当前构造和前向路径限定分类任务。",
+  "paper_url": "https://openreview.net/forum?id=YDl4vqQqGP",
+  "profile": {
+    "intuition": "MambaSingleLayer 用单层状态空间模块做序列分类，关注一个较浅结构可以提取多少判别信息。当前接口专门面向分类。",
+    "mechanism": "序列嵌入后经过单层 Mamba，逐时间位置产生类别相关表示，再用注意力权重加权汇聚。padding mask 用于去掉补齐位置的影响。",
+    "use_cases": "适合多变量序列分类和单层结构消融，尤其可比较不同状态更新开关与汇聚方式。",
+    "limitations": "构造和 forward 都限定 classification，不能直接当作预测模型。单层结构简洁不等于所有数据都足够表达，mask 和变长输入协议需要正确配置。",
+    "reading_tip": "先核对任务检查与嵌入，再看 Mamba_TimeVariant 的开关，最后检查类别 logit 与时间权重怎样共同汇聚。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/MambaSingleLayer.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

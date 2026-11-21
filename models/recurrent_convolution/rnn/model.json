@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "name": "RNN",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/rnn",
+  "summary": "通过循环隐藏状态编码历史，再预测未来或输出任务标签。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "RNN 把一段序列逐步读入同一个普通循环单元，用一个随输入更新的状态概括过去。它的核心问题是当前观察应该怎样改变记忆，再把记忆转成任务需要的输出。",
+    "mechanism": "使用当前输入与上一步隐藏状态，经线性变换和非线性激活得到新状态。收录实现既有取最后状态接线性头的序列级模型，也有编码历史后接预测头的版本；模型页中的具体实现决定输出形式。",
+    "use_cases": "适合做顺序信息建模的基础对照，例如片段分类、回归或历史到未来的映射；也便于研究窗口长度、状态宽度与单双向处理的影响。",
+    "limitations": "隐藏状态需要逐步承载历史，没有专门的门控记忆，较长依赖与梯度稳定性应实际检验。双向配置只能使用已经可见的输入窗口，不能直接把未来目标送入状态。",
+    "reading_tip": "先从所选实现的输入转置读起，确认RNN沿时间还是其他轴更新，再看取最后状态、全序列表示或解码器的路径，并核对损失与输出形状。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNN.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "RNN",
+      "label": "实现1"
+    },
+    {
+      "directory": "_sources/source-10",
+      "core": "_sources/source-10/neuralforecast/models/rnn.py",
+      "entry": "_sources/source-10/README.md",
+      "commit": "fda9a137308a3b134fbb6d9bc4b575bb4314e727",
+      "class_name": "RNN",
+      "label": "实现2"
+    },
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/rnn_model.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "RNNModel",
+      "label": "实现3"
+    }
+  ]
+}

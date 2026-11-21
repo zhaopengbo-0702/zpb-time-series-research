@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "TransformerRNNPlus",
+  "category": "transformer_attention",
+  "directory": "models/transformer_attention/transformerrnnplus",
+  "summary": "将 Transformer 编码与 RNN 循环结构结合的时序网络。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "TransformerRNNPlus 先让注意力观察整个窗口，再用普通循环网络按顺序整理表示。它把全局关系和循环递推放在同一条编码路径上。",
+    "mechanism": "通道输入经线性投影和可学习位置编码，经过 Transformer 编码层后接 RNN 层，最后由可配置头输出。可选双向递推会改变隐藏维度。",
+    "use_cases": "适合序列分类、回归，以及比较注意力后再做顺序递推是否有效。",
+    "limitations": "循环层带来顺序计算成本。双向层可读取窗口内部后续位置，只能用于已观测窗口，不能在逐时因果预测中无条件复用。",
+    "reading_tip": "先追踪输入在 batch、时间、通道间的转置，再看 Transformer 与 RNN 的连接，最后核对 bidirectional 与 head_nf。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/TransformerRNNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "TransformerRNNPlus",
+      "label": "实现1"
+    }
+  ]
+}

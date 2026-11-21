@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "RNNAttention",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/rnnattention",
+  "summary": "结合 RNN 循环表示和注意力编码模块的序列网络。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "RNNAttention 先用普通循环单元生成每个位置的表示，再让这些位置通过注意力互相查询。它希望同时使用顺序记忆与较直接的跨位置联系。",
+    "mechanism": "循环部分使用当前输入与上一步隐藏状态，经线性变换和非线性激活得到新状态，保留完整位置输出；之后送入多头自注意力、前馈与残差归一化编码器，再展平或经自定义头输出序列级目标。",
+    "use_cases": "适合完整窗口的分类与回归，也适合分析加入跨位置注意力后，是否弥补仅取循环末状态造成的信息压缩。",
+    "limitations": "注意力增加随窗口长度增长的成本，整个窗口的双向联系也不等于逐时刻因果计算。长序列展平头会增加参数，效果需与相同容量基线比较。",
+    "reading_tip": "先看 RNN 是否返回全部时间步，再追踪注意力的查询、键和值来自哪里；核对头数、隐藏维度与输出展平长度，避免把注意力权重直接当成因果解释。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/RNNAttention.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "RNNAttention",
+      "label": "实现1"
+    }
+  ]
+}

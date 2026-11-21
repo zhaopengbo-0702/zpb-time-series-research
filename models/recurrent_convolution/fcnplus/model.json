@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "FCNPlus",
+  "category": "recurrent_convolution",
+  "directory": "models/recurrent_convolution/fcnplus",
+  "summary": "用多层一维卷积和全局池化提取序列特征。 此项为 的 Plus 可配置变体。",
+  "paper_url": "https://arxiv.org/abs/1611.06455",
+  "profile": {
+    "intuition": "FCNPlus 保留全卷积加汇总的基本思路，同时把骨干和输出头拆开，方便选择卷积形式、池化和任务输出，而不是只使用固定的分类末层。",
+    "mechanism": "实现以三层卷积块构成骨干，可配置坐标信息、可分离卷积及残差等选项，再接可定制的输出头、归一化与 dropout。哪些增强生效取决于构造参数。",
+    "use_cases": "适合在同一卷积骨干上研究输出头或局部结构的变化，也适合需要自定义分类或回归目标的片段级任务。",
+    "limitations": "Plus 表示实现的可配置扩展，不保证每个开关都会改善结果。某些输出头依赖固定序列长度，比较时需控制头部参数与原模型一致。",
+    "reading_tip": "先看 _FCNBlockPlus 与 create_head 的边界，逐项记录 residual、coord、separable 和池化参数，再对照普通 FCN 分清变化来自骨干还是预测头。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-09",
+      "core": "_sources/source-09/tsai/models/FCNPlus.py",
+      "entry": "_sources/source-09/README.md",
+      "commit": "bbb61982741d466bfa81669edc0e17f1971980af",
+      "class_name": "FCNPlus",
+      "label": "实现1"
+    }
+  ]
+}

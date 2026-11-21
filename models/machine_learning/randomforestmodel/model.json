@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "RandomForestModel",
+  "category": "machine_learning",
+  "directory": "models/machine_learning/randomforestmodel",
+  "summary": "以随机森林学习滞后值和协变量到未来值的映射。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "让许多不同的决策树从历史特征判断未来值，再平均它们的结果。每棵树通过特征切分处理非线性，集成用于减少单棵树的不稳定。",
+    "mechanism": "先将滞后目标和协变量变成监督样本，再对采样数据与随机特征训练多棵树。预测窗口如何拆成多个目标，以及多步是否递归，取决于外层时间序列接口。",
+    "use_cases": "适合具有非线性阈值、特征交互或多种协变量的表格化预测，也适合作为神经网络之外的强对照。数据量不大时可先从受限树深和适量树数开始。",
+    "limitations": "树通常擅长在已见特征范围内分段预测，外推长期趋势能力有限。深树、大量滞后和多个未来位置会增加内存；随机性与搜索预算也影响比较。",
+    "reading_tip": "先看 lag 样本生成，再查 n_estimators、max_depth、max_features 和随机种子。变量重要性反映模型分裂使用情况，不能直接解释为因果贡献，也应注意相关特征分摊重要性。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/random_forest.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "RandomForestModel",
+      "label": "实现1"
+    }
+  ]
+}

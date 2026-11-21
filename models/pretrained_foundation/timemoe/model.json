@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "TimeMoE",
+  "category": "pretrained_foundation",
+  "directory": "models/pretrained_foundation/timemoe",
+  "summary": "调用预训练 TimeMoE 混合专家时序模型，入口用于零样本预测。",
+  "paper_url": "https://arxiv.org/pdf/2409.16040",
+  "profile": {
+    "intuition": "TimeMoE 使用预训练的混合专家时序模型，让不同专家分担输入模式。这里收录的简单接口主要把历史送入已有权重进行预测。",
+    "mechanism": "适配代码加载 TimeMoE-50M，按要求整理数值上下文并调用生成过程，再恢复预测区间。专家选择和主要序列建模发生在外部模型内部。",
+    "use_cases": "适合比较混合专家预训练模型的零样本预测能力，以及观察不同领域数据上的迁移差异。",
+    "limitations": "混合专家并不代表总模型没有显存成本；外部权重和运行实现都要准备。简单入口没有提供完整的专家训练或自定义路由实验能力。",
+    "reading_tip": "先记录实际加载的 50M 权重，再核对上下文归一化、生成长度和输出截取；要研究专家行为时需进一步进入模型实现。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-07",
+      "core": "_sources/source-07/models/TimeMoE.py",
+      "entry": "_sources/source-07/run.py",
+      "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+      "label": "实现1"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "GlobalNaiveDrift",
+  "category": "statistical",
+  "directory": "models/statistical/globalnaivedrift",
+  "summary": "在全局模型接口中延伸输入窗口的漂移趋势。",
+  "paper_url": null,
+  "profile": {
+    "intuition": "在统一多序列接口里，对每条样本最近窗口的变化速度做直线外推。它是一条可批量应用的规则，不是通过全球数据学习趋势的网络。",
+    "mechanism": "从输入窗口的首尾观测计算平均斜率，以最后值为起点按未来步数延伸；多个通道各自计算。输出块长度和块间递推由所在模型接口组织。",
+    "use_cases": "适合需要与全局神经预测器共享窗口格式的趋势基线，也适合检查多序列实验的时间对齐和输出形状。可与窗口均值、季节重复两类朴素规则一起使用。",
+    "limitations": "斜率只依据窗口首尾，异常值和局部反转容易造成误判；不同窗口可能给出完全不同趋势。它不会直接利用其他变量或更早的长期信息。",
+    "reading_tip": "先读内部 forward 的斜率分母与端点，再查 input_chunk_length 和 output_chunk_length。不要仅因名字含 Global，就认为参数跨序列训练或已经具备跨变量依赖建模。"
+  },
+  "implementations": [
+    {
+      "directory": "_sources/source-12",
+      "core": "_sources/source-12/darts/models/forecasting/global_baseline_models.py",
+      "entry": "_sources/source-12/README.md",
+      "commit": "b91773760a227d426cf3659dfddab1e547c04523",
+      "class_name": "GlobalNaiveDrift",
+      "label": "实现1"
+    }
+  ]
+}
