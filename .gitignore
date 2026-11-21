@@ -9,6 +9,7 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
+/upstream-sync-report.json
 
 # Local data (upstream tracked snapshots are preserved separately)
 /data/raw/

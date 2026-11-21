@@ -1,0 +1,98 @@
+name: Sync upstream repositories
+
+on:
+  schedule:
+    - cron: '20 2 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/sync-upstreams.yml'
+      - 'tools/sync_upstreams.py'
+      - 'tools/test_sync_upstreams.py'
+      - 'tools/build_model_catalog.py'
+      - 'tools/model_categories.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upstream-source-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out current main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Test synchronization behavior
+        run: python -B tools/test_sync_upstreams.py
+
+      - name: Synchronize all upstream sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -B tools/sync_upstreams.py --stage --output-json "$RUNNER_TEMP/upstream-sync.json"
+
+      - name: Verify synchronized source bytes
+        run: python -B tools/verify_sources.py --strict
+
+      - name: Refresh categorized model navigation
+        run: |
+          python -B tools/build_model_catalog.py
+          git add README.md docs/model-catalog.md baselines/README.md
+
+      - name: Commit and push verified updates
+        shell: bash
+        run: |
+          if git diff --cached --quiet; then
+            echo "All upstream sources are current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git diff --cached --stat
+          git commit -m "Sync upstream source snapshots"
+          git push origin HEAD:main
+
+      - name: Publish run summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f "$RUNNER_TEMP/upstream-sync.json" ]; then
+            python -B - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, os
+          from pathlib import Path
+          report = json.loads((Path(os.environ['RUNNER_TEMP']) / 'upstream-sync.json').read_text())
+          print('## Upstream synchronization')
+          print('\nStatus: **{}**\n'.format(report.get('status', 'unknown')))
+          print('| Source | Commit | Added | Modified | Deleted |')
+          print('| --- | --- | ---: | ---: | ---: |')
+          for source in report.get('sources', []):
+              print('| {} | `{}` | {} | {} | {} |'.format(source['name'], source.get('new_commit', '')[:12], source.get('added', 0), source.get('modified', 0), source.get('deleted', 0)))
+          if report.get('error'):
+              print('\nError: ' + str(report['error']))
+          PY
+          else
+            echo "No sync report was produced; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Save synchronization report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: upstream-sync-report
+          path: ${{ runner.temp }}/upstream-sync.json
+          if-no-files-found: ignore
+          retention-days: 30

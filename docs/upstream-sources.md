@@ -1,8 +1,10 @@
 # 上游来源与版本
 
-本仓库于 **2026-11-21** 将七个项目整理为固定提交的源码快照：六个独立项目在 `baselines/`，完整 Time-Series-Library 在 `libraries/`。普通 `git clone` 即可取得这些文件。导入的是指定提交的文件内容，不包含七个上游的完整 Git 历史。
+本仓库于 **2026-11-21** 首次整理七个项目，并启用[自动同步](upstream-sync.md)：六个独立项目在 `baselines/`，完整 Time-Series-Library 在 `libraries/`。每次同步保留准确的版本与文件清单，普通 `git clone` 即可取得这些文件。导入的是锁定提交的文件内容，不包含七个上游的完整 Git 历史。
 
-## 固定版本
+## 首次收录版本
+
+下表保留首次收录的记录；**当前版本**请查看自动维护的[版本状态](upstream-status.md)与 [sources.lock.json](../sources.lock.json)。
 
 | 目录 | 上游 | 分支 | 固定提交 | 原始文件数 |
 | --- | --- | --- | --- | ---: |
@@ -20,9 +22,9 @@ ETSformer 上游还提交了 Python 缓存、一个 checkpoint 和两个指标�
 
 ## Time-LLM 与 TSLib 的完整范围
 
-Time-LLM 的 51 个原始文件全部保留，包括模型、数据管道、预训练与 M4 入口、实验脚本、DeepSpeed 配置、论文图及 `LEGAL.md`。LLAMA、GPT-2、BERT 等外部预训练权重不在这份源码内。
+首次收录的 Time-LLM 51 个原始文件全部保留，包括模型、数据管道、预训练与 M4 入口、实验脚本、DeepSpeed 配置、论文图及 `LEGAL.md`。LLAMA、GPT-2、BERT 等外部预训练权重不在这份源码内。
 
-Time-Series-Library 的 368 个原始文件全部保留，包括 `models/`、`layers/`、`exp/`、`data_provider/`、`scripts/`、`tutorial/`、`utils/`、中英文 README、许可证与部署文件。未按任务或模型裁剪；41 个模型模块的导航见[全部模型索引](model-catalog.md)。这两个来源中没有 Git 子模块或 LFS 指针文件。
+首次收录的 Time-Series-Library 368 个原始文件全部保留，包括 `models/`、`layers/`、`exp/`、`data_provider/`、`scripts/`、`tutorial/`、`utils/`、中英文 README、许可证与部署文件。未按任务或模型裁剪；首次收录时 41 个模型模块的详细阅读导航见[模型索引](model-catalog.md)，自动同步后的当前模型文件列表见[版本状态](upstream-status.md)。这两个来源在首次收录时没有 Git 子模块或 LFS 指针文件。
 
 TSLib 内同名模型与独立原版各自保留，来源锁定清单分别记录，便于核对实现差异。新增导航和研究目录将它们组织到同一工作区，训练入口与环境仍按各自源码管理。
 
@@ -50,7 +52,7 @@ python tools/verify_sources.py
 
 校验工具用标准库重新计算原始文件的 Git blob 哈希，与清单中的固定版本比较。它用于判断当前基线文件是否仍与导入版本一致，不验证模型数值正确性或实验可复现性。
 
-将来更新某个上游时，建议单独提交：先记录新的上游提交，再更新该项目快照、来源清单和变更日志，最后复查自己的改进与新版本的差异。已有研究实验继续引用其实际使用的旧提交。
+自动同步在通过文件校验后提交新的源码、来源清单与[同步历史](upstream-sync-history.md)。运行和触发方式见[同步说明](upstream-sync.md)。已有研究实验继续引用其实际使用的旧提交；源码更新后需要重新核查个人改进与新版本的差异。
 
 ## 许可证与数据
 

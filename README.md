@@ -1,6 +1,10 @@
 # zpb-time-series-research
 
-个人时间序列预测研究工作区，集中整理 **EMAformer、Pyraformer、Informer2020、Autoformer、ETSformer、Time-LLM** 六个独立项目，以及 **完整的 Time-Series-Library（TSLib）**，便于阅读、对比和开展改进实验。
+个人时间序列研究工作区，将已收录的模型逐个展开，按技术路线统一分类。EMAformer、Pyraformer、Informer、Autoformer、ETSformer、Time-LLM 与 TSLib 的全部模型在同一目录中查找；同名模型同时提供独立原版和库内实现入口。
+
+[![Upstream sync](https://github.com/zhaopengbo-0702/zpb-time-series-research/actions/workflows/sync-upstreams.yml/badge.svg)](https://github.com/zhaopengbo-0702/zpb-time-series-research/actions/workflows/sync-upstreams.yml)
+
+每天北京时间约 **10:20** 自动检查七个上游，有更新时同步原始源码、来源锁定和同步历史。也可以在 [Actions](https://github.com/zhaopengbo-0702/zpb-time-series-research/actions/workflows/sync-upstreams.yml) 点击 **Run workflow** 立即执行。查看[当前版本](docs/upstream-status.md)与[同步说明](docs/upstream-sync.md)。
 
 ## 从这里开始
 
@@ -10,11 +14,38 @@
 | 查模型、注意力、嵌入、数据加载代码 | [源码导航](docs/model-guide.md) |
 | 查环境、数据位置和训练命令 | [运行指南](docs/running-baselines.md) |
 | 查上游版本、导入范围和来源校验 | [来源记录](docs/upstream-sources.md) · [版本锁定清单](sources.lock.json) |
+| 同步上游、查看执行结果 | [自动同步说明](docs/upstream-sync.md) · [同步历史](docs/upstream-sync-history.md) |
 | 写自己的模型和改进思路 | [研究工作区](research/README.md) |
 | 记录配置、消融实验与结果 | [实验管理](experiments/README.md) |
 | 整理数据来源、划分和预处理 | [数据索引](data/README.md) |
 
-## 六个独立项目
+## 全部模型，按技术路线分类
+
+**从[统一模型目录](docs/model-catalog.md)开始**。六个独立项目与 TSLib 内全部模型合并整理，同名模型以一个条目提供两个实现入口。当前总数和各分类数量随上游同步自动生成。
+
+<!-- MODEL_CATALOG_START -->
+
+当前 **43 个模型家族**，按主要建模机制分类。每个模型名称都直接链接到源码。
+
+| 分类 | 全部模型 |
+| --- | --- |
+| [线性与MLP](docs/model-catalog.md#category-linear_mlp) | [DLinear](libraries/Time-Series-Library/models/DLinear.py) · [LightTS](libraries/Time-Series-Library/models/LightTS.py) · [TiDE](libraries/Time-Series-Library/models/TiDE.py) · [TSMixer](libraries/Time-Series-Library/models/TSMixer.py) |
+| [循环与卷积](docs/model-catalog.md#category-recurrent_convolution) | [MICN](libraries/Time-Series-Library/models/MICN.py) · [SCINet](libraries/Time-Series-Library/models/SCINet.py) · [SegRNN](libraries/Time-Series-Library/models/SegRNN.py) · [TimesNet](libraries/Time-Series-Library/models/TimesNet.py) |
+| [Transformer与注意力](docs/model-catalog.md#category-transformer_attention) | [Crossformer](libraries/Time-Series-Library/models/Crossformer.py) · [EMAformer](baselines/EMAformer/model/EMAformer.py) · [Informer](baselines/Informer2020/models/model.py) · [iTransformer](libraries/Time-Series-Library/models/iTransformer.py) · [MultiPatchFormer](libraries/Time-Series-Library/models/MultiPatchFormer.py) · [Nonstationary_Transformer](libraries/Time-Series-Library/models/Nonstationary_Transformer.py) · [PatchTST](libraries/Time-Series-Library/models/PatchTST.py) · [PAttn](libraries/Time-Series-Library/models/PAttn.py) · [Pyraformer](baselines/Pyraformer/pyraformer/Pyraformer_LR.py) · [Reformer](libraries/Time-Series-Library/models/Reformer.py) · [TemporalFusionTransformer](libraries/Time-Series-Library/models/TemporalFusionTransformer.py) · [TimeXer](libraries/Time-Series-Library/models/TimeXer.py) · [Transformer](libraries/Time-Series-Library/models/Transformer.py) |
+| [分解平滑频域](docs/model-catalog.md#category-decomposition_frequency) | [Autoformer](baselines/Autoformer/models/Autoformer.py) · [ETSformer](baselines/ETSformer/models/etsformer/model.py) · [FEDformer](libraries/Time-Series-Library/models/FEDformer.py) · [FreTS](libraries/Time-Series-Library/models/FreTS.py) · [TimeMixer](libraries/Time-Series-Library/models/TimeMixer.py) · [WPMixer](libraries/Time-Series-Library/models/WPMixer.py) |
+| [状态空间动力学](docs/model-catalog.md#category-state_space_dynamics) | [FiLM](libraries/Time-Series-Library/models/FiLM.py) · [Koopa](libraries/Time-Series-Library/models/Koopa.py) · [Mamba](libraries/Time-Series-Library/models/Mamba.py) · [MambaSimple](libraries/Time-Series-Library/models/MambaSimple.py) · [MambaSingleLayer](libraries/Time-Series-Library/models/MambaSingleLayer.py) |
+| [图结构](docs/model-catalog.md#category-graph) | [MSGNet](libraries/Time-Series-Library/models/MSGNet.py) · [TimeFilter](libraries/Time-Series-Library/models/TimeFilter.py) |
+| [LLM重编程](docs/model-catalog.md#category-llm_reprogramming) | [Time-LLM](baselines/Time-LLM/models/TimeLLM.py) |
+| [预训练时序模型](docs/model-catalog.md#category-pretrained_foundation) | [Chronos](libraries/Time-Series-Library/models/Chronos.py) · [Chronos2](libraries/Time-Series-Library/models/Chronos2.py) · [Moirai](libraries/Time-Series-Library/models/Moirai.py) · [Sundial](libraries/Time-Series-Library/models/Sundial.py) · [TimeMoE](libraries/Time-Series-Library/models/TimeMoE.py) · [TimesFM](libraries/Time-Series-Library/models/TimesFM.py) · [TiRex](libraries/Time-Series-Library/models/TiRex.py) |
+| [专用异常检测](docs/model-catalog.md#category-anomaly_specialized) | [KANAD](libraries/Time-Series-Library/models/KANAD.py) |
+
+<!-- MODEL_CATALOG_END -->
+
+各分类的完整模型、特点与源码入口均在[统一模型目录](docs/model-catalog.md)逐项展开。自动同步发现的新模型也会加入目录，尚未审定的类别放入“待分类”。这里的“全部”指已收录上游中的全部模型文件。
+
+## 独立原版来源
+
+以下六个仓库提供独立原版入口；它们也已作为模型条目列入上方统一目录。
 
 | 模型 | 主要思路 | 原版源码 | 核心模型 | 训练入口 | 论文 / 上游 |
 | --- | --- | --- | --- | --- | --- |
@@ -27,9 +58,9 @@
 
 按技术主题查找时：嵌入设计先看 EMAformer，多尺度结构先看 Pyraformer，稀疏注意力先看 Informer，分解与周期聚合先看 Autoformer，指数平滑与频率建模先看 ETSformer，语言模型重编程先看 Time-LLM。
 
-## 完整时间序列库
+## 完整库源码与任务流程
 
-[Time-Series-Library](libraries/Time-Series-Library/) 放在 `libraries/`，保留该固定提交的 **全部 368 个原始文件**，包括 41 个模型模块文件、实验类、数据加载、组件、任务脚本、教程、中英文 README 和 Docker 部署文件。
+[Time-Series-Library](libraries/Time-Series-Library/) 放在 `libraries/`，保留锁定提交的**全部原始文件**，包括模型模块、实验类、数据加载、组件、任务脚本、教程、中英文 README 和 Docker 部署文件。当前文件数量见[版本状态](docs/upstream-status.md)，模型名称见[模型目录](docs/model-catalog.md)。
 
 | 想查什么 | 入口 |
 | --- | --- |
@@ -41,7 +72,7 @@
 | 中文说明与入门教程 | [README_zh.md](libraries/Time-Series-Library/README_zh.md) · [tutorial/](libraries/Time-Series-Library/tutorial/) |
 | 上游论文与项目 | [综述](https://arxiv.org/abs/2407.13278) · [上游](https://github.com/thuml/Time-Series-Library) |
 
-TSLib 内的 Autoformer、Informer、Pyraformer、ETSformer 是该库集成后的实现，独立原版保留在 `baselines/`。查原论文代码时看独立项目；采用库内实验流程时看 TSLib。各实现使用不同环境与任务配置，比较前按[运行指南](docs/running-baselines.md)对齐实验设置。
+TSLib 内的 Autoformer、Informer、Pyraformer、ETSformer 是该库集成后的实现，独立原版保留在 `baselines/`。它们在统一目录中并列提供两个入口。各实现使用不同环境与任务配置，比较前按[运行指南](docs/running-baselines.md)对齐实验设置。
 
 ## 目录结构
 
@@ -80,6 +111,6 @@ python tools/verify_sources.py
 
 阅读代码无需安装训练依赖。开始运行时，进入对应的 `baselines/<模型名>/` 目录，按[运行指南](docs/running-baselines.md)分别准备环境与数据；本仓库根目录不提供合并的 `requirements.txt`。
 
-当前已完成 **7 个来源、679 个原始文件**的归档与逐文件来源校验。完整范围是固定提交中受 Git 跟踪的全部文件；训练数据和外部模型权重按各项目要求另行准备。模型训练和论文指标复现尚未执行。Pyraformer 的可选 TVM gitlink 状态见[来源记录](docs/upstream-sources.md)。
+已建立 **7 个来源**的归档与逐文件来源校验，当前文件数和提交见[版本状态](docs/upstream-status.md)。完整范围是锁定提交中受 Git 跟踪的全部文件；训练数据和外部模型权重按各项目要求另行准备。模型训练和论文指标复现尚未执行。Pyraformer 的可选 TVM gitlink 状态见[来源记录](docs/upstream-sources.md)。
 
 后续改进可先在 `research/` 下建立独立版本，通过实验记录保存基线提交、配置和结果。各上游论文的引用条目保留在对应原 README 中；许可证说明见 [LICENSES.md](LICENSES.md)。
