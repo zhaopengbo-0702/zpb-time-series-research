@@ -36,10 +36,10 @@ SCINet 的想法是把时间交错的观测拆成两组，让它们分别加工�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/SCINet.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-08/models/SCINet.py) | `Model` | [查看](../../../_sources/source-08/) |
-| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/scinet/_scinet_forecaster_v2.py) | `SCINetForecaster` | [查看](../../../_sources/source-11/) |
-| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/scinet/_scinet_v2.py) | `SCINet_v2` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/SCINet.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-08/models/SCINet.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/scinet/_scinet_forecaster_v2.py) | `SCINetForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/scinet/_scinet_v2.py) | `SCINet_v2` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

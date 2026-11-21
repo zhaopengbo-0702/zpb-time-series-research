@@ -36,7 +36,7 @@ Inception 模块并行进行多尺度一维卷积与池化分支，通过拼接�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTime.py) | `InceptionTime` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTime.py) | `InceptionTime` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

@@ -38,7 +38,7 @@ Plus 并不表示特征骨干变为全面端到端学习，阈值拟合范围仍
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKETPlus_Pytorch.py) | `MiniRocketPlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKETPlus_Pytorch.py) | `MiniRocketPlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

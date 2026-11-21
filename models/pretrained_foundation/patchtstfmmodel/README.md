@@ -36,7 +36,7 @@ patch 编码器配合分位数头生成概率预测，默认只输出中位数�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/patchtst_fm_model.py) | `PatchTSTFMModel` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/patchtst_fm_model.py) | `PatchTSTFMModel` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

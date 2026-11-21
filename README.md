@@ -1572,12 +1572,12 @@
 
 | 模型库 | 主要内容 | 本仓库完整源码 | 项目出处 |
 | --- | --- | --- | --- |
-| Time-Series-Library | 多任务时序模型、预测、插补、异常检测、分类与预训练模型接口 | [完整源码](_sources/source-07/) | [原项目](https://github.com/thuml/Time-Series-Library) |
-| TimeSeriesLibrary · ZJ | 模型、组件、任务脚本和教程 | [完整源码](_sources/source-08/) | [原项目](https://github.com/ZJ-LuoGuangQing/TimeSeriesLibrary) |
-| tsai | 时间序列分类、回归、预测与网络变体 | [完整源码](_sources/source-09/) | [原项目](https://github.com/timeseriesAI/tsai) |
-| NeuralForecast | 神经预测、训练与滚动评估接口 | [完整源码](_sources/source-10/) | [原项目](https://github.com/Nixtla/neuralforecast) |
-| PyTorch Forecasting | 数据集、神经预测器、概率损失与训练接口 | [完整源码](_sources/source-11/) | [原项目](https://github.com/sktime/pytorch-forecasting) |
-| Darts | 统计预测、机器学习、深度预测与集成 | [完整源码](_sources/source-12/) | [原项目](https://github.com/unit8co/darts) |
+| Time-Series-Library | 多任务时序模型、预测、插补、异常检测、分类与预训练模型接口 | [完整源码](_sources/source-07/README.md) | [原项目](https://github.com/thuml/Time-Series-Library) |
+| TimeSeriesLibrary · ZJ | 模型、组件、任务脚本和教程 | [完整源码](_sources/source-08/README.md) | [原项目](https://github.com/ZJ-LuoGuangQing/TimeSeriesLibrary) |
+| tsai | 时间序列分类、回归、预测与网络变体 | [完整源码](_sources/source-09/README.md) | [原项目](https://github.com/timeseriesAI/tsai) |
+| NeuralForecast | 神经预测、训练与滚动评估接口 | [完整源码](_sources/source-10/README.md) | [原项目](https://github.com/Nixtla/neuralforecast) |
+| PyTorch Forecasting | 数据集、神经预测器、概率损失与训练接口 | [完整源码](_sources/source-11/README.md) | [原项目](https://github.com/sktime/pytorch-forecasting) |
+| Darts | 统计预测、机器学习、深度预测与集成 | [完整源码](_sources/source-12/README.md) | [原项目](https://github.com/unit8co/darts) |
 
 上述库的原始文件、教程、测试、示例与已有资源均完整保留。按项目查看教程和接口时使用[模型库指南](docs/library-guide.md)；按模型查找时使用上方统一目录。
 

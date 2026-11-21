@@ -36,8 +36,8 @@ RecurrentNetwork 把一个循环预测器包装成完整的编码与解码流程
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/rnn/_rnn.py) | `RecurrentNetwork` | [查看](../../../_sources/source-11/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/rnn/_rnn_pkg.py) | `RecurrentNetwork_pkg` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/rnn/_rnn.py) | `RecurrentNetwork` | [查看](../../../_sources/source-11/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/rnn/_rnn_pkg.py) | `RecurrentNetwork_pkg` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

@@ -36,7 +36,7 @@
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/sf_auto_ets.py) | `AutoETS` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/sf_auto_ets.py) | `AutoETS` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

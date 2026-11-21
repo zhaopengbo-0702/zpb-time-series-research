@@ -1,6 +1,6 @@
 # 模型阅读路线
 
-[模型目录](model-catalog.md) · [按分类浏览模型](../models/) · [实现与版本说明](upstream-sources.md)
+[模型目录](model-catalog.md) · [按分类浏览模型](../models/README.md) · [实现与版本说明](upstream-sources.md)
 
 从[模型目录](model-catalog.md)点击名称，先读该模型的五部分介绍：这是什么、核心思路、适用问题、局限与边界、阅读建议。需要深入研究时，再进入页面后半部分选择实现编号，查看核心文件、运行入口和工作目录。同一模型的不同实现并列展示。
 

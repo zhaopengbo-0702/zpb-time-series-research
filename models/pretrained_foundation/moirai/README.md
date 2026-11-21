@@ -38,7 +38,7 @@ Moirai 入口把历史交给已有的通用时序预测模型。本次简单包�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/Moirai.py) | `Model` | [查看](../../../_sources/source-07/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/Moirai.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
 
 <a id="运行方式"></a>
 

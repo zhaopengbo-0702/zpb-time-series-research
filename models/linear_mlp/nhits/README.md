@@ -36,12 +36,12 @@
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/nhits.py) | `NHITS` | [查看](../../../_sources/source-10/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits.py) | `NHiTS` | [查看](../../../_sources/source-11/) |
-| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits_forecaster_v2.py) | `NHiTSForecaster` | [查看](../../../_sources/source-11/) |
-| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits_pkg.py) | `NHiTS_pkg` | [查看](../../../_sources/source-11/) |
-| 实现5 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits_v2.py) | `NHiTS_v2` | [查看](../../../_sources/source-11/) |
-| 实现6 | [核心文件](../../../_sources/source-12/darts/models/forecasting/nhits.py) | `NHiTSModel` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/nhits.py) | `NHITS` | [查看](../../../_sources/source-10/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits.py) | `NHiTS` | [查看](../../../_sources/source-11/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits_forecaster_v2.py) | `NHiTSForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits_pkg.py) | `NHiTS_pkg` | [查看](../../../_sources/source-11/README.md) |
+| 实现5 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nhits/_nhits_v2.py) | `NHiTS_v2` | [查看](../../../_sources/source-11/README.md) |
+| 实现6 | [核心文件](../../../_sources/source-12/darts/models/forecasting/nhits.py) | `NHiTSModel` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

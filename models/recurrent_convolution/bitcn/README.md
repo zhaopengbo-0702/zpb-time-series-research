@@ -36,7 +36,7 @@ BiTCN 把两类信息分别处理：已经发生的目标与历史特征走一�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/bitcn.py) | `BiTCN` | [查看](../../../_sources/source-10/) |
+| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/bitcn.py) | `BiTCN` | [查看](../../../_sources/source-10/README.md) |
 
 <a id="运行方式"></a>
 

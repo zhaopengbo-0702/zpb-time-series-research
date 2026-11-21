@@ -38,7 +38,7 @@ TSiTPlus 将视觉 Transformer 一类的 token 编码思路适配到时间序列
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TSiTPlus.py) | `TSiTPlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TSiTPlus.py) | `TSiTPlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

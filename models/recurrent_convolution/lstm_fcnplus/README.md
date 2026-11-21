@@ -38,7 +38,7 @@ LSTM_FCNPlus 同时走两条路：长短期记忆单元提取顺序表示，全�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/RNN_FCNPlus.py) | `LSTM_FCNPlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/RNN_FCNPlus.py) | `LSTM_FCNPlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

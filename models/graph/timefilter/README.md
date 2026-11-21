@@ -36,7 +36,7 @@ patch 嵌入后，模型构造时间内、变量间及联合关系掩码，通�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/TimeFilter.py) | `Model` | [查看](../../../_sources/source-07/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/TimeFilter.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
 
 <a id="运行方式"></a>
 

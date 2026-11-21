@@ -36,13 +36,13 @@ TemporalFusionTransformer 将历史目标、已知未来特征和静态属性分
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/TemporalFusionTransformer.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-08/models/TemporalFusionTransformer.py) | `Model` | [查看](../../../_sources/source-08/) |
-| 实现3 | [核心文件](../../../_sources/source-10/neuralforecast/models/tft.py) | `TFT` | [查看](../../../_sources/source-10/) |
-| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft.py) | `TemporalFusionTransformer` | [查看](../../../_sources/source-11/) |
-| 实现5 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_forecaster_v2.py) | `TFTForecaster` | [查看](../../../_sources/source-11/) |
-| 实现6 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_pkg.py) | `TemporalFusionTransformer_pkg` | [查看](../../../_sources/source-11/) |
-| 实现7 | [核心文件](../../../_sources/source-12/darts/models/forecasting/tft_model.py) | `TFTModel` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/TemporalFusionTransformer.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-08/models/TemporalFusionTransformer.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-10/neuralforecast/models/tft.py) | `TFT` | [查看](../../../_sources/source-10/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft.py) | `TemporalFusionTransformer` | [查看](../../../_sources/source-11/README.md) |
+| 实现5 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_forecaster_v2.py) | `TFTForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现6 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/temporal_fusion_transformer/_tft_pkg.py) | `TemporalFusionTransformer_pkg` | [查看](../../../_sources/source-11/README.md) |
+| 实现7 | [核心文件](../../../_sources/source-12/darts/models/forecasting/tft_model.py) | `TFTModel` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

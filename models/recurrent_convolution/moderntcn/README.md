@@ -36,8 +36,8 @@ ModernTCN 用较大的时间卷积核看更长的局部上下文，同时把时�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_forecaster_v2.py) | `ModernTCNForecaster` | [查看](../../../_sources/source-11/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py) | `ModernTCN` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_forecaster_v2.py) | `ModernTCNForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py) | `ModernTCN` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

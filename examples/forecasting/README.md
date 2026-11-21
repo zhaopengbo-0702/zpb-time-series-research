@@ -35,11 +35,11 @@ python -m zpbts compare experiments/local/seasonal experiments/local/dlinear exp
 
 每个结果目录均有配置、完整指标与逐点预测：
 
-- [NaiveMean](results/naivemean/)
-- [NaiveSeasonal](results/naiveseasonal/)
-- [NaiveDrift](results/naivedrift/)
-- [DLinear](results/dlinear/)
-- [TSMixer](results/tsmixer/)
+- [NaiveMean](https://github.com/zhaopengbo-0702/zpb-time-series-research/tree/main/examples/forecasting/results/naivemean)
+- [NaiveSeasonal](https://github.com/zhaopengbo-0702/zpb-time-series-research/tree/main/examples/forecasting/results/naiveseasonal)
+- [NaiveDrift](https://github.com/zhaopengbo-0702/zpb-time-series-research/tree/main/examples/forecasting/results/naivedrift)
+- [DLinear](https://github.com/zhaopengbo-0702/zpb-time-series-research/tree/main/examples/forecasting/results/dlinear)
+- [TSMixer](https://github.com/zhaopengbo-0702/zpb-time-series-research/tree/main/examples/forecasting/results/tsmixer)
 - [完整比较表](results/comparison.md)
 
 神经模型记录真实源码路径及提交、训练窗口数、优化步数、每轮损失与训练段归一化参数。公开记录将本机解释器和模型文件的绝对路径改成可移植名称；数值结果保持实测值。发布前运行时工作树有改动，故环境信息保留原 HEAD、dirty 标记及实际工作区代码 SHA-256。

@@ -36,7 +36,7 @@ HydraPlus 让一组随机卷积核互相竞争，统计哪些核在不同位置�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/HydraPlus.py) | `HydraPlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/HydraPlus.py) | `HydraPlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

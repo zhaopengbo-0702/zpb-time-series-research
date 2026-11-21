@@ -36,10 +36,10 @@
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp.py) | `DecoderMLP` | [查看](../../../_sources/source-11/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_forecaster_v2.py) | `DecoderMLPForecaster` | [查看](../../../_sources/source-11/) |
-| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_pkg.py) | `DecoderMLP_pkg` | [查看](../../../_sources/source-11/) |
-| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_v2.py) | `DecoderMLP_v2` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp.py) | `DecoderMLP` | [查看](../../../_sources/source-11/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_forecaster_v2.py) | `DecoderMLPForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_pkg.py) | `DecoderMLP_pkg` | [查看](../../../_sources/source-11/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/mlp/_decodermlp_v2.py) | `DecoderMLP_v2` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

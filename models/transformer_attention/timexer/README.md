@@ -36,12 +36,12 @@ TimeXer 区分真正要预测的目标序列和辅助外生变量。它让目标
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/TimeXer.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-08/models/TimeXer.py) | `Model` | [查看](../../../_sources/source-08/) |
-| 实现3 | [核心文件](../../../_sources/source-10/neuralforecast/models/timexer.py) | `TimeXer` | [查看](../../../_sources/source-10/) |
-| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/timexer/_timexer.py) | `TimeXer` | [查看](../../../_sources/source-11/) |
-| 实现5 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/timexer/_timexer_forecaster_v2.py) | `TimeXerForecaster` | [查看](../../../_sources/source-11/) |
-| 实现6 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/timexer/_timexer_pkg.py) | `TimeXer_pkg` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/TimeXer.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-08/models/TimeXer.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-10/neuralforecast/models/timexer.py) | `TimeXer` | [查看](../../../_sources/source-10/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/timexer/_timexer.py) | `TimeXer` | [查看](../../../_sources/source-11/README.md) |
+| 实现5 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/timexer/_timexer_forecaster_v2.py) | `TimeXerForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现6 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/timexer/_timexer_pkg.py) | `TimeXer_pkg` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

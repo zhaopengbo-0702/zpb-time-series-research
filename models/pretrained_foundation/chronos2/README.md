@@ -36,8 +36,8 @@ Chronos2 是调用第二代 Chronos 预训练预测模型的入口。它与第�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/Chronos2.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-12/darts/models/forecasting/chronos2_model.py) | `Chronos2Model` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/Chronos2.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-12/darts/models/forecasting/chronos2_model.py) | `Chronos2Model` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

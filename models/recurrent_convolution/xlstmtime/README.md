@@ -36,10 +36,10 @@ xLSTMTime 将扩展循环记忆用于时间序列预测，并配合分解和归�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm.py) | `xLSTMTime` | [查看](../../../_sources/source-11/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_forecaster_v2.py) | `xLSTMTimeForecaster` | [查看](../../../_sources/source-11/) |
-| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_pkg.py) | `xLSTMTime_pkg` | [查看](../../../_sources/source-11/) |
-| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_v2.py) | `xLSTMTime_v2` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm.py) | `xLSTMTime` | [查看](../../../_sources/source-11/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_forecaster_v2.py) | `xLSTMTimeForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_pkg.py) | `xLSTMTime_pkg` | [查看](../../../_sources/source-11/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/xlstm/_xlstm_v2.py) | `xLSTMTime_v2` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

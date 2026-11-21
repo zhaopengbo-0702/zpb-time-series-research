@@ -36,10 +36,10 @@ ProbSparse 注意力借助采样估计 query 的重要性，只对一部分 quer
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-03/models/model.py) | `Model` | [查看](../../../_sources/source-03/) |
-| 实现2 | [核心文件](../../../_sources/source-07/models/Informer.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现3 | [核心文件](../../../_sources/source-08/models/Informer.py) | `Model` | [查看](../../../_sources/source-08/) |
-| 实现4 | [核心文件](../../../_sources/source-10/neuralforecast/models/informer.py) | `Informer` | [查看](../../../_sources/source-10/) |
+| 实现1 | [核心文件](../../../_sources/source-03/models/model.py) | `Model` | [查看](../../../_sources/source-03/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-07/models/Informer.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-08/models/Informer.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-10/neuralforecast/models/informer.py) | `Informer` | [查看](../../../_sources/source-10/README.md) |
 
 <a id="运行方式"></a>
 

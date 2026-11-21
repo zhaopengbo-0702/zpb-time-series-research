@@ -36,7 +36,7 @@ OmniScaleCNN 用许多不同长度的卷积核覆盖局部模式，尝试减少�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/OmniScaleCNN.py) | `OmniScaleCNN` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/OmniScaleCNN.py) | `OmniScaleCNN` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

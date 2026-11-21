@@ -36,9 +36,9 @@ DeepAR 不只给出一个未来数值，还让循环网络描述下一步可能�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/deepar.py) | `DeepAR` | [查看](../../../_sources/source-10/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/deepar/_deepar.py) | `DeepAR` | [查看](../../../_sources/source-11/) |
-| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/deepar/_deepar_pkg.py) | `DeepAR_pkg` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/deepar.py) | `DeepAR` | [查看](../../../_sources/source-10/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/deepar/_deepar.py) | `DeepAR` | [查看](../../../_sources/source-11/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/deepar/_deepar_pkg.py) | `DeepAR_pkg` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

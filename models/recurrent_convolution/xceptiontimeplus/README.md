@@ -38,7 +38,7 @@ Plus 变体不保证比基础结构更好，多项可选设置会改变容量和
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/XceptionTimePlus.py) | `XceptionTimePlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/XceptionTimePlus.py) | `XceptionTimePlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

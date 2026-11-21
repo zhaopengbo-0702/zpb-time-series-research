@@ -36,8 +36,8 @@ Samformer 关注较浅的注意力结构能否做好预测，并把变量间关�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/samformer/_samformer_forecaster_v2.py) | `SamformerForecaster` | [查看](../../../_sources/source-11/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/samformer/_samformer_v2.py) | `Samformer` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/samformer/_samformer_forecaster_v2.py) | `SamformerForecaster` | [查看](../../../_sources/source-11/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/samformer/_samformer_v2.py) | `Samformer` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

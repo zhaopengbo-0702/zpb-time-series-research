@@ -36,7 +36,7 @@ MSGNet 认为变量间的关系可能在不同时间尺度上不同。它先找�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/MSGNet.py) | `Model` | [查看](../../../_sources/source-07/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/MSGNet.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
 
 <a id="运行方式"></a>
 

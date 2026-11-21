@@ -11,6 +11,9 @@ import re
 from urllib.parse import quote
 
 
+REPOSITORY_TREE_URL = 'https://github.com/zhaopengbo-0702/zpb-time-series-research/tree/main/'
+
+
 INDEPENDENT = {
     'EMAformer': ('EMAformer', 'model/EMAformer.py', 'run.py'),
     'Pyraformer': ('Pyraformer', 'pyraformer/Pyraformer_LR.py', 'long_range_main.py'),
@@ -146,7 +149,7 @@ def model_inventory(root, manifest):
         for index, implementation in enumerate(family['implementations'], 1):
             implementation['label'] = '实现' + str(index)
     ordered = categories + ([] if any(item['id'] == 'unclassified' for item in categories) else [UNCATEGORIZED])
-    return {'metadata': metadata, 'categories': ordered, 'details': details,
+    return {'root': root, 'metadata': metadata, 'categories': ordered, 'details': details,
             'families': families, 'source_counts': counts, 'source_labels': labels,
             'family_count': len(families),
             'implementation_count': sum(len(item['implementations']) for item in families.values()),
@@ -155,6 +158,19 @@ def model_inventory(root, manifest):
 
 def href(target, prefix=''):
     return target if target.startswith(('https://', 'http://')) else prefix + quote(target, safe='/#')
+
+
+def directory_target(root, target):
+    """Make folder navigation explicit when Markdown is viewed at /blob/main/."""
+    path, separator, fragment = target.partition('#')
+    if not path.endswith('/'):
+        return target
+    directory = Path(root).joinpath(*PurePosixPath(path.rstrip('/')).parts)
+    if (directory / 'README.md').is_file():
+        result = path + 'README.md'
+    else:
+        result = REPOSITORY_TREE_URL + quote(path.rstrip('/'), safe='/')
+    return result + ('#' + fragment if separator else '')
 
 
 def anchor(label, target, prefix='', title=None):
@@ -267,7 +283,11 @@ def render_baselines_index():
     return '# 模型统一入口\n\n打开 [分类模型目录](../docs/model-catalog.md)，按模型名称查找同级项目目录。\n'
 
 
-def relative_link(label, target, directory):
+def relative_link(label, target, directory, root=None):
+    if root is not None:
+        target = directory_target(root, target)
+    if target.startswith(('https://', 'http://')):
+        return markdown_link(label, target)
     path, separator, fragment = target.partition('#')
     relative = posixpath.relpath(path, directory)
     if target.endswith('/'):
@@ -307,7 +327,7 @@ def render_model_readme(name, family, inventory):
             core += ' · ' + relative_link('单步核心', path, directory)
         rows.append('| ' + item['label'] + ' | ' + core + ' | `'
                     + item.get('class_name', 'Model') + '` | '
-                    + relative_link('查看', item['directory'] + '/', directory) + ' |')
+                    + relative_link('查看', item['directory'] + '/', directory, inventory['root']) + ' |')
     rows += ['', '<a id="运行方式"></a>', '', '## 运行方式', '',
              '选择对应实现，进入其完整目录后按参数脚本或使用文档运行。各实现的相对导入、数据路径和依赖保持原样。', '']
     for item in family['implementations']:

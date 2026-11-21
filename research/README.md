@@ -1,12 +1,12 @@
 # 自己的研究工作区
 
-全部模型从 [`../models/`](../models/) 按分类查找，自己的新代码和思路放在这里。
+全部模型从[统一模型目录](../models/README.md)按分类查找，自己的新代码和思路放在这里。
 
 | 内容 | 位置 | 命名示例 |
 | --- | --- | --- |
-| 新模型、改进模块、运行适配 | [models/](models/) | `ema_phase_v1/` |
-| 论文速读、代码阅读、研究想法 | [notes/](notes/) | `2026-11-21-autoformer-decomposition.md` |
-| 实验配置、消融与结果 | [../experiments/](../experiments/) | `exp-001-ema-phase/` |
+| 新模型、改进模块、运行适配 | [模型工作区](models/README.md) | `ema_phase_v1/` |
+| 论文速读、代码阅读、研究想法 | [研究笔记](notes/README.md) | `2026-11-21-autoformer-decomposition.md` |
+| 实验配置、消融与结果 | [实验管理](../experiments/README.md) | `exp-001-ema-phase/` |
 
 一个改进版本至少说明：基于哪个上游提交、改了什么、入口在哪里、依赖环境、如何运行。若复制上游文件再修改，保留原许可证与署名，标注修改内容。
 

@@ -36,7 +36,7 @@ TabTransformer 让一个类别特征的表示取决于同一条样本中的其�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TabTransformer.py) | `TabTransformer` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TabTransformer.py) | `TabTransformer` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

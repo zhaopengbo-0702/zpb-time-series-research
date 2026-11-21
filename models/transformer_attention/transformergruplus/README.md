@@ -36,7 +36,7 @@ GRU 变体并不保证更快或更准，实际表现依赖隐藏维度、序列�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TransformerRNNPlus.py) | `TransformerGRUPlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TransformerRNNPlus.py) | `TransformerGRUPlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

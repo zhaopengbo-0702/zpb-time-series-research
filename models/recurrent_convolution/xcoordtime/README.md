@@ -36,7 +36,7 @@ XCoordTime 把位置坐标与可分离卷积一起放入多尺度 Inception 结�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `XCoordTime` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `XCoordTime` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

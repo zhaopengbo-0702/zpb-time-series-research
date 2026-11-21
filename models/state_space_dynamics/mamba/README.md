@@ -36,8 +36,8 @@ Mamba 用持续更新的状态读取序列，并让部分状态更新参数随�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/Mamba.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-08/models/Mamba.py) | `Model` | [查看](../../../_sources/source-08/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/Mamba.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-08/models/Mamba.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
 
 <a id="运行方式"></a>
 

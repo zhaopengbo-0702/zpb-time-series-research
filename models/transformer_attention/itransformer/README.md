@@ -36,9 +36,9 @@ iTransformer 把常见 Transformer 的观察方向转了过来。一个 token �
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/iTransformer.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-08/models/iTransformer.py) | `Model` | [查看](../../../_sources/source-08/) |
-| 实现3 | [核心文件](../../../_sources/source-10/neuralforecast/models/itransformer.py) | `iTransformer` | [查看](../../../_sources/source-10/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/iTransformer.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-08/models/iTransformer.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-10/neuralforecast/models/itransformer.py) | `iTransformer` | [查看](../../../_sources/source-10/README.md) |
 
 <a id="运行方式"></a>
 

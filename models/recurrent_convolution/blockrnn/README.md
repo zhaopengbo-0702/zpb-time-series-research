@@ -38,7 +38,7 @@ BlockRNN 先让循环网络读完一段历史，再一次性给出一整块未�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/block_rnn_model.py) | `BlockRNNModel` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/block_rnn_model.py) | `BlockRNNModel` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

@@ -36,9 +36,9 @@ MiniRocket 用一组规则化的固定卷积核快速把序列变成很多数字
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKET.py) | `MiniRocketClassifier` | [查看](../../../_sources/source-09/) |
-| 实现2 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKET.py) | `MiniRocketRegressor` | [查看](../../../_sources/source-09/) |
-| 实现3 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKET_Pytorch.py) | `MiniRocket` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKET.py) | `MiniRocketClassifier` | [查看](../../../_sources/source-09/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKET.py) | `MiniRocketRegressor` | [查看](../../../_sources/source-09/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-09/tsai/models/MINIROCKET_Pytorch.py) | `MiniRocket` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

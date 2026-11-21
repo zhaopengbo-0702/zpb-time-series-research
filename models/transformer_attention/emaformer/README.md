@@ -36,7 +36,7 @@ EMAformer 是一种多变量预测模型。可以把它理解为先给每条变�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-01/model/EMAformer.py) | `Model` | [查看](../../../_sources/source-01/) |
+| 实现1 | [核心文件](../../../_sources/source-01/model/EMAformer.py) | `Model` | [查看](../../../_sources/source-01/README.md) |
 
 <a id="运行方式"></a>
 

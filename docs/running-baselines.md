@@ -1,6 +1,6 @@
 # 模型运行说明
 
-[模型目录](model-catalog.md) · [按分类浏览模型](../models/) · [实现与版本说明](upstream-sources.md)
+[模型目录](model-catalog.md) · [按分类浏览模型](../models/README.md) · [实现与版本说明](upstream-sources.md)
 
 先从模型介绍了解原理，再选择实验方式。DLinear、TSMixer 与三个朴素对照方法已接入[统一实验入口](integration.md)，共用配置、数据划分、指标和结果比较；完整命令与实测结果见[合成示例](../examples/forecasting/README.md)。
 

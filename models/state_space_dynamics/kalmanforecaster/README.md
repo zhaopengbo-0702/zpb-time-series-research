@@ -36,7 +36,7 @@ KalmanForecaster 假设观测背后有一个随时间演化的隐状态，用滤
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/kalman_forecaster.py) | `KalmanForecaster` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/kalman_forecaster.py) | `KalmanForecaster` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

@@ -36,8 +36,8 @@
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/MLP.py) | `MLP` | [查看](../../../_sources/source-09/) |
-| 实现2 | [核心文件](../../../_sources/source-10/neuralforecast/models/mlp.py) | `MLP` | [查看](../../../_sources/source-10/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/MLP.py) | `MLP` | [查看](../../../_sources/source-09/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-10/neuralforecast/models/mlp.py) | `MLP` | [查看](../../../_sources/source-10/README.md) |
 
 <a id="运行方式"></a>
 

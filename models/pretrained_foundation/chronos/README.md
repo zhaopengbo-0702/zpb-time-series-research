@@ -38,7 +38,7 @@ Chronos 这一入口复用已经训练好的时序模型，先做零样本预测
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/Chronos.py) | `Model` | [查看](../../../_sources/source-07/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/Chronos.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
 
 <a id="运行方式"></a>
 

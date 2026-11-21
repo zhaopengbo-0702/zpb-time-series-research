@@ -36,8 +36,8 @@ KAN 的可解释性取决于具体函数与组合方式，并非网络名字自�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan.py) | `NBeatsKAN` | [查看](../../../_sources/source-11/) |
-| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan_pkg.py) | `NBeatsKAN_pkg` | [查看](../../../_sources/source-11/) |
+| 实现1 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan.py) | `NBeatsKAN` | [查看](../../../_sources/source-11/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-11/pytorch_forecasting/models/nbeats/_nbeatskan_pkg.py) | `NBeatsKAN_pkg` | [查看](../../../_sources/source-11/README.md) |
 
 <a id="运行方式"></a>
 

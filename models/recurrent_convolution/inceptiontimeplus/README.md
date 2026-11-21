@@ -38,12 +38,12 @@ InceptionTimePlus 将多尺度卷积模型拆成骨干和任务头，并开放�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus` | [查看](../../../_sources/source-09/) |
-| 实现2 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus17x17` | [查看](../../../_sources/source-09/) |
-| 实现3 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus32x32` | [查看](../../../_sources/source-09/) |
-| 实现4 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus47x47` | [查看](../../../_sources/source-09/) |
-| 实现5 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus62x62` | [查看](../../../_sources/source-09/) |
-| 实现6 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimeXLPlus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus` | [查看](../../../_sources/source-09/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus17x17` | [查看](../../../_sources/source-09/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus32x32` | [查看](../../../_sources/source-09/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus47x47` | [查看](../../../_sources/source-09/README.md) |
+| 实现5 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimePlus62x62` | [查看](../../../_sources/source-09/README.md) |
+| 实现6 | [核心文件](../../../_sources/source-09/tsai/models/InceptionTimePlus.py) | `InceptionTimeXLPlus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

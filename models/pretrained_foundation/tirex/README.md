@@ -36,8 +36,8 @@ TiRex 入口调用预训练的时序模型预测未来。它保留简单零样�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-07/models/TiRex.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现2 | [核心文件](../../../_sources/source-12/darts/models/forecasting/tirex_model.py) | `TiRexModel` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-07/models/TiRex.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-12/darts/models/forecasting/tirex_model.py) | `TiRexModel` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

@@ -36,9 +36,9 @@ Pyraformer 把一条长序列组织成金字塔。底层看细节，上层看更
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-02/pyraformer/Pyraformer_LR.py) · [单步核心](../../../_sources/source-02/pyraformer/Pyraformer_SS.py) | `Model` | [查看](../../../_sources/source-02/) |
-| 实现2 | [核心文件](../../../_sources/source-07/models/Pyraformer.py) | `Model` | [查看](../../../_sources/source-07/) |
-| 实现3 | [核心文件](../../../_sources/source-08/models/Pyraformer.py) | `Model` | [查看](../../../_sources/source-08/) |
+| 实现1 | [核心文件](../../../_sources/source-02/pyraformer/Pyraformer_LR.py) · [单步核心](../../../_sources/source-02/pyraformer/Pyraformer_SS.py) | `Model` | [查看](../../../_sources/source-02/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-07/models/Pyraformer.py) | `Model` | [查看](../../../_sources/source-07/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-08/models/Pyraformer.py) | `Model` | [查看](../../../_sources/source-08/README.md) |
 
 <a id="运行方式"></a>
 

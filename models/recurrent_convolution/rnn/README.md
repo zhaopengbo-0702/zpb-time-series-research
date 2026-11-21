@@ -36,9 +36,9 @@ RNN 把一段序列逐步读入同一个普通循环单元，用一个随输入�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/RNN.py) | `RNN` | [查看](../../../_sources/source-09/) |
-| 实现2 | [核心文件](../../../_sources/source-10/neuralforecast/models/rnn.py) | `RNN` | [查看](../../../_sources/source-10/) |
-| 实现3 | [核心文件](../../../_sources/source-12/darts/models/forecasting/rnn_model.py) | `RNNModel` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/RNN.py) | `RNN` | [查看](../../../_sources/source-09/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-10/neuralforecast/models/rnn.py) | `RNN` | [查看](../../../_sources/source-10/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-12/darts/models/forecasting/rnn_model.py) | `RNNModel` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

@@ -36,7 +36,7 @@ XceptionTime 把多尺度卷积与深度可分离卷积结合。它用不同时�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/XceptionTime.py) | `XceptionTime` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/XceptionTime.py) | `XceptionTime` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

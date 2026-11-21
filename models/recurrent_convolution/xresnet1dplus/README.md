@@ -36,18 +36,18 @@ XResNet1dPlus 将一维深度残差骨干与更灵活的输出构造结合。它
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `XResNet1dPlus` | [查看](../../../_sources/source-09/) |
-| 实现2 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d101plus` | [查看](../../../_sources/source-09/) |
-| 实现3 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d152plus` | [查看](../../../_sources/source-09/) |
-| 实现4 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d18_deeperplus` | [查看](../../../_sources/source-09/) |
-| 实现5 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d18_deepplus` | [查看](../../../_sources/source-09/) |
-| 实现6 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d18plus` | [查看](../../../_sources/source-09/) |
-| 实现7 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d34_deeperplus` | [查看](../../../_sources/source-09/) |
-| 实现8 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d34_deepplus` | [查看](../../../_sources/source-09/) |
-| 实现9 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d34plus` | [查看](../../../_sources/source-09/) |
-| 实现10 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d50_deeperplus` | [查看](../../../_sources/source-09/) |
-| 实现11 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d50_deepplus` | [查看](../../../_sources/source-09/) |
-| 实现12 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d50plus` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `XResNet1dPlus` | [查看](../../../_sources/source-09/README.md) |
+| 实现2 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d101plus` | [查看](../../../_sources/source-09/README.md) |
+| 实现3 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d152plus` | [查看](../../../_sources/source-09/README.md) |
+| 实现4 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d18_deeperplus` | [查看](../../../_sources/source-09/README.md) |
+| 实现5 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d18_deepplus` | [查看](../../../_sources/source-09/README.md) |
+| 实现6 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d18plus` | [查看](../../../_sources/source-09/README.md) |
+| 实现7 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d34_deeperplus` | [查看](../../../_sources/source-09/README.md) |
+| 实现8 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d34_deepplus` | [查看](../../../_sources/source-09/README.md) |
+| 实现9 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d34plus` | [查看](../../../_sources/source-09/README.md) |
+| 实现10 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d50_deeperplus` | [查看](../../../_sources/source-09/README.md) |
+| 实现11 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d50_deepplus` | [查看](../../../_sources/source-09/README.md) |
+| 实现12 | [核心文件](../../../_sources/source-09/tsai/models/XResNet1dPlus.py) | `xresnet1d50plus` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

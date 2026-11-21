@@ -36,7 +36,7 @@ TransformerModel 是一个通用序列编码网络接口，用注意力把输入
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TransformerModel.py) | `TransformerModel` | [查看](../../../_sources/source-09/) |
+| 实现1 | [核心文件](../../../_sources/source-09/tsai/models/TransformerModel.py) | `TransformerModel` | [查看](../../../_sources/source-09/README.md) |
 
 <a id="运行方式"></a>
 

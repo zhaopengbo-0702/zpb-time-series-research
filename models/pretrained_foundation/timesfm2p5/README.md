@@ -38,7 +38,7 @@ TimesFM 系列基础论文，不将其标为 2.5 权重版本的专属论文。
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/timesfm2p5_model.py) | `TimesFM2p5Model` | [查看](../../../_sources/source-12/) |
+| 实现1 | [核心文件](../../../_sources/source-12/darts/models/forecasting/timesfm2p5_model.py) | `TimesFM2p5Model` | [查看](../../../_sources/source-12/README.md) |
 
 <a id="运行方式"></a>
 

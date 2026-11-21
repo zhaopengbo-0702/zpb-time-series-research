@@ -36,7 +36,7 @@ xLSTM 延续循环记忆的思路，但把记忆单元与门控做得更丰富�
 
 | 实现 | 核心模型 | 模型类 | 完整目录 |
 | --- | --- | --- | --- |
-| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/xlstm.py) | `xLSTM` | [查看](../../../_sources/source-10/) |
+| 实现1 | [核心文件](../../../_sources/source-10/neuralforecast/models/xlstm.py) | `xLSTM` | [查看](../../../_sources/source-10/README.md) |
 
 <a id="运行方式"></a>
 
