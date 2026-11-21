@@ -1,0 +1,1593 @@
+{
+  "schema_version": 1,
+  "inventory_policy": "仅列公开可构建的完整模型、命名网络变体和预测适配器；不把层、骨干、损失、抽象基类、位置编码和工具函数计为模型。不同来源同家族合并展示，类名和源码位置保留。",
+  "sources": {
+    "neuralforecast": {
+      "label": "NeuralForecast",
+      "models": [
+        {
+          "name": "RNN",
+          "path": "neuralforecast/models/rnn.py",
+          "class_name": "RNN",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRU",
+          "path": "neuralforecast/models/gru.py",
+          "class_name": "GRU",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTM",
+          "path": "neuralforecast/models/lstm.py",
+          "class_name": "LSTM",
+          "entry": "README.md"
+        },
+        {
+          "name": "TCN",
+          "path": "neuralforecast/models/tcn.py",
+          "class_name": "TCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "DeepAR",
+          "path": "neuralforecast/models/deepar.py",
+          "class_name": "DeepAR",
+          "entry": "README.md"
+        },
+        {
+          "name": "DilatedRNN",
+          "path": "neuralforecast/models/dilated_rnn.py",
+          "class_name": "DilatedRNN",
+          "entry": "README.md"
+        },
+        {
+          "name": "MLP",
+          "path": "neuralforecast/models/mlp.py",
+          "class_name": "MLP",
+          "entry": "README.md"
+        },
+        {
+          "name": "NHITS",
+          "path": "neuralforecast/models/nhits.py",
+          "class_name": "NHITS",
+          "entry": "README.md"
+        },
+        {
+          "name": "NBEATS",
+          "path": "neuralforecast/models/nbeats.py",
+          "class_name": "NBEATS",
+          "entry": "README.md"
+        },
+        {
+          "name": "NBEATSx",
+          "path": "neuralforecast/models/nbeatsx.py",
+          "class_name": "NBEATSx",
+          "entry": "README.md"
+        },
+        {
+          "name": "DLinear",
+          "path": "neuralforecast/models/dlinear.py",
+          "class_name": "DLinear",
+          "entry": "README.md"
+        },
+        {
+          "name": "NLinear",
+          "path": "neuralforecast/models/nlinear.py",
+          "class_name": "NLinear",
+          "entry": "README.md"
+        },
+        {
+          "name": "TemporalFusionTransformer",
+          "path": "neuralforecast/models/tft.py",
+          "class_name": "TFT",
+          "entry": "README.md"
+        },
+        {
+          "name": "Transformer",
+          "path": "neuralforecast/models/vanillatransformer.py",
+          "class_name": "VanillaTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "Informer",
+          "path": "neuralforecast/models/informer.py",
+          "class_name": "Informer",
+          "entry": "README.md"
+        },
+        {
+          "name": "Autoformer",
+          "path": "neuralforecast/models/autoformer.py",
+          "class_name": "Autoformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "PatchTST",
+          "path": "neuralforecast/models/patchtst.py",
+          "class_name": "PatchTST",
+          "entry": "README.md"
+        },
+        {
+          "name": "FEDformer",
+          "path": "neuralforecast/models/fedformer.py",
+          "class_name": "FEDformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "StemGNN",
+          "path": "neuralforecast/models/stemgnn.py",
+          "class_name": "StemGNN",
+          "entry": "README.md"
+        },
+        {
+          "name": "HINT",
+          "path": "neuralforecast/models/hint.py",
+          "class_name": "HINT",
+          "entry": "README.md"
+        },
+        {
+          "name": "TimesNet",
+          "path": "neuralforecast/models/timesnet.py",
+          "class_name": "TimesNet",
+          "entry": "README.md"
+        },
+        {
+          "name": "Time-LLM",
+          "path": "neuralforecast/models/timellm.py",
+          "class_name": "TimeLLM",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSMixer",
+          "path": "neuralforecast/models/tsmixer.py",
+          "class_name": "TSMixer",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSMixerx",
+          "path": "neuralforecast/models/tsmixerx.py",
+          "class_name": "TSMixerx",
+          "entry": "README.md"
+        },
+        {
+          "name": "MLPMultivariate",
+          "path": "neuralforecast/models/mlpmultivariate.py",
+          "class_name": "MLPMultivariate",
+          "entry": "README.md"
+        },
+        {
+          "name": "iTransformer",
+          "path": "neuralforecast/models/itransformer.py",
+          "class_name": "iTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "BiTCN",
+          "path": "neuralforecast/models/bitcn.py",
+          "class_name": "BiTCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "TiDE",
+          "path": "neuralforecast/models/tide.py",
+          "class_name": "TiDE",
+          "entry": "README.md"
+        },
+        {
+          "name": "DeepNPTS",
+          "path": "neuralforecast/models/deepnpts.py",
+          "class_name": "DeepNPTS",
+          "entry": "README.md"
+        },
+        {
+          "name": "SOFTS",
+          "path": "neuralforecast/models/softs.py",
+          "class_name": "SOFTS",
+          "entry": "README.md"
+        },
+        {
+          "name": "SOFTSSharp",
+          "path": "neuralforecast/models/softssharp.py",
+          "class_name": "SOFTSSharp",
+          "entry": "README.md"
+        },
+        {
+          "name": "TimeMixer",
+          "path": "neuralforecast/models/timemixer.py",
+          "class_name": "TimeMixer",
+          "entry": "README.md"
+        },
+        {
+          "name": "KAN",
+          "path": "neuralforecast/models/kan.py",
+          "class_name": "KAN",
+          "entry": "README.md"
+        },
+        {
+          "name": "RMoK",
+          "path": "neuralforecast/models/rmok.py",
+          "class_name": "RMoK",
+          "entry": "README.md"
+        },
+        {
+          "name": "TimeXer",
+          "path": "neuralforecast/models/timexer.py",
+          "class_name": "TimeXer",
+          "entry": "README.md"
+        },
+        {
+          "name": "xLSTM",
+          "path": "neuralforecast/models/xlstm.py",
+          "class_name": "xLSTM",
+          "entry": "README.md"
+        },
+        {
+          "name": "XLinear",
+          "path": "neuralforecast/models/xlinear.py",
+          "class_name": "XLinear",
+          "entry": "README.md"
+        }
+      ]
+    },
+    "tsai": {
+      "label": "tsai",
+      "models": [
+        {
+          "name": "ConvTranPlus",
+          "path": "tsai/models/ConvTranPlus.py",
+          "class_name": "ConvTranPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "FCN",
+          "path": "tsai/models/FCN.py",
+          "class_name": "FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "FCNPlus",
+          "path": "tsai/models/FCNPlus.py",
+          "class_name": "FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "GatedTabTransformer",
+          "path": "tsai/models/GatedTabTransformer.py",
+          "class_name": "GatedTabTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "gMLP",
+          "path": "tsai/models/gMLP.py",
+          "class_name": "gMLP",
+          "entry": "README.md"
+        },
+        {
+          "name": "HydraMultiRocketPlus",
+          "path": "tsai/models/HydraMultiRocketPlus.py",
+          "class_name": "HydraMultiRocketPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "HydraPlus",
+          "path": "tsai/models/HydraPlus.py",
+          "class_name": "HydraPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "InceptionTime",
+          "path": "tsai/models/InceptionTime.py",
+          "class_name": "InceptionTime",
+          "entry": "README.md"
+        },
+        {
+          "name": "InceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InceptionTimePlus17x17",
+          "entry": "README.md",
+          "note": "InceptionTimePlus 的深度或宽度配置变体；不另计新算法。"
+        },
+        {
+          "name": "InceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InceptionTimePlus32x32",
+          "entry": "README.md",
+          "note": "InceptionTimePlus 的深度或宽度配置变体；不另计新算法。"
+        },
+        {
+          "name": "InceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InceptionTimePlus47x47",
+          "entry": "README.md",
+          "note": "InceptionTimePlus 的深度或宽度配置变体；不另计新算法。"
+        },
+        {
+          "name": "InceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InceptionTimePlus62x62",
+          "entry": "README.md",
+          "note": "InceptionTimePlus 的深度或宽度配置变体；不另计新算法。"
+        },
+        {
+          "name": "InceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InceptionTimeXLPlus",
+          "entry": "README.md",
+          "note": "InceptionTimePlus 的深度或宽度配置变体；不另计新算法。"
+        },
+        {
+          "name": "InceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InceptionTimePlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "InCoordTime",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "InCoordTime",
+          "entry": "README.md"
+        },
+        {
+          "name": "XCoordTime",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "XCoordTime",
+          "entry": "README.md"
+        },
+        {
+          "name": "MultiInceptionTimePlus",
+          "path": "tsai/models/InceptionTimePlus.py",
+          "class_name": "MultiInceptionTimePlus",
+          "entry": "README.md",
+          "note": "公开集成/多输入模型封装；不宣称独立论文算法。"
+        },
+        {
+          "name": "MiniRocket",
+          "path": "tsai/models/MINIROCKET.py",
+          "class_name": "MiniRocketClassifier",
+          "entry": "README.md"
+        },
+        {
+          "name": "MiniRocket",
+          "path": "tsai/models/MINIROCKET.py",
+          "class_name": "MiniRocketRegressor",
+          "entry": "README.md"
+        },
+        {
+          "name": "MiniRocketVotingClassifier",
+          "path": "tsai/models/MINIROCKET.py",
+          "class_name": "MiniRocketVotingClassifier",
+          "entry": "README.md",
+          "note": "公开集成/多输入模型封装；不宣称独立论文算法。"
+        },
+        {
+          "name": "MiniRocketVotingRegressor",
+          "path": "tsai/models/MINIROCKET.py",
+          "class_name": "MiniRocketVotingRegressor",
+          "entry": "README.md",
+          "note": "公开集成/多输入模型封装；不宣称独立论文算法。"
+        },
+        {
+          "name": "MiniRocket",
+          "path": "tsai/models/MINIROCKET_Pytorch.py",
+          "class_name": "MiniRocket",
+          "entry": "README.md"
+        },
+        {
+          "name": "MiniRocketPlus",
+          "path": "tsai/models/MINIROCKETPlus_Pytorch.py",
+          "class_name": "MiniRocketPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "InceptionRocketPlus",
+          "path": "tsai/models/MINIROCKETPlus_Pytorch.py",
+          "class_name": "InceptionRocketPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "MLP",
+          "path": "tsai/models/MLP.py",
+          "class_name": "MLP",
+          "entry": "README.md"
+        },
+        {
+          "name": "MultiInputNet",
+          "path": "tsai/models/MultiInputNet.py",
+          "class_name": "MultiInputNet",
+          "entry": "README.md",
+          "note": "公开集成/多输入模型封装；不宣称独立论文算法。"
+        },
+        {
+          "name": "MultiRocketPlus",
+          "path": "tsai/models/MultiRocketPlus.py",
+          "class_name": "MultiRocketPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "mWDN",
+          "path": "tsai/models/mWDN.py",
+          "class_name": "mWDN",
+          "entry": "README.md"
+        },
+        {
+          "name": "mWDNPlus",
+          "path": "tsai/models/mWDN.py",
+          "class_name": "mWDNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "OmniScaleCNN",
+          "path": "tsai/models/OmniScaleCNN.py",
+          "class_name": "OmniScaleCNN",
+          "entry": "README.md"
+        },
+        {
+          "name": "PatchTST",
+          "path": "tsai/models/PatchTST.py",
+          "class_name": "PatchTST",
+          "entry": "README.md"
+        },
+        {
+          "name": "ResCNN",
+          "path": "tsai/models/ResCNN.py",
+          "class_name": "ResCNN",
+          "entry": "README.md"
+        },
+        {
+          "name": "ResNet",
+          "path": "tsai/models/ResNet.py",
+          "class_name": "ResNet",
+          "entry": "README.md"
+        },
+        {
+          "name": "ResNetPlus",
+          "path": "tsai/models/ResNetPlus.py",
+          "class_name": "ResNetPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNN",
+          "path": "tsai/models/RNN.py",
+          "class_name": "RNN",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTM",
+          "path": "tsai/models/RNN.py",
+          "class_name": "LSTM",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRU",
+          "path": "tsai/models/RNN.py",
+          "class_name": "GRU",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNN_FCN",
+          "path": "tsai/models/RNN_FCN.py",
+          "class_name": "RNN_FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTM_FCN",
+          "path": "tsai/models/RNN_FCN.py",
+          "class_name": "LSTM_FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRU_FCN",
+          "path": "tsai/models/RNN_FCN.py",
+          "class_name": "GRU_FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "MRNN_FCN",
+          "path": "tsai/models/RNN_FCN.py",
+          "class_name": "MRNN_FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "MLSTM_FCN",
+          "path": "tsai/models/RNN_FCN.py",
+          "class_name": "MLSTM_FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "MGRU_FCN",
+          "path": "tsai/models/RNN_FCN.py",
+          "class_name": "MGRU_FCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNN_FCNPlus",
+          "path": "tsai/models/RNN_FCNPlus.py",
+          "class_name": "RNN_FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTM_FCNPlus",
+          "path": "tsai/models/RNN_FCNPlus.py",
+          "class_name": "LSTM_FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRU_FCNPlus",
+          "path": "tsai/models/RNN_FCNPlus.py",
+          "class_name": "GRU_FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "MRNN_FCNPlus",
+          "path": "tsai/models/RNN_FCNPlus.py",
+          "class_name": "MRNN_FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "MLSTM_FCNPlus",
+          "path": "tsai/models/RNN_FCNPlus.py",
+          "class_name": "MLSTM_FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "MGRU_FCNPlus",
+          "path": "tsai/models/RNN_FCNPlus.py",
+          "class_name": "MGRU_FCNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNNAttention",
+          "path": "tsai/models/RNNAttention.py",
+          "class_name": "RNNAttention",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTMAttention",
+          "path": "tsai/models/RNNAttention.py",
+          "class_name": "LSTMAttention",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRUAttention",
+          "path": "tsai/models/RNNAttention.py",
+          "class_name": "GRUAttention",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNNAttentionPlus",
+          "path": "tsai/models/RNNAttentionPlus.py",
+          "class_name": "RNNAttentionPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTMAttentionPlus",
+          "path": "tsai/models/RNNAttentionPlus.py",
+          "class_name": "LSTMAttentionPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRUAttentionPlus",
+          "path": "tsai/models/RNNAttentionPlus.py",
+          "class_name": "GRUAttentionPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNNPlus",
+          "path": "tsai/models/RNNPlus.py",
+          "class_name": "RNNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "LSTMPlus",
+          "path": "tsai/models/RNNPlus.py",
+          "class_name": "LSTMPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "GRUPlus",
+          "path": "tsai/models/RNNPlus.py",
+          "class_name": "GRUPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "ROCKET",
+          "path": "tsai/models/ROCKET.py",
+          "class_name": "RocketClassifier",
+          "entry": "README.md"
+        },
+        {
+          "name": "ROCKET",
+          "path": "tsai/models/ROCKET.py",
+          "class_name": "RocketRegressor",
+          "entry": "README.md"
+        },
+        {
+          "name": "ROCKET",
+          "path": "tsai/models/ROCKET_Pytorch.py",
+          "class_name": "ROCKET",
+          "entry": "README.md"
+        },
+        {
+          "name": "TabFusionTransformer",
+          "path": "tsai/models/TabFusionTransformer.py",
+          "class_name": "TabFusionTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSTabFusionTransformer",
+          "path": "tsai/models/TabFusionTransformer.py",
+          "class_name": "TSTabFusionTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "TabModel",
+          "path": "tsai/models/TabModel.py",
+          "class_name": "TabModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TabTransformer",
+          "path": "tsai/models/TabTransformer.py",
+          "class_name": "TabTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "TCN",
+          "path": "tsai/models/TCN.py",
+          "class_name": "TCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "TransformerModel",
+          "path": "tsai/models/TransformerModel.py",
+          "class_name": "TransformerModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TransformerRNNPlus",
+          "path": "tsai/models/TransformerRNNPlus.py",
+          "class_name": "TransformerRNNPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "TransformerLSTMPlus",
+          "path": "tsai/models/TransformerRNNPlus.py",
+          "class_name": "TransformerLSTMPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "TransformerGRUPlus",
+          "path": "tsai/models/TransformerRNNPlus.py",
+          "class_name": "TransformerGRUPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSiTPlus",
+          "path": "tsai/models/TSiTPlus.py",
+          "class_name": "TSiTPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSPerceiver",
+          "path": "tsai/models/TSPerceiver.py",
+          "class_name": "TSPerceiver",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSSequencerPlus",
+          "path": "tsai/models/TSSequencerPlus.py",
+          "class_name": "TSSequencerPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "TST",
+          "path": "tsai/models/TST.py",
+          "class_name": "TST",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSTPlus",
+          "path": "tsai/models/TSTPlus.py",
+          "class_name": "TSTPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "MultiTSTPlus",
+          "path": "tsai/models/TSTPlus.py",
+          "class_name": "MultiTSTPlus",
+          "entry": "README.md",
+          "note": "公开集成/多输入模型封装；不宣称独立论文算法。"
+        },
+        {
+          "name": "XceptionTime",
+          "path": "tsai/models/XceptionTime.py",
+          "class_name": "XceptionTime",
+          "entry": "README.md"
+        },
+        {
+          "name": "XceptionTimePlus",
+          "path": "tsai/models/XceptionTimePlus.py",
+          "class_name": "XceptionTimePlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "XCM",
+          "path": "tsai/models/XCM.py",
+          "class_name": "XCM",
+          "entry": "README.md"
+        },
+        {
+          "name": "XCMPlus",
+          "path": "tsai/models/XCMPlus.py",
+          "class_name": "XCMPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d18",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d34",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d50",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d101",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d152",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d18_deep",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d34_deep",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d50_deep",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d18_deeper",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d34_deeper",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1d",
+          "path": "tsai/models/XResNet1d.py",
+          "class_name": "xresnet1d50_deeper",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "XResNet1dPlus",
+          "entry": "README.md"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d18plus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d34plus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d50plus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d101plus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d152plus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d18_deepplus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d34_deepplus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d50_deepplus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d18_deeperplus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d34_deeperplus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        },
+        {
+          "name": "XResNet1dPlus",
+          "path": "tsai/models/XResNet1dPlus.py",
+          "class_name": "xresnet1d50_deeperplus",
+          "entry": "README.md",
+          "note": "同家族的深度或宽度配置工厂，保留真实调用名称；不另计新算法。"
+        }
+      ]
+    },
+    "pytorch-forecasting": {
+      "label": "PyTorch Forecasting",
+      "models": [
+        {
+          "name": "NBEATS",
+          "path": "pytorch_forecasting/models/nbeats/_nbeats.py",
+          "class_name": "NBeats",
+          "entry": "README.md"
+        },
+        {
+          "name": "NBEATSKAN",
+          "path": "pytorch_forecasting/models/nbeats/_nbeatskan.py",
+          "class_name": "NBeatsKAN",
+          "entry": "README.md"
+        },
+        {
+          "name": "NHITS",
+          "path": "pytorch_forecasting/models/nhits/_nhits.py",
+          "class_name": "NHiTS",
+          "entry": "README.md"
+        },
+        {
+          "name": "PatchTST",
+          "path": "pytorch_forecasting/models/patch_tst/patch_tst.py",
+          "class_name": "PatchTST",
+          "entry": "README.md"
+        },
+        {
+          "name": "PatchTST",
+          "path": "pytorch_forecasting/models/patch_tst/_patch_tst_v2.py",
+          "class_name": "PatchTST_v2",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "PatchTST",
+          "path": "pytorch_forecasting/models/patch_tst/_patch_tst_pkg.py",
+          "class_name": "PatchTST_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "PatchTST",
+          "path": "pytorch_forecasting/models/patch_tst/_patch_tst_forecaster_v2.py",
+          "class_name": "PatchTSTForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TemporalFusionTransformer",
+          "path": "pytorch_forecasting/models/temporal_fusion_transformer/_tft.py",
+          "class_name": "TemporalFusionTransformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "RecurrentNetwork",
+          "path": "pytorch_forecasting/models/rnn/_rnn.py",
+          "class_name": "RecurrentNetwork",
+          "entry": "README.md"
+        },
+        {
+          "name": "DeepAR",
+          "path": "pytorch_forecasting/models/deepar/_deepar.py",
+          "class_name": "DeepAR",
+          "entry": "README.md"
+        },
+        {
+          "name": "DecoderMLP",
+          "path": "pytorch_forecasting/models/mlp/_decodermlp.py",
+          "class_name": "DecoderMLP",
+          "entry": "README.md"
+        },
+        {
+          "name": "TiDE",
+          "path": "pytorch_forecasting/models/tide/_tide.py",
+          "class_name": "TiDEModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TimeXer",
+          "path": "pytorch_forecasting/models/timexer/_timexer.py",
+          "class_name": "TimeXer",
+          "entry": "README.md"
+        },
+        {
+          "name": "UniTS",
+          "path": "pytorch_forecasting/models/units/_units_v2.py",
+          "class_name": "UniTS",
+          "entry": "README.md"
+        },
+        {
+          "name": "xLSTMTime",
+          "path": "pytorch_forecasting/models/xlstm/_xlstm.py",
+          "class_name": "xLSTMTime",
+          "entry": "README.md"
+        },
+        {
+          "name": "SOFTS",
+          "path": "pytorch_forecasting/models/softs/_softs_v2.py",
+          "class_name": "SOFTS",
+          "entry": "README.md"
+        },
+        {
+          "name": "SOFTS",
+          "path": "pytorch_forecasting/models/softs/_softs_forecaster_v2.py",
+          "class_name": "SOFTSForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "SCINet",
+          "path": "pytorch_forecasting/models/scinet/_scinet_v2.py",
+          "class_name": "SCINet_v2",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "SCINet",
+          "path": "pytorch_forecasting/models/scinet/_scinet_forecaster_v2.py",
+          "class_name": "SCINetForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "ModernTCN",
+          "path": "pytorch_forecasting/models/modern_tcn/_modern_tcn_v2.py",
+          "class_name": "ModernTCN",
+          "entry": "README.md"
+        },
+        {
+          "name": "FreTS",
+          "path": "pytorch_forecasting/models/frets/_frets_v2.py",
+          "class_name": "FreTS",
+          "entry": "README.md"
+        },
+        {
+          "name": "FreTS",
+          "path": "pytorch_forecasting/models/frets/_frets_forecaster_v2.py",
+          "class_name": "FreTSForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "DeepAR",
+          "path": "pytorch_forecasting/models/deepar/_deepar_pkg.py",
+          "class_name": "DeepAR_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "DLinear",
+          "path": "pytorch_forecasting/models/dlinear/_dlinear_v2.py",
+          "class_name": "DLinear",
+          "entry": "README.md"
+        },
+        {
+          "name": "DLinear",
+          "path": "pytorch_forecasting/models/dlinear/_dlinear_forecaster_v2.py",
+          "class_name": "DLinearForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "DecoderMLP",
+          "path": "pytorch_forecasting/models/mlp/_decodermlp_pkg.py",
+          "class_name": "DecoderMLP_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "DecoderMLP",
+          "path": "pytorch_forecasting/models/mlp/_decodermlp_v2.py",
+          "class_name": "DecoderMLP_v2",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "DecoderMLP",
+          "path": "pytorch_forecasting/models/mlp/_decodermlp_forecaster_v2.py",
+          "class_name": "DecoderMLPForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "ModernTCN",
+          "path": "pytorch_forecasting/models/modern_tcn/_modern_tcn_forecaster_v2.py",
+          "class_name": "ModernTCNForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "NBEATS",
+          "path": "pytorch_forecasting/models/nbeats/_nbeats_pkg.py",
+          "class_name": "NBeats_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "NBEATSKAN",
+          "path": "pytorch_forecasting/models/nbeats/_nbeatskan_pkg.py",
+          "class_name": "NBeatsKAN_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "NHITS",
+          "path": "pytorch_forecasting/models/nhits/_nhits_pkg.py",
+          "class_name": "NHiTS_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "NHITS",
+          "path": "pytorch_forecasting/models/nhits/_nhits_v2.py",
+          "class_name": "NHiTS_v2",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "NHITS",
+          "path": "pytorch_forecasting/models/nhits/_nhits_forecaster_v2.py",
+          "class_name": "NHiTSForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "RecurrentNetwork",
+          "path": "pytorch_forecasting/models/rnn/_rnn_pkg.py",
+          "class_name": "RecurrentNetwork_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "Samformer",
+          "path": "pytorch_forecasting/models/samformer/_samformer_v2.py",
+          "class_name": "Samformer",
+          "entry": "README.md"
+        },
+        {
+          "name": "Samformer",
+          "path": "pytorch_forecasting/models/samformer/_samformer_forecaster_v2.py",
+          "class_name": "SamformerForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TemporalFusionTransformer",
+          "path": "pytorch_forecasting/models/temporal_fusion_transformer/_tft_forecaster_v2.py",
+          "class_name": "TFTForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TemporalFusionTransformer",
+          "path": "pytorch_forecasting/models/temporal_fusion_transformer/_tft_pkg.py",
+          "class_name": "TemporalFusionTransformer_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TiDE",
+          "path": "pytorch_forecasting/models/tide/_tide_pkg.py",
+          "class_name": "TiDEModel_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TiDE",
+          "path": "pytorch_forecasting/models/tide/_tide_dsipts/_tide_v2.py",
+          "class_name": "TIDE",
+          "entry": "README.md"
+        },
+        {
+          "name": "TiDE",
+          "path": "pytorch_forecasting/models/tide/_tide_dsipts/_tide_forecaster_v2.py",
+          "class_name": "TIDEForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TimeXer",
+          "path": "pytorch_forecasting/models/timexer/_timexer_pkg.py",
+          "class_name": "TimeXer_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TimeXer",
+          "path": "pytorch_forecasting/models/timexer/_timexer_forecaster_v2.py",
+          "class_name": "TimeXerForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "TSMixer",
+          "path": "pytorch_forecasting/models/tsmixer/_tsmixer_v2.py",
+          "class_name": "TSMixer",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSMixer",
+          "path": "pytorch_forecasting/models/tsmixer/_tsmixer_forecaster_v2.py",
+          "class_name": "TSMixerForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "UniTS",
+          "path": "pytorch_forecasting/models/units/_units_forecaster_v2.py",
+          "class_name": "UniTSForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "xLSTMTime",
+          "path": "pytorch_forecasting/models/xlstm/_xlstm_v2.py",
+          "class_name": "xLSTMTime_v2",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "xLSTMTime",
+          "path": "pytorch_forecasting/models/xlstm/_xlstm_pkg.py",
+          "class_name": "xLSTMTime_pkg",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "xLSTMTime",
+          "path": "pytorch_forecasting/models/xlstm/_xlstm_forecaster_v2.py",
+          "class_name": "xLSTMTimeForecaster",
+          "entry": "README.md",
+          "note": "同家族的接口或版本适配类，保留类名与源码位置，不另计新算法家族。"
+        },
+        {
+          "name": "Baseline",
+          "path": "pytorch_forecasting/models/baseline.py",
+          "class_name": "Baseline",
+          "entry": "README.md",
+          "note": "重复最后一个观测值的朴素预测基线。"
+        }
+      ]
+    },
+    "darts": {
+      "label": "Darts",
+      "models": [
+        {
+          "name": "ARIMA",
+          "path": "darts/models/forecasting/arima.py",
+          "class_name": "ARIMA",
+          "entry": "README.md"
+        },
+        {
+          "name": "NaiveDrift",
+          "path": "darts/models/forecasting/baselines.py",
+          "class_name": "NaiveDrift",
+          "entry": "README.md"
+        },
+        {
+          "name": "NaiveMean",
+          "path": "darts/models/forecasting/baselines.py",
+          "class_name": "NaiveMean",
+          "entry": "README.md"
+        },
+        {
+          "name": "NaiveMovingAverage",
+          "path": "darts/models/forecasting/baselines.py",
+          "class_name": "NaiveMovingAverage",
+          "entry": "README.md"
+        },
+        {
+          "name": "NaiveSeasonal",
+          "path": "darts/models/forecasting/baselines.py",
+          "class_name": "NaiveSeasonal",
+          "entry": "README.md"
+        },
+        {
+          "name": "NaiveEnsembleModel",
+          "path": "darts/models/forecasting/naive_ensemble_model.py",
+          "class_name": "NaiveEnsembleModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "ConformalNaiveModel",
+          "path": "darts/models/forecasting/conformal_models.py",
+          "class_name": "ConformalNaiveModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "ConformalQRModel",
+          "path": "darts/models/forecasting/conformal_models.py",
+          "class_name": "ConformalQRModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "ExponentialSmoothing",
+          "path": "darts/models/forecasting/exponential_smoothing.py",
+          "class_name": "ExponentialSmoothing",
+          "entry": "README.md"
+        },
+        {
+          "name": "FFT",
+          "path": "darts/models/forecasting/fft.py",
+          "class_name": "FFT",
+          "entry": "README.md"
+        },
+        {
+          "name": "KalmanForecaster",
+          "path": "darts/models/forecasting/kalman_forecaster.py",
+          "class_name": "KalmanForecaster",
+          "entry": "README.md"
+        },
+        {
+          "name": "LinearRegressionModel",
+          "path": "darts/models/forecasting/linear_regression_model.py",
+          "class_name": "LinearRegressionModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "RandomForestModel",
+          "path": "darts/models/forecasting/random_forest.py",
+          "class_name": "RandomForestModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "MultivariateModel",
+          "path": "darts/models/forecasting/multivariate_model.py",
+          "class_name": "MultivariateModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "RegressionEnsembleModel",
+          "path": "darts/models/forecasting/regression_ensemble_model.py",
+          "class_name": "RegressionEnsembleModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "SKLearnClassifierModel",
+          "path": "darts/models/forecasting/sklearn_model.py",
+          "class_name": "SKLearnClassifierModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "SKLearnModel",
+          "path": "darts/models/forecasting/sklearn_model.py",
+          "class_name": "SKLearnModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "FourTheta",
+          "path": "darts/models/forecasting/theta.py",
+          "class_name": "FourTheta",
+          "entry": "README.md"
+        },
+        {
+          "name": "Theta",
+          "path": "darts/models/forecasting/theta.py",
+          "class_name": "Theta",
+          "entry": "README.md"
+        },
+        {
+          "name": "VARIMA",
+          "path": "darts/models/forecasting/varima.py",
+          "class_name": "VARIMA",
+          "entry": "README.md"
+        },
+        {
+          "name": "LightGBMModel",
+          "path": "darts/models/forecasting/lgbm.py",
+          "class_name": "LightGBMModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "LightGBMClassifierModel",
+          "path": "darts/models/forecasting/lgbm.py",
+          "class_name": "LightGBMClassifierModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "BlockRNN",
+          "path": "darts/models/forecasting/block_rnn_model.py",
+          "class_name": "BlockRNNModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "DLinear",
+          "path": "darts/models/forecasting/dlinear.py",
+          "class_name": "DLinearModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "GlobalNaiveAggregate",
+          "path": "darts/models/forecasting/global_baseline_models.py",
+          "class_name": "GlobalNaiveAggregate",
+          "entry": "README.md"
+        },
+        {
+          "name": "GlobalNaiveDrift",
+          "path": "darts/models/forecasting/global_baseline_models.py",
+          "class_name": "GlobalNaiveDrift",
+          "entry": "README.md"
+        },
+        {
+          "name": "GlobalNaiveSeasonal",
+          "path": "darts/models/forecasting/global_baseline_models.py",
+          "class_name": "GlobalNaiveSeasonal",
+          "entry": "README.md"
+        },
+        {
+          "name": "NBEATS",
+          "path": "darts/models/forecasting/nbeats.py",
+          "class_name": "NBEATSModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "NHITS",
+          "path": "darts/models/forecasting/nhits.py",
+          "class_name": "NHiTSModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "NLinear",
+          "path": "darts/models/forecasting/nlinear.py",
+          "class_name": "NLinearModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "RNN",
+          "path": "darts/models/forecasting/rnn_model.py",
+          "class_name": "RNNModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TCN",
+          "path": "darts/models/forecasting/tcn_model.py",
+          "class_name": "TCNModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TemporalFusionTransformer",
+          "path": "darts/models/forecasting/tft_model.py",
+          "class_name": "TFTModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TiDE",
+          "path": "darts/models/forecasting/tide_model.py",
+          "class_name": "TiDEModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "Transformer",
+          "path": "darts/models/forecasting/transformer_model.py",
+          "class_name": "TransformerModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TSMixer",
+          "path": "darts/models/forecasting/tsmixer_model.py",
+          "class_name": "TSMixerModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "Chronos2",
+          "path": "darts/models/forecasting/chronos2_model.py",
+          "class_name": "Chronos2Model",
+          "entry": "README.md"
+        },
+        {
+          "name": "PatchTSTFMModel",
+          "path": "darts/models/forecasting/patchtst_fm_model.py",
+          "class_name": "PatchTSTFMModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "TimesFM2p5",
+          "path": "darts/models/forecasting/timesfm2p5_model.py",
+          "class_name": "TimesFM2p5Model",
+          "entry": "README.md"
+        },
+        {
+          "name": "TimesFM3",
+          "path": "darts/models/forecasting/timesfm3_model.py",
+          "class_name": "TimesFM3Model",
+          "entry": "README.md"
+        },
+        {
+          "name": "TiRex2",
+          "path": "darts/models/forecasting/tirex2_model.py",
+          "class_name": "TiRex2Model",
+          "entry": "README.md"
+        },
+        {
+          "name": "TiRex",
+          "path": "darts/models/forecasting/tirex_model.py",
+          "class_name": "TiRexModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "T0",
+          "path": "darts/models/forecasting/t0_model.py",
+          "class_name": "T0Model",
+          "entry": "README.md"
+        },
+        {
+          "name": "NeuralForecastModel",
+          "path": "darts/models/forecasting/nf_model.py",
+          "class_name": "NeuralForecastModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "Prophet",
+          "path": "darts/models/forecasting/prophet_model.py",
+          "class_name": "Prophet",
+          "entry": "README.md"
+        },
+        {
+          "name": "CatBoostModel",
+          "path": "darts/models/forecasting/catboost_model.py",
+          "class_name": "CatBoostModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "CatBoostClassifierModel",
+          "path": "darts/models/forecasting/catboost_model.py",
+          "class_name": "CatBoostClassifierModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "AutoARIMA",
+          "path": "darts/models/forecasting/sf_auto_arima.py",
+          "class_name": "AutoARIMA",
+          "entry": "README.md"
+        },
+        {
+          "name": "AutoCES",
+          "path": "darts/models/forecasting/sf_auto_ces.py",
+          "class_name": "AutoCES",
+          "entry": "README.md"
+        },
+        {
+          "name": "AutoETS",
+          "path": "darts/models/forecasting/sf_auto_ets.py",
+          "class_name": "AutoETS",
+          "entry": "README.md"
+        },
+        {
+          "name": "AutoMFLES",
+          "path": "darts/models/forecasting/sf_auto_mfles.py",
+          "class_name": "AutoMFLES",
+          "entry": "README.md"
+        },
+        {
+          "name": "AutoTBATS",
+          "path": "darts/models/forecasting/sf_auto_tbats.py",
+          "class_name": "AutoTBATS",
+          "entry": "README.md"
+        },
+        {
+          "name": "AutoTheta",
+          "path": "darts/models/forecasting/sf_auto_theta.py",
+          "class_name": "AutoTheta",
+          "entry": "README.md"
+        },
+        {
+          "name": "Croston",
+          "path": "darts/models/forecasting/sf_croston.py",
+          "class_name": "Croston",
+          "entry": "README.md"
+        },
+        {
+          "name": "StatsForecastModel",
+          "path": "darts/models/forecasting/sf_model.py",
+          "class_name": "StatsForecastModel",
+          "entry": "README.md",
+          "note": "公开预测适配器、集成或校准封装；不是独立神经网络结构。"
+        },
+        {
+          "name": "TBATS",
+          "path": "darts/models/forecasting/sf_tbats.py",
+          "class_name": "TBATS",
+          "entry": "README.md"
+        },
+        {
+          "name": "XGBModel",
+          "path": "darts/models/forecasting/xgboost.py",
+          "class_name": "XGBModel",
+          "entry": "README.md"
+        },
+        {
+          "name": "XGBClassifierModel",
+          "path": "darts/models/forecasting/xgboost.py",
+          "class_name": "XGBClassifierModel",
+          "entry": "README.md"
+        }
+      ]
+    }
+  }
+}

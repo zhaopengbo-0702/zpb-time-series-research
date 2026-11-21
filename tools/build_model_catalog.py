@@ -1,241 +1,274 @@
 #!/usr/bin/env python3
-"""Build the complete, categorized model catalog from the pinned source lock."""
+"""Build an offline model catalog from pinned sources and public model APIs."""
 
 import argparse
+import html
 import json
 from pathlib import Path, PurePosixPath
-import re
+from urllib.parse import quote
 
 
 INDEPENDENT = {
-    'EMAformer': ('model/EMAformer.py', 'run.py'),
-    'Pyraformer': ('pyraformer/Pyraformer_LR.py', 'long_range_main.py'),
-    'Informer2020': ('models/model.py', 'main_informer.py'),
-    'Autoformer': ('models/Autoformer.py', 'run.py'),
-    'ETSformer': ('models/etsformer/model.py', 'run.py'),
-    'Time-LLM': ('models/TimeLLM.py', 'run_main.py'),
+    'EMAformer': ('EMAformer', 'model/EMAformer.py', 'run.py'),
+    'Pyraformer': ('Pyraformer', 'pyraformer/Pyraformer_LR.py', 'long_range_main.py'),
+    'Informer2020': ('Informer', 'models/model.py', 'main_informer.py'),
+    'Autoformer': ('Autoformer', 'models/Autoformer.py', 'run.py'),
+    'ETSformer': ('ETSformer', 'models/etsformer/model.py', 'run.py'),
+    'Time-LLM': ('Time-LLM', 'models/TimeLLM.py', 'run_main.py'),
 }
-ALIASES = {'Informer2020': 'Informer', 'Time-LLM': 'Time-LLM'}
-TASK_DIRECTORIES = {
-    'long_term_forecast': '长期预测', 'short_term_forecast': '短期预测',
-    'imputation': '缺失补全', 'anomaly_detection': '异常检测',
-    'classification': '分类', 'exogenous_forecast': '外生变量预测',
-}
+SOURCE_LABELS = {'Time-Series-Library': 'TSLib', 'TimeSeriesLibrary-ZJ': 'ZJ',
+                 'tsai': 'tsai', 'neuralforecast': 'NF',
+                 'pytorch-forecasting': 'PF', 'darts': 'Darts'}
+UNCATEGORIZED = {'id': 'unclassified', 'title': '待分类',
+                 'description': '已收录但尚未填写主分类的模型；源码入口保留在这里。'}
 
 
-def link(label, path):
-    # Paths originate in the validated source lock; protect Markdown separators.
-    safe_label = str(label).replace('|', '\\|').replace('\n', ' ')
-    return f'[{safe_label}](../{path})'
+def read_json(path, default):
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
+
+
+def source_path(source, relative):
+    if not isinstance(relative, str) or '\\' in relative or relative.startswith('/'):
+        raise ValueError('Invalid inventory path: ' + repr(relative))
+    parts = PurePosixPath(relative.rstrip('/')).parts
+    if not parts or any(part in ('.', '..') for part in parts):
+        raise ValueError('Invalid inventory path: ' + relative)
+    result = source['local_directory'] + '/' + '/'.join(parts)
+    known = {entry['path'] for entry in source['files']}
+    if result not in known and not any(path.startswith(result + '/') for path in known):
+        raise ValueError('Inventory points outside tracked source: ' + result)
+    return result + ('/' if relative.endswith('/') else '')
+
+
+def default_entry(source):
+    known = {entry['path'] for entry in source['files']}
+    prefix = source['local_directory'] + '/'
+    for relative in ('run.py', 'README.md', 'README.rst', 'README.ipynb', 'README'):
+        if prefix + relative in known:
+            return prefix + relative
+    return source['local_directory'] + '/'
 
 
 def model_inventory(root, manifest):
-    """Collect every model once, irrespective of its imported source."""
+    """Return dictionaries for families, implementations and per-source counts.
+
+    Canonical names from model_inventory.json determine merging. Variants are
+    never merged by fuzzy matching; all source implementations stay accessible.
+    """
     root = Path(root)
-    metadata_path = root / 'tools' / 'model_categories.json'
-    metadata = json.loads(metadata_path.read_text(encoding='utf-8')) if metadata_path.exists() else {}
+    metadata = read_json(root / 'tools/model_categories.json', {})
+    public_inventory = read_json(root / 'tools/model_inventory.json', {'sources': {}})
     categories = metadata.get('categories', [])
     details = metadata.get('models', {})
-    if not isinstance(categories, list) or not isinstance(details, dict):
-        raise ValueError('Invalid tools/model_categories.json structure')
-    families = {}
-    library = next((source for source in manifest['sources'] if source['name'] == 'Time-Series-Library'), None)
-    library_count = 0
-    if library:
-        prefix = library['local_directory'] + '/models/'
-        for entry in library['files']:
-            path = entry['path']
-            tail = path[len(prefix):] if path.startswith(prefix) else ''
-            if not tail or '/' in tail or not tail.endswith('.py') or tail == '__init__.py':
-                continue
-            name = tail[:-3]
-            families.setdefault(name, {})['library'] = path
-            library_count += 1
-    independent_count = 0
-    for source in manifest['sources']:
-        if source['name'] not in INDEPENDENT:
-            continue
-        independent_count += 1
-        name = ALIASES.get(source['name'], source['name'])
-        item = families.setdefault(name, {})
-        known = {entry['path'] for entry in source['files']}
-        core, training = INDEPENDENT[source['name']]
-        item['independent'] = source['local_directory']
-        item['independent_name'] = source['name']
-        item['independent_url'] = source.get('url', 'https://github.com/' + source['repository'])
-        item['core'] = source['local_directory'] + '/' + core if source['local_directory'] + '/' + core in known else None
-        item['training'] = source['local_directory'] + '/' + training if source['local_directory'] + '/' + training in known else None
-    return metadata, categories, details, families, library, library_count, independent_count
+    configurations = public_inventory.get('sources', {})
+    if not isinstance(categories, list) or not isinstance(details, dict) or not isinstance(configurations, dict):
+        raise ValueError('Invalid model category/inventory metadata')
+    families, counts, labels = {}, {}, {}
+    valid_categories = {item['id'] for item in categories}
 
-
-def render_catalog(root, manifest):
-    metadata, categories, details, families, library, library_count, independent_count = model_inventory(root, manifest)
-    grouped = {}
-    valid_categories = {category['id'] for category in categories}
-    for name, item in families.items():
+    def append(name, source, core, entry, label, class_name=None, note=None, kind='library'):
         info = details.get(name, {})
         category = info.get('category', 'unclassified')
         if category not in valid_categories:
             category = 'unclassified'
-        grouped.setdefault(category, []).append((name, item, info))
-    ordered = categories + [{'id': 'unclassified', 'title': '待分类',
-                              'description': '上游新增或尚未填写分类的模型仍完整列在这里，后续可补充分类说明。'}]
-    rows = ['# 统一模型目录', '',
-            f'当前共 **{len(families)} 个模型家族**，含 {independent_count} 个独立原版入口和 '
-            f'Time-Series-Library 的全部 {library_count} 个模型文件。同名模型合并为同一行，分别链接独立原版与库内实现。', '',
-            '目录根据 [sources.lock.json](../sources.lock.json) 与 [分类元数据](../tools/model_categories.json) 生成。'
-            '分类用于查找源码；每个模型的任务支持仍由其 `forward()`、依赖和具体实验脚本决定。', '',
-            '## 按方法类别查找', '']
-    if metadata.get('classification_policy'):
-        rows[-2:-2] = [metadata['classification_policy'], '']
-    for category in ordered:
-        if grouped.get(category['id']):
-            rows.append(f"- [{category['title']}](#category-{category['id']})（{len(grouped[category['id']])}）")
-    for category in ordered:
-        items = grouped.get(category['id'], [])
-        if not items:
+        family = families.setdefault(name, {'implementations': [], 'category': category, 'info': info})
+        implementation = {'source': source['name'], 'label': label,
+                          'directory': source['local_directory'], 'core': core, 'entry': entry,
+                          'project': source.get('url', 'https://github.com/' + source['repository']),
+                          'kind': kind}
+        if class_name:
+            implementation['class_name'] = class_name
+        if note:
+            implementation['note'] = note
+        key = (source['name'], core, class_name)
+        existing = {(item['source'], item['core'], item.get('class_name'))
+                    for item in family['implementations']}
+        if key not in existing:
+            family['implementations'].append(implementation)
+            counts[source['name']] = counts.get(source['name'], 0) + 1
+
+    for source in manifest['sources']:
+        name = source['name']
+        configuration = configurations.get(name, {})
+        label = SOURCE_LABELS.get(name, configuration.get('label', '原版'))
+        labels[name], counts[name] = label, 0
+        prefix = source['local_directory']
+        known = {entry['path'] for entry in source['files']}
+        if name in INDEPENDENT:
+            canonical, core, entry = INDEPENDENT[name]
+            append(canonical, source, source_path(source, core), source_path(source, entry),
+                   '原版', kind='independent')
+            if name == 'Pyraformer':
+                item = families[canonical]['implementations'][-1]
+                if prefix + '/pyraformer/Pyraformer_SS.py' in known:
+                    item['extra_cores'] = [prefix + '/pyraformer/Pyraformer_SS.py']
+                if prefix + '/single_step_main.py' in known:
+                    item['extra_entries'] = [prefix + '/single_step_main.py']
             continue
-        rows += ['', f'<a id="category-{category["id"]}"></a>', '', f'## {category["title"]}', '']
-        if category.get('description'):
-            rows += [category['description'], '']
-        rows += ['| 模型 | 特点与源码定位 | 独立原版 | 库内实现 | 任务与脚本入口 |',
-                 '| --- | --- | --- | --- | --- |']
-        for name, item, info in sorted(items, key=lambda value: value[0].casefold()):
-            independent = link(item['independent_name'], item['independent'] + '/') if item.get('independent') else '—'
-            if item.get('core'):
-                independent += ' · ' + link('核心文件', item['core'])
-            implementation = link(PurePosixPath(item['library']).name, item['library']) if item.get('library') else '—'
-            scripts = []
-            if item.get('training'):
-                scripts.append(link('原版入口', item['training']))
-            if item.get('library') and library:
-                requested = info.get('script_paths', [])
-                if requested:
-                    scripts.extend(link(PurePosixPath(path).name or '脚本', library['local_directory'] + '/' + path)
-                                   for path in requested)
-                else:
-                    scripts.append(link('库内任务脚本', library['local_directory'] + '/scripts/'))
-            summary = info.get('summary', '分类与特点待补充；点击源码查看当前实现。')
-            displayed_name = name + (' / ' + ' / '.join(info['aliases']) if info.get('aliases') else '')
-            rows.append('| ' + displayed_name + ' | ' + summary.replace('|', '\\|').replace('\n', ' ') + ' | '
-                        + independent + ' | ' + implementation + ' | ' + (' · '.join(scripts) or '—') + ' |')
-    rows += ['', '## 按任务查实验入口', '']
-    if library:
-        prefix = library['local_directory']
-        known = {entry['path'] for entry in library['files']}
-        rows += [f'库的统一入口为 {link("run.py", prefix + "/run.py")}。实际脚本目录如下；目录存在不代表全部模型支持该任务。', '']
-        for directory, label in TASK_DIRECTORIES.items():
-            path = prefix + '/scripts/' + directory + '/'
-            if any(value.startswith(path) for value in known):
-                rows.append('- ' + link(label, path))
-        zero_shot = prefix + '/scripts/long_term_forecast/ETT_script/LTSM.sh'
-        if zero_shot in known:
-            rows += ['', '零样本预测示例：' + link('LTSM.sh', zero_shot)
-                     + '。这是脚本名；具体模型与参数以脚本当前内容为准，预训练权重由模型接口另外加载。']
-    rows += ['', '## 独立原版与库内实现怎么选', '',
-             '读论文原实现、对照原作者实验时，从“独立原版”进入；使用库内统一实验接口时，从“库内实现”进入。'
-             '两个入口都保留原始文件，目录没有移动或拆成新的伪原版仓库。', '',
-             '完整来源提交、文件数和最近同步状态见 [上游状态](upstream-status.md)；'
-             '阅读关键文件的顺序见 [源码导航](model-guide.md)。', '']
+        if name in ('Time-Series-Library', 'TimeSeriesLibrary-ZJ'):
+            model_prefix = prefix + '/models/'
+            for entry in source['files']:
+                path = entry['path']
+                tail = path[len(model_prefix):] if path.startswith(model_prefix) else ''
+                if tail and '/' not in tail and tail.endswith('.py') and tail != '__init__.py':
+                    append(tail[:-3], source, path, default_entry(source), label)
+            continue
+        for item in configuration.get('models', []):
+            core = source_path(source, item['path'])
+            entry = source_path(source, item['entry']) if item.get('entry') else default_entry(source)
+            append(item['name'], source, core, entry, label,
+                   class_name=item.get('class_name'), note=item.get('note'))
+    ordered = categories + ([] if any(item['id'] == 'unclassified' for item in categories) else [UNCATEGORIZED])
+    return {'metadata': metadata, 'categories': ordered, 'details': details,
+            'families': families, 'source_counts': counts, 'source_labels': labels,
+            'family_count': len(families),
+            'implementation_count': sum(len(item['implementations']) for item in families.values()),
+            'independent_count': sum(name in INDEPENDENT for name in counts)}
+
+
+def href(target, prefix=''):
+    return target if target.startswith(('https://', 'http://')) else prefix + quote(target, safe='/#')
+
+
+def anchor(label, target, prefix='', title=None):
+    # A nonbreaking joiner between letters prevents narrow GitHub table cells
+    # from stacking Chinese link labels vertically; paths stay in the title.
+    text = '&#8288;'.join(html.escape(character) if character != ' ' else '&nbsp;'
+                         for character in str(label))
+    description = ' title="' + html.escape(str(title), quote=True) + '"' if title else ''
+    return '<a href="' + html.escape(href(target, prefix), quote=True) + '"' + description + '>' + text + '</a>'
+
+
+def markdown_link(label, target, prefix=''):
+    return '[' + label + '](' + href(target, prefix) + ')'
+
+
+def primary_implementation(family):
+    return next((item for item in family['implementations'] if item['kind'] == 'independent'),
+                family['implementations'][0])
+
+
+def group_families(inventory):
+    return [(category, sorted(((name, family) for name, family in inventory['families'].items()
+                              if family['category'] == category['id']), key=lambda item: item[0].casefold()))
+            for category in inventory['categories']]
+
+
+def render_table(inventory, families, prefix=''):
+    rows = ['<table>', '<thead><tr>',
+            '<th width="100" align="left">模型</th>',
+            '<th width="220" align="left">主要思路</th>',
+            '<th width="110" align="left">源码</th>',
+            '<th width="130" align="left">核心模型</th>',
+            '<th width="120" align="left">运行入口</th>',
+            '<th width="100" align="left">论文 / 项目</th>', '</tr></thead>', '<tbody>']
+    for name, family in families:
+        info = family['info']
+        display = html.escape(name)
+        if info.get('aliases'):
+            display += '<br><sub>' + html.escape(' / '.join(info['aliases'])) + '</sub>'
+        summary = html.escape(info.get('summary', '当前公开实现；方法说明见模型源码及项目文档。'))
+        source_links, core_links, entry_links, references = [], [], [], []
+        source_seen, entry_seen = set(), set()
+        implementation_counts = {}
+        implementation_indexes = {}
+        superscript = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+        for item in family['implementations']:
+            implementation_counts[item['source']] = implementation_counts.get(item['source'], 0) + 1
+        for item in family['implementations']:
+            label = item['label']
+            title = item['directory'] + ('; ' + item['note'] if item.get('note') else '')
+            if item['source'] not in source_seen:
+                source_links.append(anchor(label, item['directory'] + '/', prefix, title))
+                source_seen.add(item['source'])
+            core_title = item['core'] + (' :: ' + item['class_name'] if item.get('class_name') else '')
+            implementation_indexes[item['source']] = implementation_indexes.get(item['source'], 0) + 1
+            core_label = label + (str(implementation_indexes[item['source']]).translate(superscript)
+                                  if implementation_counts[item['source']] > 1 else '')
+            core_links.append(anchor(core_label, item['core'], prefix, core_title))
+            if (item['source'], item['entry']) not in entry_seen:
+                entry_links.append(anchor(label, item['entry'], prefix,
+                                          item['entry'] + '; 具体参数与任务按对应实现配置'))
+                entry_seen.add((item['source'], item['entry']))
+            for path in item.get('extra_cores', []):
+                core_links.append(anchor('原版·单步', path, prefix, path))
+            for path in item.get('extra_entries', []):
+                entry_links.append(anchor('原版·单步', path, prefix, path))
+        if info.get('paper_url'):
+            references.append(anchor('论文', info['paper_url'], title=info.get('paper_note', '模型论文')))
+        if info.get('original_upstream_url'):
+            references.append(anchor('原项目', info['original_upstream_url']))
+        else:
+            projects = {}
+            for item in family['implementations']:
+                projects.setdefault(item['project'], item['label'])
+            references.extend(anchor(label + '项目', url) for url, label in projects.items())
+        values = [display, summary, '<br>'.join(source_links), '<br>'.join(core_links),
+                  '<br>'.join(entry_links), '<br>'.join(references) or '见项目文档']
+        rows += ['<tr>'] + ['<td align="left">' + value + '</td>' for value in values] + ['</tr>']
+    rows += ['</tbody>', '</table>']
+    return '\n'.join(rows)
+
+
+def render_homepage_models(root, manifest):
+    inventory = model_inventory(root, manifest)
+    rows = [f"当前 **{inventory['family_count']} 个模型家族**、**{inventory['implementation_count']} 个实现入口**。每个模型名称直接链接到源码。", '',
+            '| 分类 | 全部模型 |', '| --- | --- |']
+    for category, families in group_families(inventory):
+        if not families:
+            continue
+        names = [markdown_link(name, primary_implementation(family)['core']) for name, family in families]
+        title = markdown_link(category['title'], 'docs/model-catalog.md#category-' + category['id'])
+        rows.append('| ' + title + ' | ' + ' · '.join(names) + ' |')
+    return '\n'.join(rows) + '\n'
+
+
+def render_homepage_details(root, manifest):
+    inventory = model_inventory(root, manifest)
+    families = sorted(inventory['families'].items(), key=lambda item: item[0].casefold())
+    return (f"共 **{inventory['family_count']} 个模型家族**，每个模型一行，所有来源使用相同六个字段。"
+            '同一模型的各库实现全部并列保留；悬停短链接可查看完整路径或类名。\n\n'
+            + render_table(inventory, families) + '\n\n'
+            '运行入口指向该实现的命令脚本或使用文档；支持任务与参数以对应源码为准。'
+            '系列论文和加载变体的区别见论文链接的悬停说明。\n')
+
+
+def render_catalog(root, manifest):
+    inventory = model_inventory(root, manifest)
+    rows = ['# 统一模型目录', '',
+            f"共 **{inventory['family_count']} 个模型家族**、**{inventory['implementation_count']} 个实现入口**。其中保留 {inventory['independent_count']} 个独立原版项目，其余实现来自完整收录的时间序列库。", '',
+            '同名家族合并为一行，每个来源实现单独给出源码、核心文件与运行入口；变体按公开模型清单分别列出。', '',
+            inventory['metadata'].get('classification_policy', '按主要建模机制分类，交叉机制写入模型简介。'), '',
+            '## 分类入口', '']
+    for category, families in group_families(inventory):
+        if families:
+            rows.append(f"- [{category['title']}](#category-{category['id']})（{len(families)}）")
+    rows += ['', '## 来源与实现数量', '', '| 来源 | 模型实现入口数 | 源码位置 |', '| --- | ---: | --- |']
+    by_name = {source['name']: source for source in manifest['sources']}
+    for name, count in inventory['source_counts'].items():
+        source = by_name[name]
+        rows.append('| ' + name + ' | ' + str(count) + ' | '
+                    + markdown_link(inventory['source_labels'][name], source['local_directory'] + '/', '../') + ' |')
+    for category, families in group_families(inventory):
+        if not families:
+            continue
+        rows += ['', f'<a id="category-{category["id"]}"></a>', '', f'## {category["title"]}', '',
+                 category.get('description', ''), '', render_table(inventory, families, '../')]
+    rows += ['', '## 任务、参数与来源', '',
+             '任务支持由每份实现的模型分支和实验配置决定。源码列进入库根目录，核心模型列进入具体文件，运行入口列进入命令脚本或使用文档。不同库的同名模型可能采用不同数据处理和训练默认值。', '',
+             '公开模型清单见 [model_inventory.json](../tools/model_inventory.json)，分类与论文信息见 [model_categories.json](../tools/model_categories.json)。来源提交和完整文件范围见 [来源记录](upstream-sources.md) 与 [sources.lock.json](../sources.lock.json)。', '']
     return '\n'.join(rows)
 
 
 def render_baselines_index():
     return ('# 模型统一入口\n\n'
-            '打开 [分类模型目录](../docs/model-catalog.md)，按模型家族查找全部独立原版与库内实现。'
-            '同名模型的两个入口在同一行，可直接对照。\n\n'
-            '本目录保留各独立模型的固定提交源码；完整 Time-Series-Library 位于 '
-            '[libraries/Time-Series-Library](../libraries/Time-Series-Library/)。\n')
-
-
-def render_homepage_models(root, manifest):
-    """Show every family at the same level on the repository homepage."""
-    catalog = render_catalog(root, manifest)
-    current = None
-    groups = []
-    for line in catalog.splitlines():
-        match = re.fullmatch(r'<a id="category-([^"]+)"></a>', line)
-        if match:
-            current = {'id': match.group(1), 'title': None, 'models': []}
-            groups.append(current)
-        elif current and current['title'] is None and line.startswith('## '):
-            current['title'] = line[3:]
-        elif current and line.startswith('| ') and not line.startswith(('| 模型 |', '| --- |')):
-            cells = line.split(' | ')
-            if len(cells) < 5:
-                continue
-            name = cells[0][2:].split(' / ')[0]
-            independent_links = re.findall(r'\]\(\.\./([^)]+)\)', cells[2])
-            library_links = re.findall(r'\]\(\.\./([^)]+)\)', cells[3])
-            target = (independent_links[-1] if independent_links else library_links[0] if library_links
-                      else 'docs/model-catalog.md#category-' + current['id'])
-            current['models'].append(f'[{name}]({target})')
-    count = sum(len(group['models']) for group in groups)
-    rows = [f'当前 **{count} 个模型家族**，按主要建模机制分类。每个模型名称都直接链接到源码。', '',
-            '| 分类 | 全部模型 |', '| --- | --- |']
-    for group in groups:
-        if group['models']:
-            title = f'[{group["title"]}](docs/model-catalog.md#category-{group["id"]})'
-            rows.append('| ' + title + ' | ' + ' · '.join(group['models']) + ' |')
-    return '\n'.join(rows) + '\n'
-
-
-def render_homepage_details(root, manifest):
-    """Keep the same six fields for every model, with compact link labels."""
-    _, categories, details, families, library, _, _ = model_inventory(root, manifest)
-    titles = {category['id']: category['title'] for category in categories}
-    rows = [f'共 **{len(families)} 个模型**，按名称排序，每个模型一行。分类见上表；各行使用相同字段，'
-            '有多个实现时同时列出。悬停在链接上可查看完整文件路径。', '',
-            '| 模型 | 主要思路 | 源码 | 核心模型 | 运行入口 | 论文&nbsp;/&nbsp;项目 |',
-            '| :--- | :--- | :---: | :---: | :---: | :---: |']
-
-    def compact(label, target, hint=None):
-        hint = (hint or target).replace('"', "'")
-        return f'[{label}]({target} "{hint}")'
-
-    for name, item in sorted(families.items(), key=lambda value: value[0].casefold()):
-        info = details.get(name, {})
-        sources, models, entries = [], [], []
-        if item.get('independent'):
-            sources.append(compact('原项目', item['independent'] + '/'))
-            if item.get('core'):
-                models.append(compact('原版模型', item['core']))
-            if item.get('training'):
-                entries.append(compact('原版入口', item['training']))
-            if name == 'Pyraformer':
-                original = next(s for s in manifest['sources'] if s['name'] == 'Pyraformer')
-                tracked = {entry['path'] for entry in original['files']}
-                single_model = item['independent'] + '/pyraformer/Pyraformer_SS.py'
-                single_entry = item['independent'] + '/single_step_main.py'
-                if single_model in tracked:
-                    models.append(compact('单步模型', single_model))
-                if single_entry in tracked:
-                    entries.append(compact('单步入口', single_entry))
-        if item.get('library') and library:
-            sources.append(compact('TSLib', library['local_directory'] + '/'))
-            models.append(compact('库内模型', item['library']))
-            entries.append(compact('库内入口', library['local_directory'] + '/run.py',
-                                   '按任务选择参数；查看库内 scripts 目录'))
-        references = []
-        if info.get('paper_url'):
-            references.append(compact('论文', info['paper_url'], info.get('paper_note') or '模型论文'))
-        project = info.get('original_upstream_url') or item.get('independent_url') or (library or {}).get('url')
-        if project:
-            references.append(compact('项目', project))
-        display_name = {'Nonstationary_Transformer': 'Nonstationary<br>Transformer',
-                        'TemporalFusionTransformer': 'Temporal Fusion<br>Transformer'}.get(name, name)
-        values = [display_name, info.get('summary', '方法说明待补充，源码已完整收录。'),
-                  '<br>'.join(sources) or '—', '<br>'.join(models) or '—',
-                  '<br>'.join(entries) or '见源码', '&nbsp;·&nbsp;'.join(references) or '见源码']
-        rows.append('| ' + ' | '.join(str(value).replace('|', '\\|').replace('\n', ' ') for value in values) + ' |')
-    rows += ['', '原项目与库内入口对应不同实现；运行参数和支持任务见各自源码。'
-             '系列论文与当前预训练权重的差异已放入论文链接的悬停说明。', '']
-    return '\n'.join(rows)
+            '打开 [分类模型目录](../docs/model-catalog.md)，按模型家族查找全部来源实现。同名模型的独立原版与各库实现放在同一行，使用相同字段。\n\n'
+            '本目录保留六个独立原版项目；完整时间序列库位于 [libraries/](../libraries/)。\n')
 
 
 def replace_generated_block(previous, key, content):
-    start = f'<!-- {key}_START -->'
-    end = f'<!-- {key}_END -->'
+    start = '<!-- ' + key + '_START -->'
+    end = '<!-- ' + key + '_END -->'
     if start not in previous and end not in previous:
         return previous
     if previous.count(start) != 1 or previous.count(end) != 1 or previous.index(start) > previous.index(end):
@@ -255,18 +288,18 @@ def main():
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args()
     root = args.root.resolve()
-    manifest = json.loads((root / 'sources.lock.json').read_text(encoding='utf-8'))
-    catalog = root / 'docs' / 'model-catalog.md'
-    catalog.parent.mkdir(parents=True, exist_ok=True)
-    catalog.write_bytes(render_catalog(root, manifest).encode('utf-8'))
-    baseline_index = root / 'baselines' / 'README.md'
-    baseline_index.parent.mkdir(parents=True, exist_ok=True)
-    baseline_index.write_bytes(render_baselines_index().encode('utf-8'))
+    manifest = read_json(root / 'sources.lock.json', {})
+    outputs = {'docs/model-catalog.md': render_catalog(root, manifest),
+               'baselines/README.md': render_baselines_index()}
     homepage = root / 'README.md'
     if homepage.exists():
-        previous = homepage.read_bytes().decode('utf-8')
-        homepage.write_bytes(render_homepage(root, manifest, previous).encode('utf-8'))
-    print('Updated model catalog, baseline index and homepage model block')
+        outputs['README.md'] = render_homepage(root, manifest, homepage.read_bytes().decode('utf-8'))
+    for relative, content in outputs.items():
+        path = root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(content.encode('utf-8'))
+    inventory = model_inventory(root, manifest)
+    print(f"Generated {inventory['family_count']} families and {inventory['implementation_count']} implementations")
 
 
 if __name__ == '__main__':

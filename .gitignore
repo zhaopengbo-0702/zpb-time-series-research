@@ -9,7 +9,6 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
-/upstream-sync-report.json
 
 # Local data (upstream tracked snapshots are preserved separately)
 /data/raw/
@@ -27,6 +26,7 @@ Thumbs.db
 /baselines/Time-LLM/dataset/ETT-small/
 /baselines/Time-LLM/dataset/*.csv
 /libraries/Time-Series-Library/dataset/
+/libraries/TimeSeriesLibrary-ZJ/dataset/
 
 # Generated model artifacts
 *.pth

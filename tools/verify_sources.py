@@ -4,6 +4,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import sys
 
@@ -14,13 +15,23 @@ def repository_path(root, value):
     if relative.is_absolute() or '..' in relative.parts or '\\' in value:
         raise ValueError('Unsafe path in source lock: ' + value)
     target = root.joinpath(*relative.parts)
-    if root != target.resolve() and root not in target.resolve().parents:
+    resolved_root = root.resolve()
+    resolved_target = target.resolve()
+    if resolved_root != resolved_target and resolved_root not in resolved_target.parents:
         raise ValueError('Path escapes repository: ' + value)
     return target
 
 
 def git_blob_sha1(content):
     return hashlib.sha1(b'blob ' + str(len(content)).encode('ascii') + b'\0' + content).hexdigest()
+
+
+def extended_root(value):
+    root = value.resolve()
+    if os.name == 'nt' and not str(root).startswith('\\\\?\\'):
+        text = str(root)
+        return Path('\\\\?\\UNC\\' + text[2:] if text.startswith('\\\\') else '\\\\?\\' + text)
+    return root
 
 
 def main():
@@ -30,7 +41,7 @@ def main():
     parser.add_argument('--strict', action='store_true',
                         help='also fail when unlisted files exist inside an imported source directory')
     args = parser.parse_args()
-    root = args.root.resolve()
+    root = extended_root(args.root)
     try:
         manifest = json.loads((root / 'sources.lock.json').read_text(encoding='utf-8'))
         if manifest['schema_version'] != 1:
